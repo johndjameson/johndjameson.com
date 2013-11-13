@@ -19,6 +19,14 @@ html {
   @include respond-to(40em) {
     font-size: $base-fontPercentage * 1.25;
   }
+
+  @include respond-to(50em) {
+    font-size: $base-fontPercentage * 1.375;
+  }
+
+  @include respond-to(60em) {
+    font-size: $base-fontPercentage * 1.5;
+  }
 }
 
 body {
@@ -53,7 +61,7 @@ p, ul, ol {
   margin-bottom: rem($base-whitespace);
 }
 
-blockquote {
+/* blockquote {
   padding: rem($base-whitespace);
   margin: rem($base-whitespace * 1.5) 0;
 
@@ -93,6 +101,29 @@ blockquote {
     &::before {
       font-size: 96px;
       font-size: rem(96px);
+    }
+  }
+} */
+
+blockquote {
+  padding: 0 rem($base-whitespace);
+  margin: 0;
+  margin-bottom: rem($base-whitespace);
+
+  text-transform: uppercase;
+  font-style: italic;
+  letter-spacing: 1px;
+  word-spacing: 1px;
+
+  color: $base-color-primary;
+
+
+  p {
+    position: relative;
+
+    &::first-letter {
+      font-size: 3em;
+      line-height: 1;
     }
   }
 }

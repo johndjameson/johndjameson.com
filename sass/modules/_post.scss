@@ -165,10 +165,12 @@
     counter-increment: counter-footer;
 
     &::before {
-      width: $base-gutter;
+      width: rem($base-gutter);
 
       position: absolute;
       right: 100%;
+
+      text-align: left;
 
       letter-spacing: rem(1px);
 

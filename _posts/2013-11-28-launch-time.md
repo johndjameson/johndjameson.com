@@ -7,10 +7,8 @@ categories: blog
 ---
 
 <blockquote>
-	<p>I'd love to see front end designers and developers blogging more about problems they faced and how the solved them.</p>
-	<footer>
-		<p><a href="/">— Dave Rupert</a></p>
-	</footer>
+	<p>I'd love to see front end designers and developers blogging more about problems they faced and how they solved them.</p>
+	<cite><a href="http://daverupert.com">— Dave Rupert</a></cite>
 </blockquote>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis, repudiandae debitis ut assumenda suscipit soluta rem doloremque illo architecto fugiat tempore error consequuntur dolores optio porro deleniti. Earum, aspernatur, nesciunt ut mollitia quam vel voluptatum nihil accusantium voluptas modi blanditiis dolorem eos magni nobis expedita nemo ad quas illo.

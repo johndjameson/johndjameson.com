@@ -2,4 +2,6 @@ name: johndjameson.com
 markdown: rdiscount
 pygments: true
 exclude: [sass, config.rb]
-permalink: /:categories/:title/
+permalink: /:title/
+
+

@@ -5,22 +5,39 @@
 //
 // *************************************
 
-.preview {
-	padding: rem($base-whitespace);
-	border: rem(1px) solid mix($base-color-primary, $base-link-background, 50%);
-	border-top: rem(4px) solid mix($base-color-primary, $base-link-background, 50%);
-	margin-bottom: rem($base-whitespace);
+.inlineList {
+  display: block;
+  padding: 0;
 
-	:last-child {
-		margin-bottom: 0;
-	}
+  list-style-type: disc;
+
+  @extend %group;
+
+  li {
+    display: inline-block;
+
+    &:last-child {
+      &::after {
+        content: "";
+      }
+    }
+
+    &::after {
+      margin-left: 0.25em;
+      content: "\2022";
+
+      color: $base-link-background;
+    }
+  }
 }
+
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .module--modifier
+// .post--modifier
+
 
 // -------------------------------------
 //   States
@@ -28,24 +45,15 @@
 
 // .is-module-state
 
+
 // -------------------------------------
 //   Context
 // -------------------------------------
 
 // .has-module
 
+
 // -------------------------------------
 //   Submodules
 // -------------------------------------
 
-// ----- Submodule ----- //
-
-.preview-title {
-	margin-bottom: rem($base-whitespace / 4);
-}
-
-.preview-date {
-	color: mix($base-color, $base-background, 75%);
-
-	@extend %fontSize-aa;
-}
