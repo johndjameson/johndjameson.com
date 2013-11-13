@@ -7,7 +7,10 @@ categories: blog
 ---
 
 <blockquote>
-	<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Animi, veritatis, ullam iure consequuntur aliquid error sit amet nulla vitae quod deleniti aperiam placeat eos repudiandae reiciendis beatae explicabo mollitia dolorum.</p>
+	<p>I'd love to see front end designers and developers blogging more about problems they faced and how the solved them.</p>
+	<footer>
+		<p><a href="/">— Dave Rupert</a></p>
+	</footer>
 </blockquote>
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis, repudiandae debitis ut assumenda suscipit soluta rem doloremque illo architecto fugiat tempore error consequuntur dolores optio porro deleniti. Earum, aspernatur, nesciunt ut mollitia quam vel voluptatum nihil accusantium voluptas modi blanditiis dolorem eos magni nobis expedita nemo ad quas illo.

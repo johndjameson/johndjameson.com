@@ -6,12 +6,16 @@
 // *************************************
 
 .blockHeader {
-  padding: rem($base-whitespace) rem($base-gutter);
-  border-top: rem(5px) solid $base-color-secondary;
-  border-bottom: rem(5px) solid $base-color-secondary;
+  padding: rem($base-whitespace) rem($base-whitespace / 2);
+  border-width: rem(8px);
+  border-style: solid;
+  border-top-color: mix($base-color-primary, $base-link-background, 25%);
+  border-right-color: mix($base-color-primary, $base-link-background, 50%);
+  border-bottom-color: mix($base-color-primary, $base-link-background, 75%);
+  border-left-color: mix($base-color-primary, $base-link-background, 50%);
   margin-bottom: rem($base-whitespace);
 
-  background-color: mix($base-color-secondary, $base-background, 33%);
+  background-color: $base-link-background;
 
   :last-child {
   	margin-bottom: 0;
@@ -48,12 +52,12 @@
   font-weight: bold;
   text-align: center;
 
-  color: $base-color-secondary-b;
+  color: $base-color-primary;
 }
 
 .blockHeader-support {
   @extend %fontSize-aa;
   text-align: center;
 
-  color: mix($base-color-secondary-b, $base-background, 75%);
+  color: mix($base-color-primary, $base-link-background, 75%);
 }

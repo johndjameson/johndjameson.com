@@ -60,13 +60,12 @@
 // -------------------------------------
 
 .l-header {
-  margin: rem($base-whitespace / 2) 0 rem($base-whitespace);
+  margin: rem($base-whitespace) 0;
 
   position: relative;
 
   .logo {
     border-bottom: em(1px) solid transparent;
-    // margin: 0 1em rem($base-whitespace/2) 0;
 
     float: left;
 
@@ -153,6 +152,22 @@
   ul {
     padding: 0;
 
+    text-align: center;
+
     list-style-type: none;
+  }
+
+  li {
+    display: inline-block;
+
+    &::after {
+      content: " \2022";
+
+      color: $base-link-background;
+    }
+
+    &:last-child::after {
+      content: "";
+    }
   }
 }

@@ -59,7 +59,7 @@
 
 @-webkit-keyframes sup {
   0% {
-    color: $base-color-tertiary;
+    color: $base-link-color;
   }
 
   100% {
@@ -95,29 +95,10 @@
 //   Submodules
 // -------------------------------------
 
-.post-title {
-  margin-bottom: 0.25em;
-
-  font-weight: bold;
-  text-align: center;
-
-  color: $base-color-secondary-b;
-}
-
-.post-tagline {
-  @extend %fontSize-c;
-  font-style: italic;
+.post-date {
+  @extend %fontSize-aa;
 
   color: mix($base-color, $base-background, 75%);
-}
-
-.post-date {
-  margin: 0;
-
-  @extend %fontSize-aa;
-  text-align: center;
-
-  color: mix($base-color-secondary-b, $base-background, 75%);
 }
 
 .post-subject {

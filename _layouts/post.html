@@ -6,10 +6,11 @@ layout: default
 
 	<header class="blockHeader">
 		<h1 class="blockHeader-main">{{ page.title-display }}</h1>
-		<p class="blockHeader-support">{{ page.date | date: "%B %d, %Y" }}</p>
 	</header>
 
-	<p class="post-tagline">{{ page.tagline }}</p>
+	<p class="post-date">{{ page.date | date: "%B %d, %Y" }} &bull; <a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></p>
+	<!-- <p class="post-tagline">{{ page.tagline }}</p> -->
+
 	
 	{{ content }}
 

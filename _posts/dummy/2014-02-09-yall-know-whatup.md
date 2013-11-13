@@ -6,9 +6,9 @@ tagline: Who knows? You know.
 categories: blog
 ---
 
-Less than two or three months ago, I promised myself I'd use WordPress to power my personal website. Dozens of industry famous designers and developers all use the platform, so I figured it'd be fine for my own needs.<sup><a href="#note_needs">1</a></sup> I dove into theming it, familiarizing myself with its structure, logic, and specialized functions, learning a touch of <abbr>PHP</abbr> and MySQL along the way.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, provident, totam, consequatur fuga eum dicta laboriosam illo quisquam quasi mollitia voluptates vitae nulla a eos voluptatibus placeat labore ut saepe.<sup><a href="#note_needs">1</a></sup> Dolor, expedita quidem qui odio distinctio minus facilis exercitationem reprehenderit voluptas nam officia est omnis totam ex quaerat veritatis quam repudiandae beatae?
 
-More often than not, however, I found my unique goals fighting with the features of the <abbr>CMS</abbr>; I wrote posts in a "Zen Coding" plug-in, recreating my own local text editing environment, I stripped all the `<div>` and `<span>` tags out and replaced them with more semantic markup, and I filled my custom WordPress theme with conditional logical that only made sense in the context of my own website. I limited myself to WordPress because *I wasn't aware of any reputable alternatives*.
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, praesentium, eligendi repellat explicabo ipsam est ex ullam quidem aspernatur aut illum rerum! Eligendi, soluta, provident assumenda ipsum eveniet vero consequuntur dolorem impedit omnis inventore cum tempore suscipit et aut fugiat sequi vel quibusdam debitis quia ullam tempora blanditiis nisi. Eos, aliquam, est, perspiciatis necessitatibus quibusdam ad quasi veritatis officia aperiam porro at libero dolores. Facere, sed, asperiores.
 
 #Discovering Jekyll
 ##Discovering Jekyll
@@ -17,9 +17,9 @@ More often than not, however, I found my unique goals fighting with the features
 #####Discovering Jekyll
 ######Discovering Jekyll
 
-After playing around with [Jekyll][%jekyll] for two weeks, now I know what I've been looking for. Jekyll gives me the ability to write my posts in Markdown or <abbr title="Hypertext Markup Language">HTML</abbr>, freeing me up from the problematic editor in WordPress, and eliminating the need to use the proprietary back-end authoring and management tools. It's not that I hate WordPress, but for me to have almost absolute control over my site and continuously learn throughout the design process, I had to find something else.
+After playing around with [Jekyll][%jekyll] lorem ipsum dolor sit amet, consectetur adipisicing elit. Quam, eveniet, ullam ab minima quas consequuntur culpa temporibus non labore nisi itaque deleniti nobis ratione quia mollitia et eaque doloribus ipsam illum molestias maxime qui tempore aliquam facere porro ducimus animi earum! Ad, nemo, laborum eligendi earum quos ducimus iste magni aut expedita dolorem. Ullam sit eius accusamus odio.
 
-**Jekyll is that something else.** It makes my preference of web design possible and a ton of fun to pull off. Expect future posts on how to set up the static site generator, as well as explanations of the pitfalls and headaches sure to come along with using Jekyll (because nothing is perfect).
+Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad, fugit, explicabo voluptate fuga quas similique debitis doloribus eum aliquam asperiores delectus eos nesciunt aut sunt deserunt et enim! Dicta, velit.
 
 [%jekyll]: http://jekyllrb.com/
 

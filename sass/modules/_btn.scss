@@ -8,8 +8,7 @@
 .btn {
   display: inline-block;
   padding: rem(8px) rem(24px);
-  border-bottom: rem(3px) solid $base-color-secondary-b;
-  @include border-radius(5px);
+  border-bottom: rem(3px) solid $base-color-primary-b;
   margin: 0;
 
   line-height: 1;
@@ -20,12 +19,12 @@
   @include transition(0.2s);
 
   color: $base-background;
-  background-color: $base-color-secondary;
+  background-color: mix($base-color-primary, $base-background, 100%);
 
   &:hover, &:focus {
     outline: 0;
 
-    background-color: mix($base-color-secondary, $base-color-secondary-b, 50%);
+    background-color: mix($base-color-primary, $base-color-primary-b, 50%);
     @include box-shadow(none);
   }
 }

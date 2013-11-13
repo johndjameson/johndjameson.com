@@ -6,8 +6,14 @@
 // *************************************
 
 .preview {
-	// padding-left: rem($base-gutter);
-	// border-top: rem(5px) solid $base-color-secondary;
+	padding: rem($base-whitespace) 0;
+	padding-left: rem(12px);
+	border-left: rem(4px) solid mix($base-color-primary, $base-link-background, 50%);
+	margin-bottom: rem($base-whitespace);
+
+	:last-child {
+		margin-bottom: 0;
+	}
 }
 
 // -------------------------------------
