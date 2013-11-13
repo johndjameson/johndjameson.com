@@ -1,0 +1,145 @@
+// *************************************
+//
+//   Base
+//   -> Base-level tags (body, p, etc.)
+//
+// *************************************
+
+*, *::before, *::after {
+  @include box-sizing(border-box);
+}
+
+html {
+  font-size: $base-fontPercentage;
+
+  @include respond-to(32em) {
+    font-size: $base-fontPercentage * 1.125;
+  }
+
+  @include respond-to(40em) {
+    font-size: $base-fontPercentage * 1.25;
+  }
+}
+
+body {
+  margin: 0 auto;
+
+  @extend %fontSize-a;
+  font-family: $base-fontFamily;
+  line-height: $base-lineHeight;
+  text-rendering: optimizeLegibility;
+  font-weight: 300;
+
+  color: $base-color;
+  background-color: $base-background;
+}
+
+::selection {
+  color: $base-background;
+  background: $base-color-primary;
+}
+::-moz-selection {
+  color: $base-background;
+  background: $base-color-primary;
+}
+
+
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+
+p, ul, ol {
+  margin-top: 0;
+  margin-bottom: rem($base-whitespace);
+}
+
+blockquote {
+  padding: rem($base-whitespace);
+  margin: rem($base-whitespace * 1.5) 0;
+
+  position: relative;
+
+  @extend %fontSize-aa;
+  font-weight: 300;
+  font-style: italic;
+  line-height: 1.75;
+
+  color: mix($base-color, $base-background, 75%);
+  background-color: mix($base-color, $base-background, 7.5%);
+
+  &::before {
+    position: absolute;
+    top: 0.05em;
+    left: 0.05em;
+
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    font-size: 64px;
+    font-size: rem(64px);
+    line-height: 1;
+    font-style: normal;
+
+    content: "\201C";
+
+    color: mix($base-color, $base-background, 20%);
+  }
+
+  :last-child {
+    margin-bottom: 0;
+  }
+
+  @include respond-to(30em) {
+    padding: rem($base-whitespace * 2);
+
+    &::before {
+      font-size: 96px;
+      font-size: rem(96px);
+    }
+  }
+}
+
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+
+a {
+  border-bottom: em(1px) solid $base-link-background;
+
+  font-weight: bold;
+  text-decoration: none;
+
+  color: $base-link-color;
+
+  @include transition(0.2s ease-in-out);
+
+  &:hover, &:focus {
+    background-color: $base-link-background;
+    @include box-shadow(-0.125em 0 0 $base-link-background,
+                         0.125em 0 0 $base-link-background);
+  }
+}
+
+abbr {
+  border: 0;
+
+  font-size: 0.95em;
+  text-transform: uppercase;
+  letter-spacing: rem(1px);
+
+  &[title] {
+    @extend abbr;
+  }
+}
+
+em {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+code {
+  font-family: $c-code-fontFamily;
+  font-weight: normal;
+}

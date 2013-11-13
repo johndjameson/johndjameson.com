@@ -1,0 +1,59 @@
+// *************************************
+//
+//   Module
+//   -> This is an example module
+//
+// *************************************
+
+.blockHeader {
+  padding: rem($base-whitespace) rem($base-gutter);
+  border-top: rem(5px) solid $base-color-secondary;
+  border-bottom: rem(5px) solid $base-color-secondary;
+  margin-bottom: rem($base-whitespace);
+
+  background-color: mix($base-color-secondary, $base-background, 33%);
+
+  :last-child {
+  	margin-bottom: 0;
+  }
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .module--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .is-module-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-module
+
+// -------------------------------------
+//   Submodules
+// -------------------------------------
+
+// ----- Submodule ----- //
+
+.blockHeader-main {
+  margin-bottom: 0.25em;
+
+  font-weight: bold;
+  text-align: center;
+
+  color: $base-color-secondary-b;
+}
+
+.blockHeader-support {
+  @extend %fontSize-aa;
+  text-align: center;
+
+  color: mix($base-color-secondary-b, $base-background, 75%);
+}

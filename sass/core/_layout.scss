@@ -1,0 +1,158 @@
+// *************************************
+//
+//   Layout
+//   -> Margin, Padding, Sizing
+//
+// *************************************
+
+// -------------------------------------
+//   Row
+// -------------------------------------
+
+.l-row, %l-row {
+  @extend %group;
+  padding: 0 20px;
+  padding: 0 rem($base-gutter);
+
+  max-width: 32rem;
+  margin: 0 auto;
+}
+
+.l-row--full {
+  max-width: none;
+}
+
+
+// -------------------------------------
+//   Grid
+// -------------------------------------
+
+// [class*="l-grid"] {
+//   width: 100%;
+//   padding: 0 rem(20px);
+//   margin: 0;
+
+//   float: left;
+// }
+
+// @media screen and (min-width: $bp-grid) {
+//   @for $i from 1 through 12 {
+
+//     .l-grid--#{$i} {
+//        width: percentage($i/12);
+//     }
+
+//     .l-grid--push#{$i} {
+//        position: relative;
+//        left: percentage($i/12);
+//     }
+
+//     .l-grid--pull#{$i} {
+//       position: relative;
+//       left: -(percentage($i/12));
+//     }
+//   }
+// }
+
+
+// -------------------------------------
+//   Site Header
+// -------------------------------------
+
+.l-header {
+  margin: rem($base-whitespace / 2) 0 rem($base-whitespace);
+
+  position: relative;
+
+  .logo {
+    border-bottom: em(1px) solid transparent;
+    // margin: 0 1em rem($base-whitespace/2) 0;
+
+    float: left;
+
+    color: $base-color;
+
+    &:hover, &:focus {
+      border-bottom: em(1px) solid $base-link-background;
+
+      color: $base-link-color;
+      background-color: transparent;
+      @include box-shadow(none);
+    }
+  }
+
+
+}
+
+
+// -------------------------------------
+//   Site Navigation
+// -------------------------------------
+
+.l-nav {
+  float: right;
+
+  @extend %group;
+
+  ul {
+    padding: 0;
+    margin: 0;
+
+    list-style-type: none;
+  }
+
+  li {
+    margin-left: 0.75em;
+
+    float: left;
+
+    @include respond-to(20em) {
+      margin-left: 1em;
+    }
+
+    &:first-of-type {
+      margin: 0;
+    }
+  }
+
+  a {
+    border-bottom: em(1px) solid transparent;
+
+    font-weight: normal;
+
+    // color: mix($base-color, $base-background, 75%);
+    color: $base-color;
+
+    &:hover, &:focus {
+      border-bottom: em(1px) solid $base-link-background;
+
+      color: $base-link-color;
+      background-color: transparent;
+      @include box-shadow(none);
+    }
+  }
+}
+
+
+// -------------------------------------
+//   Site Main Content Area
+// -------------------------------------
+
+.l-content {
+  
+}
+
+
+// -------------------------------------
+//   Site Footer
+// -------------------------------------
+
+.l-footer {
+  margin-top: rem($base-whitespace);
+
+  ul {
+    padding: 0;
+
+    list-style-type: none;
+  }
+}

@@ -1,0 +1,200 @@
+// *************************************
+//
+//   Module
+//   -> This is an example module
+//
+// *************************************
+
+.post {
+  max-width: 32rem;
+  margin: 0 auto;
+
+  &.has-sidenotes {
+    @include respond-to(50em) {
+      position: relative;
+
+      sup {
+        display: none;
+      }
+    }
+
+    @include respond-to(74em) {
+      position: static;
+    }
+  }
+  
+  sup {
+    @include user-select(none);
+
+    &::before { // because thin non-breaking spaces aren't widely supported
+      font-size: 0.25em;
+      line-height: 0;
+
+      content: "\00a0";
+    }
+
+    a {
+      border: 0;
+
+      letter-spacing: rem(1px);
+
+      &::before {
+        content: "[";
+      }
+
+      &::after {
+        content: "]";
+      }
+
+      &:hover, &:focus {
+        border: 0;
+      }
+    }
+  }
+}
+
+:target {
+  -webkit-animation: sup 2s;
+}
+
+@-webkit-keyframes sup {
+  0% {
+    color: $base-color-tertiary;
+  }
+
+  100% {
+    color: inherit;
+  }
+}
+
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.post--modifier {
+
+}
+
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .is-module-state
+
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-module
+
+
+// -------------------------------------
+//   Submodules
+// -------------------------------------
+
+.post-title {
+  margin-bottom: 0.25em;
+
+  font-weight: bold;
+  text-align: center;
+
+  color: $base-color-secondary-b;
+}
+
+.post-tagline {
+  @extend %fontSize-c;
+  font-style: italic;
+
+  color: mix($base-color, $base-background, 75%);
+}
+
+.post-date {
+  margin: 0;
+
+  @extend %fontSize-aa;
+  text-align: center;
+
+  color: mix($base-color-secondary-b, $base-background, 75%);
+}
+
+.post-subject {
+  margin-bottom: rem($base-whitespace);
+
+  position: relative;
+
+  @extend %group;
+}
+
+.post-sidenote {
+  display: none;
+  width: percentage(1/3);
+  padding: 0 rem($base-gutter);
+  border-left: 2px solid mix($base-color, $base-background, 33%);
+  margin-left: rem($base-gutter);
+
+  position: absolute;
+  top: 0;
+  left: 100%;
+
+  @extend %fontSize-aa;
+  font-style: italic;
+  
+  color: mix($base-color, white, 67%);
+
+  a {
+    color: mix($base-link-color, $base-background, 67%);
+
+    &:hover, &:focus {
+      border-bottom-color: mix($base-link-color, $base-background, 67%);
+    }
+  }
+
+  .has-sidenotes & {
+    @include respond-to($bp-sidenotes) {
+      display: block;
+    }
+  }
+}
+
+.post-footnotes {
+  padding: 1.5rem 0 0 rem($base-gutter);
+  border-top: 2px solid #e4e4e4;
+  border-top: 2px solid rgba(0,49,79,.08);
+  margin-bottom: rem($base-whitespace);
+
+  @extend %fontSize-aa;
+  list-style-type: none;
+
+  counter-reset: counter-footer;
+
+  color: mix($base-color, white, 67%);
+
+  .post.has-sidenotes & {
+    @include respond-to($bp-sidenotes) {
+      display: none;
+    }
+  }
+
+  li {
+    position: relative;
+
+    counter-increment: counter-footer;
+
+    &::before {
+      width: $base-gutter;
+
+      position: absolute;
+      right: 100%;
+
+      letter-spacing: rem(1px);
+
+      content: counter(counter-footer) ")";
+    }
+  }
+}
+
+
+

@@ -1,0 +1,109 @@
+// *************************************
+//
+//   Content
+//   -> Typography
+//
+// *************************************
+
+// -------------------------------------
+//   Font Sizes
+// -------------------------------------
+
+%fontSize-aaa {
+  font-size: $base-fontSize-aaa;
+  font-size: rem($base-fontSize-aaa);
+}
+
+%fontSize-aa {
+  font-size: $base-fontSize-aa;
+  font-size: rem($base-fontSize-aa);
+}
+
+%fontSize-a {
+  font-size: $base-fontSize-a;
+  font-size: rem($base-fontSize-a);
+}
+
+%fontSize-b {
+  font-size: $base-fontSize-b;
+  font-size: rem($base-fontSize-b);
+}
+
+%fontSize-c {
+  font-size: $base-fontSize-c;
+  font-size: rem($base-fontSize-c);
+}
+
+%fontSize-d {
+  font-size: $base-fontSize-d;
+  font-size: rem($base-fontSize-d);
+}
+
+%fontSize-e {
+  font-size: $base-fontSize-e;
+  font-size: rem($base-fontSize-e);
+}
+
+%fontSize-f {
+  font-size: $base-fontSize-f;
+  font-size: rem($base-fontSize-f);
+}
+
+// -------------------------------------
+//   Headings
+// -------------------------------------
+
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: rem($base-whitespace);
+  
+  font-family: $c-heading-fontFamily;
+  font-weight: bold;
+  line-height: 1.25;
+
+  color: mix($base-color, $base-background, 90%);
+}
+
+h1, .c-h1, %c-h1 {
+  @extend %fontSize-f;
+}
+
+h2, .c-h2, %c-h2 {
+  @extend %fontSize-e;
+}
+
+h3, .c-h3, %c-h3 {
+  @extend %fontSize-d;
+}
+
+h4, .c-h4, %c-h4 {
+  @extend %fontSize-c;
+}
+
+h5, .c-h5, %c-h5 {
+  @extend %fontSize-b;
+}
+
+h6, .c-h6, %c-h6 {
+  @extend %fontSize-a;
+}
+
+// -------------------------------------
+//   Utilities
+// -------------------------------------
+
+%c-center, .c-center {
+  text-align: center;
+}
+
+%c-condense, .c-condense {
+  font-size: 85%;
+}
+
+%c-lead, .c-lead {
+  font-size: 125%;
+}
+
+%c-shout, .c-shout {
+  text-transform: uppercase;
+}

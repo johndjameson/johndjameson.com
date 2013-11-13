@@ -1,0 +1,17 @@
+---
+layout: default
+title: Posts
+---
+
+<header class="blockHeader">
+	<h1 class="blockHeader-main">Blog</h1>
+</header>
+
+{% for post in site.posts %}
+
+<div class="preview">
+	<h2 class="preview-title"><a href="{{post.url}}">{{post.title}}</a></h2>
+	<p>{{post.tagline}}</p>
+</div>
+
+{% endfor %}

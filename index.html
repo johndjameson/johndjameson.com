@@ -1,0 +1,21 @@
+---
+layout: default
+title: Home
+---
+
+<header class="blockHeader">
+	<h1 class="blockHeader-main">Articles</h1>
+</header>
+
+{% for post in site.posts limit:5 %}
+
+<div class="preview">
+	<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+	<p class="preview-date">{{ post.date | date: "%B %d, %Y" }}</p>
+	<p class="preview-tagline">{{post.tagline}}</p>
+	<!-- <p><a class="preview-continue" href="{{post.url}}">Continue reading&nbsp;&raquo;</a></p> -->
+</div>
+
+{% endfor %}
+
+<!-- <a href="/blog">View All &raquo;</a> -->

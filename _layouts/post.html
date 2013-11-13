@@ -1,0 +1,32 @@
+---
+layout: default
+---
+
+<article class="post">
+
+	<header class="blockHeader">
+		<h1 class="blockHeader-main">{{ page.title-display }}</h1>
+		<p class="blockHeader-support">{{ page.date | date: "%B %d, %Y" }}</p>
+	</header>
+
+	<p class="post-tagline">{{ page.tagline }}</p>
+	
+	{{ content }}
+
+	<footer>
+		<h3>Leave a Comment</h3>
+
+		<div id="disqus_thread"></div>
+		<script>
+			(function() {
+				var disqus_shortname = 'johndjameson',
+					dsq = document.createElement('script');
+					dsq.type = 'text/javascript'; dsq.async = true;
+					dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+
+				(document.getElementsByTagName('body')[0]).appendChild(dsq);
+			})();
+		</script>
+	</footer>
+
+</article>
