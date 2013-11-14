@@ -3,7 +3,9 @@
     $document = $(document),
     $post = $('.post'),
     $sups = $('.post sup'),
-    $footnotes = $('.post-footnotes');
+    $footnotes = $('.post-footnotes'),
+    $disqus = $('#disqus_thread');
+
 
     /*  Developer Tools
     ==================================================*/
@@ -11,6 +13,10 @@
     function devResize() {
         $('#dev_log').html($window.width() + "px, " + $window.width()/16 + "em");
     }
+
+
+    /*  Footnotes/Sidenotes
+    ==================================================*/
         
     function createSidenotes() {
         var $footnoteArray = $footnotes.children();
@@ -27,19 +33,28 @@
 
     function toggleNotes() {
         if ($footnotes.length > 0 && $sups.length > 0) {
-        $post.addClass('has-sidenotes');
+            $post.addClass('has-sidenotes');
         }
     }
 
-    // this works because div#disqus_thread is only on post pages
+
+    /*  Disqus
+    ==================================================*/
+
     function createComments() {
         var disqus_shortname = 'johndjameson',
             dsq = document.createElement('script');
             dsq.type = 'text/javascript'; dsq.async = true;
             dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
 
-        (document.getElementsByTagName('body')[0]).appendChild(dsq);
+        if ($disqus.length > 0) {
+            (document.getElementsByTagName('body')[0]).appendChild(dsq);
+        }
     }
+
+
+    /*  Event Listeners
+    ==================================================*/
 
     $document.ready(function() {
         createSidenotes();

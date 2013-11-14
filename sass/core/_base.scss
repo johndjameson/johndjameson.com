@@ -44,11 +44,11 @@ body {
 
 ::selection {
   color: $base-background;
-  background: $base-color-primary;
+  background: mix($base-color-primary, $base-background, 75%);
 }
 ::-moz-selection {
   color: $base-background;
-  background: $base-color-primary;
+  background: mix($base-color-primary, $base-background, 75%);
 }
 
 

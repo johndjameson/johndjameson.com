@@ -2,3 +2,4 @@ name: johndjameson.com
 markdown: rdiscount
 pygments: true
 exclude: [sass, config.rb]
+permalink: /:year/:title/
