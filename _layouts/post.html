@@ -6,6 +6,7 @@ layout: default
 
 	<header class="blockHeader">
 		<h1 class="blockHeader-main">{{ page.title-display }}</h1>
+		<p class="blockHeader-support">{{ page.tagline }}</p>
 	</header>
 
 	<ul class="inlineList">
@@ -15,14 +16,14 @@ layout: default
 
 	{{ content }}
 
-	<footer class="l-comments">
+	<div class="comments">
 		<h3>Leave a Comment</h3>
 
 		<noscript>
 			<p>Enable JavaScript to view comments.</p>
 		</noscript>
-		
+
 		<div id="disqus_thread"></div>
-	</footer>
+	</div>
 
 </article>

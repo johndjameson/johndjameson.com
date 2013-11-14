@@ -23,10 +23,6 @@ html {
   @include respond-to(50em) {
     font-size: $base-fontPercentage * 1.375;
   }
-
-  @include respond-to(60em) {
-    font-size: $base-fontPercentage * 1.5;
-  }
 }
 
 body {
@@ -60,50 +56,6 @@ p, ul, ol {
   margin-top: 0;
   margin-bottom: rem($base-whitespace);
 }
-
-/* blockquote {
-  padding: rem($base-whitespace);
-  margin: rem($base-whitespace * 1.5) 0;
-
-  position: relative;
-
-  @extend %fontSize-aa;
-  font-weight: 300;
-  font-style: italic;
-  line-height: 1.75;
-
-  color: mix($base-color, $base-background, 75%);
-  background-color: mix($base-color, $base-background, 7.5%);
-
-  &::before {
-    position: absolute;
-    top: 0.05em;
-    left: 0.05em;
-
-    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
-    font-size: 64px;
-    font-size: rem(64px);
-    line-height: 1;
-    font-style: normal;
-
-    content: "\201C";
-
-    color: mix($base-color, $base-background, 20%);
-  }
-
-  :last-child {
-    margin-bottom: 0;
-  }
-
-  @include respond-to(30em) {
-    padding: rem($base-whitespace * 2);
-
-    &::before {
-      font-size: 96px;
-      font-size: rem(96px);
-    }
-  }
-} */
 
 blockquote {
   padding: rem($base-whitespace);
@@ -152,7 +104,8 @@ blockquote {
 // -------------------------------------
 
 a {
-  border-bottom: em(1px) solid $base-link-background;
+  border-bottom: 2px solid $base-link-background;
+  border-bottom-width: rem(2px);
 
   font-weight: bold;
   text-decoration: none;
@@ -173,7 +126,7 @@ abbr {
 
   font-size: 0.95em;
   text-transform: uppercase;
-  letter-spacing: rem(1px);
+  letter-spacing: 1px;
 
   &[title] {
     @extend abbr;

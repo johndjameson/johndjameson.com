@@ -11,6 +11,7 @@
   border-bottom: rem(3px) solid $base-color-primary;
   margin: 0;
 
+  @extend %fontSize-a;
   line-height: 1;
   font-weight: bold;
   letter-spacing: rem(1px);

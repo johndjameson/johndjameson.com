@@ -110,7 +110,6 @@
   display: none;
   width: percentage(1/3);
   padding: 0 rem($base-gutter);
-  border-left: 2px solid mix($base-color, $base-background, 33%);
   margin-left: rem($base-gutter);
 
   position: absolute;
@@ -120,7 +119,11 @@
   @extend %fontSize-aa;
   font-style: italic;
   
-  color: mix($base-color, white, 67%);
+  color: mix($base-color, $base-background, 67%);
+
+  > :last-child {
+    margin-bottom: 0;
+  }
 
   a {
     color: mix($base-link-color, $base-background, 67%);

@@ -7,13 +7,13 @@
 
 .preview {
   padding: rem($base-whitespace);
-  border: 2px solid mix($base-color-primary, $base-background, 55%);
+  border: 2px solid mix($base-color-primary, $base-background, 65%);
   border-top-width: rem(4px);
   margin-bottom: rem($base-whitespace);
 
   position: relative;
 
-  :last-child {
+  > :last-child {
     margin-bottom: 0;
   }
 }
