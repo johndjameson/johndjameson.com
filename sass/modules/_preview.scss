@@ -7,9 +7,12 @@
 
 .preview {
 	padding: rem($base-whitespace);
-	border: rem(1px) solid mix($base-color-primary, $base-link-background, 50%);
-	border-top: rem(4px) solid mix($base-color-primary, $base-link-background, 50%);
+	border: 2px solid mix($base-color-primary, $base-link-background, 50%);
+	border-top: 4px solid mix($base-color-primary, $base-link-background, 50%);
+	border-top-width: rem(4px);
 	margin-bottom: rem($base-whitespace);
+
+	position: relative;
 
 	:last-child {
 		margin-bottom: 0;
@@ -44,8 +47,6 @@
 	margin-bottom: rem($base-whitespace / 4);
 }
 
-.preview-date {
-	color: mix($base-color, $base-background, 75%);
-
+.preview-tagline {
 	@extend %fontSize-aa;
 }

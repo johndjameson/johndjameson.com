@@ -3,7 +3,7 @@ layout: post
 title: Ascot Patrol
 title-display: Ascot Patrol
 tagline: I see you, Fred. You can’t hide from me!
-categories: blog
+categories: dev
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, velit cupiditate eligendi unde assumenda eum incidunt accusamus perspiciatis? Atque, aperiam cumque tempore vero a voluptatibus tenetur maiores fuga! Mollitia, consectetur!

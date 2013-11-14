@@ -7,12 +7,17 @@ title: Home
 	<h1 class="blockHeader-main">Articles</h1>
 </header>
 
-{% for post in site.posts limit:5 %}
+{% for post in site.posts %}
+
+{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+
+<!-- or post.categories contains 'dev' -->
 
 <div class="preview">
 	<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-	<!-- <p class="preview-date">{{ post.date | date: "%B %d, %Y" }}</p> -->
 	<p class="preview-tagline">{{post.tagline}}</p>
 </div>
+
+{% endif %}
 
 {% endfor %}

@@ -3,7 +3,7 @@ layout: post
 title: Red Dead Wonder Boy
 title-display: Red Dead Wonder&nbsp;Boy
 tagline: I don’t get the title either, folks.
-categories: blog
+categories: dev
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, tempore, commodi, dignissimos, provident quis eveniet accusamus omnis ullam pariatur autem sed dolorem ipsa culpa debitis obcaecati explicabo quos dolores aperiam!

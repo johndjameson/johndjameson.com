@@ -106,24 +106,42 @@ p, ul, ol {
 } */
 
 blockquote {
-  padding: 0 rem($base-whitespace);
+  padding: rem($base-whitespace);
   margin: 0;
   margin-bottom: rem($base-whitespace);
 
   text-transform: uppercase;
+  font-weight: bold;
   font-style: italic;
   letter-spacing: 1px;
   word-spacing: 1px;
 
   color: $base-color-primary;
 
-
   p {
     position: relative;
 
-    &::first-letter {
-      font-size: 3em;
-      line-height: 1;
+    &::before {
+      position: absolute;
+      right: 100%;
+      top: 0;
+
+      content: "\201c";
+    }
+
+    &::after {
+      content: "\201d";
+    }
+  }
+
+  cite {
+    text-transform: none;
+    letter-spacing: normal;
+
+    &::before {
+      margin-right: 0.25em;
+
+      content: "—";
     }
   }
 }

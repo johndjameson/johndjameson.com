@@ -11,9 +11,9 @@
 
 .l-row, %l-row {
   max-width: 700px;
-  // max-width: 32rem;
+  max-width: 32rem;
   padding: 0 20px;
-  // padding: 0 rem($base-gutter);
+  padding: 0 rem($base-gutter);
   margin: 0 auto;
 
   @extend %group;

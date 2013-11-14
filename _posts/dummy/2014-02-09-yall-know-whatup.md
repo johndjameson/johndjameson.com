@@ -3,7 +3,7 @@ layout: post
 title: Ya’ll Know Whatup
 title-display: Ya’ll Know Whatup
 tagline: Who knows? You know.
-categories: blog
+categories: dev
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veritatis, provident, totam, consequatur fuga eum dicta laboriosam illo quisquam quasi mollitia voluptates vitae nulla a eos voluptatibus placeat labore ut saepe.<sup><a href="#note_needs">1</a></sup> Dolor, expedita quidem qui odio distinctio minus facilis exercitationem reprehenderit voluptas nam officia est omnis totam ex quaerat veritatis quam repudiandae beatae?
