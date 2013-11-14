@@ -9,17 +9,14 @@
   max-width: 32rem;
   margin: 0 auto;
 
+  position: relative;
+
   &.has-sidenotes {
-    @include respond-to(50em) {
-      position: relative;
+    @include respond-to($bp-sidenotes) {
 
       sup {
         display: none;
       }
-    }
-
-    @include respond-to(74em) {
-      position: static;
     }
   }
   

@@ -7,15 +7,13 @@
 
 .blockHeader {
   padding: rem($base-whitespace) rem($base-whitespace / 2);
-  border-width: rem(8px);
-  border-style: solid;
-  border-top-color: mix($base-color-primary, $base-link-background, 25%);
-  border-right-color: mix($base-color-primary, $base-link-background, 50%);
-  border-bottom-color: mix($base-color-primary, $base-link-background, 75%);
-  border-left-color: mix($base-color-primary, $base-link-background, 50%);
+  border: rem(8px) solid mix($base-color-primary, $base-background, 45%);
+  border-top-color: mix($base-color-primary, $base-background, 20%);
+  border-bottom-color: mix($base-color-primary, $base-background, 65%);
   margin-bottom: rem($base-whitespace);
 
   background-color: $base-link-background;
+  background-color: mix($base-color-primary, $base-background, 32.5%);
 
   :last-child {
   	margin-bottom: 0;

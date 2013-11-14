@@ -6,17 +6,16 @@
 // *************************************
 
 .preview {
-	padding: rem($base-whitespace);
-	border: 2px solid mix($base-color-primary, $base-link-background, 50%);
-	border-top: 4px solid mix($base-color-primary, $base-link-background, 50%);
-	border-top-width: rem(4px);
-	margin-bottom: rem($base-whitespace);
+  padding: rem($base-whitespace);
+  border: 2px solid mix($base-color-primary, $base-background, 55%);
+  border-top-width: rem(4px);
+  margin-bottom: rem($base-whitespace);
 
-	position: relative;
+  position: relative;
 
-	:last-child {
-		margin-bottom: 0;
-	}
+  :last-child {
+    margin-bottom: 0;
+  }
 }
 
 // -------------------------------------
@@ -44,9 +43,9 @@
 // ----- Submodule ----- //
 
 .preview-title {
-	margin-bottom: rem($base-whitespace / 4);
+  margin-bottom: rem($base-whitespace / 4);
 }
 
 .preview-tagline {
-	@extend %fontSize-aa;
+  @extend %fontSize-aa;
 }
