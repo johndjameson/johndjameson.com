@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width">
 	<meta name="description" content="{{page.tagline}}">
 
-	<title>{{page.title}} | John D. Jameson </title>
+	<title>{{ page.title }} | John D. Jameson </title>
 
 	<link rel="stylesheet" href="/css/application.css">
 	<link rel="author" href="https://plus.google.com/u/0/113914298266231922059/posts">
@@ -35,20 +35,20 @@
 	<div class="l-row">
 		<header class="blockHeader">
 			{% if page.title-display %}
-			<h1 class="blockHeader-main">{{page.title-display}}</h1>
+			<h1 class="blockHeader-main">{{ page.title-display }}</h1>
 			{% else %}
-			<h1 class="blockHeader-main">{{page.title}}</h1>
+			<h1 class="blockHeader-main">{{ page.title }}</h1>
 			{% endif %}
 
 			{% if page.tagline %}
 			<p class="blockHeader-support">{{ page.tagline }}</p>
 			{% endif %}
 		</header>
-
-		<main class="l-content">
-			{{content}}
-		</main>
 	</div>
+
+	<main class="l-content">
+		{{content}}
+	</main>
 
 	<footer class="l-footer">
 		<div class="l-row">

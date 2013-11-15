@@ -7,13 +7,12 @@
 
 .preview {
   width: 100%;
-  padding: rem($base-whitespace);
-  border: 2px solid mix($base-color-primary, $base-background, 65%);
-  border-top-width: rem(4px);
+  padding: 0 rem($base-whitespace) rem($base-whitespace);
+  border: 2px solid $base-color-primary;
+  border-top-width: 4px;
   margin-bottom: rem($base-whitespace);
 
   position: relative;
-  float: left;
 
   background-color: white;
   background-color: rgba(white, 0.67);
@@ -22,8 +21,6 @@
     margin-bottom: 0;
   }
 }
-
-
 
 
 // -------------------------------------
@@ -39,21 +36,26 @@
 
   .preview-title {
     @extend %fontSize-c;
+    line-height: 1.375;
   }
 }
 
 .preview--old {
   @extend .preview;
+  padding-bottom: rem($base-whitespace / 2);
 
-  padding-top: 0;
-  padding-bottom: 0;
-  // border-width: 2px;
-  margin-bottom: 0;
+  .preview-date {
+    margin-bottom: rem($base-whitespace / 2);
+  }
 
   .preview-title {
-    @extend %fontSize-b;
+    margin-bottom: 0;
+
+    @extend %fontSize-a;
+    line-height: 1.5;
   }
 }
+
 
 // -------------------------------------
 //   States
@@ -72,6 +74,17 @@
 // -------------------------------------
 
 // ----- Submodule ----- //
+
+.preview-date {
+  padding: 0 rem($base-whitespace);
+  margin: 0 rem(-$base-whitespace) rem($base-whitespace);
+
+  @extend %fontSize-aa;
+  @extend %c-shout;
+
+  color: $base-background;
+  background-color: $base-color-primary;
+}
 
 .preview-title {
   margin-top: 0;

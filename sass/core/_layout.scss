@@ -150,11 +150,12 @@
 // -------------------------------------
 
 .l-footer {
+  border-top: 4px solid mix($base-color-primary, $base-background, 85%);
+  padding-top: rem($base-whitespace);
+  margin-top: rem($base-whitespace * 2);    
+
   ul {
     display: block;
-    padding: rem($base-whitespace) rem($base-whitespace);
-    border-top: rem(4px) solid mix($base-color-primary, $base-background, 85%);
-    margin: rem($base-whitespace) rem(-$base-whitespace) 0;
 
     @extend %fontSize-aa;
     text-align: center;

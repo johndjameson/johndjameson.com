@@ -6,19 +6,9 @@
 // *************************************
 
 .post {
-  // max-width: 32rem;
   margin: 0 auto;
 
   position: relative;
-
-  &.has-sidenotes {
-    @include respond-to($bp-sidenotes) {
-
-      sup {
-        display: none;
-      }
-    }
-  }
   
   sup {
     @include user-select(none);
@@ -69,9 +59,7 @@
 //   Modifiers
 // -------------------------------------
 
-.post--modifier {
-
-}
+// .post--modifier 
 
 
 // -------------------------------------
@@ -85,7 +73,14 @@
 //   Context
 // -------------------------------------
 
-// .has-module
+.post.has-sidenotes {
+  @include respond-to($bp-sidenotes) {
+
+    sup {
+      display: none;
+    }
+  }
+}
 
 
 // -------------------------------------
@@ -93,6 +88,8 @@
 // -------------------------------------
 
 .post-date {
+  margin-top: rem($base-whitespace);
+
   @extend %fontSize-aa;
 
   color: mix($base-color, $base-background, 75%);
@@ -178,6 +175,3 @@
     }
   }
 }
-
-
-
