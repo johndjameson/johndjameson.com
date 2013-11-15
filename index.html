@@ -1,23 +1,48 @@
 ---
 layout: default
 title: Home
+title-display: Articles
 ---
 
-<header class="blockHeader">
-	<h1 class="blockHeader-main">Articles</h1>
-</header>
-
-{% for post in site.posts %}
-
+{% for post in site.posts limit:1 %}
+<!-- or post.categories contains 'dev' -->
 {% if post.categories contains 'blog' or post.categories contains 'dev' %}
 
-<!-- or post.categories contains 'dev' -->
-
-<div class="preview">
+<div class="preview--latest">
 	<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
 	<p class="preview-tagline">{{post.tagline}}</p>
+	<p>{{post.excerpt | replace:">1</a></sup>","></a></sup>" | strip_html}}</p>
+	<p><a href="{{post.url}}">Continue&nbsp;Reading&nbsp;&raquo;</a></p>
+</div>
+{% endif %}
+{% endfor %}
+
+
+<div class="l-row">
+<div class="l-grid">
+{% for post in site.posts offset:1 limit:2 %}
+{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+
+<div class="l-grid-box--6">
+	<div class="preview--recent">
+		<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+		<p class="preview-tagline">{{post.tagline}}</p>
+	</div>
 </div>
 
 {% endif %}
+{% endfor %}
+</div>
+</div>
 
+
+{% for post in site.posts offset:3 %}
+{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+<!-- or post.categories contains 'dev' -->
+
+<div class="preview--old">
+	<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+	<p class="preview-tagline">{{post.tagline}}</p>
+</div>
+{% endif %}
 {% endfor %}

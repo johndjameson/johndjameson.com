@@ -16,7 +16,8 @@
 </head>
 <body>
 
-	<header class="l-header">
+<div class="l-cell">
+		<header class="l-header">
 		<div class="l-row">
 			<a class="logo" href="/">John D. Jameson</a>
 
@@ -28,9 +29,22 @@
 		</div>
 	</header>
 
+
 	<!-- <div id="dev_log"></div> -->
 
 	<div class="l-row">
+		<header class="blockHeader">
+			{% if page.title-display %}
+			<h1 class="blockHeader-main">{{page.title-display}}</h1>
+			{% else %}
+			<h1 class="blockHeader-main">{{page.title}}</h1>
+			{% endif %}
+
+			{% if page.tagline %}
+			<p class="blockHeader-support">{{ page.tagline }}</p>
+			{% endif %}
+		</header>
+
 		<main class="l-content">
 			{{content}}
 		</main>
@@ -46,6 +60,8 @@
 			</ul>
 		</div>
 	</footer>
+
+</div>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="/js/application.js"></script>

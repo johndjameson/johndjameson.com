@@ -49,19 +49,19 @@
   font-size: rem($base-fontSize-f);
 }
 
+
 // -------------------------------------
 //   Headings
 // -------------------------------------
 
 h1, h2, h3, h4, h5, h6 {
-  margin-top: 0;
+  margin-top: rem($base-whitespace * 2);
   margin-bottom: rem($base-whitespace);
   
   font-family: $c-heading-fontFamily;
   font-weight: bold;
   line-height: 1.25;
 
-  // color: mix($base-color, $base-background, 90%);
   color: $base-color-primary;
 }
 
@@ -88,6 +88,7 @@ h5, .c-h5, %c-h5 {
 h6, .c-h6, %c-h6 {
   @extend %fontSize-a;
 }
+
 
 // -------------------------------------
 //   Utilities

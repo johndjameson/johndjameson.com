@@ -6,39 +6,13 @@
 // *************************************
 
 .blockHeader {
-  padding: rem($base-whitespace) rem($base-gutter);
-  border-top: rem(4px) solid mix($base-color-primary, $base-background, 85%);
-  border-bottom: rem(4px) solid mix($base-color-primary, $base-background, 85%);
-  margin: 0 rem(-$base-gutter) rem($base-whitespace);
+  padding: rem($base-whitespace) rem($base-whitespace);
+  margin-bottom: rem($base-whitespace);
 
   position: relative;
 
-  color: $base-color-primary;
-
-  > :last-child {
-  	margin-bottom: 0;
-  }
-
-  &::after {
-    display: block;
-    width: rem(32px);
-    height: rem(32px);
-    margin-top: rem(-16px);
-    margin-left: rem(-16px);
-
-    position: absolute;
-    top: 100%;
-    left: 50%;
-
-    font-size: rem(24px);
-    line-height: rem(32px);
-    text-align: center;
-
-    content: "\2665";
-
-    color: mix($base-color-primary, $base-background, 95%);
-    background-color: $base-background;
-  }
+  color: $base-background;
+  background-color: $base-color-primary;
 }
 
 // -------------------------------------
@@ -66,20 +40,26 @@
 // ----- Submodule ----- //
 
 .blockHeader-main {
-  margin-bottom: 0.25em;
+  margin: 0;
 
   font-weight: bold;
   text-align: center;
 
   color: inherit;
+
+  &:not(:last-of-type) {
+    margin-bottom: rem($base-whitespace / 4);
+  }
 }
 
 .blockHeader-support {
+  margin-bottom: 0;
+
   @extend %fontSize-aa;
   text-transform: uppercase;
   letter-spacing: 1px;
   word-spacing: 1px;
   text-align: center;
 
-  color: mix($base-color-primary, $base-background, 90%);
+  color: mix($base-background, $base-color-primary, 67%);
 }

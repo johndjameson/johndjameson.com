@@ -4,17 +4,12 @@ layout: default
 
 <article class="post">
 
-	<header class="blockHeader">
-		<h1 class="blockHeader-main">{{ page.title-display }}</h1>
-		<p class="blockHeader-support">{{ page.tagline }}</p>
-	</header>
-
 	<ul class="inlineList">
 		<li class="post-date">{{ page.date | date: "%B %d, %Y" }}</li>
 		<li><a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></li>
 	</ul>
 
-	{{ content }}
+	{{content}}
 
 	<div class="comments">
 		<h3>Leave a Comment</h3>

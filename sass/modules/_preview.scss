@@ -6,23 +6,54 @@
 // *************************************
 
 .preview {
+  width: 100%;
   padding: rem($base-whitespace);
   border: 2px solid mix($base-color-primary, $base-background, 65%);
   border-top-width: rem(4px);
   margin-bottom: rem($base-whitespace);
 
   position: relative;
+  float: left;
+
+  background-color: white;
+  background-color: rgba(white, 0.67);
 
   > :last-child {
     margin-bottom: 0;
   }
 }
 
+
+
+
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .module--modifier
+.preview--latest {
+  @extend .preview;
+}
+
+.preview--recent {
+  @extend .preview;
+
+  .preview-title {
+    @extend %fontSize-c;
+  }
+}
+
+.preview--old {
+  @extend .preview;
+
+  padding-top: 0;
+  padding-bottom: 0;
+  // border-width: 2px;
+  margin-bottom: 0;
+
+  .preview-title {
+    @extend %fontSize-b;
+  }
+}
 
 // -------------------------------------
 //   States
@@ -43,6 +74,7 @@
 // ----- Submodule ----- //
 
 .preview-title {
+  margin-top: 0;
   margin-bottom: rem($base-whitespace / 4);
 }
 

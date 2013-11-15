@@ -10,17 +10,31 @@
 // -------------------------------------
 
 .l-row, %l-row {
-  max-width: 700px;
-  max-width: 32rem;
-  padding: 0 20px;
-  padding: 0 rem($base-gutter);
   margin: 0 auto;
 
   @extend %group;
 }
 
-.l-row--full {
-  max-width: none;
+
+// -------------------------------------
+//   Cell
+// -------------------------------------
+
+.l-cell, %l-cell {
+  max-width: rem($l-maxWidth);
+  padding: 0 rem($base-whitespace);
+  margin: 0 auto;
+
+  @extend %group;
+
+  @include respond-to(40em) {
+    padding: 0 rem($base-whitespace * 2);
+  }
+
+  @include respond-to(60em) {
+    padding: 0 rem($base-whitespace * 3);
+  }
+
 }
 
 
@@ -28,32 +42,27 @@
 //   Grid
 // -------------------------------------
 
-// [class*="l-grid"] {
-//   width: 100%;
-//   padding: 0 rem(20px);
-//   margin: 0;
+.l-grid { // container for grid-box 
+  margin-left: rem(-$base-whitespace);
+  margin-right: rem(-$base-whitespace);
 
-//   float: left;
-// }
+  @extend %group;
+}
 
-// @media screen and (min-width: $bp-grid) {
-//   @for $i from 1 through 12 {
+@for $i from 1 through 12 {
 
-//     .l-grid--#{$i} {
-//        width: percentage($i/12);
-//     }
+  .l-grid-box--#{$i} {
+    @extend %group;
 
-//     .l-grid--push#{$i} {
-//        position: relative;
-//        left: percentage($i/12);
-//     }
+    padding: 0 rem($base-whitespace);
 
-//     .l-grid--pull#{$i} {
-//       position: relative;
-//       left: -(percentage($i/12));
-//     }
-//   }
-// }
+     @include respond-to($bp-grid) {
+       width: percentage($i/12);
+
+       float: left;
+     }
+  }
+}
 
 
 // -------------------------------------
@@ -80,8 +89,6 @@
       @include box-shadow(none);
     }
   }
-
-
 }
 
 
@@ -145,9 +152,9 @@
 .l-footer {
   ul {
     display: block;
-    padding: rem($base-whitespace) rem($base-gutter);
+    padding: rem($base-whitespace) rem($base-whitespace);
     border-top: rem(4px) solid mix($base-color-primary, $base-background, 85%);
-    margin: rem($base-whitespace) rem(-$base-gutter) 0;
+    margin: rem($base-whitespace) rem(-$base-whitespace) 0;
 
     @extend %fontSize-aa;
     text-align: center;

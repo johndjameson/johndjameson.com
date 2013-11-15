@@ -6,7 +6,7 @@
 // *************************************
 
 .post {
-  max-width: 32rem;
+  // max-width: 32rem;
   margin: 0 auto;
 
   position: relative;
@@ -109,8 +109,8 @@
 .post-sidenote {
   display: none;
   width: percentage(1/3);
-  padding: 0 rem($base-gutter);
-  margin-left: rem($base-gutter);
+  padding: 0 rem($base-whitespace);
+  margin-left: rem($base-whitespace);
 
   position: absolute;
   top: 0;
@@ -141,7 +141,7 @@
 }
 
 .post-footnotes {
-  padding: 1.5rem 0 0 rem($base-gutter);
+  padding: 1.5rem 0 0 rem($base-whitespace);
   border-top: 2px solid #e4e4e4;
   border-top: 2px solid rgba(0,49,79,.08);
   margin-bottom: rem($base-whitespace);
@@ -165,7 +165,7 @@
     counter-increment: counter-footer;
 
     &::before {
-      width: rem($base-gutter);
+      width: rem($base-whitespace);
 
       position: absolute;
       right: 100%;
