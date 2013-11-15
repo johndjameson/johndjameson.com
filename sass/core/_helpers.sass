@@ -11,68 +11,51 @@
 
 // ----- Debug ----- //
 
-%debug {
-  background-color: pink !important;
-}
+%debug
+  background-color: pink !important
 
 // ----- Ellipsis ----- //
 
-%ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+%ellipsis
+  overflow: hidden
+  text-overflow: ellipsis
+  white-space: nowrap
 
 // ----- Clearfix ----- //
 
-%group {
-  &::after {
-    display: table;
-    clear: both;
-    content: "";
-  }
-}
+%group:after
+  clear: both
+  content: ''
+  display: table
 
 // ----- Image Replacement ----- //
 
-%ir {
-  background-color: transparent;
-  border: 0;
-  overflow: hidden;
-  
-  &:before {
-    content: '';
-    display: block;
-    width: 0;
-    height: 150%;
-  }
-}
+%ir
+  background-color: transparent
+  border: 0
+  overflow: hidden
+  &:before
+    content: ''
+    display: block
+    width: 0
+    height: 150%
 
 // -------------------------------------
 //   Functions
 // -------------------------------------
 
-// ----- strip units ----- //
-
-@function strip-units($number) {
-  @return $number / ($number * 0 + 1);
-}
-
 // ----- em ----- //
 
-@function em($target, $context: $base-fontSize-a) {
-  @if ($target == 0) {
-    @return 0;
-  } @else {
+@function em($target, $context: $base-fontSize)
+  @if ($target == 0)
+    @return 0
+  @else
     @return #{$target / $context}em
-  }
-}
 
 // ----- rem ----- //
 
-@function rem($size) {
-  @return #{$size / $base-fontSize-a}rem;
-}
+@function rem($size)
+  @return #{$size / $base-fontSize}rem
 
 // -------------------------------------
 //   Mixins
@@ -80,11 +63,9 @@
 
 // ----- Respond-to ----- //
 
-@mixin respond-to($val, $query: min-width, $media: screen) {
-  @media #{$media} and ($query: $val) {
+=respond-to($val, $query: min-width, $media: screen)
+  @media #{$media} and ($query: $val)
     @content
-  }
-}
 
 // -------------------------------------
 //   Animations
