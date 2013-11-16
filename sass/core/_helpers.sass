@@ -6,6 +6,33 @@
 // *************************************
 
 // -------------------------------------
+//   Functions
+// -------------------------------------
+
+// ----- em ----- //
+
+@function em($target, $context: $base-fontSize)
+  @if ($target == 0)
+    @return 0
+  @else
+    @return #{$target / $context}em
+
+// ----- rem ----- //
+
+@function rem($size)
+  @return #{$size / $base-fontSize}rem
+
+// -------------------------------------
+//   Mixins
+// -------------------------------------
+
+// ----- Respond-to ----- //
+
+=respond-to($val, $query: min-width, $media: screen)
+  @media #{$media} and ($query: $val)
+    @content
+
+// -------------------------------------
 //   Extends
 // -------------------------------------
 
@@ -40,34 +67,41 @@
     width: 0
     height: 150%
 
-// -------------------------------------
-//   Functions
-// -------------------------------------
+%fontSize-aaa
+  font-size: $base-fontSize * 0.75
+  font-size: rem($base-fontSize * 0.75)
 
-// ----- em ----- //
+%fontSize-aa
+  font-size: $base-fontSize * 0.875
+  font-size: rem($base-fontSize * 0.875)
 
-@function em($target, $context: $base-fontSize)
-  @if ($target == 0)
-    @return 0
-  @else
-    @return #{$target / $context}em
+%fontSize-a
+  font-size: $base-fontSize
+  font-size: rem($base-fontSize)
 
-// ----- rem ----- //
+%fontSize-b
+  font-size: $base-fontSize * 1.125
+  font-size: rem($base-fontSize * 1.125)
 
-@function rem($size)
-  @return #{$size / $base-fontSize}rem
+%fontSize-c
+  font-size: $base-fontSize * 1.25
+  font-size: rem($base-fontSize * 1.25)
 
-// -------------------------------------
-//   Mixins
-// -------------------------------------
+%fontSize-d
+  font-size: $base-fontSize * 1.5
+  font-size: rem($base-fontSize * 1.5)
 
-// ----- Respond-to ----- //
+%fontSize-e
+  font-size: $base-fontSize * 2
+  font-size: rem($base-fontSize * 2)
 
-=respond-to($val, $query: min-width, $media: screen)
-  @media #{$media} and ($query: $val)
-    @content
+%fontSize-f
+  font-size: $base-fontSize * 2.5
+  font-size: rem($base-fontSize * 2.5)
 
 // -------------------------------------
 //   Animations
 // -------------------------------------
 
+%transition-fast
+  +transition(0.2s ease-in-out)

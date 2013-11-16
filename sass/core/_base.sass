@@ -5,6 +5,9 @@
 //
 // *************************************
 
+*, *::before, *::after
+  +box-sizing(border-box)
+
 html
   font-size: $base-fontSize
 
@@ -20,15 +23,21 @@ body
 // -------------------------------------
 
 p
-  font-size: rem($base-fontSize)
+  @extend %fontSize-a
+  @extend %l-space
+  margin-top: 0
 
 // -------------------------------------
 //   Inline Content
 // -------------------------------------
 
 a
+  @extend %transition-fast
+  border-bottom: 2px solid $base-link-background
   color: $base-link-color
+  font-weight: bold
   text-decoration: none
   &:hover,
   &:focus
-    text-decoration: underline
+    +box-shadow(-0.125em 0 0 $base-link-background, 0.125em 0 0 $base-link-background)
+    background-color: $base-link-background

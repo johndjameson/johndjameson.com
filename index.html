@@ -4,39 +4,69 @@ title: Home
 title-display: Articles
 ---
 
-{% for post in site.posts limit:1 %}
-<!-- or post.categories contains 'dev' -->
-{% if post.categories contains 'blog' or post.categories contains 'dev' %}
 
-<div class="preview--latest">
-	<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
 
-	<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-	<p class="preview-tagline">{{post.tagline}}</p>
+<div class="l-grid">
 
-	<p>{{post.excerpt | replace:">1</a></sup>","></a></sup>" | strip_html}}</p>
-	<p><a href="{{post.url}}">Continue&nbsp;Reading&nbsp;&raquo;</a></p>
+	<aside class="l-grid-box--4">
+		<div class="bio">
+			<h1>About</h1>
+			<p>I'm John D. Jameson, web designer and student at <a href="">UCF</a>.</p>
+			<p>My interests include:</p>
+			<ul>
+				<li>Cycling</li>
+				<li>Mountain Biking</li>
+				<li>Skydiving</li>
+				<li>Offroading</li>
+			</ul>
+
+			<h3>Online</h3>
+			<ul class="list--inline">
+				<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
+				<li><a href="http://codepen.io/johndjameson">CodePen</a></li>
+				<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
+			</ul>
+
+		</div>
+	</aside>
+
+	<main class="l-grid-box--8">
+		<h1>Articles</h1>
+
+		{% for post in site.posts limit:1 %}
+		<!-- or post.categories contains 'dev' -->
+		{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+
+		<div class="preview">
+			<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+			<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+
+			<p class="preview-tagline">{{post.tagline}}</p>
+
+			<p>{{post.excerpt | replace:">1</a></sup>","></a></sup>" | strip_html}}</p>
+		</div>
+		{% endif %}
+		{% endfor %}
+
+		{% for post in site.posts offset:1 limit:3 %}
+		{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+			<div class="preview">
+				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+				<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+				
+				<p class="preview-tagline">{{post.tagline}}</p>
+			</div>
+		{% endif %}
+		{% endfor %}
+
+		{% for post in site.posts offset:4 %}
+		{% if post.categories contains 'blog' or post.categories contains 'dev' %}
+			<div class="preview">
+				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+				<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+			</div>
+		{% endif %}
+		{% endfor %}
+	</main>
+
 </div>
-{% endif %}
-{% endfor %}
-
-{% for post in site.posts offset:1 limit:3 %}
-{% if post.categories contains 'blog' or post.categories contains 'dev' %}
-	<div class="preview--recent">
-		<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
-
-		<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-		<p class="preview-tagline">{{post.tagline}}</p>
-	</div>
-{% endif %}
-{% endfor %}
-
-{% for post in site.posts offset:4 %}
-{% if post.categories contains 'blog' or post.categories contains 'dev' %}
-	<div class="preview--old">
-		<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
-
-		<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-	</div>
-{% endif %}
-{% endfor %}

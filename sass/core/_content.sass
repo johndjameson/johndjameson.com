@@ -10,27 +10,31 @@
 // -------------------------------------
 
 h1, h2, h3,
-h4, h5, h6
+h4, h5, h6,
+.c-h1, .c-h2, .c-h3,
+.c-h4, .c-h5, .c-h6
+  @extend %l-space
   font-family: $c-header-fontFamily
   font-weight: bold
+  margin-top: 0
 
 h1, .c-h1, %c-h1
-  font-size: rem(40px)
+  @extend %fontSize-f
 
 h2, .c-h2, %c-h2
-  font-size: rem(35px)
+  @extend %fontSize-e
 
 h3, .c-h3, %c-h3
-  font-size: rem(30px)
+  @extend %fontSize-d
 
 h4, .c-h4, %c-h4
-  font-size: rem(25px)
+  @extend %fontSize-c
 
 h5, .c-h5, %c-h5
-  font-size: rem(20px)
+  @extend %fontSize-b
 
 h6, .c-h6, %c-h6
-  font-size: rem(16px)
+  @extend %fontSize-a
 
 // -------------------------------------
 //   Utilities

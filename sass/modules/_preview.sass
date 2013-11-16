@@ -1,51 +1,38 @@
 // *************************************
 //
-//   Application
-//   -> MVCSS v3.0.2
+//   Preview
+//   -> Chills on the home page,
+//      links to blog posts
 //
 // *************************************
 
-// -------------------------------------
-//   Compass
-// -------------------------------------
-
-@import "compass"
+.preview
+	padding-left: rem($base-whitespace)
+	border-left: 4px solid $base-color-a
 
 // -------------------------------------
-//   Core
+//   Modifiers
 // -------------------------------------
 
-// ----- Reset ----- //
-
-@import "core/reset"
-
-// ----- Settings ----- //
-
-@import "core/settings"
-
-// ----- Helpers ----- //
-
-@import "core/helpers"
-
-// ----- Base ----- //
-
-@import "core/base"
-
-// ----- Content ----- //
-
-@import "core/content"
-
-// ----- Layout ----- //
-
-@import "core/layout"
+// .preview--latest
 
 // -------------------------------------
-//   Modules
+//   States
 // -------------------------------------
 
-@import "modules/preview"
+// .is-preview-state
 
 // -------------------------------------
-//   Inbox
+//   Context
 // -------------------------------------
 
+// .has-preview
+
+// -------------------------------------
+//   Subpreviews
+// -------------------------------------
+
+// ----- Subpreview ----- //
+
+.preview-title
+	margin-bottom: 0
