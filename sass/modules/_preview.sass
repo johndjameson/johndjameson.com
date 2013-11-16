@@ -7,8 +7,9 @@
 // *************************************
 
 .preview
-	padding-left: rem($base-whitespace)
 	border-left: 4px solid $base-color-a
+	margin-bottom: rem($base-whitespace * 1)
+	padding: rem($base-whitespace / 2) 0 rem($base-whitespace / 2) rem($base-whitespace)
 
 // -------------------------------------
 //   Modifiers
@@ -36,3 +37,9 @@
 
 .preview-title
 	margin-bottom: 0
+
+.preview-date
+	@extend %c-shout
+	@extend %fontSize-aa
+	color: $base-color-soft
+	margin-bottom: rem($base-whitespace / 2)

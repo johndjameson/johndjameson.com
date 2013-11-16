@@ -82,29 +82,37 @@
 .l-header
   @extend %l-space
   background-color: $base-color-a
-  height: rem($base-whitespace * 4)
+  height: rem($base-whitespace * 1.75)
   overflow: hidden
+  +respond-to(25em)
+    height: rem($base-whitespace * 2)
+  +respond-to(30em)
+    height: rem($base-whitespace * 2.5)
+  +respond-to(36em)
+    height: rem($base-whitespace * 3)
+  +respond-to(42em)
+    height: rem($base-whitespace * 4)
 
   .l-header-logo
     color: $base-background
     display: block
-    font-size: rem($base-fontSize * 8)
+    font-size: rem($base-fontSize * 3.5)
     font-weight: 900
+    letter-spacing: 1px
     line-height: 1
     margin: 0
     text-align: center
+    +text-shadow(1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black)
     text-transform: uppercase
     &:hover
-      background-color: mix($base-color-a, $base-background, 100%)
-
-// -------------------------------------
-//   Main Content Area
-// -------------------------------------
-
-.l-main
-  
-
-
-// -------------------------------------
-//   Support / Sidebar
-// -------------------------------------
+      background-color: mix($base-color-a, $base-background, 85%)
+    +respond-to(25em)
+      font-size: rem($base-fontSize * 4)
+    +respond-to(30em)
+      font-size: rem($base-fontSize * 5)
+      letter-spacing: 2px
+    +respond-to(36em)
+      font-size: rem($base-fontSize * 6)
+    +respond-to(42em)
+      font-size: rem($base-fontSize * 8)
+      letter-spacing: 3px
