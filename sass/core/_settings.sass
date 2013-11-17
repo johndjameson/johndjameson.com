@@ -21,6 +21,8 @@
 $base-background: #fff
 $base-color: #222
 $base-color-soft: mix($base-color, $base-background, 70%)
+$base-color-softer: mix($base-color, $base-background, 40%)
+$base-color-softest: mix($base-color, $base-background, 15%)
 $base-color-a: #705993
 $base-header-color: #333
 $base-link-color: $base-color-a
@@ -30,12 +32,12 @@ $base-link-background: mix($base-color-a, $base-background, 25%)
 // ----- Base Borders & Box Shadows ----- //
 
 $base-border: 1px solid $base-color
-$base-borderRadius: 3px
+$base-borderRadius: 4px
 $base-boxShadow: 0 1px 2px rgba($base-color, 0.25)
 
 // ----- Base Content ----- //
 
-$base-fontFamily: 'museo-sans', helvetica, arial, sans-serif
+$base-fontFamily: 'museo-sans', helvetica, tahoma, arial, sans-serif
 $base-fontSize: 16px
 $base-lineHeight: 1.5
 
@@ -49,8 +51,10 @@ $c-header-fontFamily: $base-fontFamily
 
 // ----- Layout ----- //
 
-$l-maxWidth: 980px
+$l-maxWidth: 1020px
 
 // ----- Breakpoints ----- //
 
 $bp-grid: 46em
+
+$bp-fontSize-a: 50em

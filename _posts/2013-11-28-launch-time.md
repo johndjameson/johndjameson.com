@@ -2,7 +2,7 @@
 layout: post
 title: Twelve O’Clock—Launch Time
 title-display: Twelve O’Clock—Launch&nbsp;Time
-tagline: So over under construction.
+teaser: So over under construction.
 categories: blog
 ---
 

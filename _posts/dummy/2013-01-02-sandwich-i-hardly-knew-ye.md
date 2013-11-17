@@ -2,7 +2,8 @@
 layout: post
 title: Sandwich, I Hardly Knew Ye
 title-display: Sandwich, I Hardly Knew&nbsp;Ye
-tagline: A tragic tale of bread and meat.
+teaser: A tragic tale of bread and meat.
+lead: There comes a time in every man's life when he 
 categories: dev
 ---
 

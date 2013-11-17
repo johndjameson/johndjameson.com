@@ -1,10 +1,23 @@
 <!DOCTYPE html>
+<!--
+
+The source code for this entire website is 
+available on GitHub:
+
+https://github.com/johndjameson/johndjameson.com
+
+Tweet me @johndjameson if you have any questions.
+
+Now have fun looking around. :)
+
+==================================================
+-->
 <html lang="en">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<meta name="viewport" content="width=device-width">
-	<meta name="description" content="{{page.tagline}}">
+	<meta name="description" content="{{page.teaser}}">
 
 	<title>{{ page.title }} | John D. Jameson </title>
 
@@ -16,17 +29,13 @@
 </head>
 <body>
 
-<header class="l-header">
-	<a class="l-header-logo" href="/">Jameson</a>
-</header>
+	<header class="l-header">
+		<a class="l-header-logo" href="/">Jameson</a>
+	</header>
 
-<!-- <div id="dev_log"></div> -->
+	<!-- <div id="dev_log"></div> -->
 
-<div class="l-row">
-	<div class="l-cell">
-		{{content}}
-	</div>
-</div>
+	{{content}}
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 	<script src="/js/application.js"></script>

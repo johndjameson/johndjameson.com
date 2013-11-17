@@ -8,6 +8,7 @@
 
 .list
 
+
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
@@ -44,3 +45,20 @@
       &::after
         content: ""
         margin: 0
+
+.list--table
+  @extend %group
+  list-style-type: none
+  padding: 0
+  li
+    +border-radius($base-borderRadius)
+    border: 2px solid $base-color-softest
+    display: block
+    float: left
+    padding: rem($base-whitespace / 2) rem($base-whitespace)
+    text-align: center
+    width: 50%
+    &:nth-of-type(even)
+      border-left-width: 0px
+    &:nth-of-type(n + 3)
+      border-top-width: 0px

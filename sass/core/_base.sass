@@ -27,6 +27,7 @@ p
   margin: 0 0 rem($base-whitespace)
 
 ol, ul
+  @extend %fontSize-a
   margin: 0 0 rem($base-whitespace)
   padding: 0 0 0 rem($base-whitespace)
   ol, ul
@@ -42,10 +43,13 @@ a
   color: $base-link-color
   font-weight: bold
   text-decoration: none
-  &:hover,
-  &:focus
+  &:hover, &:focus
     background-color: $base-link-background
     +box-shadow(-0.125em 0 0 $base-link-background, 0.125em 0 0 $base-link-background)
+
+abbr
+  @extend %c-shout
+  font-size: 95%
 
 blockquote
   margin: rem($base-whitespace * 2) 0

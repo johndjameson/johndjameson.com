@@ -2,7 +2,7 @@
 layout: post
 title: Ascot Patrol
 title-display: Ascot Patrol
-tagline: I see you, Fred.
+teaser: I see you, Fred.
 categories: dev
 ---
 

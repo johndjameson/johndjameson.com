@@ -2,7 +2,7 @@
 layout: post
 title: Ya’ll Know Whatup
 title-display: Ya’ll Know Whatup
-tagline: Who knows? You know.
+teaser: Who knows? You know.
 categories: dev
 ---
 

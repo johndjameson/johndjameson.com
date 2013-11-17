@@ -2,56 +2,53 @@
 layout: default
 title: Home
 title-display: Articles
-tagline: Web designer and student in Orlando, Florida. Let's get Sassy together.
+teaser: Front-end developer and designer in Orlando, Florida. Let's get Sassy together.
 ---
 
+<div class="l-row">
+<div class="l-cell">
 <div class="l-grid">
-
-	<aside class="l-grid-box--4">
-		<h1>About Me</h1>
-		<p>I'm John—<strong>web designer</strong> and student at the University of Central Florida.</p>
-		<p>When not debating semantic <abbr>HTML</abbr>, I enjoy learning <strong><abbr>CSS</abbr> architecture</strong>, as well as usabilty, branding, and all things <strong>front-end</strong>.</p>
-
-		<p>I'm also on the <em>Internet</em>:</p>
-
-		<ul class="list--inline">
-			<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
-			<li><a href="http://codepen.io/johndjameson">CodePen</a></li>
-			<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
-		</ul>
-	</aside>
 
 	<main class="l-grid-box--8">
 		<h1>Blog</h1>
 
 		{% for post in site.posts limit:1 %}
 		<div class="preview">
-			<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
 			<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+			<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+			<p class="preview-teaser">{{post.teaser}}</p>
 
-			<p class="preview-tagline">{{post.tagline}}</p>
-
-			<p>{{post.excerpt | replace:">1</a></sup>","></a></sup>" | strip_html}}</p>
+			<p>{{post.lead}}</p>
 
 			<p><a href="{{post.url}}">Continue Reading &raquo;</a></p>
 		</div>
 		{% endfor %}
 
-		{% for post in site.posts offset:1 limit:3 %}
+		{% for post in site.posts offset:1 %}
 			<div class="preview">
-				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
 				<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
 				
-				<p class="preview-tagline">{{post.tagline}}</p>
-			</div>
-		{% endfor %}
-
-		{% for post in site.posts offset:4 %}
-			<div class="preview">
-				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-				<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
+				<p class="preview-teaser">{{post.teaser}}</p>
 			</div>
 		{% endfor %}
 	</main>
 
+	<aside class="l-grid-box--4">
+		<h1>About Me</h1>
+		<p>I'm John—<strong>web designer</strong> and student at the University of Central Florida.</p>
+		<p>When not busy debating semantic <abbr>HTML</abbr>, I enjoy learning <strong><abbr>CSS</abbr> architecture</strong>, as well as usabilty, branding, and all things <strong>front-end</strong>.</p>
+
+		<p>I'm also on the <em>Internet</em>:</p>
+
+		<ul class="list--table">
+			<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
+			<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
+			<li><a href="http://codepen.io/johndjameson">CodePen</a></li>
+			<li><a href="https://github.com/johndjameson">GitHub</a></li>
+		</ul>
+	</aside>
+
+</div>
+</div>
 </div>
