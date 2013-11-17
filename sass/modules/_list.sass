@@ -7,7 +7,7 @@
 // *************************************
 
 .list
-	color: red
+
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
@@ -30,4 +30,17 @@
 //   Sublists
 // -------------------------------------
 
-// ----- Sublist ----- //
+.list--inline
+  list-style-type: none
+  padding: 0
+  li
+    display: inline-block
+    margin-right: 0.5em
+    &::after
+      color: $base-link-background
+      content: "\2022"
+      margin-left: 0.5em
+    &:last-of-type
+      &::after
+        content: ""
+        margin: 0

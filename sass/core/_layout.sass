@@ -39,7 +39,7 @@
 @for $i from 1 through 12
   .l-grid-box--#{$i}
     @extend %l-grid-box
-    +respond-to(46em)
+    +respond-to($bp-grid)
       float: left
       width: percentage($i / 12)
 
@@ -90,7 +90,9 @@
     height: rem($base-whitespace * 2.5)
   +respond-to(36em)
     height: rem($base-whitespace * 3)
-  +respond-to(42em)
+  +respond-to(40em)
+    height: rem($base-whitespace * 3.5)
+  +respond-to(46em)
     height: rem($base-whitespace * 4)
 
   .l-header-logo
@@ -113,6 +115,8 @@
       letter-spacing: 2px
     +respond-to(36em)
       font-size: rem($base-fontSize * 6)
-    +respond-to(42em)
+    +respond-to(40em)
+      font-size: rem($base-fontSize * 7)
+    +respond-to(46em)
       font-size: rem($base-fontSize * 8)
       letter-spacing: 3px

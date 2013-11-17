@@ -29,6 +29,8 @@ p
 ol, ul
   margin: 0 0 rem($base-whitespace)
   padding: 0 0 0 rem($base-whitespace)
+  ol, ul
+    margin: 0
 
 // -------------------------------------
 //   Inline Content
@@ -45,13 +47,12 @@ a
     background-color: $base-link-background
     +box-shadow(-0.125em 0 0 $base-link-background, 0.125em 0 0 $base-link-background)
 
-abbr
-  
-
 blockquote
   margin: rem($base-whitespace * 2) 0
   border-left: 4px solid $base-color-a
-  padding: 0 rem($base-whitespace * 2)
+  padding: 0 rem($base-whitespace)
+  +respond-to(30em)
+    padding: 0 rem($base-whitespace * 2)
 
 em
   font-style: italic
