@@ -25,9 +25,6 @@
 
         for (var i = 0; i < $sups.length; i++) {
             $($('.post-subject')[i]).append("<aside class='post-sidenote'><p>" + $($footnoteArray[i]).html() + "</p></aside>");
-            $('.post-sidenote').siblings().css({
-                marginBottom: 0
-            });
         }
     }
 

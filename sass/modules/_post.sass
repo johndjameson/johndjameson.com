@@ -2,10 +2,36 @@
 //
 //   Post
 //   -> A single post/article
+//      - contains footnotes
+// 
 //
 // *************************************
 
 .post
+  position: relative
+
+  img:not(.post-image--full)
+    max-width: 100%
+    +respond-to($bp-grid)
+      padding: rem($base-whitespace)
+  
+  sup
+    +respond-to($bp-grid)
+      display: none
+
+    &::before // thin-nonbreaking space that works cross-browser
+      content: "\00a0" // normal nbsp
+      font-size: 0.25em // then make it small
+
+    a
+      border-bottom: 0
+      letter-spacing: 1px
+
+      &::before
+        content: "["
+
+      &::after
+        content: "]"
 
 // -------------------------------------
 //   Modifiers
@@ -23,20 +49,78 @@
 //   Context
 // -------------------------------------
 
-// .has-post
+.post.has-sidenotes
+  .post-sidenote
+    display: none
+    +respond-to($bp-grid)
+      display: block
+
+  .post-footnotes
+    +respond-to($bp-grid)
+      display: none
 
 // -------------------------------------
 //   Subposts
 // -------------------------------------
 
-// ----- Subpost ----- //
-
 .post-title
+  line-height: 1.15
   margin-bottom: 0
 
 .post-meta
   @extend %fontSize-aa
   color: $base-color-soft
 
+.post-links
+  @extend .list--inline
+  font-size: inherit
+
 .post-lead
   @extend %fontSize-d
+  +respond-to($bp-grid)
+    padding: rem($base-whitespace)
+
+.post-image--full
+  max-width: 100%
+  +respond-to($bp-grid)
+    max-width: none
+    padding: rem($base-whitespace)
+    width: 150%
+
+.post-subject
+  position: relative
+
+.post-sidenote
+  @extend %fontSize-aa
+  color: $base-color-soft
+  font-style: italic
+  left: 100%
+  line-height: ($base-fontSize * $base-lineHeight / $base-fontSize-aa)
+  margin-left: rem($base-whitespace)
+  padding: 0 rem($base-whitespace)
+  position: absolute
+  top: 0
+
+  width: percentage(1/2)
+  p
+    @extend %fontSize-aa
+
+  & :last-child
+    margin-bottom: 0
+
+.post-footnotes
+  @extend %fontSize-aa
+  border-top: 2px solid $base-color-softest
+  margin-bottom: rem($base-whitespace)
+  padding-top: rem($base-whitespace)
+  color: $base-color-soft
+  counter-reset: footnote-number
+  list-style-type: none
+  position: relative
+
+  li
+    &::before
+      content: counter(footnote-number) "\2009" ")"
+      counter-increment: footnote-number
+      position: absolute
+      margin-left: rem(-$base-whitespace)

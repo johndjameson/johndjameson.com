@@ -47,11 +47,15 @@
 //   Row
 // -------------------------------------
 
-.l-row
+%l-row, .l-row
   padding-bottom: $base-whitespace
   padding-bottom: rem($base-whitespace)
   padding-top: $base-whitespace
   padding-top: rem($base-whitespace)
+
+.l-row--a
+  @extend %l-row
+  padding-top: 0
 
 // -------------------------------------
 //   Utilities

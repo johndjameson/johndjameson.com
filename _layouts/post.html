@@ -4,19 +4,17 @@ layout: default
 
 <div class="l-row">
 <div class="l-cell">
-<div class="l-grid">
 
-	<div class="l-grid-box--8">
-		<article class="post">
+	<article class="post">
 
 			<h1 class="post-title">{{page.title-display}}</h1>
 			<p class="post-teaser">{{page.teaser}}</p>
 
 			<div class="post-meta">
-				<ul class="list--inline">
-					<li class="post-date">{{ page.date | date: "%B %d, %Y" }}</li>
+				<span>{{ page.date | date: "%B %d, %Y" }}</span>
+				<ul class="post-links">
 					<li><a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></li>
-					<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://johndjameson.com{{page.url | cgi_escape}}&p[title]={{page.title}}&p[summary]={{page.teaser}}">Share</a></li>
+					<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://johndjameson.com{{page.url | cgi_escape}}&p[title]={{page.title}}&p[summary]={{page.lead}}">Share</a></li>
 					<li><a href="/feed.xml"><abbr>RSS</abbr></a></li>
 				</ul>
 			</div>
@@ -25,26 +23,30 @@ layout: default
 			<p class="post-lead">{{page.lead}}</p>
 			{% endif %}
 
+		<div class="l-grid">
+		<div class="l-grid-box--8">
+
 			{{content}}
 
-		</article>
+		</div>
+		</div>
 
-	</div>
+	</article>
 
 </div>
 </div>
-</div>
 
 
-<div class="l-row">
+<div class="l-row--a">
 <div class="l-cell">
 <div class="l-grid">
 
 	<div class="l-grid-box--8">
-				<ul class="list--table list--table">
-				<li><a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></li>
-				<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://johndjameson.com{{page.url | cgi_escape}}&p[title]={{page.title}}&p[summary]={{page.teaser}}">Share</a></li>
-			</ul>
+		<ul class="list--table list--table">
+			<li><a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></li>
+			<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://johndjameson.com{{page.url | cgi_escape}}&p[title]={{page.title}}&p[summary]={{page.teaser}}">Share</a></li>
+		</ul>
+
 		<h3>Leave a Comment</h3>
 
 		<noscript>
