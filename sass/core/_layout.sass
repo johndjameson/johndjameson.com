@@ -84,14 +84,15 @@
 // -------------------------------------
 
 .l-header
-  @extend %l-space
   background-color: $base-color-a
   height: rem($base-whitespace * 1.75)
+  margin-bottom: rem($base-whitespace / 2)
   overflow: hidden
   +respond-to(25em)
     height: rem($base-whitespace * 2)
   +respond-to(30em)
     height: rem($base-whitespace * 2.5)
+    margin-bottom: rem($base-whitespace)
   +respond-to(36em)
     height: rem($base-whitespace * 3)
   +respond-to(40em)

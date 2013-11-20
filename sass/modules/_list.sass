@@ -35,27 +35,33 @@
   display: inline-block
   list-style-type: none
   padding: 0
+
   li
     display: inline-block
     margin-right: 0.5em
+
     &::before
       color: $base-link-background
       content: "\2022"
       margin-right: 0.5em
 
-.list--table
+.list--icon
+  @extend %fontSize-e
   @extend %group
   list-style-type: none
+  margin: 0
   padding: 0
+  text-align: center
+
   li
-    +border-radius($base-borderRadius)
-    border: 2px solid $base-color-softest
     display: block
     float: left
-    padding: rem($base-whitespace / 2) rem($base-whitespace)
-    text-align: center
-    width: 50%
-    &:nth-of-type(even)
-      border-left-width: 0px
-    &:nth-of-type(n + 3)
-      border-top-width: 0px
+    width: percentage(1/3)
+
+  a
+    border: 0
+
+    &:hover, &:focus
+      +box-shadow(none)
+      background-color: transparent
+      color: mix($base-link-color, $base-link-background)
