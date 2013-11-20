@@ -4,10 +4,9 @@
 
 
 ##Goals
-* Prove my value and competence as a designer and front-end developer
+* Explain my design process and encourage conversation
 * Help others learn the things I’ve found difficult to learn elsewhere
-* Strengthen my online following and identity
-* Gain the attention and respect of my influences
+* Make meaningful connections within the community
 
 
 ##Audience

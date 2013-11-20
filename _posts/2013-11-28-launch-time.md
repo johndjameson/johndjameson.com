@@ -1,24 +1,37 @@
 ---
 layout: post
-title: Twelve O’Clock—Launch Time
-title-display: Twelve O’Clock—Launch&nbsp;Time
-teaser: So over under construction.
+title: Designing with Vision
+title-display: Designing with Vision
+teaser: A breakdown of johndjameson.com
+lead: "Countless roadblocks hampered the completion of my personal website: problems I invented, problems I solved, and most importantly—problems I can explain my solutions to."
 categories: blog
 ---
 
-<blockquote>
-	<p>I'd love to see front end designers and developers blogging more about problems they faced and how they solved them.</p>
-	<footer>
-		<cite><a href="http://daverupert.com">Dave Rupert</a></cite>
-	</footer>
-</blockquote>
+##In Need of Vision
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, omnis, repudiandae debitis ut assumenda suscipit soluta rem doloremque illo architecto fugiat tempore error consequuntur dolores optio porro deleniti. Earum, aspernatur, nesciunt ut mollitia quam vel voluptatum nihil accusantium voluptas modi blanditiis dolorem eos magni nobis expedita nemo ad quas illo.
+If design is thinking made visual, vision is the catalyst for thought.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Numquam, dolores, fugit doloribus aliquid sit porro minus atque saepe dolorum. Sequi, ab, id, soluta deserunt eveniet placeat consectetur beatae facilis et asperiores at doloremque harum debitis vel tenetur qui dicta in explicabo vero maxime. Voluptatum, recusandae aperiam eaque enim assumenda perspiciatis eius hic non laboriosam vero ipsum iste facere aliquam cupiditate repudiandae corporis beatae impedit mollitia quis tempore et ab ipsa sunt! Hic beatae nemo corporis.
+Simply put, vision determines the purpose and priorities of a project; without it, you cannot create anything meaningful because you don’t know what problems you’re working toward solving or what audience you’re even trying to reach. Designers need clearly defined goals and guidelines to abide by, or it is almost impossible to create something that satisfies everyone involved.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, nulla, reprehenderit, vitae delectus sequi incidunt odit ducimus ipsa corporis quam vel voluptates beatae quod molestias ab illo ipsum! Dolorum nobis quia amet odit!
+It took me months of designing, redesigning, and re-redesigning my blog for this realization to sink in. I assumed making a personal website would be pretty straightforward. Just throw together some copy to fill the obligatory Home, About, Blog, and Contact pages, and maybe slap a hamburger menu on top of everything at the end. Simple, right?
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat, molestiae, assumenda, deserunt, quis quibusdam ducimus molestias reprehenderit dolorum minima praesentium eum explicabo vel in dolor consequuntur fuga culpa laborum mollitia similique cum voluptatibus tempore consectetur quasi ipsam tenetur et modi illum est quae voluptates beatae voluptatem sit debitis totam numquam odit iure saepe hic doloribus ullam. Voluptatibus, voluptatum quaerat molestiae laborum. Fuga, nobis itaque ratione ducimus.
+Except that it wasn't. Lack of direction plagued every effort I made, and with each new attempt, things never managed to feel right. I expected good design to magically fall together in the browser, complete ignoring the fact that design revolves around solving problems. I couldn't be happy with the decisions I made because I honestly didn't have the explanations to justify them. I needed a plan to influence my actions—I needed a vision.
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit. Earum, aliquam temporibus totam officiis quaerat ad?
+
+##Thoughtful Reduction
+
+>I’d love to see front end designers and developers blogging more about problems they faced and how they solved them.
+>
+>— Dave Rupert
+
+In a single sentence, Dave Rupert summarizes the refined vision behind my personal website: write about the obstacles I encounter and discuss the strategies I use to overcome them.
+
+With that idea in mind, I began writing an outline of my goals in order to guide my decisions during the design process. By documenting exactly what I want to accomplish with this website and specifically whom I want to reach, I can tackle any design dilemna by asking myself, "Which of these ideas is the most consistent with my vision?"
+
+
+<ul class="post-footnotes">
+	<li id="note:4">Jason VanLue explains vision in his book <a href="http://brandingmatters.net/discoverYourVision.html">Branding Matters</a>.</li>
+	<li id="note:1">Detailed documentation is publically available on this website's <a href="https://github.com/johndjameson/johndjameson.com/blob/master/docs/vision.md">GitHub</a> repository.</li>
+	<li id="note:2">Hic, ea, nostrum ratione labore in necessitatibus.</li>
+	<li id="note:3">Quam, vero esse et quisquam blanditiis maxime.</li>
+</ul>

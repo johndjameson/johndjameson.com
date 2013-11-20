@@ -11,6 +11,7 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione, tempore, comm
 
 >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus, saepe, velit, veritatis blanditiis maxime non aliquam ad nulla ut eaque adipisci aliquid quia facilis libero minima dolores sint rem quas asperiores perferendis amet laboriosam neque maiores ipsam eum quasi eius nam tenetur officia aut.
 
+
 <img class="post-image--full" src="http://placehold.it/1920x1080" alt="big image">
 
 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Neque, officiis, vel soluta unde ducimus inventore maxime tenetur fuga minus voluptates ipsam distinctio asperiores et odio tempora ut voluptatum quaerat ea repellendus amet nesciunt iste recusandae corrupti laboriosam sapiente illum eveniet impedit. Ut, quam, inventore ipsa provident rem molestiae numquam laboriosam maxime quia libero unde voluptas.<sup><a href="#note:fit">2</a></sup>
