@@ -10,10 +10,8 @@
 .post
   position: relative
 
-  img:not(.post-image--full)
+  img
     max-width: 100%
-    +respond-to($bp-grid)
-      padding: rem($base-whitespace)
   
   sup
     +respond-to($bp-grid)
@@ -64,7 +62,7 @@
 // -------------------------------------
 
 .post-title
-  margin-bottom: 0
+  // margin-bottom: rem($base-whitespace / 2)
 
 .post-meta
   @extend %fontSize-aa
@@ -76,14 +74,11 @@
 
 .post-lead
   @extend %fontSize-d
-  +respond-to($bp-grid)
-    padding: rem($base-whitespace)
 
 .post-image--full
   max-width: 100%
   +respond-to($bp-grid)
     max-width: none
-    padding: rem($base-whitespace)
     width: 150%
 
 .post-subject
