@@ -15,7 +15,7 @@ layout: nil
    <email>john@johndjameson.com</email>
  </author>
 
- {% for post in site.posts %}
+ {% for post in site.categories.blog %}
  	<entry>
  		<title>{{post.title}}</title>
  		<link href="{{site.site_url}}{{post.url}}"/>
