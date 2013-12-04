@@ -2,6 +2,8 @@
 
 > “I’d love to see front end designers and developers blogging more about problems they faced and how they solved them.” - Dave Rupert
 
+> "Work hard. Don't be an asshole. Share what you know." — Brad Frost
+
 
 ##Goals
 * Explain my design process and encourage conversation

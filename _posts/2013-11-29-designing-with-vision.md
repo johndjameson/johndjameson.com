@@ -12,14 +12,14 @@ I'm going to be honest with you: I've been designing this website for months. An
 
 **Always determine your vision before working on a project**.
 
-Simply put, a vision specifies the purpose and priorities of a project; without it, you can't create anything truly meaningful because you can't identify the problems you’re trying to solve or even the people you're trying to connect with. If design is thinking made visual, then vision is the catalyst for thought.<sup><a href="">1</a></sup>
+Simply put, a vision specifies the purpose and priorities of a project; without it, you can't create anything truly meaningful because you can't identify the problems you’re trying to solve or even the people you're trying to connect with. If design is thinking made visual, then vision is the catalyst for thought.<sup><a href="#note:1">1</a></sup>
 
 Now, that might sound pretty obvious, but up until just recently, I had no idea what I really wanted to design. My entire motivation could be summarized as "*Well, I bought the domain. Guess I'd better put something up.*" As a result, every idea I tried out completely fell apart. Half a dozen attempts at web design became little more than derivative tech demos. I struggled to learn various tools, libraries, and best practices—hoping effective design would reveal itself somewhere during the process. But in reality, none of the resulting designs ever felt right because I couldn't explain *why* any of them needed to exist.
 
 
 ##Finding My Way
 
-After months of aimlessly toying around in the browser, I eventually realized I wasn't going to get anywhere without a clear vision to guide the way. I had to stop what I was doing, organize my ideas and ambitions, and force myself to give no-bullshit answers when writing up a plan. It wasn't easy or even straightforward, but when all was said and done, I had settled on three well-defined goals.<sup><a href="">2</a></sup>
+After months of aimlessly toying around in the browser, I eventually realized I wasn't going to get anywhere without a clear vision to guide the way. I had to stop what I was doing, organize my ideas and ambitions, and force myself to give no-bullshit answers when writing up a plan. It wasn't easy or even straightforward, but when all was said and done, I had settled on three well-defined goals.<sup><a href="#note:2">2</a></sup>
 
 ###Goals
 
