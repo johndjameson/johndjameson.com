@@ -24,7 +24,7 @@
         $sups.parent().wrap("<div class='post-subject'></div>");
 
         for (var i = 0; i < $sups.length; i++) {
-            $($('.post-subject')[i]).append("<aside class='post-sidenote'><p>" + $($footnoteArray[i]).html() + "</p></aside>");
+            $($('.post-subject')[i]).append("<aside class='post-sidenote' role='complementary'><p>" + $($footnoteArray[i]).html() + "</p></aside>");
         }
     }
 

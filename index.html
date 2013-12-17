@@ -9,7 +9,7 @@ teaser: Front-end developer and designer in Orlando, Florida. Let's get Sassy to
 <div class="l-cell">
 <div class="l-grid">
 
-	<main class="l-grid-box--8">
+	<main class="l-grid-box--8" role="main">
 		<h1>Blog</h1>
 
 		{% for post in site.categories.blog limit:1 %}
@@ -40,13 +40,22 @@ teaser: Front-end developer and designer in Orlando, Florida. Let's get Sassy to
 
 		<ul class="list--icon">
 			<li>
-				<a href="https://twitter.com/johndjameson"><i class="icon--twitter" aria-hidden="true"></i></a>
+				<a href="https://twitter.com/johndjameson">
+				<i class="icon--twitter" aria-hidden="true"></i>
+				<span class="visuallyhidden">Twitter</span>
+				</a>
 			</li>
 			<li>
-				<a href="https://github.com/johndjameson"><i class="icon--github" aria-hidden="true"></i></a>
+				<a href="https://github.com/johndjameson">
+				<i class="icon--github" aria-hidden="true"></i>
+				<span class="visuallyhidden">GitHub</span>
+				</a>
 			</li>
 			<li>
-				<a href="http://dribbble.com/johndjameson"><i class="icon--dribbble" aria-hidden="true"></i></a>
+				<a href="http://dribbble.com/johndjameson">
+				<i class="icon--dribbble" aria-hidden="true"></i>
+				<span class="visuallyhidden">Dribbble</span>
+				</a>
 			</li>
 		</ul>
 	</aside>
