@@ -1,10 +1,10 @@
 (function() {
     var $window = $(window),
-    $document = $(document),
-    $post = $('.post'),
-    $sups = $('.post sup'),
-    $footnotes = $('.post-footnotes'),
-    $disqus = $('#disqus_thread');
+        $document = $(document),
+        $post = $('.post'),
+        $sups = $('.post sup'),
+        $footnotes = $('.post-footnotes'),
+        $disqus = $('#disqus_thread');
 
 
     /*  Developer Tools

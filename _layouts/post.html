@@ -10,16 +10,15 @@ layout: default
 			<h1 class="post-title">{{page.title-display}}</h1>
 
 			<div class="post-meta">
-				<span>{{ page.date | date: "%B %d, %Y" }}</span>
+				<time datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
 				<ul class="post-links">
 					<li><a href="https://twitter.com/intent/tweet?text={{ page.title | cgi_escape }}+by+%40johndjameson+http%3A%2F%2Fjohndjameson.com{{page.url | cgi_escape}}">Tweet</a></li>
-					<li><a href="http://www.facebook.com/sharer.php?s=100&p[url]=http://johndjameson.com{{page.url | cgi_escape}}&p[title]={{page.title}}&p[summary]={{page.lead}}">Share</a></li>
 					<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
 				</ul>
 			</div>
 
 			{% if page.lead %}
-			<p class="post-lead">{{page.lead}}</p>
+			<p class="post-lead"><b>{{page.lead}}</b></p>
 			{% endif %}
 
 		<div class="l-grid">
