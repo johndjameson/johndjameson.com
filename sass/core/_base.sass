@@ -65,6 +65,7 @@ ul
     &::before
       content: "\2022"
       font-size: 150%
+      line-height: 1
       opacity: 0.9
       padding-right: $b-whitespace/4
       text-align: right
@@ -76,10 +77,11 @@ ul
 // -------------------------------------
 
 a
-  border-bottom: 1px solid $c-primary
   color: $c-primary
   font-weight: bold
   text-decoration: none
+  &:hover, &:focus
+    text-decoration: underline
 
 blockquote
   border-left: 1px solid $c-border

@@ -7,7 +7,6 @@
 // *************************************
 
 .post
-  line-height: percentage($b-lineHeight)
   margin: 0 auto
 
 // -------------------------------------
@@ -35,12 +34,8 @@
 // ----- Post Header ----- //
 
 .post-header
-  // border: 2px solid $c-heading
-  // border-left: 0
-  // border-radius: 0 $b-borderRadius $b-borderRadius 0
   color: $c-heading
   margin: 0 0 $b-whitespace*2 0
-  // padding: $b-whitespace*2 $b-whitespace $b-whitespace*2 0
   padding-top: $b-whitespace
   position: relative
 
@@ -59,9 +54,7 @@
   left: 0
   letter-spacing: 0.2em
   line-height: 1
-  // margin-bottom: -0.2em
   margin-bottom: -1em
-  // padding: 0 0.5em 0 0
   position: absolute
   right: 0
   text-align: center
@@ -92,6 +85,7 @@
   border-top: 1px solid $c-border
   color: $c-text-soft
   font-size: em(14px)
+  margin: 0
   padding-top: $b-whitespace
   +respond-to($bp-layout)
     font-size: em(16px, $b-fontSize-bp)
@@ -103,6 +97,7 @@
 
 .post-subject
   position: relative
+  line-height: percentage($b-lineHeight)
 
 // ----- Post Sidenote ----- //
 

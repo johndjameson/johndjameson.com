@@ -3,8 +3,7 @@
         $document = $(document),
         $post = $('.post'),
         $markers = $('.post .post-marker'),
-        $footnotes = $('.post-footnotes'),
-        $disqus = $('#disqus_thread');
+        $footnotes = $('.post-footnotes');
 
 
     /*  Footnotes/Sidenotes

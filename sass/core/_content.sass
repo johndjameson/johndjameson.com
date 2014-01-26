@@ -65,3 +65,11 @@ h4
 
 .c-circle, %c-circle
   border-radius: 50%
+
+.c-soft
+  color: $c-text-soft
+
+.c-small
+  font-size: em(14px)
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)

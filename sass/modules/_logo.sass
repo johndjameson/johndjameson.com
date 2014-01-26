@@ -10,6 +10,10 @@
   color: $c-heading
   font-family: $b-fontFamily-heading
   font-size: em(22px)
+  transition: 0.2s ease-in-out
+  &:hover
+    color: $c-primary
+    text-decoration: none
   +respond-to($bp-layout)
     font-size: em(26px, $b-fontSize-bp)
 
@@ -19,6 +23,7 @@
 
 .logo--b
   font-family: $b-fontFamily-heading
+  margin: 0
 
 // -------------------------------------
 //   States
