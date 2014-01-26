@@ -9,7 +9,7 @@
 //   Headings
 // -------------------------------------
 
-h1, h2, h3, h4, h5, h6,
+h1, h2, h3, h4, h5, h6
   color: $c-heading
   font-family: $b-fontFamily-heading
   line-height: ($b-lineHeight + 1)/2
@@ -25,12 +25,12 @@ h1
 
 h2, h3, h4, h5, h6
   font-size: em(22px)
+  font-weight: 400
   margin: $b-whitespace*2 0 $b-whitespace
   +respond-to($bp-layout)
     font-size: em(26px, $b-fontSize-bp)
 
 h2
-  font-weight: 400
   letter-spacing: 0.25em
   text-transform: uppercase
 
@@ -39,7 +39,6 @@ h3
 
 h4
   font-style: italic
-  font-weight: 400
 
 // -------------------------------------
 //   Utilities

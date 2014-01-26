@@ -5,13 +5,16 @@
 //
 // *************************************
 
-.well
+.well, %well
   background-color: #f4f4f4
   border: 1px solid $c-border
   border-radius: $b-borderRadius
   margin: 0 0 $b-whitespace 0
   overflow: auto
   padding: $b-whitespace
+
+.highlight
+  @extend %well
 
 // -------------------------------------
 //   Modifiers

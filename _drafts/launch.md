@@ -3,9 +3,10 @@ layout: post
 title: Testing Grounds
 title-display: Testing Grounds
 categories: blog
+description: "It seems that it was. She had the surest information that of late he had, when the fit was on him, made use of an opium den in the farthest east of the City."
 ---
 
-<i class="c-smallcaps">Lorem ipsum dolor sit amet</i>: consectetur adipisicing elit. Doloremque, nam, cumque, dolores iure iusto dicta error nesciunt vitae quas deserunt voluptatem eligendi illum. Quod dolore alias voluptate nulla magnam aliquid.
+<i class="c-smallcaps">But there was no great difficulty</i> in the first stage of my adventure. Upper Swandam Lane is a vile alley lurking behind the high wharves which line the north side of the river to the east of London Bridge. Between a slop-shop and a gin-shop, approached by a steep flight of steps leading down to a black gap like the mouth of a cave, I found the den of which I was in search.
 
 ##Heading Level 1
 
@@ -27,11 +28,17 @@ Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod vitae repellendus
 3. Be open about making mistakes.
 4. Promote discussion, don't just recount a sequence of events.
 
-<figure class="well">
-<code><pre>$(document).ready(function(){
-    console.log("Good to go, chief.");
-});</pre></code>
-</figure>
+{% highlight html %}
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TEST TEST TEST</title>
+</head>
+<body>
+
+</body>
+</html>
+{% endhighlight %}
 
 ####Heading Level 3
 

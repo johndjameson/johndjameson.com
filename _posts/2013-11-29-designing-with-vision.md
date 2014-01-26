@@ -3,11 +3,10 @@ layout: post
 title: Designing with Vision
 title-display: Designing with Vision
 categories: blog
+description: "Countless roadblocks hampered the completion of my personal website: problems I invented, problems I solved—and most importantly—problems I can explain my solutions to."
 ---
 
-##Under Construction
-
-I'm going to be honest with you: I've been designing this website for months. And by "designing," I really mean *redesigning*. My laptop contains a graveyard of rejected `index.html` files. Each failed attempt shines in its own unique and spectacular ways, but together they'll always remind me of an invaluable lesson:
+<i class="c-smallcaps">I'm going to be honest with you</i>: I've been designing this website for months. And by "designing," I really mean *redesigning*. My laptop contains a graveyard of rejected `index.html` files. Each failed attempt shines in its own unique and spectacular ways, but together they'll always remind me of an invaluable lesson:
 
 **Always determine your vision before working on a project**.
 
@@ -38,7 +37,7 @@ Now look, I might not be a particularly talented designer or developer, but I'm 
 * Have confidence in your decisions and be willing to learn from your mistakes. Pretty much everyone screws up along the way, so don't be afraid to talk about those experiences.
 
 
-<ul class="post-footnotes">
+<ol class="post-footnotes">
 	<li id="note:1">Jason VanLue does a much better job explaining the importance of vision in his book <a href="http://brandingmatters.net/discoverYourVision.html">Branding Matters</a>.</li>
 	<li id="note:2">A more detailed version is up on this website's <a href="https://github.com/johndjameson/johndjameson.com/blob/master/docs/vision.md">GitHub</a> repo.</li>
-</ul>
+</ol>

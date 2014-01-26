@@ -10,10 +10,6 @@ layout: default
 			<time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
 		</header>
 
-		{% if page.lead %}
-		<p class="post-lead"><b>{{page.lead}}</b></p>
-		{% endif %}
-
 		{{content}}
 
 		<!--<ul class="post-links">

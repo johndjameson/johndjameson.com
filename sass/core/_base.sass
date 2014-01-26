@@ -30,22 +30,49 @@ body
 // -------------------------------------
 
 p
-  @extend %fontSize-a
   margin: 0 0 $b-whitespace
 
 ol, ul
-  @extend %fontSize-a
+  list-style-type: none
   margin: 0 0 $b-whitespace
   padding: 0 0 0 $b-whitespace
-
   ol, ul
     margin: 0
+  li
+    position: relative
+    &::before
+      padding-right: $b-whitespace/4
+      position: absolute
+      right: 100%
+      text-align: right
+      width: $b-whitespace
+
+ol
+  counter-reset: footnote-number
+  li
+    position: relative
+    &::before
+      content: counter(footnote-number) "\2009" ")"
+      counter-increment: footnote-number
+      opacity: 0.9
+
+ul
+  li
+    &::before
+      content: "\2022"
+      font-size: 150%
+      opacity: 0.9
+      padding-right: $b-whitespace/4
+      text-align: right
+      top: -0.1em
+
 
 // -------------------------------------
 //   Inline Content
 // -------------------------------------
 
 a
+  border-bottom: 1px solid $c-primary
   color: $c-primary
   font-weight: bold
   text-decoration: none

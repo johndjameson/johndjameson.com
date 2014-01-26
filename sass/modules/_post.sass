@@ -32,18 +32,25 @@
 //   Submodules
 // -------------------------------------
 
-// ----- Submodule ----- //
+// ----- Post Header ----- //
 
 .post-header
-  border: 2px solid $c-heading
-  border-left: 0
-  border-radius: 0 $b-borderRadius $b-borderRadius 0
+  // border: 2px solid $c-heading
+  // border-left: 0
+  // border-radius: 0 $b-borderRadius $b-borderRadius 0
   color: $c-heading
   margin: 0 0 $b-whitespace*2 0
-  padding: $b-whitespace $b-whitespace $b-whitespace 0
+  // padding: $b-whitespace*2 $b-whitespace $b-whitespace*2 0
+  padding-top: $b-whitespace
   position: relative
-  +respond-to($bp-layout)
-  padding: $b-whitespace*2 $b-whitespace $b-whitespace*2 0
+
+// ----- Post Title ----- //
+
+.post-title
+  text-align: center
+  margin-top: 0
+
+// ----- Post Date ----- //
 
 .post-date
   background-color: $c-background
@@ -52,9 +59,22 @@
   left: 0
   letter-spacing: 0.2em
   line-height: 1
-  margin-bottom: -0.2em
-  padding-right: 0.5em
+  // margin-bottom: -0.2em
+  margin-bottom: -1em
+  // padding: 0 0.5em 0 0
   position: absolute
+  right: 0
+  text-align: center
   text-transform: uppercase
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)
+
+// ----- Post Footnotes ----- //
+
+.post-footnotes
+  border-top: 1px solid $c-border
+  color: $c-text-soft
+  font-size: em(14px)
+  padding-top: $b-whitespace
   +respond-to($bp-layout)
     font-size: em(16px, $b-fontSize-bp)
