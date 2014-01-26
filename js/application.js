@@ -2,7 +2,7 @@
     var $window = $(window),
         $document = $(document),
         $post = $('.post'),
-        $sups = $('.post sup'),
+        $markers = $('.post .post-marker'),
         $footnotes = $('.post-footnotes'),
         $disqus = $('#disqus_thread');
 
@@ -13,15 +13,15 @@
     function createSidenotes() {
         var $footnoteArray = $footnotes.children();
 
-        $sups.parent().wrap("<div class='post-subject'></div>");
+        $markers.parent().wrap("<div class='post-subject'></div>");
 
-        for (var i = 0; i < $sups.length; i++) {
+        for (var i = 0; i < $markers.length; i++) {
             $($('.post-subject')[i]).append("<aside class='post-sidenote' role='complementary'><p>" + $($footnoteArray[i]).html() + "</p></aside>");
         }
     }
 
     function toggleNotes() {
-        if ($footnotes.length > 0 && $sups.length > 0) {
+        if ($footnotes.length > 0 && $markers.length > 0) {
             $post.addClass('has-sidenotes');
         }
     }

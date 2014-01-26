@@ -69,6 +69,23 @@
   +respond-to($bp-layout)
     font-size: em(16px, $b-fontSize-bp)
 
+// ----- Post Marker ----- //
+
+.post-marker
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: none
+  &::before // thin-nonbreaking space that works cross-browser
+    content: "\00a0" // normal nbsp
+    font-size: 0.25em // then make it small
+  a
+    border-bottom: 0
+    letter-spacing: 1px
+    &::before
+      content: "["
+    &::after
+      content: "]"
+
 // ----- Post Footnotes ----- //
 
 .post-footnotes
@@ -78,3 +95,28 @@
   padding-top: $b-whitespace
   +respond-to($bp-layout)
     font-size: em(16px, $b-fontSize-bp)
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: none
+
+// ----- Post Subject ----- //
+
+.post-subject
+  position: relative
+
+// ----- Post Sidenote ----- //
+
+.post-sidenote
+  color: $c-text-soft
+  display: none
+  left: 100%
+  font-size: em(14px)
+  font-style: italic
+  padding-left: $b-whitespace
+  position: absolute
+  top: 0
+  width: 25%
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: block
+      font-size: em(16px, $b-fontSize-bp)
