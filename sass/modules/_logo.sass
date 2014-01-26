@@ -1,11 +1,16 @@
 // *************************************
 //
-//   Module
-//   -> This is an example module
+//   Logo
+//   -> It's my name, yo.
 //
 // *************************************
 
-// .module
+.logo
+  color: $c-heading
+  font-family: $b-fontFamily-heading
+  font-size: em(22px)
+  +respond-to($bp-layout)
+    font-size: em(26px, $b-fontSize-bp)
 
 // -------------------------------------
 //   Modifiers

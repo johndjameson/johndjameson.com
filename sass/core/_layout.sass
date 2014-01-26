@@ -6,122 +6,45 @@
 // *************************************
 
 // -------------------------------------
-//   Cell
-// -------------------------------------
-
-%l-cell, .l-cell
-  margin: 0 auto
-  max-width: $l-maxWidth
-  max-width: rem($l-maxWidth)
-  padding: 0 ($base-whitespace)
-  padding: 0 rem($base-whitespace)
-  +respond-to (40em)
-    padding: 0 ($base-whitespace * 2)
-    padding: 0 rem($base-whitespace * 2)
-  +respond-to (60em)
-    padding: 0 ($base-whitespace * 3)
-    padding: 0 rem($base-whitespace * 3)
-
-// -------------------------------------
-//   Grid
-// -------------------------------------
-
-.l-grid
-  @extend %group
-  margin: 0 -$base-whitespace
-  margin: 0 rem(-$base-whitespace)
-  position: relative
-
-%l-grid-box, .l-grid-box
-  padding: 0 $base-whitespace
-  padding: 0 rem($base-whitespace)
-
-@for $i from 1 through 12
-  .l-grid-box--#{$i}
-    @extend %l-grid-box
-    +respond-to($bp-grid)
-      float: left
-      width: percentage($i / 12)
-
-// -------------------------------------
-//   Row
-// -------------------------------------
-
-%l-row, .l-row
-  padding-bottom: $base-whitespace
-  padding-bottom: rem($base-whitespace)
-  padding-top: $base-whitespace
-  padding-top: rem($base-whitespace)
-
-.l-row--a
-  @extend %l-row
-  padding-top: 0
-
-// -------------------------------------
-//   Utilities
-// -------------------------------------
-
-%l-block, .l-block
-  display: block
-
-%l-condense, .l-condense
-  margin-bottom: rem($base-whitespace / 2)
-
-%l-pullLeft, .l-pullLeft
-  float: left
-
-%l-pullRight, .l-pullRight
-  float: right
-
-%l-space, .l-space
-  margin-bottom: rem($base-whitespace)
-
-%l-xspace, .l-xspace
-  margin-bottom: rem($base-whitespace * 2)
-
-// -------------------------------------
 //   Header
 // -------------------------------------
 
 .l-header
-  background-color: $base-color-a
-  height: rem($base-whitespace * 1.75)
-  margin-bottom: rem($base-whitespace / 2)
-  overflow: hidden
-  +respond-to(25em)
-    height: rem($base-whitespace * 2)
-  +respond-to(30em)
-    height: rem($base-whitespace * 2.5)
-    margin-bottom: rem($base-whitespace)
-  +respond-to(36em)
-    height: rem($base-whitespace * 3)
-  +respond-to(40em)
-    height: rem($base-whitespace * 3.5)
-  +respond-to(46em)
-    height: rem($base-whitespace * 4)
+  border-bottom: 1px solid $c-border
+  margin: $b-whitespace auto $b-whitespace*2
+  max-width: 33em*1.25
+  max-width: calc(33em + #{$b-whitespace}*4)
+  padding-bottom: $b-whitespace
+  text-align: center
 
-  .l-header-logo
-    color: $base-background
-    display: block
-    font-size: rem($base-fontSize * 3.5)
-    font-weight: 900
-    letter-spacing: 1px
-    line-height: 1
-    margin: 0
-    text-align: center
-    +text-shadow(1px 1px 0 black, 2px 2px 0 black, 3px 3px 0 black)
-    text-transform: uppercase
-    &:hover, &:focus
-      background-color: mix($base-color-a, $base-background, 85%)
-    +respond-to(25em)
-      font-size: rem($base-fontSize * 4)
-    +respond-to(30em)
-      font-size: rem($base-fontSize * 5)
-      letter-spacing: 2px
-    +respond-to(36em)
-      font-size: rem($base-fontSize * 6)
-    +respond-to(40em)
-      font-size: rem($base-fontSize * 7)
-    +respond-to(46em)
-      font-size: rem($base-fontSize * 8)
-      letter-spacing: 3px
+// -------------------------------------
+//   Main Content Area
+// -------------------------------------
+
+.l-main
+  margin: 0 auto
+  max-width: 33em
+
+// -------------------------------------
+//   Footer
+// -------------------------------------
+
+.l-footer
+  border: 1px solid $c-border
+  border-left: 0
+  border-right: 0
+  margin: $b-whitespace*2 auto $b-whitespace
+  max-width: 33em*1.25
+  max-width: calc(33em + #{$b-whitespace}*4)
+  padding: $b-whitespace 0
+
+// -------------------------------------
+//   Footer Quote
+// -------------------------------------
+
+.l-quote
+  color: $c-subdued
+  font-size: em(14px)
+  text-align: center
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)

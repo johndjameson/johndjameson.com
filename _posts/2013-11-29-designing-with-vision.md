@@ -2,7 +2,6 @@
 layout: post
 title: Designing with Vision
 title-display: Designing with Vision
-lead: "Countless roadblocks hampered the completion of my personal website: problems I invented, problems I solved—and most importantly—problems I can explain my solutions to."
 categories: blog
 ---
 

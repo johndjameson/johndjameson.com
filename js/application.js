@@ -7,17 +7,9 @@
         $disqus = $('#disqus_thread');
 
 
-    /*  Developer Tools
-    ==================================================*/
-
-    function devResize() {
-        $('#dev_log').html($window.width() + "px, " + $window.width()/16 + "em");
-    }
-
-
     /*  Footnotes/Sidenotes
     ==================================================*/
-        
+
     function createSidenotes() {
         var $footnoteArray = $footnotes.children();
 
@@ -35,27 +27,11 @@
     }
 
 
-    /*  Disqus
-    ==================================================*/
-
-    function createComments() {
-        var disqus_shortname = 'johndjameson',
-            dsq = document.createElement('script');
-            dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-
-        if ($disqus.length > 0) {
-            (document.getElementsByTagName('body')[0]).appendChild(dsq);
-        }
-    }
-
-
     /*  Event Listeners
     ==================================================*/
 
     $document.ready(function() {
         createSidenotes();
-        createComments();
         toggleNotes();
     });
 

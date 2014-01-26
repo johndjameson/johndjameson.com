@@ -9,55 +9,60 @@
 //   Headings
 // -------------------------------------
 
-h1, h2, h3,
-h4, h5, h6,
-.c-h1, .c-h2, .c-h3,
-.c-h4, .c-h5, .c-h6
-  @extend %l-space
-  color: $base-header-color
-  font-family: $c-header-fontFamily
-  font-weight: bold
-  line-height: 1.375
-  margin-top: 0
+h1, h2, h3, h4, h5, h6,
+  color: $c-heading
+  font-family: $b-fontFamily-heading
+  line-height: ($b-lineHeight + 1)/2
+  margin: 0
 
-h1, .c-h1, %c-h1
-  @extend %fontSize-f
-  line-height: 1.15
+h1
+  font-size: em(26px)
+  font-weight: 700
+  +respond-to(30em)
+    font-size: em(36px)
+  +respond-to($bp-layout)
+    font-size: em(56px, $b-fontSize-bp)
 
-h2, .c-h2, %c-h2
-  @extend %fontSize-e
-  line-height: 1.2
+h2, h3, h4, h5, h6
+  font-size: em(22px)
+  margin: $b-whitespace*2 0 $b-whitespace
+  +respond-to($bp-layout)
+    font-size: em(26px, $b-fontSize-bp)
 
-h3, .c-h3, %c-h3
-  @extend %fontSize-d
-  line-height: 1.25
+h2
+  font-weight: 400
+  letter-spacing: 0.25em
+  text-transform: uppercase
 
-h4, .c-h4, %c-h4
-  @extend %fontSize-c
-  line-height: 1.3
+h3
+  font-weight: 700
 
-h5, .c-h5, %c-h5
-  @extend %fontSize-b
-  line-height: 1.375
-
-h6, .c-h6, %c-h6
-  @extend %fontSize-a
-  line-height: 1.45
+h4
+  font-style: italic
+  font-weight: 400
 
 // -------------------------------------
 //   Utilities
 // -------------------------------------
 
-%c-center, .c-center
+.c-center, %c-center
   text-align: center
 
-%c-condense, .c-condense
+.c-condense, %c-condense
   font-size: 85%
 
-%c-lead, .c-lead
+.c-lead, %c-lead
   font-size: 125%
 
-%c-shout, .c-shout
-  letter-spacing: 1px
+.c-shout, %c-shout
+  font-size: 90%
+  letter-spacing: 0.25em
   text-transform: uppercase
-  word-spacing: 1px
+
+%c-smallcaps, .c-smallcaps
+  @extend %c-shout
+  font-family: $b-fontFamily-heading
+  font-style: normal
+
+.c-circle, %c-circle
+  border-radius: 50%
