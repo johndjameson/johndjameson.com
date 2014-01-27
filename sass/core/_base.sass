@@ -29,10 +29,6 @@ body
 //   Block Content
 // -------------------------------------
 
-abbr
-  font-size: 90%
-  letter-spacing: 0.1em
-
 p
   margin: 0 0 $b-whitespace
 
@@ -83,6 +79,10 @@ a
   &:hover, &:focus
     text-decoration: underline
 
+abbr
+  font-size: 90%
+  letter-spacing: 0.1em
+
 blockquote
   border-left: 1px solid $c-border
   color: $c-heading
@@ -96,10 +96,15 @@ code
 img
   display: block
   max-width: 100%
-  margin: 0 auto
+  margin: 0 auto $b-whitespace
 
 p
   margin: 0 0 $b-whitespace 0
+  code
+    background-color: #f4f4f4
+    border-radius: $b-borderRadius/2
+    font-size: 85%
+    padding: 0 0.25em
 
 pre
   font-family: inherit
