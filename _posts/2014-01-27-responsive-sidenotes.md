@@ -71,6 +71,7 @@ function createSidenotes() {
 
     for (var i = 0; i < $markers.length; i++) {
         $($('.post-subject')[i]).append(
+            // role='complementary' provided for ARIA support
             "<aside class='post-sidenote' role='complementary'><p>"
             + $($footnoteArray[i]).html()
             + "</p></aside>"
@@ -134,16 +135,6 @@ Using the following <abbr>CSS</abbr>, let's take care of all of those goals one 
 .post-marker a::after {
   content: "]";
 }
-@media screen and (min-width: 800px) {
-  .post.has-sidenotes .post-marker {
-    display: none;
-  }
-}
-@media screen and (min-width: 800px) {
-  .post.has-sidenotes .post-footnotes {
-    display: none;
-  }
-}
 .post-subject {
   position: relative;
 }
@@ -157,6 +148,10 @@ Using the following <abbr>CSS</abbr>, let's take care of all of those goals one 
   width: 25%;
 }
 @media screen and (min-width: 800px) {
+  .post.has-sidenotes .post-marker,
+  .post.has-sidenotes .post-footnotes {
+    display: none;
+  }
   .post.has-sidenotes .post-sidenote {
     display: block;
   }

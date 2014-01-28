@@ -18,8 +18,9 @@ Now have fun looking around. :)
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 	<title>{{ page.title }} | John D. Jameson</title>
-
-	<meta name="description" content="Web designer and front-end developer in Orlando, Florida.">
+	{% if page.title == "Home" %}
+	<meta name="description" content="{{ page.description }}">
+	{% endif %}
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="author" href="https://plus.google.com/u/0/113914298266231922059/posts">
 	<link rel="alternate" type="application/rss+xml"  href="http://www.johndjameson.com/feed.xml" title="John D. Jameson">
