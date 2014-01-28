@@ -9,76 +9,106 @@
   +box-sizing(border-box)
 
 html
-  font-size: $base-fontSize
+  font-size: 100%
+  +respond-to($bp-layout)
+    font-size: percentage($b-fontSize-bp/$b-fontSize)
 
 body
-  background: $base-background
-  color: $base-color
-  font-family: $base-fontFamily
-  font-size: 100%
-  line-height: $base-lineHeight
+  background: $c-background
+  color: $c-text
+  font-family: $b-fontFamily
+  line-height: $b-lineHeight
+  padding: 0 $b-whitespace
+  text-rendering: optimizeLegibility
 
-::selection
-  background-color: mix($base-color-a, $base-background, 85%)
-  color: $base-background
+
+//::selection
+
 
 // -------------------------------------
 //   Block Content
 // -------------------------------------
 
 p
-  @extend %fontSize-a
-  margin: 0 0 rem($base-whitespace)
+  margin: 0 0 $b-whitespace
 
 ol, ul
-  @extend %fontSize-a
-  margin: 0 0 rem($base-whitespace)
-  padding: 0 0 0 rem($base-whitespace)
-  
+  list-style-type: none
+  margin: 0 0 $b-whitespace
+  padding: 0 0 0 $b-whitespace
   ol, ul
     margin: 0
+  li
+    position: relative
+    &::before
+      padding-right: $b-whitespace/4
+      position: absolute
+      right: 100%
+      text-align: right
+      width: $b-whitespace
+
+ol
+  counter-reset: footnote-number
+  li
+    position: relative
+    &::before
+      content: counter(footnote-number) "\2009" ")"
+      counter-increment: footnote-number
+      opacity: 0.9
+
+ul
+  li
+    &::before
+      content: "\2022"
+      font-size: 150%
+      line-height: 1
+      opacity: 0.9
+      padding-right: $b-whitespace/4
+      text-align: right
+      top: -0.1em
+
 
 // -------------------------------------
 //   Inline Content
 // -------------------------------------
 
 a
-  @extend %transition-fast
-  border-bottom: 2px solid $base-link-background
-  color: $base-link-color
+  color: $c-primary
   font-weight: bold
   text-decoration: none
-
   &:hover, &:focus
-    background-color: $base-link-background
-    +box-shadow(-0.125em 0 0 $base-link-background, 0.125em 0 0 $base-link-background)
+    text-decoration: underline
 
 abbr
-  @extend %c-shout
-  font-size: 95%
-
-b
-  font-weight: normal
+  font-size: 90%
+  letter-spacing: 0.1em
 
 blockquote
-  margin: rem($base-whitespace) 0
-  border-left: 4px solid $base-color-a
-  padding: 0 rem($base-whitespace)
-
-  &:first-child
-    margin-top: 0
+  border-left: 1px solid $c-border
+  color: $c-heading
+  font-style: italic
+  margin: 0
+  padding: 0 0 0 $b-whitespace
 
 code
-  +box-shadow(-0.125em 0 0 mix($base-link-background, $base-background, 50%), 0.125em 0 0 mix($base-link-background, $base-background, 50%))
-  background: mix($base-link-background, $base-background, 50%)
-  font-family: $c-mono-fontFamily
-  font-size: 90%
+  font-family: $b-fontFamily-monospace
+  p &, li &
+    background-color: #f4f4f4
+    border-radius: $b-borderRadius/2
+    font-size: 85%
+    padding: 0 0.25em
 
-em
-  font-style: italic
+img
+  display: block
+  max-width: 100%
+  margin: 0 auto $b-whitespace
 
-strong
-  font-weight: bold
+p
+  margin: 0 0 $b-whitespace 0
+
+pre
+  font-family: inherit
+  margin: 0
 
 sup
   font-size: 0.7em

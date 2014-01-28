@@ -11,7 +11,7 @@
 
 // ----- em ----- //
 
-@function em($target, $context: $base-fontSize)
+@function em($target, $context: $b-fontSize)
   @if ($target == 0)
     @return 0
   @else
@@ -50,7 +50,7 @@
 
 // ----- Clearfix ----- //
 
-%group:after
+%group::after
   clear: both
   content: ''
   display: table
@@ -61,7 +61,7 @@
   background-color: transparent
   border: 0
   overflow: hidden
-  &:before
+  &::before
     content: ''
     display: block
     width: 0
@@ -76,64 +76,6 @@
   padding: 0
   position: absolute
   width: 1px
-
-// ----- Font Sizes (Responsive) ----- //
-
-%fontSize-aaa
-  font-size: $base-fontSize-aaa
-  font-size: rem($base-fontSize-aaa)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-aaa * 1.1
-    font-size: rem($base-fontSize-aaa * 1.1)
-
-%fontSize-aa
-  font-size: $base-fontSize-aa
-  font-size: rem($base-fontSize-aa)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-aa * 1.1 
-    font-size: rem($base-fontSize-aa * 1.1)
-
-%fontSize-a
-  font-size: $base-fontSize
-  font-size: rem($base-fontSize)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize * 1.1
-    font-size: rem($base-fontSize * 1.1)
-
-%fontSize-b
-  font-size: $base-fontSize-b
-  font-size: rem($base-fontSize-b)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-b * 1.1 
-    font-size: rem($base-fontSize-b * 1.1)
-
-%fontSize-c
-  font-size: $base-fontSize-c
-  font-size: rem($base-fontSize-c)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-c * 1.1
-    font-size: rem($base-fontSize-c * 1.1)
-
-%fontSize-d
-  font-size: $base-fontSize-d
-  font-size: rem($base-fontSize-d)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-d * 1.1
-    font-size: rem($base-fontSize-d * 1.1)
-
-%fontSize-e
-  font-size: $base-fontSize-e
-  font-size: rem($base-fontSize-e)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-e * 1.1
-    font-size: rem($base-fontSize-e * 1.1)
-
-%fontSize-f
-  font-size: $base-fontSize-f
-  font-size: rem($base-fontSize-f)
-  +respond-to($bp-fontSize-a)
-    font-size: $base-fontSize-f * 1.1
-    font-size: rem($base-fontSize-f * 1.1)
 
 // -------------------------------------
 //   Animations

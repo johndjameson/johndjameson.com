@@ -1,41 +1,25 @@
 // *************************************
 //
-//   List
-//   -> Variations on your standard ol
-//      and ul elements.
+//   Highlight
+//   -> Code blocks
 //
 // *************************************
 
-// .list
+.highlight
+  @extend %well
+  background-color: #f4f4f4
+  font-size: em(14px)
+  overflow: auto
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)
+  code
+    white-space: pre
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-.list--block, %list--block
-  list-style-type: none
-  margin: 0
-  padding: 0
-  li
-    &::before
-      content: ""
-
-.list--social
-  @extend %list--block
-  border-top: 1px solid $c-border
-  text-align: center
-  li
-    border-bottom: 1px solid $c-border
-    padding: $b-whitespace/2
-  +respond-to($bp-layout)
-    border: 0
-    margin: 0
-    padding-top: 0
-    text-align: left
-    li
-      border: 0
-      padding: 0
-
+// .module--modifier
 
 // -------------------------------------
 //   States

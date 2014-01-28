@@ -1,65 +1,18 @@
 ---
 layout: default
 title: Home
-title-display: Articles
-teaser: Front-end developer and designer in Orlando, Florida. Let's get Sassy together.
+description: Web designer and front-end developer in Orlando, Florida.
 ---
 
-<div class="l-row">
-<div class="l-cell">
-<div class="l-grid">
+<main class="l-main" role="main">
 
-	<main class="l-grid-box--8" role="main">
-		<h1>Blog</h1>
+	{% for post in site.categories.blog %}
+	<div class="preview">
+		<time class="preview-date">{{ post.date | date: "%B %d, %Y" }}</time>
+		<h1 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h1>
 
-		{% for post in site.categories.blog limit:1 %}
-		<div class="preview">
-			<p class="preview-date"><time datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ post.date | date: "%b %d, %Y" }}</time></p>
-			<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+		<p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
 
-			<p>{{post.lead}}</p>
-
-			<p><a href="{{post.url}}">Continue Reading &raquo;</a></p>
-		</div>
-		{% endfor %}
-
-		{% for post in site.categories.blog offset:1 %}
-			<div class="preview">
-				<p class="preview-date">{{ post.date | date: "%b %d, %Y" }}</p>
-				<h2 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h2>
-				
-				<p class="preview-teaser">{{post.teaser}}</p>
-			</div>
-		{% endfor %}
-	</main>
-
-	<aside class="l-grid-box--4">
-		<h1>About Me</h1>
-		<p>I’m John—<strong>web designer</strong> and developer in Orlando, Florida.</p>
-		<p>When not busy debating semantic <abbr>HTML</abbr>, I enjoy learning <strong><abbr>CSS</abbr> architecture</strong>, as well as typography, design, and all things <strong>front&#x2011;end</strong>.</p>
-
-		<ul class="list--icon">
-			<li>
-				<a href="https://twitter.com/johndjameson">
-				<i class="icon--twitter" aria-hidden="true"></i>
-				<span class="visuallyhidden">Twitter</span>
-				</a>
-			</li>
-			<li>
-				<a href="https://github.com/johndjameson">
-				<i class="icon--github" aria-hidden="true"></i>
-				<span class="visuallyhidden">GitHub</span>
-				</a>
-			</li>
-			<li>
-				<a href="http://dribbble.com/johndjameson">
-				<i class="icon--dribbble" aria-hidden="true"></i>
-				<span class="visuallyhidden">Dribbble</span>
-				</a>
-			</li>
-		</ul>
-	</aside>
-
-</div>
-</div>
-</div>
+	</div>
+	{% endfor %}
+</main>

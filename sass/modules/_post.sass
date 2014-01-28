@@ -1,122 +1,119 @@
 // *************************************
 //
 //   Post
-//   -> A single post/article
-//      - contains footnotes
-// 
+//   -> This is a self-contained blog
+//      post.
 //
 // *************************************
 
 .post
-  position: relative
-
-  img
-    max-width: 100%
-  
-  sup
-    +respond-to($bp-grid)
-      display: none
-
-    &::before // thin-nonbreaking space that works cross-browser
-      content: "\00a0" // normal nbsp
-      font-size: 0.25em // then make it small
-
-    a
-      border-bottom: 0
-      letter-spacing: 1px
-
-      &::before
-        content: "["
-
-      &::after
-        content: "]"
+  margin: 0 auto
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .post--modifier
+// .module--modifier
 
 // -------------------------------------
 //   States
 // -------------------------------------
 
-// .is-post-state
+// .is-module-state
 
 // -------------------------------------
 //   Context
 // -------------------------------------
 
-.post.has-sidenotes
-  .post-sidenote
-    display: none
-    +respond-to($bp-grid)
-      display: block
-
-  .post-footnotes
-    +respond-to($bp-grid)
-      display: none
+// .has-module
 
 // -------------------------------------
-//   Subposts
+//   Submodules
 // -------------------------------------
+
+// ----- Post Header ----- //
+
+.post-header
+  color: $c-heading
+  margin: 0 0 $b-whitespace*2 0
+  padding-top: $b-whitespace
+  position: relative
+
+// ----- Post Title ----- //
 
 .post-title
-  // margin-bottom: rem($base-whitespace / 2)
+  text-align: center
+  margin-top: 0
 
-.post-meta
-  @extend %fontSize-aa
-  color: $base-color-soft
+// ----- Post Date ----- //
 
-.post-links
-  @extend .list--inline
-  font-size: inherit
+.post-date
+  background-color: $c-background
+  bottom: 100%
+  font-size: em(14px)
+  left: 0
+  letter-spacing: 0.2em
+  line-height: 1
+  margin-bottom: -1em
+  position: absolute
+  right: 0
+  text-align: center
+  text-transform: uppercase
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)
 
-.post-lead
-  @extend %fontSize-c
-  +respond-to(50em)
-    @extend %fontSize-d
+// ----- Post Marker ----- //
 
-.post-image--full
-  max-width: 100%
-  +respond-to($bp-grid)
-    max-width: none
-    width: 150%
+.post-marker
+  font-size: 70%
+  position: relative
+  top: -0.4em
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: none
+  &::before // thin-nonbreaking space that works cross-browser
+    content: "\00a0" // normal nbsp
+    font-size: 0.25em // then make it small
+  a
+    letter-spacing: 1px
+    &::before
+      content: "["
+    &::after
+      content: "]"
+
+// ----- Post Footnotes ----- //
+
+.post-footnotes
+  border-top: 1px solid $c-border
+  color: $c-text-soft
+  font-size: em(14px)
+  margin: 0
+  padding-top: $b-whitespace
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: none
+
+// ----- Post Subject ----- //
 
 .post-subject
   position: relative
+  line-height: percentage($b-lineHeight)
+
+// ----- Post Sidenote ----- //
 
 .post-sidenote
-  @extend %fontSize-aa
-  color: $base-color-soft
-  font-style: italic
+  color: $c-text-soft
+  display: none
   left: 100%
-  line-height: ($base-fontSize * $base-lineHeight / $base-fontSize-aa)
-  margin-left: rem($base-whitespace)
-  padding: 0 rem($base-whitespace)
+  font-size: em(14px)
+  font-style: italic
+  padding-left: $b-whitespace
   position: absolute
   top: 0
-
-  width: percentage(1/2)
-  p
-    @extend %fontSize-aa
-
-  > :last-child
-    margin-bottom: 0
-
-.post-footnotes
-  @extend %fontSize-aa
-  border-top: 2px solid $base-color-softest
-  margin-bottom: rem($base-whitespace)
-  padding-top: rem($base-whitespace)
-  color: $base-color-soft
-  counter-reset: footnote-number
-  list-style-type: none
-  position: relative
-
-  li
-    &::before
-      content: counter(footnote-number) "\2009" ")"
-      counter-increment: footnote-number
-      position: absolute
-      margin-left: rem(-$base-whitespace)
+  width: 25%
+  .post.has-sidenotes &
+    +respond-to($bp-sidenotes)
+      display: block
+      font-size: em(16px, $b-fontSize-bp)

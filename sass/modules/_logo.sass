@@ -1,41 +1,29 @@
 // *************************************
 //
-//   List
-//   -> Variations on your standard ol
-//      and ul elements.
+//   Logo
+//   -> It's my name, yo.
 //
 // *************************************
 
-// .list
+.logo
+  border: 0
+  color: $c-heading
+  font-family: $b-fontFamily-heading
+  font-size: em(22px)
+  transition: 0.2s ease-in-out
+  &:hover
+    color: $c-primary
+    text-decoration: none
+  +respond-to($bp-layout)
+    font-size: em(26px, $b-fontSize-bp)
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-.list--block, %list--block
-  list-style-type: none
+.logo--b
+  font-family: $b-fontFamily-heading
   margin: 0
-  padding: 0
-  li
-    &::before
-      content: ""
-
-.list--social
-  @extend %list--block
-  border-top: 1px solid $c-border
-  text-align: center
-  li
-    border-bottom: 1px solid $c-border
-    padding: $b-whitespace/2
-  +respond-to($bp-layout)
-    border: 0
-    margin: 0
-    padding-top: 0
-    text-align: left
-    li
-      border: 0
-      padding: 0
-
 
 // -------------------------------------
 //   States

@@ -1,44 +1,64 @@
 // *************************************
 //
 //   Preview
-//   -> Links to blog posts
+//   -> A preview of a blog post with a
+//      little excerpt.
 //
 // *************************************
 
 .preview
-	border-left: 4px solid $base-color-a
-	margin-bottom: rem($base-whitespace * 1)
-	padding: rem($base-whitespace / 2) 0 rem($base-whitespace / 2) rem($base-whitespace)
+  margin: 0 0 $b-whitespace*2 0
+  padding: $b-whitespace 0 0 0
+  position: relative
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .preview--latest
+// .module--modifier
 
 // -------------------------------------
 //   States
 // -------------------------------------
 
-// .is-preview-state
+// .is-module-state
 
 // -------------------------------------
 //   Context
 // -------------------------------------
 
-// .has-preview
+// .has-module
 
 // -------------------------------------
-//   Subpreviews
+//   Submodules
 // -------------------------------------
 
-// ----- Subpreview ----- //
+// ----- Submodule ----- //
 
 .preview-title
-	// margin-bottom: rem($base-whitespace / 4)
+  font-size: em(26px)
+  margin: 0 0 $b-whitespace 0
+  +respond-to($bp-layout)
+    font-size: em(42px, $b-fontSize-bp)
+  a
+    border: 0
+    color: inherit
+    transition: 0.2s ease-in-out
+    &:hover
+      color: $c-primary
+      text-decoration: none
 
 .preview-date
-	@extend %c-shout
-	@extend %fontSize-aa
-	color: $base-color-soft
-	margin-bottom: rem($base-whitespace / 2)
+  bottom: 100%
+  color: $c-heading
+  display: block
+  font-size: em(14px)
+  left: 0
+  letter-spacing: 0.2em
+  line-height: 1
+  margin-bottom: -1em
+  position: absolute
+  right: 0
+  text-transform: uppercase
+  +respond-to($bp-layout)
+    font-size: em(16px, $b-fontSize-bp)
