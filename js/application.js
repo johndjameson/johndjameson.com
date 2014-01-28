@@ -34,7 +34,4 @@
         toggleNotes();
     });
 
-    $window.resize(function() {
-        devResize();
-    });
 }());

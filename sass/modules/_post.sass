@@ -65,6 +65,9 @@
 // ----- Post Marker ----- //
 
 .post-marker
+  font-size: 70%
+  position: relative
+  top: -0.4em
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
       display: none
@@ -72,7 +75,6 @@
     content: "\00a0" // normal nbsp
     font-size: 0.25em // then make it small
   a
-    border-bottom: 0
     letter-spacing: 1px
     &::before
       content: "["
