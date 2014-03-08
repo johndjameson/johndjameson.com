@@ -41,7 +41,7 @@ By adding the URI-encoded string `&text=%26` to a Google Fonts URL inside our CS
 @import url(http://fonts.googleapis.com/css?family=Font+Name&text=%26);
 {% endhighlight %}
 
-We can then create an ampersand class to apply throughout our HTML. Using some of the fonts discussed in previously mentioned articles, we're able to provide acceptable fallbacks in the event unlikely event Google Fonts aren't supported.
+We can then create an ampersand class to apply throughout our HTML. Using some of the fonts discussed in previously mentioned articles, we're able to provide acceptable fallbacks in the unlikely event Google Fonts aren't supported.
 
 {% highlight css %}
 .amp {
@@ -88,7 +88,7 @@ With our CSS in its current state, querying the Google Fonts API for a single am
 }
 {% endhighlight %}
 
-Because of different implentations of `@font-face` accross older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection in favor of making fewer <abbr>HTTP</abbr> requests, then we can paste this CSS directly into our stylesheet. Our fallback fonts are more important here, just in case something goes wrong
+Because of different implentations of `@font-face` accross older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection in favor of making fewer <abbr>HTTP</abbr> requests, then we can paste this CSS directly into our stylesheet.
 
 {% highlight css %}
 @font-face {
@@ -106,21 +106,31 @@ Because of different implentations of `@font-face` accross older browsers, Googl
 }
 {% endhighlight %}
 
-Alternatively, we can just grab the WOFF file Google provides and manually encode it as Base64 straight into the stylesheet, saving ourselves an additional HTTP request in the process.
+Alternatively, we can manually download the WOFF file Google provides and encode it as Base64 straight into the stylesheet, saving ourselves an additional HTTP request as part of the process.
 
+Altough Google's CSS references both WOFF2 and WOFF files, we need only the WOFF file in our own stylesheet. The main advantage of the <abbr>WOFF2</abbr> format is its smaller file size, but because we are embeddeding actual font data directly in the <abbr>CSS</abbr>, it makes little sense to include both file formats. A standard <abbr>WOFF</abbr> file has better support and makes a reliable default in the majority of browsers.<sup class="post-marker"><a href="#note:2">2</a></sup>
 
+To convert a file to Base64, we can use an [online tool][base64] or the following Terminal command:
 
-The main advantage of the <abbr>WOFF2</abbr> format is its smaller file size, but because we are embeddeding minimal font data directly in the <abbr>CSS</abbr>, it makes little sense to include both file formats. A standard <abbr>WOFF</abbr> file has more browser support and will do just fine.
+{% highlight bash %}
+openssl base64 -in input-file.ext -out output-file.ext
+{% endhighlight %}
+
+Then we add the resulting Base64 string inside our authored CSS.
 
 {% highlight css %}
 @font-face {
-  font-family: "Font Name";
+  font-family: "Font Name", "Baskerville", "Palatino", inherit;
   font-style: italic;
   font-weight: 400;
   src: url(data:application/font-woff;charset=utf-8;base64,/*base64 string*/) format('woff');
 }
 {% endhighlight %}
 
+And that's it&mdash;for real this time! Using Google Fonts, a little-known query string, and a touch of Base64 magic, we're able to encode stunning ampersands directly into our CSS files and with very a microscopic file size. This approach won't always work perfecly, but it's definitely a step toward upping your type game on the web.<sup class="post-marker"><a href="#note:3">3</a></sup>
+
 <ol class="post-footnotes">
     <li id="note:1">Check out <a href="http://codepen.io/johndjameson/full/qzmFf">Elegant Ampersands</a> on CodePen for some beautiful examples.</li>
+    <li id="note:1">Can I Use indicates limited <a href="http://caniuse.com/#search=woff">WOFF support</a> by the Android browser. Heads-up on that.</li>
+    <li>Steps 2 through infinite courtesy of <a href="http://jessicahische.is/talkingtype">Jessica Hische</a>.</li>
 </ol>
