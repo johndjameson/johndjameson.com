@@ -39,5 +39,5 @@ Now look, I might not be a particularly talented designer or developer, but I'm 
 
 <ol class="post-footnotes">
 	<li id="note:1">Jason VanLue does a much better job explaining the importance of vision in his book <a href="http://brandingmatters.net/discoverYourVision.html">Branding Matters</a>.</li>
-	<li id="note:2">A more detailed version is up on this website's <a href="https://github.com/johndjameson/johndjameson.com/blob/master/docs/vision.md">GitHub</a> repo.</li>
+	<li id="note:2">A more detailed version is up on this website's <a href="https://github.com/johndjameson/johndjameson.com/blob/master/_docs/vision.md">GitHub</a> repo.</li>
 </ol>
