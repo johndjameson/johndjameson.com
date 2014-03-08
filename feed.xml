@@ -4,8 +4,8 @@ layout: nil
 
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
- 
- <title>{{site.name}}</title>
+
+ <title>{{site.name | xml_escape}}</title>
  <link href="http://johndjameson.com/feed.xml" rel="self"/>
  <link href="http://johndjameson.com/"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
@@ -17,7 +17,7 @@ layout: nil
 
  {% for post in site.categories.blog %}
  	<entry>
- 		<title>{{post.title}}</title>
+ 		<title>{{post.title | xml_escape}}</title>
  		<link href="{{site.site_url}}{{post.url}}"/>
  		<updated>{{post.date | date_to_xmlschema}}</updated>
  		<id>{{site.site_url}}{{post.id}}</id>
