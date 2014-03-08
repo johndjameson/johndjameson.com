@@ -6,7 +6,7 @@ categories: blog
 description: "Footnotes and sidenotes are both useful ways to annotate online blog posts and articles. With the help of responsive design, it's now possible to use both approaches at the same time."
 ---
 
-<i class="c-smallcaps">If you resize your browser window</i>, you’ll notice that the footnotes at the very bottom of the page transform into sidenotes alongside body paragraphs.<sup class="post-marker"><a href="#note:1">1</a></sup> The numbered links within body text also appear and disappear, depending on the width of the browser. It’s a useful technique to display additional information on devices with ample screen space but still present the information to people using smaller devices.
+<span class="post-intro">If you resize your browser window</span>, you’ll notice that the footnotes at the very bottom of the page transform into sidenotes alongside body paragraphs.<sup class="post-marker"><a href="#note:1">1</a></sup> The numbered links within body text also appear and disappear, depending on the width of the browser. It’s a useful technique to display additional information on devices with ample screen space but still present the information to people using smaller devices.
 
 Let’s check out the code that makes it work.
 

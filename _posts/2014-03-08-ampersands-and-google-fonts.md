@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Ampersands & Google Fonts
-title-display: Ampersands <span class="amp">&amp;</span> Google&nbsp;Fonts
+title-display: Ampersands <b class="amp">&amp;</b> Google&nbsp;Fonts
 categories: blog
 description: "Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before."
 ---
@@ -14,9 +14,9 @@ description: "Titles, headings, and display text can all benefit from the use of
 [base64]: http://www.motobit.com/util/base64-decoder-encoder.asp
 
 
-<i class="c-smallcaps">Ampersands are used most effectively</i> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate character. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
+<span class="post-intro">Ampersands are used most effectively</span> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate character. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
 
-<img src="/img/ampersands-baskerville.svg" alt="Baskerville's ampersand compared with Baskerville Italic's ampersand">
+![Baskerville's ampersand compared with Baskerville Italic's ampersand](/img/ampersands-baskerville.svg)
 
 **But what do you do if the italic version of a font lacks an interesting ampersand?**
 
@@ -44,10 +44,10 @@ Then we create an ampersand class to apply throughout our <abbr>HTML</abbr>. Usi
 }
 {% endhighlight %}
 
-We can now mark up ampersands anywhere in our <abbr>HTML</abbr> by using `span` elements with a class of `amp`.
+We can now identify ampersands anywhere in our markup by using the new-and-improved <abbr>HTML5</abbr> `<b>` elements with a class name of `amp`.
 
 {% highlight html %}
-Ampersands <span class="amp">&amp;</span> Google Fonts
+Ampersands <b class="amp">&amp;</b> Google Fonts
 {% endhighlight %}
 
 Now that our <abbr>HTML</abbr> is marked up as intended, we have everything we need in place to start adding elegant, well-supported ampersands to our web design projects. ***But* if you're interested in sanding out a few of the rough edges, there's still *a little more* work we can do.**
@@ -55,7 +55,7 @@ Now that our <abbr>HTML</abbr> is marked up as intended, we have everything we n
 
 ##Making Improvements
 
-With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>API</abbr> for a single ampersand takes up *two* <abbr>HTTP</abbr> requests. The first response contains the <abbr>CSS</abbr> file we previously imported into our stylesheet, specifying a `@font-face` declaration for the requested font (the second <abbr>HTTP</abbr> request).
+With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>API</abbr> for a single ampersand takes up *two* <abbr>HTTP</abbr> requests. The first response contains the <abbr>CSS</abbr> file we previously imported into our stylesheet, specifying a `@font-face` declaration for the requested font, which becomes the second <abbr>HTTP</abbr> request.
 
 {% highlight css %}
 @font-face {
