@@ -14,20 +14,20 @@ description: "Titles, headings, and display text can all benefit from the use of
 [base64]: http://www.motobit.com/util/base64-decoder-encoder.asp
 
 
-<span class="post-intro">Ampersands are used most effectively</span> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate character. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
+<span class="post-intro">Ampersands are used most effectively</span> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
 
 ![Baskerville's ampersand compared with Baskerville Italic's ampersand](/img/ampersands-baskerville.svg)
 
 **But what do you do if the italic version of a font lacks an interesting ampersand?**
 
-[Dan Cederholm][simplebits] and [Chris Coyier][css1] explored this issue a few years ago, offering a way to mark up ampersands within a span element and then providing a series of fallback fonts via <abbr>CSS</abbr>. Most of the fallbacks mentioned, however, are entirely reliant on <abbr>OS X</abbr> system fonts, offering a less-than-ideal experience to the majority of people browsing the web.
+[Dan Cederholm][simplebits] and [Chris Coyier][css1] explored this issue a few years ago, offering a way to mark up ampersands within a span element and then providing a series of fallback fonts via <abbr>CSS</abbr>. The most attractive ampersands are exclusive to <abbr>OS X</abbr> system fonts, however, offering an unideal experience to the majority of people browsing the web.
 
 Today we are able to provide additional browser support thanks to the availability web fonts. With the help of Google Fonts specifically, **we're able to offer a cross-platform compatible solution that has widespread browser support and a tiny file size.**
 
 
 ##Styling Ampersands
 
-We begin by importing our selected Google Fonts in the normal manner. Then by adding the <abbr>URI</abbr>-encoded string `&text=%26` to a Google Fonts <abbr>URL</abbr> inside our <abbr>CSS</abbr>, the browser requests a font file containing only the ampersand character of a specified font. **This allows users to download a miniscule 1 or 2 kilobyte font file, instead of one that is 50 or 60 kilobytes larger.**
+We start off by adding the <abbr>URI</abbr>-encoded string `&text=%26` to a Google Fonts <abbr>URL</abbr> inside our <abbr>CSS</abbr>. This allows browsers to download a miniscule *1 or 2 kilobyte* file containing **only the ampersand character** of a specified font, rather than a font file that is 50 or 60 kilobytes larger.
 
 {% highlight css %}
 @import url(http://fonts.googleapis.com/css?family=Font+Name&text=%26);
@@ -55,7 +55,7 @@ Now that our <abbr>HTML</abbr> is marked up as intended, we have everything we n
 
 ##Making Improvements
 
-With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>API</abbr> for a single ampersand takes up *two* <abbr>HTTP</abbr> requests. The first response contains the <abbr>CSS</abbr> file we previously imported into our stylesheet, specifying a `@font-face` declaration for the requested font, which becomes the second <abbr>HTTP</abbr> request.
+With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>API</abbr> for a single ampersand takes up *two* <abbr>HTTP</abbr> requests. The first response contains the <abbr>CSS</abbr> file we previously imported into our style sheet. Because this <abbr>CSS</abbr> specifies a `@font-face` declaration for the requested font, the font itself becomes the *second* <abbr>HTTP</abbr> request.
 
 {% highlight css %}
 @font-face {
@@ -66,7 +66,7 @@ With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>
 }
 {% endhighlight %}
 
-Because of different implentations of `@font-face` accross older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection *in favor of making fewer <abbr>HTTP</abbr> requests*, then we can paste this <abbr>CSS</abbr> directly into our stylesheet.
+Due to different implentations of `@font-face` across older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection *in favor of making fewer <abbr>HTTP</abbr> requests*, then **we can paste this <abbr>CSS</abbr> directly into our style sheet.**
 
 {% highlight css %}
 @font-face {
@@ -84,9 +84,9 @@ Because of different implentations of `@font-face` accross older browsers, Googl
 }
 {% endhighlight %}
 
-Alternatively, we can manually download the <abbr>WOFF</abbr> file Google provides and encode it as Base64 straight into the stylesheet, saving ourselves an additional <abbr>HTTP</abbr> request as part of the process.
+Alternatively, we can manually download the <abbr>WOFF</abbr> file Google provides and encode it as Base64 *straight into the style sheet*, saving ourselves an additional <abbr>HTTP</abbr> request as part of the process.
 
-Altough Google's <abbr>CSS</abbr> references both <abbr>WOFF2</abbr> and <abbr>WOFF</abbr> files, we need only the <abbr>WOFF</abbr> file in our own stylesheet. The main advantage of the <abbr>WOFF2</abbr> format is its smaller file size, but because we are embeddeding actual font data directly in the <abbr>CSS</abbr>, it makes little sense to include both file formats. A standard <abbr>WOFF</abbr> file has better support and makes a reliable default in the majority of browsers.<sup class="post-marker"><a href="#note:2">2</a></sup>
+Although Google's <abbr>CSS</abbr> references both <abbr>WOFF2</abbr> and <abbr>WOFF</abbr> files, we need only the <abbr>WOFF</abbr> file in our own style sheet. The main advantage of the <abbr>WOFF2</abbr> format is its smaller file size, but because we are embeddeding actual font data directly in the <abbr>CSS</abbr>, it makes little sense to include both file formats. A standard <abbr>WOFF</abbr> file has better support and makes a reliable default in the majority of browsers.<sup class="post-marker"><a href="#note:2">2</a></sup>
 
 To convert a file to Base64, we can use an [online tool][base64] or the following Terminal command:
 
@@ -109,6 +109,6 @@ And that's it&mdash;for real this time! Using Google Fonts, a little-known query
 
 <ol class="post-footnotes">
     <li id="note:1">Check out <a href="http://codepen.io/johndjameson/full/qzmFf">Elegant Ampersands</a> on CodePen for some beautiful examples.</li>
-    <li id="note:1">Heads-up: Can I Use indicates limited <a href="http://caniuse.com/#search=woff"><abbr>WOFF</abbr> support</a> by the Android browser.</li>
-    <li>Steps 2 through infinite courtesy of <a href="http://jessicahische.is/talkingtype">Jessica Hische</a>.</li>
+    <li id="note:2">Heads-up: Can I Use indicates limited <a href="http://caniuse.com/#search=woff"><abbr>WOFF</abbr> support</a> by the Android browser.</li>
+    <li id="note:3">Steps 2 through infinite provided by <a href="http://jessicahische.is/talkingtype">Jessica Hische</a>.</li>
 </ol>
