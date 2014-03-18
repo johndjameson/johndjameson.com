@@ -1,5 +1,15 @@
 'use strict';
 
+/* TO-DO
+   * Separate development and distribution files/directories
+   * Speed up Jekyll with LiveReload
+   * Add 'lint' command
+     - CSSLint
+     - CSSCSS
+     - JSHint
+     - Minification statistics
+*/
+
 module.exports = function (grunt) {
   require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
@@ -8,13 +18,6 @@ module.exports = function (grunt) {
     yeoman: {
       app: 'app',
       dist: 'dist'
-    },
-
-    concurrent: {
-      dist: [
-        'sass',
-        'copy'
-      ]
     },
 
     connect: {
@@ -30,6 +33,12 @@ module.exports = function (grunt) {
     watch: {
       options: {
         livereload: true
+      },
+      markup: {
+        files: [
+          '<%= yeoman.app %>/**/*.{html,md,xml}'
+        ],
+        tasks: ['clean', 'jekyll', 'copy', 'sass', 'autoprefixer']
       },
       sass: {
         files: [
@@ -71,7 +80,7 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           src: [
             'img/**/*',
-            'fonts/**/*',
+            'js/**/*',
             '!**/_*{,/**}' // not underscored files/directories
           ],
           dest: '<%= yeoman.dist %>'
@@ -139,13 +148,16 @@ module.exports = function (grunt) {
     }
   });
 
+
   // Define Tasks
 
   grunt.registerTask('dev', [
     'clean',
     'jekyll',
-    'concurrent',
+    'copy',
+    'sass',
     'autoprefixer',
+    'cssmin',
     'connect',
     'watch'
   ]);
@@ -153,7 +165,8 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'jekyll',
-    'concurrent', // sass & copy
+    'copy',
+    'sass',
     'autoprefixer',
     'cssmin',
     'svgmin',
