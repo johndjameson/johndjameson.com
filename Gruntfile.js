@@ -17,12 +17,34 @@ module.exports = function (grunt) {
       ]
     },
 
+    connect: {
+      server: {
+        options: {
+          hostname: 'localhost',
+          port: 8000,
+          base: '<%= yeoman.dist %>'
+        }
+      }
+    },
+
+    watch: {
+      options: {
+        livereload: true
+      },
+      sass: {
+        files: [
+          '<%= yeoman.app %>/_sass/**/*.{scss,sass}'
+        ],
+        tasks: ['sass', 'autoprefixer']
+      }
+    },
+
     clean: {
       dist: {
         files: [{
           dot: true,
           src: [
-          '<%= yeoman.dist %>/*'
+            '<%= yeoman.dist %>/*'
           ]
         }]
       }
@@ -118,6 +140,15 @@ module.exports = function (grunt) {
   });
 
   // Define Tasks
+
+  grunt.registerTask('dev', [
+    'clean',
+    'jekyll',
+    'concurrent',
+    'autoprefixer',
+    'connect',
+    'watch'
+  ]);
 
   grunt.registerTask('build', [
     'clean',
