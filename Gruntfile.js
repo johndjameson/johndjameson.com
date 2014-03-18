@@ -1,9 +1,7 @@
 'use strict';
 
 module.exports = function (grunt) {
-  // Show elapsed time after tasks run
-  // require('time-grunt')(grunt);
-  // Load all Grunt tasks
+  require('time-grunt')(grunt);
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
@@ -12,12 +10,19 @@ module.exports = function (grunt) {
       dist: 'dist'
     },
 
+    concurrent: {
+      dist: [
+        'sass',
+        'copy'
+      ]
+    },
+
     clean: {
       dist: {
         files: [{
           dot: true,
           src: [
-            '<%= yeoman.dist %>/*'
+          '<%= yeoman.dist %>/*'
           ]
         }]
       }
@@ -43,16 +48,9 @@ module.exports = function (grunt) {
           dot: true,
           cwd: '<%= yeoman.app %>',
           src: [
-            // Jekyll processes and moves HTML and text files.
-            // Copy moves asset files and directories.
             'img/**/*',
             'fonts/**/*',
-            // Like Jekyll, exclude files & folders prefixed with an underscore.
-            '!**/_*{,/**}'
-            // Explicitly add any files your site needs for distribution here.
-            //'_bower_components/jquery/jquery.js',
-            //'favicon.ico',
-            //'apple-touch*.png'
+            '!**/_*{,/**}' // not underscored files/directories
           ],
           dest: '<%= yeoman.dist %>'
         }]
@@ -60,12 +58,6 @@ module.exports = function (grunt) {
     },
 
     sass: {
-      options: {
-        bundleExec: true,
-        debugInfo: false,
-        lineNumbers: false,
-        loadPath: 'app/_bower_components'
-      },
       dist: {
         files: [{
           expand: true,
@@ -78,25 +70,50 @@ module.exports = function (grunt) {
     },
 
     autoprefixer: {
-        options: {
-            browsers: ['last 2 version']
-        },
-        single_file: {
-            expand: true,
-            flatten: true,
-            src: '<%= yeoman.dist %>/css/application.css',
-            dest: '<%= yeoman.dist %>/css'
-        }
+      options: {
+        browsers: ['last 2 version']
+      },
+      single_file: {
+        expand: true,
+        cwd: '<%= yeoman.dist %>/css',
+        src: 'application.css',
+        dest: '<%= yeoman.dist %>/css'
+      }
     },
 
     cssmin: {
-        minify: {
-            expand: true,
-            cwd: '<%= yeoman.dist %>/css',
-            src: '*.css',
-            dest: '<%= yeoman.dist %>/css',
-            ext: '.css'
-        }
+      minify: {
+        expand: true,
+        cwd: '<%= yeoman.dist %>/css',
+        src: '*.css',
+        dest: '<%= yeoman.dist %>/css',
+        ext: '.min.css'
+      }
+    },
+
+    imagemin: {
+      dist: {
+        options: {
+          progressive: true
+        },
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: '**/*.{jpg,jpeg,png}',
+          dest: '<%= yeoman.dist %>'
+        }]
+      }
+    },
+
+    svgmin: {
+      dist: {
+        files: [{
+          expand: true,
+          cwd: '<%= yeoman.dist %>',
+          src: '**/*.svg',
+          dest: '<%= yeoman.dist %>'
+        }]
+      }
     }
   });
 
@@ -105,11 +122,12 @@ module.exports = function (grunt) {
   grunt.registerTask('build', [
     'clean',
     'jekyll',
-    'sass',
+    'concurrent', // sass & copy
     'autoprefixer',
     'cssmin',
-    'copy'
-    ]);
+    'svgmin',
+    'imagemin'
+  ]);
 
   grunt.registerTask('default', [
     'build'
