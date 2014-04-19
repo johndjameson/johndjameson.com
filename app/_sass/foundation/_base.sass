@@ -33,18 +33,20 @@ li
 // ----- Headers ----- //
 
 h1, .h1,
-h2, .h2
-  @extend .mbxs
+h2, .h2,
+h3, .h3
+  @extend .mbm
   @extend .mtf
   @extend .tfh
   @extend .twb
+  color: $c-header
   line-height: 1.2
 
 h1, .h1
-  font-size: 200%
+  @extend .tsxxl
 
 h2, .h2
-  font-size: 150%
+  font-size: percentage(25px/$b-fontSize)
 
 // ----- Images ----- //
 img
@@ -58,8 +60,7 @@ img
 a
   @extend .tch
   @extend .twb
-  border-bottom: $b-border
   text-decoration: none
   &:hover,
   &:focus
-    border-bottom-color: $c-highlight
+    color: mix($c-highlight, $c-base)

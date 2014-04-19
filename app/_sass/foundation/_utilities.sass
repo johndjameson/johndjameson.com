@@ -168,16 +168,35 @@
 
 // ----- Size ----- //
 
-.tsxs
-  font-size: 60%
 .tss
-  font-size: 75%
+  font-size: percentage($b-fontSize-s/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-m/$b-fontSize-bp)
+
 .tsm
-  font-size: 85%
+  font-size: percentage($b-fontSize-m/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-l/$b-fontSize-bp)
+
 .tsl
-  font-size: 105%
+  font-size: percentage($b-fontSize-l/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-xl/$b-fontSize-bp)
+
 .tsxl
-  font-size: 115%
+  font-size: percentage($b-fontSize-xl/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-xxl/$b-fontSize-bp)
+
+.tsxxl
+  font-size: percentage($b-fontSize-xxl/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-xxxl/$b-fontSize-bp)
+
+.tsxxxl
+  font-size: percentage($b-fontSize-xxxl/$b-fontSize)
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-xxxxl/$b-fontSize-bp)
 
 // ----- Style ----- //
 
