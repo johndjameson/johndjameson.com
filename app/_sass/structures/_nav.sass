@@ -1,21 +1,17 @@
 // *************************************
 //
-//   List
-//   -> Variations on your standard ol
-//      and ul elements.
+//   Nav
+//   -> Primary site navigation
 //
 // *************************************
 
-// .list
+.nav
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-.list--unstyled
-  list-style: none
-  margin: 0
-  padding: 0
+// .nav--modifier
 
 // -------------------------------------
 //   States
@@ -33,7 +29,25 @@
 //   Submodules
 // -------------------------------------
 
-// ----- Submodule ----- //
+// ----- Nav List ----- //
 
-// .module-submodule
+.nav-list
+  @extend .list--inline
 
+// ----- Nav Item ----- //
+
+.nav-item
+  &:not(:first-of-type)
+    &::before
+      content: "\2022" // utf bullet •
+      margin-right: $b-whitespace-s
+      opacity: 0.8
+
+// ----- Nav Link ----- //
+
+.nav-link
+  border: 0
+  color: inherit
+  font-weight: inherit
+  &:hover, &:focus
+    @extend .tch

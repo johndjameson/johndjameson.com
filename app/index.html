@@ -4,20 +4,62 @@ title: Home
 description: Web designer and front-end developer in Orlando, Florida.
 ---
 
-.r
+<div class="row">
+    <div class="cell">
+
+        <div class="grid">
+            <div class="grid-box grid-box--m--1of2">
+                <h1>John D. Jameson</h1>
+                <p>Web designer and front-end developer in Orlando, Florida.</p>
+                <p>I’m passionate about typography, lifelong learning, and building useful things for <em>people</em>.</p>
+
+                <ul class="list--inline">
+                    <li class="list-item"><a href="">Twitter</a></li>
+                    <li class="list-item"><a href="">Dribbble</a></li>
+                    <li class="list-item"><a href="">CodePen</a></li>
+                    <li class="list-item"><a href="">GitHub</a></li>
+                </ul>
+            </div>
+
+            <div class="grid-box grid-box--m--1of2">
+                <img src="/img/ampersand-code.png" alt="A ampersand atop JavaScript">
+            </div>
+        </div>
+
+    </div>
+</div>
 
 <main class="row">
     <div class="cell">
 
-        {% for post in site.categories.blog %}
-        <div>
-            <time>{{ post.date | date: "%B %d, %Y" }}</time>
-            <h1><a href="{{post.url}}">{{post.title-display}}</a></h1>
+        <div class="grid">
 
-            <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
+            <div class="grid-box grid-box--m--1of2">
+                {% for post in site.categories.blog limit:1 %}
+                <div>
+                    <h2><a href="{{post.url}}">{{post.title-display}}</a></h2>
+                    <p><time class="ttu">{{ post.date | date: "%B %d, %Y" }}</time></p>
+
+
+                    <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
+
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="grid-box grid-box--m--1of2">
+                <h2 class="tac">Recent Posts</h2>
+
+                {% for post in site.categories.blog offset:1 %}
+                <div>
+                    <h3 class="h2"><a href="{{post.url}}">{{post.title-display}}</a></h3>
+                    <p><time class="ttu">{{ post.date | date: "%B %d, %Y" }}</time></p>
+
+                </div>
+                {% endfor %}
+            </div>
 
         </div>
-        {% endfor %}
 
     </div>
 </main>
