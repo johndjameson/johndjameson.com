@@ -148,6 +148,9 @@
 .tac
   text-align: center
 
+.tar
+  text-align: right
+
 // ----- Color ----- //
 
 .tcb
@@ -173,6 +176,14 @@
   +respond-to($bp-fontSize)
     font-size: percentage($b-fontSize-m/$b-fontSize-bp)
 
+// Base for site use only in html rules
+.tsb
+  font-size: percentage($b-fontSize-m/$b-fontSize)
+  // Change the base size for the entire site
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-l/$b-fontSize)
+
+// Helper for content, classes, extends
 .tsm
   font-size: percentage($b-fontSize-m/$b-fontSize)
   +respond-to($bp-fontSize)
@@ -206,6 +217,7 @@
 // ----- Transform ----- //
 
 .ttu
+  letter-spacing: 0.05em
   text-transform: uppercase
 
 // ----- Weight ----- //

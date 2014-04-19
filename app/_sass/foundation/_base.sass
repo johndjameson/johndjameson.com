@@ -11,8 +11,8 @@
 html
   @extend .tfb
   @extend .tcb
+  @extend .tsb
   background: $c-background
-  font-size: $b-fontSize
   line-height: $b-lineHeight
 
 body
@@ -43,10 +43,10 @@ h3, .h3
   line-height: 1.2
 
 h1, .h1
-  @extend .tsxxl
+  @extend .tsxxxl
 
 h2, .h2
-  font-size: percentage(25px/$b-fontSize)
+  @extend .tsl
 
 // ----- Images ----- //
 img

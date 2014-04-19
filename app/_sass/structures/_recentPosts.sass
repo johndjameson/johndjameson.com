@@ -1,0 +1,58 @@
+// *************************************
+//
+//   Strucutre
+//   -> This is an example structure
+//
+// *************************************
+
+.recentPosts
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.recentPosts-post
+  @extend .group
+  @extend .mbs
+  border-bottom: $b-border
+  padding-top: $b-whitespace-s
+  &:first-of-type
+    border-top: $b-border
+
+.recentPosts-title
+  @extend .fl
+  @extend .mbs
+  @extend .tfb
+  @extend .tsm
+  padding-right: $b-whitespace-s
+  width: percentage(3/5)
+
+.recentPosts-date
+  @extend .fr
+  @extend .mbf
+  @extend .tar
+  @extend .tcs
+  @extend .tss
+  @extend .ttu
+  @extend .twb
+  padding-left: $b-whitespace-s
+  width: percentage(2/5)
+
