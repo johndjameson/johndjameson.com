@@ -6,6 +6,7 @@
 // *************************************
 
 .recentPosts
+  border-top: $b-border
 
 // -------------------------------------
 //   Modifiers
@@ -31,11 +32,8 @@
 
 .recentPosts-post
   @extend .group
-  @extend .mbs
   border-bottom: $b-border
   padding-top: $b-whitespace-s
-  &:first-of-type
-    border-top: $b-border
 
 .recentPosts-title
   @extend .fl

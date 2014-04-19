@@ -19,10 +19,12 @@ description: Web designer and front-end developer in Orlando, Florida.
                     <li class="list-item"><a href="">CodePen</a></li>
                     <li class="list-item"><a href="">GitHub</a></li>
                 </ul>
+
+                <a href="" class="btn">Résumé (PDF)</a>
             </div>
 
             <div class="grid-box grid-box--m--1of2">
-                <img src="/img/ampersand-code.png" alt="A ampersand atop JavaScript">
+                <img style="opacity: 0.85;" src="/img/ampersand-code.png" alt="A ampersand atop JavaScript">
             </div>
         </div>
 
@@ -38,7 +40,7 @@ description: Web designer and front-end developer in Orlando, Florida.
                 {% for post in site.categories.blog limit:1 %}
                 <div>
                     <h2><a href="{{post.url}}">{{post.title-display}}</a></h2>
-                    <p><time class="ttu">{{ post.date | date: "%B %d, %Y" }}</time></p>
+                    <time class="ttu">{{ post.date | date: "%B %d, %Y" }}</time>
 
 
                     <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
@@ -50,18 +52,17 @@ description: Web designer and front-end developer in Orlando, Florida.
             <div class="grid-box grid-box--m--1of2">
                 <h2 class="tac">Recent Posts</h2>
 
-                <div class="recentPosts">
+                <div class="recentPosts mbs">
                     {% for post in site.categories.blog offset:1 %}
                     <div class="recentPosts-post">
                         <h3 class="recentPosts-title">
                             <a href="{{post.url}}">{{post.title-display}}</a>
                         </h3>
-                        <p class="recentPosts-date">
-                            <time>{{ post.date | date: "%B %d, %Y" }}</time>
-                        </p>
+                        <time class="recentPosts-date">{{ post.date | date: "%B %d, %Y" }}</time>
                     </div>
                     {% endfor %}
                 </div>
+                <a href="/blog/">Read More on the Blog &raquo;</a>
             </div>
 
         </div>

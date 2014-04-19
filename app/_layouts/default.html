@@ -31,79 +31,76 @@ Now have fun looking around. :)
 </head>
 <body>
 
-	<header class="row" role="banner">
+	<header class="row mtm" role="banner">
 		<div class="cell">
-			<div class="bucket">
-				<div class="bucket-media">
-					<a class="logo" href="/">
-						<img src="/img/johndjameson-logo.svg" alt="JJ logo">
-					</a>
-				</div>
-				<div class="bucket-content">
-					<span class="tsi">He&rsquo;s got character.</span>
-				</div>
+			<div class="logo">
+				<a class="logo-link" href="/">
+					<img class="logo-image" src="/img/johndjameson-logo.svg" alt="JJ logo">
+				</a>
+
+				<span><em>He&rsquo;s got character.</em></span>
 			</div>
-
-
-			<nav class="nav" role="navigation">
-				<ul class="nav-list">
-					<li class="nav-item">
-						<a class="nav-link" href="/">Home</a>
-					</li>
-					<li class="nav-item">
-						<a class="nav-link" href="/blog/">Blog</a>
-					</li>
-				</ul>
-			</nav>
 		</div>
-	</header>
 
-	{{content}}
+		<nav class="nav" role="navigation">
+			<ul class="nav-list">
+				<li class="nav-item">
+					<a class="nav-link" href="/">Home</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="/blog/">Blog</a>
+				</li>
+			</ul>
+		</nav>
+	</div>
+</header>
 
-	<footer class="row">
-		<div class="cell">
+{{content}}
 
-			<div class="grid">
-				<div class="grid-box grid-box--l--1of2">
-					<div class="grid">
-						<div class="grid-box grid-box--1of3">
-							<img class="ra" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
-						</div>
-						<div class="grid-box grid-box--2of3">
-							<p>John D. Jameson</p>
-							<p>Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
-						</div>
+<footer class="row">
+	<div class="cell">
+
+		<div class="grid">
+			<div class="grid-box grid-box--l--1of2">
+				<div class="grid">
+					<div class="grid-box grid-box--1of3">
+						<img class="ra" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
+					</div>
+					<div class="grid-box grid-box--2of3">
+						<p>John D. Jameson</p>
+						<p>Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
 					</div>
 				</div>
-
-				<div class="grid-box grid-box--l--1of2">
-					<ul class="list--unstyled">
-						<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
-						<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
-						<li><a href="http://codepen.io/johndjameson/">CodePen</a></li>
-						<li><a href="https://github.com/johndjameson">GitHub</a></li>
-						<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
-					</ul>
-				</div>
-
 			</div>
 
-			<p class="tac tcs">&ldquo;You're ready. Start making stuff.&rdquo; &mdash;&nbsp;Austin&nbsp;Kleon</p>
+			<div class="grid-box grid-box--l--1of2">
+				<ul class="list--unstyled">
+					<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
+					<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
+					<li><a href="http://codepen.io/johndjameson/">CodePen</a></li>
+					<li><a href="https://github.com/johndjameson">GitHub</a></li>
+					<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
+				</ul>
+			</div>
 
 		</div>
-	</footer>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="/js/application.js"></script>
+		<p class="tac tcs">&ldquo;You're ready. Start making stuff.&rdquo; &mdash;&nbsp;Austin&nbsp;Kleon</p>
 
-	<script>
-		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	</div>
+</footer>
 
-		ga('create', 'UA-42673242-1', 'johndjameson.com');
-		ga('send', 'pageview');
-	</script>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/js/application.js"></script>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	ga('create', 'UA-42673242-1', 'johndjameson.com');
+	ga('send', 'pageview');
+</script>
 </body>
 </html>
