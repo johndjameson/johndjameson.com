@@ -35,17 +35,24 @@ var Dribbble = {
 
   appendToDocument: function() {
     var
-      shots = Dribbble.s.json.shots,
       count = Dribbble.s.shotCount,
+      shot,
       str = '',
       $grid = $('.js-dribbble').find('.grid');
 
     for (var i = 0; i < count; i++) {
-      console.log(shots[i]);
+      shot = Dribbble.s.json.shots[i];
+      console.log(shot);
       str +=
-        '<div class="grid-box grid-box--1of' + count + '">' +
-          '<img src="' + shots[i].image_400_url + '">' +
-          '<p class="tac mbf">' + shots[i].title + '</p>' +
+        '<div class="grid-box grid-box--1of2 grid-box--l--1of' + count + '">' +
+          '<a class="unstyledLink" href="' + shot.url + '">'+
+            '<div class="thumbnail">' +
+              '<img class="thumbnail-image" src="' + shot.image_400_url + '">' +
+              '<div class="thumbnail-content">' +
+                '<span class="thumbnail-title">' + shot.title + '</span>' +
+              '</div>'+
+            '</div>' +
+          '</a>' +
         '</div>';
     }
 

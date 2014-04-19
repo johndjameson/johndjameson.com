@@ -1,0 +1,64 @@
+// *************************************
+//
+//   Thumbnail
+//   -> A thumbnail image that reveals
+//      information
+//
+// *************************************
+
+.thumbnail
+  @extend .mbm
+  @extend .por
+  border: 1px solid $b-borderColor
+  padding: $b-whitespace-s
+  overflow: hidden
+  &:hover, &:focus
+    .thumbnail-image
+      opacity: 0.25
+    .thumbnail-content
+      opacity: 1
+
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.thumbnail-image
+  @extend .db
+  transition: $b-transition
+
+.thumbnail-content
+  @extend .poa
+  @extend .tac
+  @extend .twb
+  left: 0
+  line-height: 1 // set line height to equal 1em for predictability
+  margin-top: -0.5em // -0.5em line height offsers center for 'top: 50%'
+  opacity: 0
+  top: 50%
+  transition: $b-transition
+  width: 100%
+
+.thumbnail-title
+  @extend .tsm
+  color: inherit
+  text-shadow: 0 0 1px $c-background
+

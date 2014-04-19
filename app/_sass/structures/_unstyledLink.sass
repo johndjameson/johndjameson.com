@@ -1,42 +1,39 @@
 // *************************************
 //
-//   Logo
-//   -> It's my logo, yo.
+//   Unstyled Link
+//   -> A hidden link.
+//      Think like Strong Bad email.
 //
 // *************************************
 
-.logo
+.unstyledLink
+  border: 0
+  color: inherit
+  font-weight: inherit
+  &:hover
+    color: inherit
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .module--modifier
+// .structure--modifier
 
 // -------------------------------------
 //   States
 // -------------------------------------
 
-// .is-module-state
+// .structure.is-state
 
 // -------------------------------------
 //   Context
 // -------------------------------------
 
-// .has-module
+// .has-structure
 
 // -------------------------------------
 //   Scaffolding
 // -------------------------------------
 
-.logo-image
-  @extend .mrs
-  width: 60px
-  +respond-to($bp-fontSize)
-    width: auto
-
-.logo-tagline
-  display: none
-  +respond-to(400px)
-    display: inline-block
+// .structure-sub
 
