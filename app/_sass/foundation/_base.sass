@@ -46,15 +46,20 @@ h1, .h1
 h2, .h2
   font-size: 150%
 
+// ----- Images ----- //
+img
+  height: auto
+  max-width: 100%
+
 // -------------------------------------
 //   Inline Content
 // -------------------------------------
 
 a
   @extend .tch
+  @extend .twb
   border-bottom: $b-border
   text-decoration: none
   &:hover,
   &:focus
-    @extend .tcs
     border-bottom-color: $c-highlight

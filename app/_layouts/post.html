@@ -2,15 +2,20 @@
 layout: default
 ---
 
-<main class="l-main" role="main">
-	<article class="post">
+<main class="row">
 
-		<header class="post-header">
-			<h1 class="post-title">{{page.title-display}}</h1>
-			<time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
-		</header>
+    <div class="cell">
 
-		{{content}}
+        <article class="post">
 
-	</article>
+            <header class="post-header">
+                <h1 class="post-title">{{page.title-display}}</h1>
+                <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
+            </header>
+
+            {{content}}
+
+        </article>
+
+    </div>
 </main>

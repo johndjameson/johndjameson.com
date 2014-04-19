@@ -25,45 +25,72 @@ Now have fun looking around. :)
 	<link rel="author" href="https://plus.google.com/u/0/113914298266231922059/posts">
 	<link rel="alternate" type="application/rss+xml"  href="http://www.johndjameson.com/feed.xml" title="John D. Jameson">
 
-	<link rel="stylesheet" href="/css/application.min.css">
+	<link rel="stylesheet" href="/css/application.css">
 	<script type="text/javascript" src="//use.typekit.net/gqu6ggi.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<header class="l-header" role="banner">
-		<nav role="navigation"><a class="logo" href="/">John D. Jameson</a></nav>
+
+	<header class="row" role="banner">
+		<div class="cell">
+			<div class="bucket">
+				<div class="bucket-media">
+					<a class="logo" href="/">
+						<img src="/img/johndjameson-logo.svg" alt="JJ logo">
+					</a>
+				</div>
+				<div class="bucket-content">
+					<span class="tsi">He&rsquo;s got character.</span>
+				</div>
+			</div>
+
+
+			<nav class="nav" role="navigation">
+				<ul class="nav-list">
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/blog/">Blog</a>
+					</li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
 	{{content}}
 
-	<footer class="l-footer">
-		<div class="grid">
-			<div class="grid-box grid-box--lap--1of1 grid-box--desk--1of2">
-				<div class="grid">
-					<div class="grid-box grid-box--1of3">
-						<img class="c-circle" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
-					</div>
-					<div class="grid-box grid-box--2of3">
-						<p class="logo--b">John D. Jameson</p>
-						<p class="c-small c-soft">Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
+	<footer class="row">
+		<div class="cell">
+			<div class="grid">
+				<div class="grid-box grid-box--desk--1of2">
+					<div class="grid">
+						<div class="grid-box grid-box--1of3">
+							<img class="ra" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
+						</div>
+						<div class="grid-box grid-box--2of3">
+							<p>John D. Jameson</p>
+							<p>Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
+						</div>
 					</div>
 				</div>
-			</div>
 
-			<div class="grid-box grid-box--lap--1of1 grid-box--desk--1of2">
-				<ul class="c-small list--social">
-					<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
-					<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
-					<li><a href="http://codepen.io/johndjameson/">CodePen</a></li>
-					<li><a href="https://github.com/johndjameson">GitHub</a></li>
-					<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
-				</ul>
-			</div>
+				<div class="grid-box grid-box--desk--1of2">
+					<ul class="list--unstyled">
+						<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
+						<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
+						<li><a href="http://codepen.io/johndjameson/">CodePen</a></li>
+						<li><a href="https://github.com/johndjameson">GitHub</a></li>
+						<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
+					</ul>
+				</div>
 
+			</div>
 		</div>
-	</footer>
 
-	<p class="l-quote">“You're ready. Start making stuff.” —&nbsp;Austin&nbsp;Kleon</p>
+		<p>&ldquo;You're ready. Start making stuff.&rdquo; &mdash;&nbsp;Austin&nbsp;Kleon</p>
+
+	</footer>
 
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	<script src="/js/application.js"></script>

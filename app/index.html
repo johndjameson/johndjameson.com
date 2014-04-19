@@ -4,15 +4,20 @@ title: Home
 description: Web designer and front-end developer in Orlando, Florida.
 ---
 
-<main class="l-main" role="main">
+.r
 
-	{% for post in site.categories.blog %}
-	<div class="preview">
-		<time class="preview-date">{{ post.date | date: "%B %d, %Y" }}</time>
-		<h1 class="preview-title"><a href="{{post.url}}">{{post.title-display}}</a></h1>
+<main class="row">
+    <div class="cell">
 
-		<p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
+        {% for post in site.categories.blog %}
+        <div>
+            <time>{{ post.date | date: "%B %d, %Y" }}</time>
+            <h1><a href="{{post.url}}">{{post.title-display}}</a></h1>
 
-	</div>
-	{% endfor %}
+            <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
+
+        </div>
+        {% endfor %}
+
+    </div>
 </main>
