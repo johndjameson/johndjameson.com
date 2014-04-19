@@ -34,7 +34,7 @@
 // ----- Post Header ----- //
 
 .post-header
-  color: $c-heading
+  color: $c-header
   margin: 0 0 $b-whitespace*2 0
   padding-top: $b-whitespace
   position: relative
@@ -64,7 +64,7 @@
 
 // ----- Post Intro ----- //
 .post-intro
-  @extend %c-smallcaps
+  @extend .ttu
 
 // ----- Post Marker ----- //
 
@@ -88,8 +88,8 @@
 // ----- Post Footnotes ----- //
 
 .post-footnotes
-  border-top: 1px solid $c-border
-  color: $c-text-soft
+  border-top: 1px solid $b-borderColor
+  color: $c-subdue
   font-size: em(14px)
   margin: 0
   padding-top: $b-whitespace
@@ -108,7 +108,7 @@
 // ----- Post Sidenote ----- //
 
 .post-sidenote
-  color: $c-text-soft
+  color: $c-subdue
   display: none
   left: 100%
   font-size: em(14px)
