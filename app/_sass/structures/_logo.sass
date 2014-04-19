@@ -8,6 +8,7 @@
 .logo
   border: 0
 
+
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
@@ -27,10 +28,17 @@
 // .has-module
 
 // -------------------------------------
-//   Submodules
+//   Scaffolding
 // -------------------------------------
 
-// ----- Submodule ----- //
+.logo-image
+  @extend .mrs
+  width: 60px
+  +respond-to($bp-fontSize)
+    width: auto
 
-// .module-submodule
+.logo-tagline
+  display: none
+  +respond-to(400px)
+    display: inline-block
 
