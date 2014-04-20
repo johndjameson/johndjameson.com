@@ -29,6 +29,7 @@ $button-borderWidth: 1px
   &::before, &::after
     @extend .poa
     @extend .ram
+    backface-visibility: hidden // Addresses Safari transition flicker
     border-radius: $b-borderRadius - $button-borderWidth
     bottom: 0
     content: ''
