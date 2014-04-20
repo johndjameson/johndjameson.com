@@ -6,7 +6,7 @@ categories: blog
 description: "Countless roadblocks hampered the completion of my personal website: problems I invented, problems I solved—and most importantly—problems I can explain my solutions to."
 ---
 
-<span class="post-intro">I'm going to be honest with you</span>: I've been designing this website for months. And by "designing," I really mean *redesigning*. My laptop contains a graveyard of rejected `index.html` files. Each failed attempt shines in its own unique and spectacular ways, but together they'll always remind me of an invaluable lesson:
+<b class="tsc">I'm going to be honest with you</b>: I've been designing this website for months. And by "designing," I really mean *redesigning*. My laptop contains a graveyard of rejected `index.html` files. Each failed attempt shines in its own unique and spectacular ways, but together they'll always remind me of an invaluable lesson:
 
 **Always determine your vision before working on a project**.
 

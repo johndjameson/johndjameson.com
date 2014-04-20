@@ -14,7 +14,7 @@ description: "Titles, headings, and display text can all benefit from the use of
 [base64]: http://www.motobit.com/util/base64-decoder-encoder.asp
 
 
-<span class="post-intro">Ampersands are used most effectively</span> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
+<b class="tsc">Ampersands are used most effectively</b> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an *italic* ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.<sup class="post-marker"><a href="#note:1">1</a></sup>
 
 ![Baskerville's ampersand compared with Baskerville Italic's ampersand](/img/ampersands-baskerville.svg)
 
