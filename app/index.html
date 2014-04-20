@@ -39,19 +39,21 @@ dribbble: true
 
         <div class="grid">
             <div class="grid-box grid-box--m--1of2">
+                <h2>Latest Post</h2>
+
                 {% for post in site.categories.blog limit:1 %}
                 <div>
-                    <h2 class="mbf"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+                    <h3 class="mbf"><a href="{{post.url}}">{{post.title-display}}</a></h2>
                     <time class="label db mbm">{{ post.date | date: "%B %d, %Y" }}</time>
 
-                    <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
+                    <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;→</a></p>
 
                 </div>
                 {% endfor %}
             </div>
 
             <div class="grid-box grid-box--m--1of2">
-                <h2 class="tac">Recent Posts</h2>
+                <h2>Recent Posts</h2>
 
                 <div class="recentPosts mbs">
                     {% for post in site.categories.blog offset:1 %}
@@ -63,7 +65,7 @@ dribbble: true
                     </div>
                     {% endfor %}
                 </div>
-                <a class="btn mts" href="/blog/">More Posts →</a>
+                <a class="btn mts" href="/blog/">Read More →</a>
             </div>
         </div>
 
