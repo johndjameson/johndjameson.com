@@ -7,43 +7,42 @@ dribbble: true
 
 <section class="row mbm">
     <div class="cell">
+        <div class="hero">
+            <div class="grid">
+                <div class="grid-box grid-box--m--3of5 grid-box--l--1of2">
 
-        <div class="grid">
-            <div class="grid-box grid-box--m--3of5 grid-box--l--1of2">
+                    <h1 class="hero-title">John D. Jameson</h1>
+                    <p>Web designer and front-end developer in Orlando,&nbsp;Florida.</p>
+                    <p>I’m passionate about typography, lifelong learning, and building useful things for <em>people</em>.</p>
 
-                <h1>John D. Jameson</h1>
-                <p>Web designer and front-end developer in Orlando,&nbsp;Florida.</p>
-                <p>I’m passionate about typography, lifelong learning, and building useful things for <em>people</em>.</p>
+                    <ul class="list--inline">
+                        <li class="list-item"><a href="">Twitter</a></li>
+                        <li class="list-item"><a href="">Dribbble</a></li>
+                        <li class="list-item"><a href="">CodePen</a></li>
+                        <li class="list-item"><a href="">GitHub</a></li>
+                    </ul>
 
-                <ul class="list--inline">
-                    <li class="list-item"><a href="">Twitter</a></li>
-                    <li class="list-item"><a href="">Dribbble</a></li>
-                    <li class="list-item"><a href="">CodePen</a></li>
-                    <li class="list-item"><a href="">GitHub</a></li>
-                </ul>
+                    <!-- <a href="" class="btn mbl">Résumé (PDF)</a> -->
+                </div>
 
-                <!-- <a href="" class="btn mbl">Résumé (PDF)</a> -->
-            </div>
-
-            <div class="grid-box grid-box--m--2of5 grid-box--l--1of2">
-                <img style="opacity: 0.85;" src="/img/ampersand-code.png" alt="A ampersand atop JavaScript">
+                <div class="grid-box grid-box--m--2of5 grid-box--l--1of2">
+                    <img class="hero-image" src="/img/ampersand-code.png" alt="An ampersand atop some JavaScript">
+                </div>
             </div>
         </div>
 
     </div>
 </section>
 
-<section class="row mbm">
+<section class="row">
     <div class="cell">
 
         <div class="grid">
-
             <div class="grid-box grid-box--m--1of2">
                 {% for post in site.categories.blog limit:1 %}
                 <div>
-                    <h2><a href="{{post.url}}">{{post.title-display}}</a></h2>
-                    <time class="ttu">{{ post.date | date: "%B %d, %Y" }}</time>
-
+                    <h2 class="mbf"><a href="{{post.url}}">{{post.title-display}}</a></h2>
+                    <time class="label db mbm">{{ post.date | date: "%B %d, %Y" }}</time>
 
                     <p>{{post.description | strip_html }} <a href="{{post.url}}">Read&nbsp;&raquo;</a></p>
 
@@ -66,7 +65,6 @@ dribbble: true
                 </div>
                 <a class="btn mts" href="/blog/">More Posts →</a>
             </div>
-
         </div>
 
     </div>

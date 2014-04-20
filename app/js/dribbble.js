@@ -24,7 +24,6 @@ var Dribbble = {
     var $dribbble = $('.js-dribbble');
 
     $dribbble.addClass('row');
-    $dribbble.addClass('mbl');
     $dribbble.html(
       '<div class="cell">' +
         '<h2 class="tac">Latest from Dribbble</h2>' +
@@ -42,7 +41,6 @@ var Dribbble = {
 
     for (var i = 0; i < count; i++) {
       shot = Dribbble.s.json.shots[i];
-      console.log(shot);
       str +=
         '<div class="grid-box grid-box--1of2 grid-box--l--1of' + count + '">' +
           '<a class="unstyledLink" href="' + shot.url + '">'+

@@ -1,14 +1,11 @@
 // *************************************
 //
-//   Strucutre
-//   -> This is an example structure
+//   Footer
+//   -> Bottom of the page, yo.
 //
 // *************************************
 
-.header
-  margin-bottom: $b-whitespace
-  padding-left: $b-whitespace
-  padding-right: $b-whitespace
+.footer
 
 // -------------------------------------
 //   Modifiers
@@ -32,21 +29,9 @@
 //   Scaffolding
 // -------------------------------------
 
-.header-content
-  @extend .mhc
+.footer-content
+  @extend .mbm
   border-bottom: $b-border
-  display: table
-  line-height: 1
-  max-width: $b-maxWidth
-  padding-bottom: $b-whitespace
-  padding-top: $b-whitespace
-  width: 100%
-  +respond-to($bp-fontSize)
-    padding-top: $b-whitespace-l
+  border-top: $b-border
+  padding-top: $b-whitespace-l
 
-.header-masthead
-  display: table-cell
-
-.header-navigation
-  @extend .tar
-  display: table-cell

@@ -1,14 +1,11 @@
 // *************************************
 //
-//   Strucutre
-//   -> This is an example structure
+//   Hero Unit
+//   -> A big figure -- home page fodder
 //
 // *************************************
 
-.header
-  margin-bottom: $b-whitespace
-  padding-left: $b-whitespace
-  padding-right: $b-whitespace
+.hero
 
 // -------------------------------------
 //   Modifiers
@@ -32,21 +29,23 @@
 //   Scaffolding
 // -------------------------------------
 
-.header-content
-  @extend .mhc
-  border-bottom: $b-border
-  display: table
-  line-height: 1
-  max-width: $b-maxWidth
-  padding-bottom: $b-whitespace
-  padding-top: $b-whitespace
-  width: 100%
+.hero-title
+  @extend .mbs
+  @extend .tsxl
+  +respond-to($bp-grid-m)
+    padding-top: $b-whitespace
   +respond-to($bp-fontSize)
-    padding-top: $b-whitespace-l
+    font-size: percentage($b-fontSize-xxxl/$b-fontSize-bp)
+    margin-bottom: $b-whitespace
+  +respond-to($bp-grid-l)
+    padding-top: $b-whitespace-xl
+    font-size: percentage($b-fontSize-xxxxl/$b-fontSize-bp)
 
-.header-masthead
-  display: table-cell
+.hero-image
+  @extend .db
+  @extend .mhc
+  opacity: 0.85
+  width: 100%
+  +respond-to($bp-grid-m, 'max-width')
+    max-width: 300px
 
-.header-navigation
-  @extend .tar
-  display: table-cell

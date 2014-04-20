@@ -1,14 +1,15 @@
 // *************************************
 //
-//   Strucutre
-//   -> This is an example structure
+//   Label
+//   -> A contextual label. Super rad.
 //
 // *************************************
 
-.header
-  margin-bottom: $b-whitespace
-  padding-left: $b-whitespace
-  padding-right: $b-whitespace
+.label
+  @extend .tcs
+  @extend .tss
+  @extend .ttu
+  @extend .twb
 
 // -------------------------------------
 //   Modifiers
@@ -32,21 +33,5 @@
 //   Scaffolding
 // -------------------------------------
 
-.header-content
-  @extend .mhc
-  border-bottom: $b-border
-  display: table
-  line-height: 1
-  max-width: $b-maxWidth
-  padding-bottom: $b-whitespace
-  padding-top: $b-whitespace
-  width: 100%
-  +respond-to($bp-fontSize)
-    padding-top: $b-whitespace-l
+// .structure-sub
 
-.header-masthead
-  display: table-cell
-
-.header-navigation
-  @extend .tar
-  display: table-cell
