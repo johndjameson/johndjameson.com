@@ -96,10 +96,14 @@ Now have fun looking around. :)
 	</footer>
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
 	{% if page.dribbble %}
 	<script src="/js/dribbble.js"></script>
 	{% endif %}
-	<script src="/js/application.js"></script>
+
+	{% if page.post %}
+	<script src="/js/sidenotes.js"></script>
+	{% endif %}
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
