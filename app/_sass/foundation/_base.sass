@@ -1,0 +1,74 @@
+// *************************************
+//
+//   Base
+//   -> Tag-level settings
+//
+// *************************************
+
+*, ::before, ::after
+  box-sizing: border-box
+
+html
+  @extend .tfb
+  @extend .tcb
+  background: $c-background
+  line-height: $b-lineHeight
+  text-rendering: optimizeLegibility
+
+body
+  @extend .tsb
+
+// -------------------------------------
+//   Block Content
+// -------------------------------------
+
+ul, p
+  @extend .mbm
+  @extend .mtf
+
+li
+  @extend .mbs
+  @extend .mtf
+
+// ----- Headers ----- //
+
+h1, .h1,
+h2, .h2,
+h3, .h3,
+h4, .h4
+  @extend .mbm
+  @extend .mtf
+  @extend .tfh
+  @extend .twb
+  color: $c-header
+  line-height: 1.2
+
+h1, .h1
+  @extend .tsxxxl
+
+h2, .h2
+  @extend .tsl
+
+h3, .h3
+  @extend .tsm
+
+// ----- Images ----- //
+img
+  height: auto
+  max-width: 100%
+
+// -------------------------------------
+//   Inline Content
+// -------------------------------------
+
+a
+  @extend .tch
+  @extend .twb
+  text-decoration: none
+  &:hover,
+  &:focus
+    color: mix($c-highlight, $c-base)
+
+abbr
+  @extend .ttu
+  font-size: 95%

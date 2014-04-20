@@ -24,3 +24,5 @@ markdown: rdiscount
 #   extensions: []
 
 pygments: true
+
+permalink: /:year/:title/

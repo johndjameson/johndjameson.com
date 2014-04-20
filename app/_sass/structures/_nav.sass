@@ -1,25 +1,17 @@
 // *************************************
 //
-//   Highlight
-//   -> Code blocks
+//   Nav
+//   -> Primary site navigation
 //
 // *************************************
 
-.highlight
-  @extend %well
-  background-color: #f4f4f4
-  font-size: em(14px)
-  overflow: auto
-  +respond-to($bp-layout)
-    font-size: em(16px, $b-fontSize-bp)
-  code
-    white-space: pre
+.nav
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// .module--modifier
+// .nav--modifier
 
 // -------------------------------------
 //   States
@@ -37,7 +29,27 @@
 //   Submodules
 // -------------------------------------
 
-// ----- Submodule ----- //
+// ----- Nav List ----- //
 
-// .module-submodule
+.nav-list
+  @extend .list--inline
+  @extend .mbf
 
+// ----- Nav Item ----- //
+
+.nav-item
+  @extend .mbf
+  &:not(:first-of-type)
+    &::before
+      content: "\2022" // utf bullet •
+      margin-right: $b-whitespace-s
+      opacity: 0.8
+
+// ----- Nav Link ----- //
+
+.nav-link
+  border: 0
+  color: inherit
+  font-weight: inherit
+  &:hover, &:focus
+    @extend .tch

@@ -1,16 +1,25 @@
 ---
 layout: default
+post: true
 ---
 
-<main class="l-main" role="main">
-	<article class="post">
+<main class="row">
+    <div class="cell">
 
-		<header class="post-header">
-			<h1 class="post-title">{{page.title-display}}</h1>
-			<time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
-		</header>
+        <div class="grid">
+        <div class="grid-box grid-box--center grid-box--m--5of6 grid-box--l--3of4">
+                <article class="post">
 
-		{{content}}
+                    <header class="post-header">
+                        <h1 class="post-title">{{page.title-display}}</h1>
+                        <time class="post-date" datetime="{{ page.date | date: '%Y-%m-%d'}}">{{ page.date | date: "%B %d, %Y" }}</time>
+                    </header>
 
-	</article>
+                    {{content}}
+
+                </article>
+            </div>
+        </div>
+
+    </div>
 </main>

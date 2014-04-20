@@ -1,29 +1,17 @@
 // *************************************
 //
 //   Logo
-//   -> It's my name, yo.
+//   -> It's my logo, yo.
 //
 // *************************************
 
 .logo
-  border: 0
-  color: $c-heading
-  font-family: $b-fontFamily-heading
-  font-size: em(22px)
-  transition: 0.2s ease-in-out
-  &:hover
-    color: $c-primary
-    text-decoration: none
-  +respond-to($bp-layout)
-    font-size: em(26px, $b-fontSize-bp)
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-.logo--b
-  font-family: $b-fontFamily-heading
-  margin: 0
+// .module--modifier
 
 // -------------------------------------
 //   States
@@ -38,10 +26,17 @@
 // .has-module
 
 // -------------------------------------
-//   Submodules
+//   Scaffolding
 // -------------------------------------
 
-// ----- Submodule ----- //
+.logo-image
+  @extend .mrs
+  width: 60px
+  +respond-to($bp-fontSize)
+    width: auto
 
-// .module-submodule
+.logo-tagline
+  display: none
+  +respond-to(400px)
+    display: inline-block
 

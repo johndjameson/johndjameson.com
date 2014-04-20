@@ -7,7 +7,11 @@
 // *************************************
 
 .post
-  margin: 0 auto
+  h2
+    @extend .mtxl
+  img
+    @extend .db
+    @extend .mhc
 
 // -------------------------------------
 //   Modifiers
@@ -34,43 +38,36 @@
 // ----- Post Header ----- //
 
 .post-header
-  color: $c-heading
-  margin: 0 0 $b-whitespace*2 0
-  padding-top: $b-whitespace
-  position: relative
+  @extend .mbl
+  color: $c-header
+  padding-top: $b-whitespace-l
 
 // ----- Post Title ----- //
 
 .post-title
   text-align: center
-  margin-top: 0
 
 // ----- Post Date ----- //
 
 .post-date
-  background-color: $c-background
-  bottom: 100%
-  font-size: em(14px)
-  left: 0
-  letter-spacing: 0.2em
-  line-height: 1
-  margin-bottom: -1em
-  position: absolute
-  right: 0
-  text-align: center
-  text-transform: uppercase
-  +respond-to($bp-layout)
-    font-size: em(16px, $b-fontSize-bp)
+  @extend .db
+  @extend .mbf
+  @extend .tac
+  @extend .label
 
 // ----- Post Intro ----- //
+
 .post-intro
-  @extend %c-smallcaps
+  @extend .tfh
+  @extend .ttu
+  letter-spacing: 0.2em
+  font-size: 90%
 
 // ----- Post Marker ----- //
 
 .post-marker
+  @extend .por
   font-size: 70%
-  position: relative
   top: -0.4em
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
@@ -88,13 +85,12 @@
 // ----- Post Footnotes ----- //
 
 .post-footnotes
-  border-top: 1px solid $c-border
-  color: $c-text-soft
-  font-size: em(14px)
+  @extend .tcs
+  @extend .tss
+  border-top: 1px solid $b-borderColor
   margin: 0
+  padding-left: $b-whitespace
   padding-top: $b-whitespace
-  +respond-to($bp-layout)
-    font-size: em(16px, $b-fontSize-bp)
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
       display: none
@@ -108,16 +104,16 @@
 // ----- Post Sidenote ----- //
 
 .post-sidenote
-  color: $c-text-soft
-  display: none
+  @extend .tcs
+  @extend .tss
+  @extend .tsi
+  @extend .dn
+  @extend .poa
   left: 100%
-  font-size: em(14px)
-  font-style: italic
   padding-left: $b-whitespace
-  position: absolute
   top: 0
   width: 25%
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
       display: block
-      font-size: em(16px, $b-fontSize-bp)
+      font-size: percentage($b-fontSize-m/$b-fontSize-bp)

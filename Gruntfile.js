@@ -36,7 +36,7 @@ module.exports = function (grunt) {
       },
       markup: {
         files: [
-          '<%= yeoman.app %>/**/*.{html,md,xml}'
+          '<%= yeoman.app %>/**/*.{html,md,php,xml}'
         ],
         tasks: ['clean', 'jekyll', 'copy', 'sass', 'autoprefixer']
       },
@@ -45,6 +45,12 @@ module.exports = function (grunt) {
           '<%= yeoman.app %>/_sass/**/*.{scss,sass}'
         ],
         tasks: ['sass', 'autoprefixer']
+      },
+      javascript: {
+        files: [
+          '<%= yeoman.app %>/js/**/*.js'
+        ],
+        tasks: ['copy']
       }
     },
 
@@ -80,6 +86,7 @@ module.exports = function (grunt) {
           cwd: '<%= yeoman.app %>',
           src: [
             'img/**/*',
+            'includes/**/*',
             'js/**/*',
             '!**/_*{,/**}' // not underscored files/directories
           ],

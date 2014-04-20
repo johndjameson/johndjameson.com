@@ -25,48 +25,88 @@ Now have fun looking around. :)
 	<link rel="author" href="https://plus.google.com/u/0/113914298266231922059/posts">
 	<link rel="alternate" type="application/rss+xml"  href="http://www.johndjameson.com/feed.xml" title="John D. Jameson">
 
-	<link rel="stylesheet" href="/css/application.min.css">
+	<link rel="stylesheet" href="/css/application.css">
 	<script type="text/javascript" src="//use.typekit.net/gqu6ggi.js"></script>
 	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
 </head>
 <body>
-	<header class="l-header" role="banner">
-		<nav role="navigation"><a class="logo" href="/">John D. Jameson</a></nav>
+
+	<header class="header" role="banner">
+		<div class="header-content">
+			<div class="header-masthead">
+				<div class="logo">
+					<a class="unstyledLink" href="/">
+						<img class="logo-image" src="/img/johndjameson-logo.svg" alt="JJ logo">
+					</a>
+
+					<span class="logo-tagline"><em>He&rsquo;s got character.</em></span>
+				</div>
+			</div>
+
+			<div class="header-navigation">
+				<nav class="nav" role="navigation">
+					<ul class="nav-list">
+						<li class="nav-item">
+							<a class="nav-link" href="/">Home</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="/blog/">Blog</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</div>
 	</header>
 
 	{{content}}
 
-	<footer class="l-footer">
-		<div class="grid">
-			<div class="grid-box grid-box--lap--1of1 grid-box--desk--1of2">
+	<footer class="row">
+		<div class="cell">
+
+			<div class="footer-content">
 				<div class="grid">
-					<div class="grid-box grid-box--1of3">
-						<img class="c-circle" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
-					</div>
-					<div class="grid-box grid-box--2of3">
-						<p class="logo--b">John D. Jameson</p>
-						<p class="c-small c-soft">Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
+					<div class="grid-box grid-box--center grid-box--m--4of5 grid-box--l--3of4">
+						<div class="grid">
+							<div class="grid-box grid-box--m--1of2">
+								<div class="grid">
+									<div class="grid-box grid-box--1of3">
+										<img class="ra mbm" src="/img/avatar.jpg" alt="The always charming John D. Jameson">
+									</div>
+									<div class="grid-box grid-box--2of3">
+										<h4 class="mbf tfh tsm twb">John D. Jameson</h4>
+										<p class="tss">Web designer and front&#x2011;end developer in Orlando,&nbsp;Florida.</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="grid-box grid-box--m--1of2">
+								<ul class="footer-list">
+									<li class="list-item"><a href="https://twitter.com/johndjameson">Twitter</a></li>
+									<li class="list-item"><a href="https://dribbble.com/johndjameson">Dribbble</a></li>
+									<li class="list-item"><a href="http://codepen.io/johndjameson/">CodePen</a></li>
+									<li class="list-item"><a href="https://github.com/johndjameson">GitHub</a></li>
+									<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
+								</ul>
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="grid-box grid-box--lap--1of1 grid-box--desk--1of2">
-				<ul class="c-small list--social">
-					<li><a href="https://twitter.com/johndjameson">Twitter</a></li>
-					<li><a href="http://dribbble.com/johndjameson">Dribbble</a></li>
-					<li><a href="http://codepen.io/johndjameson/">CodePen</a></li>
-					<li><a href="https://github.com/johndjameson">GitHub</a></li>
-					<li><a href="http://feeds.feedburner.com/johndjameson"><abbr>RSS</abbr></a></li>
-				</ul>
-			</div>
+			<p class="tac tcs tss">&ldquo;You're ready. Start making stuff.&rdquo; &mdash;&nbsp;Austin&nbsp;Kleon</p>
 
 		</div>
 	</footer>
 
-	<p class="l-quote">“You're ready. Start making stuff.” —&nbsp;Austin&nbsp;Kleon</p>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-	<script src="/js/application.js"></script>
+	{% if page.dribbble %}
+	<script src="/js/dribbble.js" async></script>
+	{% endif %}
+
+	{% if page.post %}
+	<script src="/js/sidenotes.js"></script>
+	{% endif %}
 
 	<script>
 		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

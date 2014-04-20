@@ -1,0 +1,51 @@
+// *************************************
+//
+//   Hero Unit
+//   -> A big figure -- home page fodder
+//
+// *************************************
+
+.hero
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.hero-title
+  @extend .mbs
+  @extend .tsxxl
+  +respond-to($bp-grid-m)
+    padding-top: $b-whitespace
+  +respond-to($bp-fontSize)
+    font-size: percentage($b-fontSize-xxxl/$b-fontSize-bp)
+    margin-bottom: $b-whitespace
+  +respond-to($bp-grid-l)
+    padding-top: $b-whitespace-xl
+    font-size: percentage($b-fontSize-xxxxl/$b-fontSize-bp)
+
+.hero-image
+  @extend .db
+  @extend .mhc
+  opacity: 0.85
+  width: 100%
+  +respond-to($bp-grid-m, 'max-width')
+    max-width: 300px
+
