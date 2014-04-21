@@ -1,11 +1,11 @@
 {
-	"folders":
-	[
-		{
-			"follow_symlinks": true,
-			"path": ".",
-            "file_exclude_patterns": ["*.swp"],
-            "folder_exclude_patterns": ["dist"]
-		}
-	]
+  "folders":
+  [
+    {
+      "follow_symlinks": true,
+      "path": ".",
+      "file_exclude_patterns": ["*.swp"],
+      "folder_exclude_patterns": ["dist"]
+    }
+  ]
 }
