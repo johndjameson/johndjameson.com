@@ -75,16 +75,14 @@ dribbble: true
             <div class="grid-box grid-box--m--1of2">
                 <h2>More Posts</h2>
 
-                <div class="recentPosts mbs">
+                <ul class="split split--divided mbs">
                     {% for post in site.categories.blog offset:1 %}
-                    <div class="recentPosts-post">
-                        <h3 class="recentPosts-title">
-                            <a href="{{post.url}}">{{post.title-display}}</a>
-                        </h3>
-                        <time class="recentPosts-date" datetime="{{ post.date | date: '%Y-%m-%d'}}">{{ post.date | date: "%B %d, %Y" }}</time>
-                    </div>
+                    <li class="split-item">
+                        <h3 class="split-title tfb tsm"><a href="{{post.url}}">{{post.title-display}}</a></h3>
+                        <time class="split-support label" datetime="{{ post.date | date: '%Y-%m-%d'}}">{{ post.date | date: "%B %d, %Y" }}</time>
+                    </li>
                     {% endfor %}
-                </div>
+                </ul>
                 <a class="btn mts" href="/blog/">My Sweet Blog →</a>
             </div>
         </div>

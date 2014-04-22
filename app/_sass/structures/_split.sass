@@ -1,0 +1,50 @@
+// *************************************
+//
+//   Split
+//   -> This is an example structure
+//      Based on https://github.com/csswizardry/inuit.css/blob/master/objects/_split.scss
+//
+// *************************************
+
+.split
+  @extend .list--unstyled
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+.split--divided
+  border-top: $b-border
+  .split-item
+    border-bottom: $b-border
+    margin-bottom: 0
+    padding-bottom: $b-whitespace-s
+    padding-top: $b-whitespace-s
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.split-item
+  display: table
+
+.split-title
+  display: table-cell
+  width: 10000px // http://jsfiddle.net/necolas/rZvEF/
+
+.split-support
+  display: table-cell
+  padding-left: $b-whitespace
+  white-space: nowrap // Forces support text to display on a single line
