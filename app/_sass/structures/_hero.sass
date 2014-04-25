@@ -33,13 +33,13 @@
   @extend .mbs
   @extend .tsxxl
   +respond-to($bp-grid-m)
-    padding-top: $b-whitespace
+    margin-top: $b-whitespace
   +respond-to($bp-fontSize)
     font-size: percentage($b-fontSize-xxxl/$b-fontSize-bp)
     margin-bottom: $b-whitespace
   +respond-to($bp-grid-l)
-    padding-top: $b-whitespace-xl
     font-size: percentage($b-fontSize-xxxxl/$b-fontSize-bp)
+    margin-top: $b-whitespace * 3
 
 .hero-image
   @extend .db
@@ -48,4 +48,6 @@
   width: 100%
   +respond-to($bp-grid-m, 'max-width')
     max-width: 300px
+  +respond-to($bp-grid-m)
+    margin-bottom: $b-whitespace
 

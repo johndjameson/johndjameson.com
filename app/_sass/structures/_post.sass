@@ -8,7 +8,9 @@
 
 .post
   h2
-    @extend .mtxl
+    @extend .mtm
+    +respond-to($bp-fontSize)
+      margin-top: $b-whitespace-l
   img
     @extend .db
     @extend .mhc

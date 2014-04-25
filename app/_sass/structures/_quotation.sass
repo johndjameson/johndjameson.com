@@ -1,0 +1,52 @@
+// *************************************
+//
+//   Strucutre
+//   -> This is an example structure
+//      Based on:
+//      * http://alistapart.com/blog/post/more-thoughts-about-blockquotes-than-are-strictly-required
+//
+//
+// *************************************
+
+.quotation
+  @extend .mbmrl
+  @extend .mtmrl
+  @extend .tsi
+  border-left: $b-border
+  padding-left: $b-whitespace
+  +respond-to($bp-fontSize)
+    padding-left: $b-whitespace-l
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.quotation-body
+  @extend .mbm
+  @extend .mlf
+  @extend .mrf
+
+.quotation-citation
+  @extend .tss
+  &::before
+    @extend .mrs
+    content: '—' // Em dash
+

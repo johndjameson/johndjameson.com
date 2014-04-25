@@ -88,6 +88,10 @@
   margin-bottom: $b-whitespace-s
 .mbm
   margin-bottom: $b-whitespace
+.mbmrl
+  margin-bottom: $b-whitespace
+  +respond-to($bp-fontSize)
+    margin-bottom: $b-whitespace-l
 .mbl
   margin-bottom: $b-whitespace-l
 
@@ -123,10 +127,13 @@
   margin-top: $b-whitespace-s
 .mtm
   margin-top: $b-whitespace
+.mtmrl
+  margin-top: $b-whitespace
+  +respond-to($bp-fontSize)
+    margin-top: $b-whitespace-l
 .mtl
   margin-top: $b-whitespace-l
-.mtxl
-  margin-top: $b-whitespace-xl
+
 
 // -------------------------------------
 //   Positioning
@@ -154,6 +161,8 @@
   border-radius: 50%
 .ram
   border-radius: $b-borderRadius
+.ran
+  border-radius: 0
 
 // -------------------------------------
 //   Text
