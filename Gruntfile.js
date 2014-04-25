@@ -6,7 +6,6 @@
    * Add 'lint' command
      - CSSLint
      - CSSCSS
-     - JSHint
      - Minification statistics
 */
 
@@ -38,7 +37,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/**/*.{html,md,php,xml}'
         ],
-        tasks: ['clean', 'jekyll', 'copy', 'sass', 'autoprefixer']
+        tasks: ['clean', 'jekyll:dev', 'copy', 'sass', 'autoprefixer']
       },
       sass: {
         files: [
@@ -69,11 +68,18 @@ module.exports = function (grunt) {
       options: {
         bundleExec: true,
         config: '_config.yml,_config.build.yml',
-        src: '<%= yeoman.app %>'
+        src: '<%= yeoman.app %>',
+        dest: '<%= yeoman.dist %>'
       },
       dist: {
         options: {
+          dest: '<%= yeoman.dist %>'
+        }
+      },
+      dev: {
+        options: {
           dest: '<%= yeoman.dist %>',
+          drafts: true
         }
       }
     },
@@ -160,7 +166,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('dev', [
     'clean',
-    'jekyll',
+    'jekyll:dev',
     'copy',
     'sass',
     'autoprefixer',
