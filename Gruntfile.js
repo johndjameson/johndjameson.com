@@ -177,7 +177,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('build', [
     'clean',
-    'jekyll',
+    'jekyll:dist',
     'copy',
     'sass',
     'autoprefixer',
