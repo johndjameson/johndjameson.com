@@ -1,7 +1,7 @@
 // *************************************
 //
 //   Split
-//   -> This is an example structure
+//   -> Fixed-width key:value faux-table
 //      Based on https://github.com/csswizardry/inuit.css/blob/master/objects/_split.scss
 //
 // *************************************
@@ -21,6 +21,16 @@
     padding-bottom: $b-whitespace-s
     padding-top: $b-whitespace-s
 
+.split--responsive
+  @extend .db
+  .split-title,
+  .split-support
+    +respond-to($bp-grid-m, 'max-width')
+      display: block
+      padding-left: 0
+      white-space: normal
+      width: 100%
+
 // -------------------------------------
 //   States
 // -------------------------------------
@@ -39,6 +49,7 @@
 
 .split-item
   display: table
+  width: 100%
 
 .split-title
   display: table-cell
