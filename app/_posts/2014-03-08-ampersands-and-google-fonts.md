@@ -29,12 +29,15 @@ Today we are able to provide additional browser support thanks to the availabili
 
 We start off by adding the <abbr>URI</abbr>-encoded string `&text=%26` to a Google Fonts <abbr>URL</abbr> inside our <abbr>CSS</abbr>. This allows browsers to download a miniscule *1 or 2 kilobyte* file containing **only the ampersand character** of a specified font, rather than a font file that is 50 or 60 kilobytes larger.
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 @import url(http://fonts.googleapis.com/css?family=Font+Name&text=%26);
 {% endhighlight %}
+</div>
 
 Then we create an ampersand class to apply throughout our <abbr>HTML</abbr>. Using some of the fonts discussed in previously mentioned articles, we're able to provide potential fallbacks in the unlikely event Google Fonts aren't supported.
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 .amp {
   font-family: "Font Name", "Baskerville", "Palatino", inherit;
@@ -43,12 +46,15 @@ Then we create an ampersand class to apply throughout our <abbr>HTML</abbr>. Usi
   font-weight: normal;
 }
 {% endhighlight %}
+</div>
 
 We can now identify ampersands anywhere in our markup by using the new-and-improved <abbr>HTML5</abbr> `<b>` elements with a class name of `amp`.
 
+<div class="well mbmrl mtmrl">
 {% highlight html %}
 Ampersands <b class="amp">&amp;</b> Google Fonts
 {% endhighlight %}
+</div>
 
 Now that our <abbr>HTML</abbr> is marked up as intended, we have everything we need in place to start adding elegant, well-supported ampersands to our web design projects. ***But* if you're interested in sanding out a few of the rough edges, there's still *a little more* work we can do.**
 
@@ -57,6 +63,7 @@ Now that our <abbr>HTML</abbr> is marked up as intended, we have everything we n
 
 With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>API</abbr> for a single ampersand takes up *two* <abbr>HTTP</abbr> requests. The first response contains the <abbr>CSS</abbr> file we previously imported into our style sheet. Because this <abbr>CSS</abbr> specifies a `@font-face` declaration for the requested font, the font itself becomes the *second* <abbr>HTTP</abbr> request.
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 @font-face {
   font-family: 'Font Name';
@@ -65,9 +72,11 @@ With our <abbr>CSS</abbr> in its current state, querying the Google Fonts <abbr>
   src: local('Font Name'), local('FontName-Italic'), url(http://themes.googleusercontent.com/licensed/font?kit=V_k5El2vkhx93NlGwmIB5Y3CqX6P7Jx8H90cFJ_LRto) format('woff2'), url(http://themes.googleusercontent.com/licensed/font?kit=p0-i_LrFh6jEfrY2wE1ZTo3CqX6P7Jx8H90cFJ_LRto) format('woff');
 }
 {% endhighlight %}
+</div>
 
 Due to different implentations of `@font-face` across older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection *in favor of making fewer <abbr>HTTP</abbr> requests*, then **we can paste this <abbr>CSS</abbr> directly into our style sheet.**
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 @font-face {
   font-family: 'Font Name';
@@ -83,6 +92,7 @@ Due to different implentations of `@font-face` across older browsers, Google del
   font-weight: normal;
 }
 {% endhighlight %}
+</div>
 
 Alternatively, we can manually download the <abbr>WOFF</abbr> file Google provides and encode it as Base64 *straight into the style sheet*, saving ourselves an additional <abbr>HTTP</abbr> request as part of the process.
 
@@ -90,12 +100,15 @@ Although Google's <abbr>CSS</abbr> references both <abbr>WOFF2</abbr> and <abbr>
 
 To convert a file to Base64, we can use an [online tool][base64] or the following Terminal command:
 
+<div class="well mbmrl mtmrl">
 {% highlight bash %}
 openssl base64 -in input-file.ext -out output-file.ext
 {% endhighlight %}
+</div>
 
 We then add the resulting Base64 string inside our authored <abbr>CSS</abbr>.
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 @font-face {
   font-family: "Font Name", "Baskerville", "Palatino", inherit;
@@ -104,6 +117,7 @@ We then add the resulting Base64 string inside our authored <abbr>CSS</abbr>.
   src: url(data:application/font-woff;charset=utf-8;base64,/*base64 string*/) format('woff');
 }
 {% endhighlight %}
+</div>
 
 And that's it&mdash;for real this time! Using Google Fonts, a little-known query string, and a touch of Base64 magic, we're able to encode stunning ampersands directly into our <abbr>CSS</abbr> files and with very a microscopic file size. This approach won't always work perfecly, but it's definitely a step toward upping your type game on the web.<sup class="post-marker"><a href="#note:3">3</a></sup>
 

@@ -15,6 +15,7 @@ Let’s check out the code that makes it work.
 
 First off, we're going to need a container for our content. I'm partial to an `<article>` element with the class name `post`. Fill it with a few paragraphs inside `<p>` elements as usual, supplying whatever content you see fit.
 
+<div class="well mbmrl mtmrl">
 {% highlight html %}
 <article class="post">
   <p><!-- paragraph text--></p>
@@ -22,17 +23,21 @@ First off, we're going to need a container for our content. I'm partial to an `<
   <p><!-- yet even more text--></p>
 </article>
 {% endhighlight %}
+</div>
 
 Now, in order to mark the locations of your annotations, use the following format:
 
+<div class="well mbmrl mtmrl">
 {% highlight html %}
 <sup class="post-marker"><a href="#note:1">1</a></sup>
 {% endhighlight %}
+</div>
 
 The `<sup>` tag semantically identifies the child `<a>` element as a superscript and also allows us to use <abbr>CSS</abbr> properties on two unique elements later on.<sup class="post-marker"><a href="#note:2">2</a></sup> The `href="#note:1"` attribute allows users to click annotation markers, repositioning the browser window to reveal related footnotes.
 
 Once the body text is annotated with the intended markup, it's time to provide the content of our footnotes and sidenotes. Right before the closing `</article>` tag, add the following ordered list, modified as needed for your content.
 
+<div class="well mbmrl mtmrl">
 {% highlight html %}
 <ol class="post-footnotes">
   <li id="note:1">This is the first annotation.</li>
@@ -40,6 +45,7 @@ Once the body text is annotated with the intended markup, it's time to provide t
   <li id="note:3">And this is the third.</li>
 </ol>
 {% endhighlight %}
+</div>
 
 And that's it for the <abbr>HTML</abbr>. *Not so bad, right?*
 
@@ -48,12 +54,14 @@ And that's it for the <abbr>HTML</abbr>. *Not so bad, right?*
 
 The first thing we need to do is create variables for the jQuery objects we'll be using later.
 
+<div class="well mbmrl mtmrl">
 {% highlight javascript %}
 var $document = $(document),
     $post = $('.post'),
     $markers = $('.post .post-marker'),
     $footnotes = $('.post-footnotes');
 {% endhighlight %}
+</div>
 
 Once that's taken care of, we need to outline our goals and write code to do the following tasks:
 
@@ -63,6 +71,7 @@ Once that's taken care of, we need to outline our goals and write code to do the
 
 In JavaScript, that looks a lot like this:
 
+<div class="well mbmrl mtmrl">
 {% highlight javascript %}
 function createSidenotes() {
     var $footnoteArray = $footnotes.children();
@@ -79,9 +88,11 @@ function createSidenotes() {
     }
 }
 {% endhighlight %}
+</div>
 
 <abbr>CSS</abbr> has no way of styling parent elements, so we're also going to need to indicate whether or not our `.post` contains annotations. The following code checks whether or not any footnotes exist and then adds a class to the `.post` if the conditional statement returns `true`.
 
+<div class="well mbmrl mtmrl">
 {% highlight javascript %}
 function toggleNotes() {
     if ($footnotes.length > 0 && $markers.length > 0) {
@@ -89,15 +100,18 @@ function toggleNotes() {
     }
 }
 {% endhighlight %}
+</div>
 
 Now wrap those two functions in a jQuery `ready()` method for good measure and you're almost done.
 
+<div class="well mbmrl mtmrl">
 {% highlight javascript %}
 $document.ready(function() {
     createSidenotes();
     toggleNotes();
 });
 {% endhighlight %}
+</div>
 
 
 ##CSS
@@ -114,6 +128,7 @@ Before writing any <abbr>CSS</abbr>, let's identify our goals this time around:
 
 Using the following <abbr>CSS</abbr>, let's take care of all of those goals one by one and finish things up.
 
+<div class="well mbmrl mtmrl">
 {% highlight css %}
 .post-marker {
   font-size: 70%;
@@ -157,6 +172,7 @@ Using the following <abbr>CSS</abbr>, let's take care of all of those goals one 
   }
 }
 {% endhighlight %}
+</div>
 
 And they you have it: responsive sidenotes that display on wide browsers yet degrade gracefully to footnotes in narrow browsers and environments without JavaScript support.<sup class="post-marker"><a href="#note:3">3</a></sup>
 
