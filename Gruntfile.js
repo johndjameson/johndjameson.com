@@ -37,7 +37,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/**/*.{html,md,php,xml}'
         ],
-        tasks: ['clean', 'jekyll:dev', 'copy', 'sass', 'autoprefixer']
+        tasks: ['clean', 'jekyll:dev', 'copy', 'sass', 'autoprefixer', 'concat']
       },
       sass: {
         files: [
@@ -49,7 +49,7 @@ module.exports = function (grunt) {
         files: [
           '<%= yeoman.app %>/js/**/*.js'
         ],
-        tasks: ['copy']
+        tasks: ['concat']
       }
     },
 
@@ -135,6 +135,17 @@ module.exports = function (grunt) {
       }
     },
 
+    concat: {
+      post: {
+        src: [
+          '<%= yeoman.app %>/js/sidenotes.js',
+          '<%= yeoman.app %>/js/tabBlock.js',
+          '<%= yeoman.app %>/js/application.js'
+        ],
+        dest: '<%= yeoman.dist %>/js/application.js'
+      }
+    },
+
     imagemin: {
       dist: {
         options: {
@@ -171,6 +182,7 @@ module.exports = function (grunt) {
     'sass',
     'autoprefixer',
     'cssmin',
+    'concat',
     'connect',
     'watch'
   ]);
@@ -182,6 +194,7 @@ module.exports = function (grunt) {
     'sass',
     'autoprefixer',
     'cssmin',
+    'concat',
     'svgmin',
     'imagemin'
   ]);

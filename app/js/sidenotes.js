@@ -26,7 +26,3 @@ var Sidenotes = {
     }
   }
 };
-
-$(function() {
-  Sidenotes.init();
-});
