@@ -75,7 +75,7 @@ dribbble: true
             <div class="grid-box grid-box--m--1of2">
                 <h2>More Posts</h2>
 
-                <ul class="split split--divided mbs">
+                <ul class="split split--divided mbm">
                     {% for post in site.categories.blog offset:1 %}
                     <li class="split-item">
                         <h3 class="split-title tfb tsm"><a href="{{post.url}}">{{post.title-display}}</a></h3>
@@ -83,7 +83,7 @@ dribbble: true
                     </li>
                     {% endfor %}
                 </ul>
-                <a class="btn mtm" href="/blog/">My Sweet Blog →</a>
+                <a class="btn" href="/blog/">My Sweet Blog →</a>
             </div>
         </div>
 
