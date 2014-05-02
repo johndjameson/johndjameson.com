@@ -14,26 +14,43 @@ $tabs-transition: 0.1s ease-in-out
   margin-left: 0
   margin-right: 0
 
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// .structure--modifier
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// .structure.is-state
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// .has-structure
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
 .tabBlock-tabs
   @extend .list--unstyled
   @extend .group
 
 .tabBlock-tab
+  @extend .btn
   background-color: $tabs-backgroundColor
+  border-bottom: 0
   border-color: $b-borderColor
   border-left-style: solid
   border-top: solid
   border-width: $tabs-borderWidth
   color: #b5a8c5
-  cursor: pointer
-  display: inline-block
   float: left
-  font-weight: 600
-  margin: 0
-  padding: $b-whitespace-s $b-whitespace
-  position: relative
   transition: $tabs-transition
-  white-space: nowrap
   &:last-of-type
     border-right-style: solid
   &::before, &::after
@@ -57,7 +74,6 @@ $tabs-transition: 0.1s ease-in-out
     padding-right: $b-whitespace-l
   &.is-active
     color: $c-highlight
-    position: relative
     z-index: 1
     &::before
       background-color: $c-highlight
@@ -71,32 +87,5 @@ $tabs-transition: 0.1s ease-in-out
 
 .tabBlock-pane
   overflow: auto
-
   > :last-child
     margin-bottom: 0
-
-
-// -------------------------------------
-//   Modifiers
-// -------------------------------------
-
-// .structure--modifier
-
-// -------------------------------------
-//   States
-// -------------------------------------
-
-// .structure.is-state
-
-// -------------------------------------
-//   Context
-// -------------------------------------
-
-// .has-structure
-
-// -------------------------------------
-//   Scaffolding
-// -------------------------------------
-
-// .structure-sub
-

@@ -5,50 +5,15 @@
 //
 // *************************************
 
-$button-background-light: #ad7da9
-$button-background: #975997
-$button-background-dark: #6b518c
-
-$button-borderColor: #2b457b
-$button-borderWidth: 1px
-
 .btn
   @extend .tsm
-  border: $button-borderWidth solid $button-borderColor
-  border-radius: $b-borderRadius
-  box-shadow: inset 0 1px 0 $button-background-light, 0 3px 0 $button-borderColor
-  color: $c-invert
   cursor: pointer
   display: inline-block
   font-weight: 600
-  line-height: 1.25
   margin: 0
   padding: $b-whitespace-s $b-whitespace
   position: relative
-  text-shadow: 0 -1px 0 $button-borderColor
-  transition: none
-  &::before, &::after
-    backface-visibility: hidden // Addresses Safari transition flicker
-    border-radius: $b-borderRadius - $button-borderWidth
-    bottom: 0
-    content: ''
-    left: 0
-    position: absolute
-    right: 0
-    transition: $b-transition
-    top: 0
-    z-index: -1
-  &::before
-    background-image: linear-gradient(#c77ebf, #9d73b9)
-  &::after
-    background-image: linear-gradient($button-background, $button-background-dark)
-  &:hover, &:focus
-    color: $c-invert
-    &::after
-      opacity: 0.5
-  &:active
-    box-shadow: inset 0 1px 0 $button-background-light, 0 1px 0 $button-borderColor
-    top: 2px
+  white-space: nowrap
 
 // -------------------------------------
 //   Modifiers
@@ -72,5 +37,40 @@ $button-borderWidth: 1px
 //   Scaffolding
 // -------------------------------------
 
-// .structure-sub
+$btn-a-background-light: #ad7da9
+$btn-a-background: #975997
+$btn-a-background-dark: #6b518c
+$btn-a-borderColor: #2b457b
+$btn-a-borderRadius: $b-borderRadius
+$btn-a-borderWidth: 1px
 
+.btn--a
+  border: 1px solid $btn-a-borderColor
+  border-radius: $btn-a-borderRadius
+  box-shadow: inset 0 1px 0 $btn-a-background-light, 0 3px 0 $btn-a-borderColor
+  color: $c-invert
+  line-height: 1.25
+  text-shadow: 0 -1px 0 $btn-a-borderColor
+  transition: none
+  &::before, &::after
+    backface-visibility: hidden // Addresses Safari transition flicker
+    border-radius: $btn-a-borderRadius - $btn-a-borderWidth
+    bottom: 0
+    content: ''
+    left: 0
+    position: absolute
+    right: 0
+    transition: $b-transition
+    top: 0
+    z-index: -1
+  &::before
+    background-image: linear-gradient(#c77ebf, #9d73b9)
+  &::after
+    background-image: linear-gradient($btn-a-background, $btn-a-background-dark)
+  &:hover, &:focus
+    color: $c-invert
+    &::after
+      opacity: 0.5
+  &:active
+    box-shadow: inset 0 1px 0 $btn-a-background-light, 0 1px 0 $btn-a-borderColor
+    top: 2px
