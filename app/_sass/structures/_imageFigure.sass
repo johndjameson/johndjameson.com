@@ -11,15 +11,15 @@
 .imageFigure
   @extend .mbmrl
   @extend .mtmrl
-  @extend .mlf
-  @extend .mrf
-  figcaption
-    @extend .tac
-    @extend .tcs
-    @extend .tsi
+  margin-left: 0
+  margin-right: 0
+  > figcaption
     @extend .tss
+    color: $c-subdue
+    font-style: italic
+    text-align: center
   > img
-    @extend .mbs
+    margin-bottom: $b-whitespace-s
 
 
 // -------------------------------------

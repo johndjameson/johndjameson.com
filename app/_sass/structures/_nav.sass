@@ -33,12 +33,12 @@
 
 .nav-list
   @extend .list--inline
-  @extend .mbf
+  margin-bottom: 0
 
 // ----- Nav Item ----- //
 
 .nav-item
-  @extend .mbf
+  margin-bottom: 0
   &:not(:first-of-type)
     &::before
       content: "\2022" // utf bullet •
@@ -52,4 +52,4 @@
   color: inherit
   font-weight: inherit
   &:hover, &:focus
-    @extend .tch
+    color: $c-highlight

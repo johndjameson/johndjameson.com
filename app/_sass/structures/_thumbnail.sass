@@ -7,11 +7,11 @@
 // *************************************
 
 .thumbnail
-  @extend .mbm
-  @extend .por
   border: 1px solid $b-borderColor
-  padding: $b-whitespace-s
+  margin-bottom: $b-whitespace
   overflow: hidden
+  padding: $b-whitespace-s
+  position: relative
   &:hover, &:focus
     .thumbnail-image
       opacity: 0.25
@@ -42,18 +42,18 @@
 // -------------------------------------
 
 .thumbnail-image
-  @extend .db
+  display: block
   backface-visibility: hidden
   transition: $b-transition
 
 .thumbnail-content
-  @extend .poa
-  @extend .tac
-  @extend .twb
   left: 0
   line-height: 1 // set line height to equal 1em for predictability
+  font-weight: 600
   margin-top: -0.5em // -0.5em line height offsers center for 'top: 50%'
   opacity: 0
+  position: absolute
+  text-align: center
   top: 50%
   transition: $b-transition
   width: 100%

@@ -202,18 +202,18 @@
 .tss
   font-size: percentage($b-fontSize-s/$b-fontSize)
   +respond-to($bp-fontSize)
-    font-size: percentage($b-fontSize-m/$b-fontSize-bp)
+    font-size: percentage($b-fontSize/$b-fontSize-bp)
 
 // Base for site use only in html rules
 .tsb
-  font-size: percentage($b-fontSize-m/$b-fontSize)
+  font-size: percentage($b-fontSize/$b-fontSize)
   // Change the base size for the entire site
   +respond-to($bp-fontSize)
     font-size: percentage($b-fontSize-l/$b-fontSize)
 
 // Helper for content, classes, extends
 .tsm
-  font-size: percentage($b-fontSize-m/$b-fontSize)
+  font-size: percentage($b-fontSize/$b-fontSize)
   +respond-to($bp-fontSize)
     font-size: percentage($b-fontSize-l/$b-fontSize-bp)
 

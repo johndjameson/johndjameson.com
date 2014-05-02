@@ -30,8 +30,8 @@
 // -------------------------------------
 
 .hero-title
-  @extend .mbs
   @extend .tsxxl
+  margin-bottom: $b-whitespace-s
   +respond-to($bp-grid-m)
     margin-top: $b-whitespace
   +respond-to($bp-fontSize)
@@ -42,8 +42,9 @@
     margin-top: $b-whitespace * 3
 
 .hero-image
-  @extend .db
-  @extend .mhc
+  display: block
+  margin-left: auto
+  margin-left: auto
   opacity: 0.85
   width: 100%
   +respond-to($bp-grid-m, 'max-width')

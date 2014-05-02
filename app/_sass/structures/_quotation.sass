@@ -10,11 +10,11 @@
 
 .quotation
   @extend .mbmrl
-  @extend .mlf
-  @extend .mrf
   @extend .mtmrl
-  @extend .tsi
   border-left: $b-border
+  font-style: italic
+  margin-left: 0
+  margin-right: 0
   padding-left: $b-whitespace
   +respond-to($bp-fontSize)
     padding-left: $b-whitespace-l
@@ -42,13 +42,13 @@
 // -------------------------------------
 
 .quotation-body
-  @extend .mbm
-  @extend .mlf
-  @extend .mrf
+  margin-bottom: $b-whitespace
+  margin-left: 0
+  margin-right: 0
 
 .quotation-citation
   @extend .tss
   &::before
-    @extend .mrs
+    margin-right: $b-whitespace-s
     content: '—' // Em dash
 

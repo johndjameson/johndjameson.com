@@ -8,12 +8,13 @@
 
 .post
   h2
-    @extend .mtm
+    margin-top: $b-whitespace
     +respond-to($bp-fontSize)
       margin-top: $b-whitespace-l
   img
-    @extend .db
-    @extend .mhc
+    display: block
+    margin-left: auto
+    margin-right: auto
 
 // -------------------------------------
 //   Modifiers
@@ -40,8 +41,8 @@
 // ----- Post Marker ----- //
 
 .post-marker
-  @extend .por
   font-size: 70%
+  position: relative
   top: -0.4em
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
@@ -59,8 +60,8 @@
 // ----- Post Footnotes ----- //
 
 .post-footnotes
-  @extend .tcs
   @extend .tss
+  color: $c-subdue
   border-top: 1px solid $b-borderColor
   margin: 0
   padding-left: $b-whitespace
@@ -78,16 +79,16 @@
 // ----- Post Sidenote ----- //
 
 .post-sidenote
-  @extend .tcs
   @extend .tss
-  @extend .tsi
-  @extend .dn
-  @extend .poa
+  color: $c-subdue
+  display: none
+  font-style: italic
   left: 100%
   padding-left: $b-whitespace
+  position: absolute
   top: 0
   width: 25%
   .post.has-sidenotes &
     +respond-to($bp-sidenotes)
       display: block
-      font-size: percentage($b-fontSize-m/$b-fontSize-bp)
+      font-size: percentage($b-fontSize/$b-fontSize-bp)

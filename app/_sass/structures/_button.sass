@@ -13,27 +13,25 @@ $button-borderColor: #2b457b
 $button-borderWidth: 1px
 
 .btn
-  @extend .dib
-  @extend .tci
   @extend .tsm
-  @extend .twb
-  @extend .mbs
-  @extend .por
   border: $button-borderWidth solid $button-borderColor
   border-radius: $b-borderRadius
   box-shadow: inset 0 1px 0 $button-background-light, 0 3px 0 $button-borderColor
+  color: $c-invert
+  display: inline-block
+  font-weight: 600
   line-height: 1.25
+  margin: 0
   padding: $b-whitespace-s $b-whitespace
+  position: relative
   text-shadow: 0 -1px 0 $button-borderColor
-  // transition: 0.05s steps(2, start)
   &::before, &::after
-    @extend .poa
-    @extend .ram
     backface-visibility: hidden // Addresses Safari transition flicker
     border-radius: $b-borderRadius - $button-borderWidth
     bottom: 0
     content: ''
     left: 0
+    position: absolute
     right: 0
     transition: $b-transition
     top: 0
@@ -43,7 +41,7 @@ $button-borderWidth: 1px
   &::after
     background-image: linear-gradient($button-background, $button-background-dark)
   &:hover, &:focus
-    @extend .tci
+    color: $c-invert
     &::after
       opacity: 0.5
   &:active

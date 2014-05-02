@@ -11,18 +11,14 @@ $tabs-borderWidth: $b-borderWidth
 $tabs-transition: 0.1s ease-in-out
 
 .tabBlock
-  @extend .mlf
-  @extend .mrf
+  margin-left: 0
+  margin-right: 0
 
 .tabBlock-tabs
   @extend .list--unstyled
   @extend .group
 
 .tabBlock-tab
-  @extend .dib
-  @extend .fl
-  @extend .por
-  @extend .twb
   background-color: $tabs-backgroundColor
   border-color: $b-borderColor
   border-left-style: solid
@@ -30,14 +26,18 @@ $tabs-transition: 0.1s ease-in-out
   border-width: $tabs-borderWidth
   color: #b5a8c5
   cursor: pointer
+  display: inline-block
+  float: left
+  font-weight: 600
   margin: 0
   padding: $b-whitespace-s $b-whitespace
+  position: relative
   transition: $tabs-transition
   white-space: nowrap
   &:last-of-type
     border-right-style: solid
   &::before, &::after
-    @extend .poa
+    position: absolute
     content: ''
     display: block
     height: $tabs-borderWidth * 2
@@ -56,8 +56,8 @@ $tabs-transition: 0.1s ease-in-out
     padding-left: $b-whitespace-l
     padding-right: $b-whitespace-l
   &.is-active
-    @extend .por
-    @extend .tch
+    color: $c-highlight
+    position: relative
     z-index: 1
     &::before
       background-color: $c-highlight
