@@ -46,7 +46,7 @@ module.exports = (grunt) ->
 
     jekyll:
       options:
-        bundleExec: true,
+        bundleExec: true
         config: '_config.yml,_config.build.yml'
         src: '<%= yeoman.app %>'
         dest: '<%= yeoman.dist %>'
@@ -136,26 +136,26 @@ module.exports = (grunt) ->
         ]
 
   grunt.registerTask 'dev', [
-    'clean',
-    'jekyll:dev',
-    'copy',
-    'sass',
-    'autoprefixer',
-    'cssmin',
-    'concat',
-    'connect',
+    'clean'
+    'jekyll:dev'
+    'copy'
+    'sass'
+    'autoprefixer'
+    'cssmin'
+    'concat'
+    'connect'
     'watch'
   ]
 
   grunt.registerTask 'build', [
-    'clean',
-    'jekyll:dist',
-    'copy',
-    'sass',
-    'autoprefixer',
-    'cssmin',
-    'concat',
-    'svgmin',
+    'clean'
+    'jekyll:dist'
+    'copy'
+    'sass'
+    'autoprefixer'
+    'cssmin'
+    'concat'
+    'svgmin'
     'imagemin'
   ];
 
