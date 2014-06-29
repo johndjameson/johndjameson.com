@@ -12,6 +12,19 @@
 
   %body{ class: page_classes }
 
+    %header.row
+      .cell.well
+        .group
+          .fl
+            %a{:href => "/"}
+              = image_tag 'johndjameson-logo.svg', :height => 60, :width => 60
+            %p.dib.mbf.tsi He's got character.
+          .fr
+            %a{:href => "/"} Home
+            %a{:href => "/blog"} Blog
+
     = yield
 
-    = javascript_include_tag  'application'
+    %footer.row.row--a.tci
+      .cell.well.well--l
+      %p Built using MVCSS and Middleman. Check out the source code on GitHub.
