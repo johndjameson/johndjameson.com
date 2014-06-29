@@ -1,2 +1,44 @@
-%h1 Middleman is Watching
-%p= link_to 'Read Online Documentation', 'http://middlemanapp.com/'
+%section.row.row--a.tci
+  .cell.well
+    .g
+      .g-b.g-b--m--1of2
+        %h1 Hey, there.
+        %p I&rsquo;m John D. Jameson—front‑end developer and avid indoorsman in Orlando, Florida.
+        %p I work (and learn) at Code School, geek out over CSS architecture, and love me some web typography.
+
+%section.row
+  .cell.well
+    .g
+      .g-b.g-b--m--1of2
+        %h2 Latest Blog Post
+        %a{:href => ""}= lorem.words(3).titleize
+        %p Month 31, 20XX
+        %p= lorem.words(40).capitalize
+      .g-b.g-b--m--1of2
+        .card
+          %h3 More Posts
+          %ul
+            %li
+              %a{:href => ""}= lorem.words(3).titleize
+              %p Month 31, 20XX
+            %li
+              %a{:href => ""}= lorem.words(3).titleize
+              %p Month 31, 20XX
+            %li
+              %a{:href => ""}= lorem.words(3).titleize
+              %p Month 31, 20XX
+
+%section.row
+  .cell.well
+    .group
+      %h3.fl Dribbble Shots
+      %a.fr{:href => ""} View Profile ->
+    .g
+      .g-b.g-b--s--1of2.g-b--l--1of4
+        = image_tag lorem.image('640x480')
+      .g-b.g-b--s--1of2.g-b--l--1of4
+        = image_tag lorem.image('640x480')
+      .g-b.g-b--s--1of2.g-b--l--1of4
+        = image_tag lorem.image('640x480')
+      .g-b.g-b--s--1of2.g-b--l--1of4
+        = image_tag lorem.image('640x480')
