@@ -9,6 +9,9 @@
     %title= current_page.data.title || 'The Middleman'
 
     = stylesheet_link_tag 'application'
+    = javascript_include_tag "//use.typekit.net/gqu6ggi.js"
+    :javascript
+      try{Typekit.load();}catch(e){}
 
   %body{ class: page_classes }
 
