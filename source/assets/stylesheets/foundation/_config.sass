@@ -9,11 +9,7 @@
 //   @font-face
 // -------------------------------------
 
-// ----- Open Sans ----- //
-
-// +font-face('OpenSans', 'OpenSans')
-// +font-face('OpenSans', 'OpenSansBold', bold)
-// +font-face('OpenSans', 'OpenSansItalic', normal, italic)
+// ...
 
 // -------------------------------------
 //   Colors
@@ -21,16 +17,29 @@
 
 // ----- Palette ----- //
 
-$plum: #4e4e5b
+// Gray - dark to light
+
+$nero: #222
+$nightrider: #333
+$quill: #e2e2e0
+$desertstorm: #f1f0ee
+
+// White
+
+$alabaster: #faf9f7
+
+// Purple
+
+$orchid: #93609d
 
 // ----- Base ----- //
 
-$c-background-invert: #fff
-$c-background: #ecf0f1
-$c-highlight: $plum
-$c-subdue: lighten($plum, 40%)
-$c-text-invert: #fff
-$c-text: #444
+$c-background-invert: $desertstorm
+$c-background: $alabaster
+$c-highlight: $orchid
+$c-subdue: darken($quill, 20%)
+$c-text-invert: $alabaster
+$c-text: $nero
 
 // ----- Components ----- //
 
@@ -46,8 +55,8 @@ $c-text: #444
 
 // ----- Borders & Box Shadow ----- //
 
-$b-borderColor: lighten($plum, 30%)
-$b-borderRadius: 3px
+$b-borderColor: lighten($orchid, 30%)
+$b-borderRadius: 5px
 $b-borderStyle: solid
 $b-borderWidth: 2px
 $b-border: $b-borderWidth $b-borderStyle $b-borderColor
