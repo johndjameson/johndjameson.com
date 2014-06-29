@@ -1,5 +1,7 @@
 ---
 title: Using Emmet with Sublime Text
+type: post
+date: 2014-04-28
 description: "Emmet is an invaluable time-saving tool for anyone who writes <abbr>HTML</abbr> and <abbr>CSS</abbr>. Thanks to Sublime Text, it only takes a little bit of effort to install and start using right now."
 ---
 

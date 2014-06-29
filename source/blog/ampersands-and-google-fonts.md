@@ -1,5 +1,7 @@
 ---
 title: Ampersands & Google Fonts
+type: post
+date: 2014-03-08
 description: "Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before."
 ---
 
