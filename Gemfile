@@ -1,5 +1,9 @@
-source "http://rubygems.org"
+# If you have OpenSSL installed, we recommend updating
+# the following line to use 'https'
+source 'http://rubygems.org'
 
-gem 'jekyll', '~>1.4.0'
-gem 'rdiscount'
-gem 'sass', '>=3.2'
+gem 'redcarpet'
+
+gem 'middleman'
+gem 'middleman-livereload'
+gem 'middleman-syntax'
