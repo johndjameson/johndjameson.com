@@ -1,1 +1,25 @@
-%p This is a future blog index.
+%section.row.row--a
+  .cell.well.well--l
+    .g
+      .g-b.g-b--center.g-b--m--3of4
+        .bchb.pal.tac.tci
+          %h1 The Blog
+          %p.mbf Because 21-year-olds share the most valuable widsom.
+
+%section.row
+  .cell.well.well--l
+    .g
+      .g-b.g-b--center.g-b--m--3of4
+        - get_posts()[0..0].each do |post|
+          %a.h2.tfb{:href => "#{post.url}"}= post.data.title
+          %time.db.mbm.tcs.tsm.ttu.twb= pretty_date(post.data.date)
+          %p.mbl= post.data.description
+        .card
+          %h2.h2.mbm Archive
+          %ul.split.split--divided
+            - get_posts()[1..3].each do |post|
+              %li.split-item
+                .split-cell.split-cell--fluid
+                  %a.h3.tfb{:href => "#{post.url}"}= post.data.title
+                .split-cell.split-cell--fixed
+                  %time.tcs.tsm.ttu.twb= pretty_date(post.data.date)
