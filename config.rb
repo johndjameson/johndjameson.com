@@ -1,8 +1,9 @@
+# Activate dependencies
 activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
 
-# Methods defined in the helpers block are available in templates
+# Define helpers
 helpers do
   def get_posts
     sitemap.resources.select { |resource| resource.data.type == 'post' }
@@ -15,6 +16,7 @@ helpers do
   end
 end
 
+# Alias directories
 set :css_dir, 'assets/stylesheets'
 set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
