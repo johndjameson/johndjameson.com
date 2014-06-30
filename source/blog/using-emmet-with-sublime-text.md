@@ -1,6 +1,7 @@
 ---
 title: Using Emmet with Sublime Text
 type: post
+layout: article
 date: 2014-04-28
 description: "Emmet is an invaluable time-saving tool for anyone who writes <abbr>HTML</abbr> and <abbr>CSS</abbr>. Thanks to Sublime Text, it only takes a little bit of effort to install and start using right now."
 ---
@@ -57,123 +58,8 @@ Now that we have Emmet installed, we can finally start having fun with some of i
 
 And that's it! Check out some of the most useful shortcuts you can start using right now:
 
-<!-- Jekyll murders this with empty p tags inside every node, hence the awful indentation. -->
-
-<figure class="tabBlock mbmrl mtmrl">
-<ul class="tabBlock-tabs">
-<li class="tabBlock-tab is-active"><abbr>HTML</abbr></li>
-<li class="tabBlock-tab"><abbr>CSS</abbr></li>
-</ul>
-<div class="tabBlock-content">
-<div class="tabBlock-pane">
-<ul class="split split--responsive">
-<li class="split-item">
-<div class="split-title">{% highlight html %}div{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<div></div>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}.foo{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<div class="foo"></div>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}#bar{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<div id="bar"></div>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}article>h1{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<article><h1></h1></article>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}header+article{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<header></header><article></article>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}h2+(ul>li){% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<h2></h2><ul><li></li></ul>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}li*3{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<li></li><li></li><li></li>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}!{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}<!doctype html><html>...</html>{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight html %}lorem5{% endhighlight %}</div>
-<div class="split-support">{% highlight html %}Lorem ipsum dolor sit amet.{% endhighlight %}</div>
-</li>
-</ul>
-</div>
-<div class="tabBlock-pane">
-<ul class="split split--responsive">
-<li class="split-item">
-<div class="split-title">{% highlight css %}d{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}display{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}p{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}padding{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}bd{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}border{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}m{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}margin{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}w{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}width{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}h{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}height{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}maw{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}max-width{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}mah{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}max-height{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}ff{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}font-family{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}fs{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}font-style{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}fw{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}font-weight{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}ta{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}text-align{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}td{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}text-decoration{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}ov{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}overflow{% endhighlight %}</div>
-</li>
-<li class="split-item">
-<div class="split-title">{% highlight css %}cur{% endhighlight %}</div>
-<div class="split-support">{% highlight css %}cursor{% endhighlight %}</div>
-</li>
-<p>You can find even more <abbr>CSS</abbr> snippets for Emmet <a href="http://peters-playground.com/Emmet-Css-Snippets-for-Sublime-Text-2/">here</a>.</p>
-</div>
-</div>
-</figure>
-
-
-##Getting Better
+Getting Better
+--------------
 
 If you’re like me, getting up to speed with new tools is an endless struggle. Fortunately, Emmet is <em>completely optional</em> once installed and you can ignore all of its features until <strong>you</strong> want to use them. This makes mastering Emmet as flexible as gradually adding shortcuts to your workflow when you need them. Start with the shorthand for a class or <abbr>ID</abbr>, for example, and then build up from there, learning more ambitious shortcuts along the way.
 

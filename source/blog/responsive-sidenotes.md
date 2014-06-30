@@ -1,6 +1,7 @@
 ---
 title: Responsive Sidenotes
 type: post
+layout: article
 date: 2014-01-27
 description: "Footnotes and sidenotes are both useful ways to annotate online blog posts and articles. With the help of responsive design, it's now possible to use both approaches at the same time."
 ---

@@ -1,6 +1,7 @@
 ---
 title: Designing with Vision
 type: post
+layout: article
 date: 2013-11-29
 description: "Countless roadblocks hampered the completion of my personal website: problems I invented, problems I solved—and most importantly—problems I can explain my solutions to."
 ---
