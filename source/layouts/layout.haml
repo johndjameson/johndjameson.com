@@ -15,16 +15,18 @@
 
   %body{ class: page_classes }
 
-    %header.row
-      .cell.well
-        .group
-          .fl
-            %a{:href => "/"}
-              = image_tag 'johndjameson-logo.svg', :height => 60, :width => 60
-            %p.dib.mbf.tsi He's got character.
-          .fr
-            %a{:href => "/"} Home
-            %a{:href => "/blog"} Blog
+    %header.header
+      .header-content
+        .header-masthead
+          %a{:href => "/"}
+            = image_tag 'johndjameson-logo.svg', :height => 60, :width => 60, :class => 'header-logo'
+          %p.header-tagline He's got character.
+        %nav.header-nav
+          %ul.list.list--inline
+            %li.list-item
+              %a.header-link{:href => "/"} Home
+            %li.list-item
+              %a.header-link{:href => "/blog"} Blog
 
     = yield
 
