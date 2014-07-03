@@ -30,6 +30,7 @@ $alabaster: #faf9f7
 
 // Purple
 
+$scampi: #6c5995
 $majesty: #8a5c99
 $orchid: #93609d
 
@@ -46,7 +47,12 @@ $c-text: $nero
 
 // ----- Components ----- //
 
-// ...
+// Button
+
+$btn--a-background: $orchid
+$btn--a-color: $alabaster
+$btn--b-background: lighten($btn--a-background, 45%)
+$btn--b-color: #4e4e5b
 
 // ----- Structures ----- //
 
@@ -94,6 +100,28 @@ $b-space-xl: 4 * $b-space
 // -------------------------------------
 //   Components
 // -------------------------------------
+
+// ----- Button ----- //
+
+// Borders & Box Shadow
+
+$btn-borderRadius: 3px
+$btn--a-boxShadow-y: 4px
+$btn--a-boxShadow-y-offset: 2px
+$btn--a-boxShadow: 0 $btn--a-boxShadow-y 0 $scampi
+$btn--a-boxShadow-hover: 0 $btn--a-boxShadow-y 0 lighten($scampi, 10%)
+$btn--a-boxShadow-active: 0 ($btn--a-boxShadow-y - $btn--a-boxShadow-y-offset) 0 lighten($scampi, 10%)
+
+// Typography
+
+$btn-fontSize: 100%
+$btn--s-fontSize: 90%
+$btn--l-fontSize: 110%
+$btn-lineHeight: 2.5
+
+// Sizing
+
+$btn-space: $b-space
 
 // ----- Grid ----- //
 

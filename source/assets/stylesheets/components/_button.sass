@@ -1,0 +1,57 @@
+// *************************************
+//
+//   Button
+//   -> Clickable controls
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .btn[.btn--a|b|l|s]
+//
+// *************************************
+
+// -------------------------------------
+//   Base
+// -------------------------------------
+
+.btn
+  border-radius: $btn-borderRadius
+  border: 0
+  cursor: pointer
+  display: inline-block
+  font-size: $btn-fontSize
+  line-height: $btn-lineHeight
+  padding: 0 $btn-space
+  text-align: center
+  text-decoration: none
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Hierarchy ----- //
+
+.btn--a
+  background: $btn--a-background
+  box-shadow: $btn--a-boxShadow
+  color: $btn--a-color
+  &:hover,
+  &:focus
+    background: lighten($btn--a-background, 10%)
+    box-shadow: $btn--a-boxShadow-hover
+    color: $btn--a-color
+  &:active
+    box-shadow: $btn--a-boxShadow-active
+    position: relative
+    top: $btn--a-boxShadow-y-offset
+
+// ----- Sizes ----- //
+
+.btn--s
+  font-size: $btn--s-fontSize
+  padding: 0 (0.5 * $btn-space)
+
+.btn--l
+  font-size: $btn--l-fontSize
+  padding: 0 (2 * $btn-space)
