@@ -2,6 +2,10 @@
 activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
+activate :syntax
+
+set :markdown_engine, :redcarpet
+set :markdown, :fenced_code_blocks => true, :smartypants => true
 
 # Define helpers
 helpers do
