@@ -41,7 +41,8 @@
         .g
           .g-b.g-b--center.g-b--m--3of4
             %article.post
-              = yield
+              = find_and_preserve do
+                = yield
 
     %footer.row.row--a.tci
       .cell.well.well--l
