@@ -6,9 +6,22 @@
 // *************************************
 
 .post
+  ol, ul
+    padding-left: $list-space
+
   h2
     margin-top: $b-space
     margin-bottom: $b-space-s
+
+  h3
+    margin-bottom: $b-space-s
+
+  code, kbd
+    background: $c-background-invert
+    display: inline-block
+    font-size: 90%
+    padding-left: $b-space-xs
+    padding-right: $b-space-xs
 
   img
     display: block
@@ -27,3 +40,35 @@
   font-size: 90%
   font-weight: normal
   text-transform: uppercase
+
+// ----- Footnote Markers ----- //
+
+[id^='fnref']
+  &::before
+    content: '\00a0'
+    font-size: 50%
+
+  > a
+    letter-spacing: 1px
+    &::before
+      content: '['
+    &::after
+      content: ']'
+
+// ----- Footnotes ----- //
+
+.post > .footnotes
+  @extend .pillar
+  margin-top: $b-space-l
+
+  > hr
+    display: none
+
+  > ol
+    margin-bottom: 0
+
+  li:last-of-type
+    margin-bottom: 0
+
+  p:last-of-type
+    margin-bottom: 0
