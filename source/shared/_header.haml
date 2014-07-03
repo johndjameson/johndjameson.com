@@ -1,0 +1,12 @@
+%header.header
+  .header-content
+    .header-masthead
+      %a{:href => "/"}
+        = image_tag 'johndjameson-logo.svg', :height => 60, :width => 60, :class => 'header-logo'
+      %p.header-tagline He's got character.
+    %nav.header-nav
+      %ul.list.list--inline
+        %li.list-item
+          = link_to 'Home', '/', class: 'header-link'
+        %li.list-item
+          = link_to 'Blog', '/blog', class: 'header-link'
