@@ -3,6 +3,15 @@
 //   Split
 //   -> Horizontally repellent content
 //
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// %[ul].split[.split--divided]
+//   %[li].split-item
+//     .split-cell[.split-cell--fluid]
+//     .split-cell[.split-cell--fixed]
+//
 // *************************************
 
 .split
@@ -45,10 +54,9 @@
 // Fixed width
 
 .split-cell--fixed
-  white-space: nowrap // Forces support text to display on a single line
+  white-space: nowrap
 
 // Fluid width
 
 .split-cell--fluid
-  width: 10000px // http://jsfiddle.net/necolas/rZvEF/
-
+  width: 10000px
