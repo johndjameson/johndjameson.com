@@ -37,6 +37,7 @@ $orchid: #93609d
 
 $c-background-invert: $desertstorm
 $c-background: $alabaster
+$c-border: $quill
 $c-highlight: $orchid
 $c-highlight-b: $majesty
 $c-subdue: darken($quill, 20%)
@@ -57,11 +58,10 @@ $c-text: $nero
 
 // ----- Borders & Box Shadow ----- //
 
-$b-borderColor: $quill
 $b-borderRadius: 5px
 $b-borderStyle: solid
 $b-borderWidth: 2px
-$b-border: $b-borderWidth $b-borderStyle $b-borderColor
+$b-border: $b-borderWidth $b-borderStyle $c-border
 $b-boxShadow: 0 2px 0 rgba($c-text, 0.25)
 
 // ----- Typography ----- //
@@ -79,9 +79,9 @@ $b-lineHeight: 1.5
 
 // ----- Sizing ----- //
 
-$b-maxWidth: 62.5em // ~1024px
-$b-maxWidth-s: 43.75em // ~700px
-$b-space: 1.25em // ~ 20px
+$b-maxWidth: em(1024px)
+$b-maxWidth-s: em(700px)
+$b-space: em(20px)
 $b-space-xs: 0.25 * $b-space
 $b-space-s: 0.5 * $b-space
 $b-space-l: 2 * $b-space
@@ -93,9 +93,9 @@ $b-space-xl: 4 * $b-space
 
 // ----- Grid ----- //
 
-$g-s: 30em // ~480px
-$g-m: 50em // ~800px
-$g-l: 64em // ~1024px
+$g-s: em(480px)
+$g-m: em(800px)
+$g-l: em(1024px)
 
 // ----- List ----- //
 
