@@ -6,7 +6,7 @@ date: 2014-03-08
 description: "Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before."
 ---
 
-<b class="tsc">Ampersands are used most effectively</b> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an _italic_ ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.[^1]
+<b class="post-lead">Ampersands are used most effectively</b> in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an _italic_ ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.[^1]
 
 ![Baskerville's ampersand compared with Baskerville Italic's ampersand][baskerville-ampersands]
 
