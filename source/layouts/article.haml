@@ -18,8 +18,17 @@
       .cell.well.well--l
         .g
           .g-b.g-b--center.g-b--m--3of4
-            %article.post
+            %article.post.mbl
               = find_and_preserve do
                 = yield
+
+            .bucket
+              .bucket-media
+                = image_tag 'avatar.jpg', class: 'thumb', width: 80, height: 80
+              .bucket-content
+                %h4.tfh John D. Jameson
+                %p
+                  Front-end Developer Apprentice at
+                  = link_to 'Code School', 'https://www.codeschool.com/'
 
     = partial 'shared/footer'
