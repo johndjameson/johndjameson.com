@@ -24,9 +24,9 @@
         %nav.header-nav
           %ul.list.list--inline
             %li.list-item
-              %a.header-link{:href => "/"} Home
+              = link_to 'Home', '/', class: 'header-link'
             %li.list-item
-              %a.header-link{:href => "/blog"} Blog
+              = link_to 'Blog', '/blog', class: 'header-link'
 
     %section.row.row--a
       .cell.well.well--l
