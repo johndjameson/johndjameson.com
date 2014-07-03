@@ -46,6 +46,14 @@
       src: url('#{$path}.eot')
       src: url('#{$path}.eot?#iefix') format('embedded-opentype'), url('#{$path}.woff') format('woff'), url('#{$path}.ttf') format('truetype'), url('#{$path}.svg##{$family}') format('svg')
 
+// ----- Font Size ----- //
+// -> Calculates a percentage font-size
+//
+// $target - desired font size in pixels
+// $context - local font size in pixels
+=font-size($target, $context: $b-fontSize)
+  font-size: percentage($target / $context)
+
 // ----- Respond-to ----- //
 // -> Generates a media query
 //
