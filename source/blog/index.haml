@@ -16,7 +16,7 @@
           %p.mbl= post.data.description
         .card
           %h2.h2.mbm Archive
-          %ul.split.split--divided
+          %ul.split.split--divided.split--responsive
             - get_posts()[1..3].each do |post|
               %li.split-item
                 .split-cell.split-cell--fluid

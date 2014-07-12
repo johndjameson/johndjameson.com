@@ -34,6 +34,15 @@
       border-bottom: 0
       padding-bottom: 0
 
+// ----- Responsive ----- //
+
+.split--responsive
+  +respond-to($g-m, 'max-width')
+    .split-cell
+      display: block
+      &.split-cell--fluid
+        width: auto
+
 // -------------------------------------
 //   Scaffolding
 // -------------------------------------
