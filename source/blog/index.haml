@@ -12,7 +12,7 @@
       .g-b.g-b--center.g-b--m--3of4
         - get_posts()[0..0].each do |post|
           = link_to post.data.title, post.url, class: 'h2 tfb'
-          %time.db.mbm.tcs.tsm.ttu.twb= pretty_date(post.data.date)
+          %time.db.mbm.label= pretty_date(post.data.date)
           %p.mbl= post.data.description
         .card
           %h2.h2.mbm Archive
@@ -22,4 +22,4 @@
                 .split-cell.split-cell--fluid
                   = link_to post.data.title, post.url, class: 'h3 tfb'
                 .split-cell.split-cell--fixed
-                  %time.tcs.tsm.ttu.twb= pretty_date(post.data.date)
+                  %time.label= pretty_date(post.data.date)
