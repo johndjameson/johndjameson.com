@@ -7,28 +7,24 @@
     = partial 'shared/header'
 
     %section.row.row--a
-      .cell.well.well--l
-        .g
-          .g-b.g-b--center.g-b--m--3of4
-            .bchb.pal.tac.tci
-              %h1= current_page.data.title
-              %time.tsm.ttu.twb= pretty_date(current_page.data.date)
+      .cell.cell--s.well.well--l
+        .bchb.pal.tac.tci
+          %h1= current_page.data.title
+          %time.tsm.ttu.twb= pretty_date(current_page.data.date)
 
     %section.row
-      .cell.well.well--l
-        .g
-          .g-b.g-b--center.g-b--m--3of4
-            %article.post.mbl
-              = find_and_preserve do
-                = yield
+      .cell.cell--s.well.well--l
+        %article.post.mbl
+          = find_and_preserve do
+            = yield
 
-            .bucket
-              .bucket-media
-                = image_tag 'avatar.jpg', class: 'thumb', width: 80, height: 80
-              .bucket-content
-                %h4.tfh John D. Jameson
-                %p
-                  Front-end Developer Apprentice at
-                  = link_to 'Code School', 'https://www.codeschool.com/'
+        .bucket
+          .bucket-media
+            = image_tag 'avatar.jpg', class: 'thumb', width: 80, height: 80
+          .bucket-content
+            %h4.tfh John D. Jameson
+            %p
+              Front-end Developer Apprentice at
+              = link_to 'Code School', 'https://www.codeschool.com/'
 
     = partial 'shared/footer'
