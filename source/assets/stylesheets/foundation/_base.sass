@@ -15,7 +15,8 @@ html
 body
   font-size: 100%
   +respond-to($g-m)
-    +font-size(21px)
+    +font-size($b-fontSize-b)
+
 // -------------------------------------
 //   Block Content
 // -------------------------------------
@@ -36,7 +37,6 @@ pre
 h1, .h1,
 h2, .h2,
 h3, .h3,
-h4, .h4
   font-family: $b-fontFamily-heading
   font-weight: bold
   line-height: 1.2
@@ -44,16 +44,13 @@ h4, .h4
   margin-top: 0
 
 h1, .h1
-  font-size: 200%
+  font-size: 220%
 
 h2, .h2
-  font-size: 150%
+  font-size: 120%
 
 h3, .h3
-  font-size: 125%
-
-h4, .h4
-  font-size: 110%
+  font-size: 100%
 
 // -------------------------------------
 //   Inline Content
