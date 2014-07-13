@@ -14,17 +14,19 @@
 
     %section.row
       .cell.cell--s.well.well--l
-        %article.post.mbl
+        %article.post
           = find_and_preserve do
             = yield
 
-        .bucket
-          .bucket-media
-            = image_tag 'avatar.jpg', class: 'thumb', width: 80, height: 80
-          .bucket-content
-            %h4.tfh John D. Jameson
-            %p
-              Front-end Developer Apprentice at
-              = link_to 'Code School', 'https://www.codeschool.com/'
+        .card
+          .bucket
+            .bucket-media
+              = image_tag 'avatar.jpg', class: 'thumb', width: 100, height: 100
+            .bucket-content
+              %p.label.mbf Written by
+              %h4.tfh John D. Jameson
+              %p.tsm
+                Front-end Developer Apprentice at
+                = link_to 'Code&nbsp;School', 'https://www.codeschool.com/'
 
     = partial 'shared/footer'
