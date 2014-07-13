@@ -4,6 +4,11 @@ activate :directory_indexes
 activate :livereload
 activate :syntax
 
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 9']
+  config.cascade  = false
+end
+
 set :markdown_engine, :redcarpet
 set :markdown, :fenced_code_blocks => true, :footnotes => true, :smartypants => true
 

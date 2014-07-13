@@ -5,5 +5,6 @@ source 'http://rubygems.org'
 gem 'redcarpet'
 
 gem 'middleman'
+gem 'middleman-autoprefixer'
 gem 'middleman-livereload'
 gem 'middleman-syntax'
