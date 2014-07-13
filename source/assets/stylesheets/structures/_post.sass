@@ -6,6 +6,8 @@
 // *************************************
 
 .post
+  margin-bottom: $b-space-l
+
   ol, ul
     padding-left: $list-space
 
@@ -19,7 +21,7 @@
   code, kbd
     background: $c-background-invert
     display: inline-block
-    font-size: 90%
+    font-size: $b-fontSize-m
     padding-left: $b-space-xs
     padding-right: $b-space-xs
 
@@ -29,17 +31,18 @@
     margin-right: auto
 
 // -------------------------------------
-//   Scaffolding
+//   Context
 // -------------------------------------
 
-// ----- Lead ----- //
+.post.has-sidenotes
 
-.post-lead
-  letter-spacing: 0.2em
-  font-family: $b-fontFamily-heading
-  font-size: 90%
-  font-weight: normal
-  text-transform: uppercase
+  .footnotes
+    +respond-to($g-l)
+      display: none
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
 
 // ----- Footnote Markers ----- //
 
@@ -73,3 +76,35 @@
 
   p:last-of-type
     margin-bottom: 0
+
+// ----- Lead ----- //
+
+.post-lead
+  letter-spacing: 0.2em
+  font-family: $b-fontFamily-heading
+  font-size: $b-fontSize-m
+  font-weight: normal
+  text-transform: uppercase
+
+// ----- Sidenote ----- //
+
+.post-sidenote
+  box-sizing: border-box
+  color: $c-subdue
+  display: none
+  font-size: $b-fontSize-s
+  font-style: italic
+  left: 100%
+  padding-left: $b-space
+  position: absolute
+  top: 0
+  width: percentage(1/4)
+  +respond-to($g-l)
+    display: block
+
+// ----- Subject ----- //
+
+.post-subject
+  line-height: percentage($b-lineHeight)
+  position: relative
+
