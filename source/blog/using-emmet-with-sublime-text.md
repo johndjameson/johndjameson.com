@@ -24,9 +24,9 @@ This means that by using Emmet we can:
 - Save time writing code
 - Make life easier
 
-<figure class="imageFigure">
-  <img src="/assets/images/emmet-example-1.gif">
-  <figcaption>Scaffolding an HTML document and common navigation using&nbsp;Emmet</figcaption>
+<figure class='figure'>
+  <img class='figure-image' src='/assets/images/emmet-example-1.gif'>
+  <figcaption class='figure-caption'>Scaffolding an HTML document and common navigation using&nbsp;Emmet</figcaption>
 </figure>
 
 Pretty useful, right? Let's find out how to install it using Sublime Text.
@@ -40,9 +40,9 @@ Once you have the snippet for your version of Sublime, launch the program and sh
 
 With Package Control installed, you can download additional plug-ins by opening the Command Palette (<kbd>Shift+&#x2318;+P</kbd> on OS X) and typing "Install Package" and then submitting the top result. A similar menu opens next, revealing the list of packages available for installation. Type "Emmet" here and choose the top result.
 
-<figure class="imageFigure">
-  <img src="/assets/images/emmet-example-2.gif">
-  <figcaption>Installing Emmet using Package Control</figcaption>
+<figure class='figure'>
+  <img class='figure-image' src='/assets/images/emmet-example-2.gif'>
+  <figcaption class='figure-caption'>Installing Emmet using Package Control</figcaption>
 </figure>
 
 Using Emmet
