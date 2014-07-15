@@ -1,12 +1,3 @@
-%header.header
-  .header-content
-    .header-masthead
-      %a{:href => "/"}
-        = image_tag 'johndjameson-logo.svg', :height => 60, :width => 60, :class => 'header-logo'
-      %p.header-tagline He's got character.
-    %nav.header-nav
-      %ul.list.list--inline
-        %li.list-item
-          = link_to 'Home', '/', class: (current_page.url == '/' ? 'header-link is-active' : 'header-link')
-        %li.list-item
-          = link_to 'Blog', '/blog', class: (current_page.url.match('/blog') ? 'header-link is-active' : 'header-link')
+%a{:href => "/"}
+  = image_tag 'johndjameson-logo.svg', height: 60, width: 60, class: 'bcb mrxs'
+%p.dib.tci.tsi He's got character.
