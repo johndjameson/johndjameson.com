@@ -29,8 +29,6 @@ Sidenotes = do ->
                 .html()
                 .replace(/&nbsp;<a href=.#fn.*<\/a>/, '')
 
-      console.log(content)
-
       $($('.post-subject')[index])
         .append("<aside class='post-sidenote' role='complementary'><p>#{content}</p></aside>")
 
