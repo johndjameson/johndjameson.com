@@ -1,6 +1,21 @@
-%footer.row.row--a.tci
+%footer.row.row--b.tci
   .cell.well.well--l
-    %p.tss Built using <a href='http://mvcss.github.io/' class='invertedLink'>MVCSS</a> and <a href='http://middlemanapp.com/' class='invertedLink'>Middleman</a>. Check out the source code on <a href='https://github.com/johndjameson/johndjameson.com' class='invertedLink'>GitHub</a>.
+    .split.split--responsive
+      .split-item
+        .split-cell.split-cell--fluid.prm
+          %p.tss  Built using <a href='http://mvcss.github.io/' class='invertedLink'>MVCSS</a> and <a href='http://middlemanapp.com/' class='invertedLink'>Middleman</a>. Check out the source code on <a href='https://github.com/johndjameson/johndjameson.com' class='invertedLink'>GitHub</a>.
+        .split-cell.split-cell--fixed.tsl
+          = link_to 'https://twitter.com/johndjameson', class: 'invertedLink invertedLink--borderless' do
+            = partial('partials/icon', :locals => { :name => 'twitter', :text => 'Twitter' })
+
+          = link_to 'https://dribbble.com/johndjameson', class: 'invertedLink invertedLink--borderless' do
+            = partial('partials/icon', :locals => { :name => 'dribbble', :text => 'Dribbble' })
+
+          = link_to 'http://codepen.io/johndjameson', class: 'invertedLink invertedLink--borderless' do
+            = partial('partials/icon', :locals => { :name => 'codepen', :text => 'CodePen' })
+
+          = link_to 'https://github.com/johndjameson', class: 'invertedLink invertedLink--borderless' do
+            = partial('partials/icon', :locals => { :name => 'github', :text => 'GitHub' })
 
 = javascript_include_tag '//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js'
 = javascript_include_tag 'application', :async => true
