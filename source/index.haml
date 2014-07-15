@@ -12,22 +12,18 @@ description: "Front-end Developer Apprentice at Code School"
         %p I work (and learn) at Code School, geek out over CSS architecture, and love me some web typography.
 
 %section.row
-  .cell.well.well--l
-    .g
-      .g-b.g-b--m--1of2
-        %h2.mbs Latest Blog Post
-        - get_posts()[0..0].each do |post|
-          = link_to post.data.title, post.url, class: 'h3 tfb'
-          %time.label.db.mbm= pretty_date(post.data.date)
-          %p= post.data.description
-      .g-b.g-b--m--1of2
-        .card
-          %h2.mbs More Posts
-          %ul.split.split--divided.split--responsive.mbm
-            - get_posts()[1..3].each do |post|
-              %li.split-item
-                .split-cell.split-cell--fluid.prs
-                  = link_to post.data.title, post.url, class: 'h3 tfb'
-                .split-cell.split-cell--fixed
-                  %time.label= pretty_date(post.data.date)
-          = link_to 'My Sweet Blog', '/blog', class: 'btn btn--a'
+  .cell.cell--s.well.well--l
+    - get_posts()[0..0].each do |post|
+      = link_to post.data.title, post.url, class: 'h2 tfb'
+      %time.label.db.mbm= pretty_date(post.data.date)
+      %p= post.data.description
+
+      .card
+        %h2.mbs Blog Posts
+        %ul.split.split--divided.split--responsive
+          - get_posts()[1..get_posts().length].each do |post|
+            %li.split-item
+              .split-cell.split-cell--fluid.prs
+                = link_to post.data.title, post.url, class: 'h3 tfb'
+              .split-cell.split-cell--fixed
+                %time.label= pretty_date(post.data.date)
