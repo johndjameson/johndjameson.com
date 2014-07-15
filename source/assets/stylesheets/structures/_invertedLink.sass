@@ -1,7 +1,7 @@
 // *************************************
 //
 //   Inverted Link
-//   -> Contextual inverted links
+//   -> Link styles for dark contexts
 //
 // *************************************
 
@@ -13,3 +13,15 @@
   &:focus
     border-bottom-color: $invertedLink-borderColor-hover
     color: $invertedLink-color-hover
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Borderless ----- //
+
+.invertedLink--borderless
+  border: 0
+  &:hover,
+  &:focus
+    border: 0
