@@ -3,14 +3,14 @@
   = partial 'shared/head'
 
   %body
+    %section.hero
+      .hero-content
+        .hero-header
+          = partial 'shared/header'
 
-    = partial 'shared/header'
-
-    %section.row.row--a
-      .cell.cell--s.well.well--l
-        .bchb.pal.tac.tci
-          %h1= current_page.data.title
+        .pal.tac.tci
           %time.label.label--invert= pretty_date(current_page.data.date)
+          %h1= current_page.data.title
 
     %section.row
       .cell.cell--s.well.well--l
