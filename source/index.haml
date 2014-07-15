@@ -10,15 +10,15 @@ description: "Front-end Developer Apprentice at Code School"
     .g.mtm
       .g-b.g-b--m--1of2
         %h1 Hey, there.
-        %p I&rsquo;m John D. Jameson—<strong>front‑end developer</strong> and avid indoorsman in Orlando, Florida.
-        %p I work (and learn) at Code School, geek out over CSS architecture, and love me some web typography.
+        %p I&rsquo;m John D. Jameson—<strong>front‑end developer</strong> and dedicated indoorsman in Orlando, Florida.
+        %p I work (and learn) at <a href='https://www.codeschool.com/' class='invertedLink'>Code School</a>, geek out over <a href='http://mvcss.github.io/' class='invertedLink'>CSS architecture</a>, and love building tools for people on the web.
 
 %section.row
   .cell.cell--s.well.well--l
     - get_posts()[0..0].each do |post|
       = link_to post.data.title, post.url, class: 'h2 tfb'
       %time.label.db.mbm= pretty_date(post.data.date)
-      %p= post.data.description
+      %p.mbl= post.data.description
 
       .card
         %h2.mbs Blog Posts
