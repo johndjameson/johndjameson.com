@@ -11,6 +11,9 @@ html
   font-family: $b-fontFamily
   font-size: $b-fontSize
   line-height: $b-lineHeight
+  word-spacing: em(1px)
+  +respond-to($g-m)
+    word-spacing: em(1px, $b-fontSize-b)
 
 body
   font-size: 100%
