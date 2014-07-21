@@ -42,9 +42,11 @@
 // -------------------------------------
 
 .post.has-sidenotes
+  +respond-to($g-l)
+    [id^='fnref']
+      display: none
 
-  .footnotes
-    +respond-to($g-l)
+    .footnotes
       display: none
 
 // -------------------------------------
