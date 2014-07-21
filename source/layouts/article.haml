@@ -8,9 +8,10 @@
         .hero-header
           = partial 'shared/header'
 
-        .pal.tac.tci
-          %time.label.label--invert= pretty_date(current_page.data.date)
-          %h1= current_page.data.title
+        .cell.cell--s
+          .pbl.ptl.tac.tci
+            %time.label.label--invert= pretty_date(current_page.data.date)
+            %h1= current_page.data.title
 
     %section.row
       .cell.cell--s.well.well--l
