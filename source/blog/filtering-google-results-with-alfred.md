@@ -43,6 +43,9 @@ https://www.google.com/search?q={query}&tbs=qdr:w
 
 Last 24 hours (great for news and Smash Bros. rumors):
 https://www.google.com/search?q={query}&tbs=qdr:d
+
+Verbatim:
+https://www.google.com/search?q={query}&tbs=li:1
 ```
 
 ### Image Results
