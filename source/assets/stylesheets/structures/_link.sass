@@ -1,0 +1,33 @@
+// *************************************
+//
+//   Link
+//   -> Actionable Text
+//
+// *************************************
+
+.link
+  @extend %a
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Bordered ----- //
+
+.link--bordered
+  border-bottom: em(2px) solid currentColor
+
+  &:hover,
+  &:focus
+    border-bottom-color: currentColor
+
+// ----- Inverted ----- //
+
+.link--inverted
+  color: $link--inverted-color
+  font-weight: bold
+
+  &:hover,
+  &:focus
+    color: rgba($link--inverted--state-color, 0.5)
+

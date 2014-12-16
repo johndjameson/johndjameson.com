@@ -64,14 +64,14 @@ h3, .h3
 
 // ----- Links ----- //
 
-a
-  color: $c-highlight
+a, %a
+  color: $link-color
   font-weight: bold
   text-decoration: none
   transition: $b-transition
   &:hover,
   &:focus
-    color: darken($c-highlight, 10%)
+    color: $link--state-color
 
 // ----- Code ----- //
 
