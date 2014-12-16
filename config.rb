@@ -2,6 +2,7 @@
 activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
+activate :minify_html
 activate :syntax
 
 activate :autoprefixer do |config|
