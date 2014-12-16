@@ -15,11 +15,11 @@
 // $target - the target pixel size
 // $context - the context font-size
 
-@function em($target, $context: $b-fontSize)
-  @if ($target == 0)
+@function em( $target, $context: $b-fontSize )
+  @if ( $target == 0 )
     @return 0
   @else
-    @return ($target / $context) * 1em
+    @return ( $target / $context ) * 1em
 
 // -------------------------------------
 //   Mixins
@@ -34,7 +34,7 @@
 // $style - the font-style
 // $asset-pipeline - use the Rails asset pipeline (boolean)
 
-=font-face($family, $path, $weight: normal, $style: normal, $asset-pipeline: true)
+=font-face( $family, $path, $weight: normal, $style: normal, $asset-pipeline: true )
   @font-face
     font-family: $family
     font-style: $style
@@ -52,8 +52,8 @@
 // $target - desired font size in pixels
 // $context - local font size in pixels
 
-=font-size($target, $context: $b-fontSize)
-  font-size: percentage($target / $context)
+=font-size( $target, $context: $b-fontSize )
+  font-size: percentage( $target / $context )
 
 // ----- Respond-to ----- //
 // -> Generates a media query
@@ -63,8 +63,8 @@
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-to($val, $query: min-width, $media: screen)
-  @media #{$media} and ($query: $val)
+=respond-to( $val, $query: min-width, $media: screen )
+  @media #{$media} and ( $query: $val )
     @content
 
 // -------------------------------------
@@ -77,10 +77,10 @@
 // $class - an optional state class ('is-active')
 //
 // -------------------------------------
-=state($class: false)
+=state( $class: false )
 
   @if $class
-    &:active, &:focus, &:hover, &.#{$class}
+    &:active, &:focus, &:hover, &.#{ $class }
       @content
 
   @else
@@ -116,6 +116,7 @@
   background-color: transparent
   border: 0
   overflow: hidden
+
   &::before
     content: ''
     display: block
@@ -135,7 +136,7 @@
 
 .srt
   border: 0
-  clip: rect(0 0 0 0)
+  clip: rect( 0 0 0 0 )
   height: 1px
   margin: -1px
   overflow: hidden
@@ -148,4 +149,3 @@
 // -------------------------------------
 
 // ...
-

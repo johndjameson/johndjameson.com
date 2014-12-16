@@ -42,7 +42,9 @@
 // -------------------------------------
 
 .post.has-sidenotes
+
   +respond-to($g-l)
+
     [id^='fnref']
       display: none
 
@@ -56,14 +58,17 @@
 // ----- Footnote Markers ----- //
 
 [id^='fnref']
+
   &::before
     content: '\00a0'
     font-size: 50%
 
   > a
     letter-spacing: 1px
+
     &::before
       content: '['
+
     &::after
       content: ']'
 
@@ -107,7 +112,8 @@
   padding-left: $b-space
   position: absolute
   top: 0
-  width: percentage(1/4)
+  width: percentage( 1 / 4 )
+
   +respond-to($g-l)
     display: block
 
@@ -116,4 +122,3 @@
 .post-subject
   line-height: percentage($b-lineHeight)
   position: relative
-

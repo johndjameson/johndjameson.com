@@ -12,11 +12,13 @@ html
   font-size: $b-fontSize
   line-height: $b-lineHeight
   word-spacing: em(1px)
+
   +respond-to($g-m)
-    word-spacing: em(1px, $b-fontSize-b)
+    word-spacing: em( 1px, $b-fontSize-b )
 
 body
   font-size: 100%
+
   +respond-to($g-m)
     +font-size($b-fontSize-b)
 
@@ -49,6 +51,7 @@ h4, .h4
 
 h1, .h1
   font-size: 160%
+
   +respond-to($g-l)
     font-size: 220%
 

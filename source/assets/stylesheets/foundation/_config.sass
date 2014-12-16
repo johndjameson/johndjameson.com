@@ -9,7 +9,7 @@
 //   @font-face
 // -------------------------------------
 
-+font-face('fontello', '/assets/fonts/fontello', normal, normal, false)
++font-face( 'fontello', '/assets/fonts/fontello', normal, normal, false )
 
 // -------------------------------------
 //   Colors
@@ -43,7 +43,7 @@ $c-background-invert: $white
 $c-background: $alabaster
 $c-border: $quill
 $c-highlight: $orchid
-$c-subdue: darken($quill, 20%)
+$c-subdue: darken( $quill, 20% )
 $c-text-invert: $alabaster
 $c-text: $nero
 
@@ -53,7 +53,7 @@ $c-text: $nero
 
 $btn--a-background: $orchid
 $btn--a-color: $alabaster
-$btn--b-background: lighten($btn--a-background, 45%)
+$btn--b-background: lighten( $btn--a-background, 45% )
 $btn--b-color: #4e4e5b
 
 // Pillar
@@ -68,9 +68,9 @@ $row--b-background: $majesty
 // ----- Structures ----- //
 
 $link-color: $c-highlight
-$link--state-color: darken($link-color, 15%)
+$link--state-color: darken( $link-color, 15% )
 $link--inverted-color: $c-text-invert
-$link--inverted--state-color: rgba($link--inverted-color, 0.5)
+$link--inverted--state-color: rgba( $link--inverted-color, 0.5 )
 
 // ----- Vendor ----- //
 
@@ -86,7 +86,7 @@ $b-borderRadius: 5px
 $b-borderStyle: solid
 $b-borderWidth: 2px
 $b-border: $b-borderWidth $b-borderStyle $c-border
-$b-boxShadow: 0 2px 0 rgba($c-text, 0.25)
+$b-boxShadow: 0 2px 0 rgba( $c-text, 0.25 )
 
 // ----- Transitions ----- //
 
@@ -108,7 +108,7 @@ $b-lineHeight: 1.5
 
 // ----- Sizing ----- //
 
-$b-maxWidth: em(940px, $b-fontSize-b)
+$b-maxWidth: em( 940px, $b-fontSize-b )
 $b-maxWidth-s: em(560px)
 $b-space: em(20px)
 $b-space-xs: $b-space * 0.25
@@ -128,8 +128,8 @@ $btn-borderRadius: 5px
 $btn--a-boxShadow-y: 4px
 $btn--a-boxShadow-y-offset: 2px
 $btn--a-boxShadow: 0 $btn--a-boxShadow-y 0 $majesty
-$btn--a-boxShadow-hover: 0 $btn--a-boxShadow-y 0 lighten($majesty, 10%)
-$btn--a-boxShadow-active: 0 ($btn--a-boxShadow-y - $btn--a-boxShadow-y-offset) 0 lighten($majesty, 10%)
+$btn--a-boxShadow-hover: 0 $btn--a-boxShadow-y 0 lighten( $majesty, 10% )
+$btn--a-boxShadow-active: 0 ( $btn--a-boxShadow-y - $btn--a-boxShadow-y-offset ) 0 lighten( $majesty, 10% )
 
 // Typography
 
@@ -159,7 +159,7 @@ $g-silent: false
 
 // Selector Type
 
-$g-selector: if($g-silent, unquote("%"), unquote("."))
+$g-selector: if( $g-silent, unquote('%'), unquote('.') )
 
 // ----- List ----- //
 
