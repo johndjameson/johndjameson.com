@@ -17,8 +17,7 @@
 .link--bordered
   border-bottom: em(2px) solid currentColor
 
-  &:hover,
-  &:focus
+  +state
     border-bottom-color: currentColor
 
 // ----- Inverted ----- //
@@ -27,7 +26,6 @@
   color: $link--inverted-color
   font-weight: bold
 
-  &:hover,
-  &:focus
+  +state
     color: rgba($link--inverted--state-color, 0.5)
 
