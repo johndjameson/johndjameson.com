@@ -26,14 +26,15 @@ helpers do
 end
 
 # Alias directories
-set :css_dir, 'assets/stylesheets'
-set :js_dir, 'assets/javascripts'
+set :css_dir,    'assets/stylesheets'
+set :js_dir,     'assets/javascripts'
 set :images_dir, 'assets/images'
-set :fonts_dir, 'assets/fonts'
+set :fonts_dir,  'assets/fonts'
 
 # Build-specific configuration
 configure :build do
   activate :minify_css
   activate :minify_javascript
+  activate :cache_buster
   activate :relative_assets
 end
