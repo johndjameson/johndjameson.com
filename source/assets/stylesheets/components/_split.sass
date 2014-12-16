@@ -2,70 +2,32 @@
 //
 //   Split
 //   -> Horizontally repellent content
+//      CodePen: http://codepen.io/johndjameson/pen/nKcep
 //
 // -------------------------------------
 //   Template (Haml)
 // -------------------------------------
 //
-// %[ul].split[.split--divided]
-//   %[li].split-item
-//     .split-cell[.split-cell--fluid]
-//     .split-cell[.split-cell--fixed]
+// .split
+//   .split-cell Split cell
+//   .split-cell Split cell
 //
 // *************************************
 
 .split
-  list-style-type: none
-  margin: 0
-  padding: 0
-
-// -------------------------------------
-//   Modifiers
-// -------------------------------------
-
-// ----- Divided ----- //
-
-.split--divided
-
-  .split-item
-    border-bottom: $b-border
-    padding-bottom: $split-space
-    &:last-child
-      border-bottom: 0
-      padding-bottom: 0
-
-// ----- Responsive ----- //
-
-.split--responsive
-  +respond-to($g-m, 'max-width')
-    .split-cell
-      display: block
-      &.split-cell--fluid
-        width: auto
+  align-items: baseline
+  display: flex
 
 // -------------------------------------
 //   Scaffolding
 // -------------------------------------
 
-// ----- Split Item ----- //
-
-.split-item
-  display: table
-  width: 100%
-  img
-    max-width: none
-
-// ----- Split Item ----- //
+// ----- Cell ----- //
 
 .split-cell
-  display: table-cell
 
-// Fixed width
+  &:first-child
+    flex-grow: 1
 
-.split-cell--fixed
-  white-space: nowrap
-
-// Fluid width
-
-.split-cell--fluid
-  width: 10000px
+  &:last-child
+    flex-shrink: 0

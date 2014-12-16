@@ -32,10 +32,10 @@ description: "Front-end Developer at Code School"
     .card
 
       %h2.mbs Blog Posts
-      %ul.split.split--divided.split--responsive
+      %ul.list.list--divided
         - get_posts().drop(1).each do |post|
-          %li.split-item
-            .split-cell.split-cell--fluid.prs
+          %li.list-item.split
+            .split-cell.prs
               = link_to post.data.title, post.url, class: 'h3 tfb'
-            .split-cell.split-cell--fixed
+            .split-cell
               %time.label= pretty_date(post.data.date)

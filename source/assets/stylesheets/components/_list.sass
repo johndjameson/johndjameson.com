@@ -2,37 +2,45 @@
 //
 //   List
 //   -> Enumeration of items
+//      CodePen: http://codepen.io/drewbarontini/pen/ouqil
 //
 // -------------------------------------
 //   Template (Haml)
 // -------------------------------------
 //
-// %ul.list[.list--inline|object|styled|styled--numbered]
+// %ul.list[.list--divided|inline|object|styled|styled--numbered]
 //   %li.list-item List Item
 //   %li.list-item List Item
 //
 // *************************************
 
-// -------------------------------------
-//   Base
-// -------------------------------------
-
 .list
-  list-style-type: none
-  margin: 0
-  padding: 0
+  @extend .lr
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
+// ----- Divided ----- //
+
+.list--divided
+
+  > .list-item
+    border-bottom: $list-border
+    padding-bottom: $list-space-s
+
+    &:last-child
+      border-bottom: 0
+      padding-bottom: 0
+
 // ----- Inline ----- //
 
 .list--inline
 
-  .list-item
+  > .list-item
     display: inline
     margin-right: $list-space
+
     &:last-child
       margin-right: 0
 
@@ -41,9 +49,10 @@
 .list--object
   @extend .group
 
-  .list-item
+  > .list-item
     float: left
     margin-right: $list-space
+
     &:last-child
       margin-right: 0
 
@@ -52,7 +61,7 @@
 .list--styled
   padding-left: $list-space
 
-  .list-item
+  > .list-item
     display: list-item
     list-style-type: disc
 
@@ -60,7 +69,7 @@
 
 .list--styled--numbered
 
-  .list-item
+  > .list-item
     list-style-type: decimal
 
 // -------------------------------------
@@ -71,6 +80,7 @@
 
 .list-item
   display: block
-  margin-bottom: $list-space
+  margin-bottom: $list-space-s
+
   &:last-child
     margin-bottom: 0
