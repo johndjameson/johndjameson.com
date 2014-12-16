@@ -6,12 +6,12 @@ activate :minify_html
 activate :syntax
 
 activate :autoprefixer do |config|
-  config.browsers = ['last 2 versions', 'Explorer >= 9']
+  config.browsers = 'last 2 versions'
   config.cascade  = false
 end
 
 set :markdown_engine, :redcarpet
-set :markdown, :fenced_code_blocks => true, :footnotes => true, :smartypants => true
+set :markdown, fenced_code_blocks: true, footnotes: true, smartypants: true
 
 # Define helpers
 helpers do
