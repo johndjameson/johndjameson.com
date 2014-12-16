@@ -1,12 +1,12 @@
 %head
-  %meta{ :charset => 'utf-8' }
-  %meta{ :content => 'IE=edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }
-  %meta{ :name => 'viewport', :content => 'width=device-width, initial-scale=1.0' }
+  %meta{ charset: 'utf-8' }
+  %meta{ content: 'IE=edge,chrome=1', 'http-equiv' => 'X-UA-Compatible' }
+  %meta{ name: 'viewport', content: 'width=device-width, initial-scale=1.0' }
 
-  %title= "#{current_page.data.title} | John D. Jameson"
+  %title= "#{ current_page.data.title } | John D. Jameson"
 
-  %meta{ :name => 'description', :content => escape_html(current_page.data.description) }
-  %link{ :href => 'https://plus.google.com/u/0/113914298266231922059/posts', :rel => 'author' }
+  %meta{ name: 'description', content: escape_html( current_page.data.description ) }
+  %link{ href: 'https://plus.google.com/u/0/113914298266231922059/posts', rel: 'author' }
   = stylesheet_link_tag 'application'
   = javascript_include_tag '//use.typekit.net/gqu6ggi.js'
   :javascript
