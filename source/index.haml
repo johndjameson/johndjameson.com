@@ -7,20 +7,30 @@ description: "Front-end Developer Apprentice at Code School"
   .hero-content
     .hero-header
       = partial 'shared/header'
+
     .g.mtm
       .g-b.g-b--m--1of2
-        %h1 Hey, there.
-        %p I&rsquo;m John D. Jameson—<strong>front‑end developer</strong> and dedicated indoorsman in Orlando, Florida.
-        %p I work (and learn) at <a href='https://www.codeschool.com/' class='invertedLink'>Code School</a>, geek out over <a href='http://mvcss.github.io/' class='invertedLink'>CSS architecture</a>, and love building tools for people on the web.
+        %h1.mbs Hey, there.
+        :markdown
+          I&rsquo;m John D. Jameson&mdash;**front‑end developer** and dedicated
+          indoorsman in Orlando, Florida.
+        %p
+          I work (and learn) at
+          = link_to 'Code School', 'https://www.codeschool.com/', class: 'invertedLink'
+          , geek out over
+          = link_to 'CSS architecture', 'http://mvcss.io/', class: 'invertedLink'
+          , and love building tools for people on the web.
 
 %section.row
   .cell.cell--s.well.well--l
+
     - post = get_posts().first
     = link_to post.data.title, post.url, class: 'h2 tfb'
     %time.label.db.mbm= pretty_date(post.data.date)
     %p.mbl= post.data.description
 
     .card
+
       %h2.mbs Blog Posts
       %ul.split.split--divided.split--responsive
         - get_posts().drop(1).each do |post|
