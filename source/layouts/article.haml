@@ -3,6 +3,7 @@
   = partial 'shared/head'
 
   %body
+
     %section.hero
       .hero-content
         .hero-header
@@ -10,7 +11,7 @@
 
         .cell.cell--s
           .pbl.ptl.tac.tci
-            %time.label.label--invert= pretty_date(current_page.data.date)
+            %time.label.label--invert= pretty_date( current_page.data.date )
             %h1= current_page.data.title
 
     %section.row
@@ -20,6 +21,7 @@
             = yield
 
         .card
+
           .bucket
             .bucket-media
               = image_tag 'avatar.jpg', class: 'thumb', width: 100, height: 100
