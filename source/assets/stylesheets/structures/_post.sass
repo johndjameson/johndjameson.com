@@ -41,7 +41,15 @@
 //   Context
 // -------------------------------------
 
-.post.has-sidenotes
+// ----- Sidenote ----- //
+
+.has-sidenote
+  line-height: percentage($b-lineHeight)
+  position: relative
+
+// ----- Sidenotes ----- //
+
+.has-sidenotes
 
   +respond-to($g-l)
 
@@ -55,7 +63,7 @@
 //   Scaffolding
 // -------------------------------------
 
-// ----- Footnote Markers ----- //
+// ----- Marker ----- //
 
 [id^='fnref']
 
@@ -94,10 +102,10 @@
 // ----- Lead ----- //
 
 .post-lead
-  letter-spacing: 0.2em
   font-family: $b-fontFamily-heading
   font-size: $b-fontSize-m
   font-weight: normal
+  letter-spacing: 0.2em
   text-transform: uppercase
 
 // ----- Sidenote ----- //
@@ -116,9 +124,3 @@
 
   +respond-to($g-l)
     display: block
-
-// ----- Subject ----- //
-
-.post-subject
-  line-height: percentage($b-lineHeight)
-  position: relative
