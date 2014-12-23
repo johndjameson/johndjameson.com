@@ -9,19 +9,19 @@ html
   background: $c-background
   color: $c-text
   font-family: $b-fontFamily
+  font-feature-settings: 'kern'
   font-size: $b-fontSize
   line-height: $b-lineHeight
-  font-feature-settings: 'kern'
-  word-spacing: em(1px)
+  word-spacing: em( 1px )
 
-  +respond-to($g-m)
+  +respond-to( $g-m )
     word-spacing: em( 1px, $b-fontSize-b )
 
 body
   font-size: 100%
 
-  +respond-to($g-m)
-    +font-size($b-fontSize-b)
+  +respond-to( $g-m )
+    +font-size( $b-fontSize-b )
 
 // -------------------------------------
 //   Block Content
@@ -53,7 +53,7 @@ h4, .h4
 h1, .h1
   font-size: 160%
 
-  +respond-to($g-l)
+  +respond-to( $g-l )
     font-size: 220%
 
 h2, .h2
