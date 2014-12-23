@@ -20,10 +20,15 @@
     margin-top: $b-space
 
   blockquote
-    border-left: $b-space-xs $b-borderStyle $c-border
+    background: rgba( $c-highlight, 0.1 )
+    border-left: 10px solid $c-highlight
+    color: $c-highlight
     font-style: italic
-    margin: 0
-    padding-left: $b-space
+    margin: $b-space 0
+    padding: $b-space
+
+    > :last-child
+      margin-bottom: 0
 
   code, kbd
     background: $c-background-invert
