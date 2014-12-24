@@ -53,7 +53,7 @@ Now that we have Emmet installed, we can finally start having fun with some of i
 1. Type a supported shortcut
 2. Press <kbd>Tab</kbd>
 
-And that's it! Check out some of the most useful shortcuts you can start using right now:
+And that's it! Check out some of the most useful [shortcuts][emmet-shortcuts] you can start using right now.
 
 Getting Better
 --------------
@@ -68,4 +68,5 @@ You can visit the [official documentation][emmet-docs] to discover _all_ of Emme
 [csstricks-emmet-screencast]: http://css-tricks.com/video-screencasts/129-emmet-awesome/
 [emmet-docs]: http://docs.emmet.io/
 [emmet-download]: http://emmet.io/download/
+[emmet-shortcuts]: http://docs.emmet.io/cheat-sheet/
 [packagecontrol-install]: https://sublime.wbond.net/installation
