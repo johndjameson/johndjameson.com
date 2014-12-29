@@ -47,14 +47,19 @@ h4, .h4
   font-family: $b-fontFamily-heading
   font-weight: bold
   line-height: 1.2
+  letter-spacing: em( 2px )
   margin-bottom: $b-space-xs
   margin-top: 0
+  text-transform: uppercase
 
 h1, .h1
   font-size: 160%
 
+  +respond-to( $g-m )
+    font-size: 225%
+
   +respond-to( $g-l )
-    font-size: 220%
+    font-size: 340%
 
 h2, .h2
   font-size: 120%
