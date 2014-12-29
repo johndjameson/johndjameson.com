@@ -1,0 +1,58 @@
+// *************************************
+//
+//   Sector
+//   -> Adjacent bleed divisions
+//      CodePen: http://codepen.io/johndjameson/pen/LaiKH
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .has-sector
+//   .sector
+//     .sector-item[.sector-item--a|b|...]
+//     .sector-item[.sector-item--a|b|...]
+//
+// *************************************
+
+.sector
+  display: flex
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+// ----- Sector ----- //
+
+.has-sector
+  overflow: hidden
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Item ----- //
+
+.sector-item
+  position: relative
+
+  &::before
+    bottom: 0
+    content: ''
+    left: 0
+    position: absolute
+    top: 0
+    width: 9999px
+    z-index: -1
+
+  &:first-child::before
+    left: auto
+    right: 0
+
+// Hierarchy
+
+.sector-item--a::before
+  background: $sector-item--a-background
+
+.sector-item--b::before
+  background: $sector-item--b-background
