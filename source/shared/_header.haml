@@ -1,2 +1,13 @@
-= link_to '/' do
-  = image_tag 'johndjameson-logo.svg', height: 60, width: 60, class: 'bcb'
+%header.row.bch
+  .cell.well
+
+    .split.split--center
+      .split-cell
+        = link_to '/index.html' do
+          = image_tag 'johndjameson-logo.svg', height: 60, width: 60, class: 'bcb db'
+      .split-cell
+        %p.mbf.tci.tss
+          Built with
+          = link_to 'MVCSS', 'http://mvcss.io/', class: 'link link--bordered link--inverted'
+          and
+          = link_to 'Middleman', 'http://middlemanapp.com/', class: 'link link--bordered link--inverted'
