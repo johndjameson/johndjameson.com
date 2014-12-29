@@ -5,14 +5,15 @@
   %body
     = partial 'shared/header'
 
-    %section.row
-      .cell.cell--s
-        .pbl.ptl.tac.tci
-          %time.label.label--invert= pretty_date( current_page.data.date )
+    %section.row.bc--shark
+      .cell.well.well--l
+        .tci
+          %time.label.label--invert.dib.mbm= pretty_date( current_page.data.date )
           %h1= current_page.data.title
+          %p.mbf.tcis.tsl.tsi= current_page.data.description
 
     %section.row
-      .cell.cell--s.well.well--l
+      .cell.well.well--xl
         %article.post.js-sidenotes
           = find_and_preserve do
             = yield
