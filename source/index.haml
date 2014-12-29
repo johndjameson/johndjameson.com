@@ -3,36 +3,40 @@ title: Home
 description: "Front-end Developer at Code School"
 ---
 
-%section.row
-  .cell.well
-    .g.mtm
-      .g-b.g-b--m--1of2
-        %h1.mbs Hey, there.
-        :markdown
-          I&rsquo;m John D. Jameson&mdash;**front‑end developer** and dedicated
-          indoorsman in Orlando, Florida.
-        %p
-          I work (and learn) at
-          = link_to 'Code School', 'https://www.codeschool.com/', class: 'link link--bordered link--inverted'
-          , geek out over
-          = link_to 'CSS architecture', 'http://mvcss.io/', class: 'link link--bordered link--inverted'
-          , and love building tools for people on the web.
+%section.row.has-sector
+  .cell
+    .g.sector.tci
+      .g-b.g-b--1of3.sector-item.sector-item--a
+        .well.well--xl
+
+          .tac
+            = image_tag 'avatar.jpg', class: 'thumb dib', width: 140, height: 140
+            %p.label.label--invert.mbf John D. Jameson
+            %p
+              Front-end Devloper at
+              %span.db
+                = link_to 'Code School', 'https://www.codeschool.com/',
+                  class: 'link link--bordered link--inverted'
+
+      .g-b.g-b--2of3.sector-item.sector-item--b
+        .well.well--xl.plm
+          - post = get_posts().first
+
+          %p.label Latest Post
+
+          = link_to post.data.title, post.url, class: 'link link--inverted h2 db tfb'
+          %p= post.data.description
+
+          = link_to 'Read It', post.url, class: 'link link--inverted'
 
 %section.row
-  .cell.cell--s.well.well--l
+  .cell.well.well--l
 
-    - post = get_posts().first
-    = link_to post.data.title, post.url, class: 'h2 tfb'
-    %time.label.db.mbm= pretty_date(post.data.date)
-    %p.mbl= post.data.description
-
-    .card
-
-      %h2.mbs Blog Posts
-      %ul.list.list--divided
-        - get_posts().drop(1).each do |post|
-          %li.list-item.split.split--responsive
-            .split-cell.prs
-              = link_to post.data.title, post.url, class: 'h3 tfb'
-            .split-cell
-              %time.label= pretty_date(post.data.date)
+    %h2.label.mbm Archive
+    %ul.list.list--divided
+      - get_posts().drop(1).each do |post|
+        %li.list-item.split.split--responsive
+          .split-cell.prs
+            = link_to post.data.title, post.url, class: 'h3 tfb'
+          .split-cell
+            %time.label= pretty_date(post.data.date)
