@@ -17,13 +17,14 @@
         %article.post.js-sidenotes
 
           .g.sector
-            .g-b.g-b--2of3.sector-item.sector-item--a.sector-item--a--invert
-              .well.well--l.prs
+            .g-b.g-b--l--2of3.sector-item.sector-item--a.sector-item--a--invert
+              .well.well--l.prs--l
+                .cell.cell--s
 
-                = find_and_preserve do
-                  = yield
+                  = find_and_preserve do
+                    = yield
 
-            .g-b.g-b--1of3.sector-item.sector-item--b.sector-item--b--invert
+            .g-b.g-b--l--1of3.sector-item.sector-item--b.sector-item--b--invert.dn.db--l
               .well.well--l
 
     = partial 'shared/footer'
