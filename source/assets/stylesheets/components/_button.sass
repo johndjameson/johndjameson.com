@@ -1,0 +1,35 @@
+// *************************************
+//
+//   Button
+//   -> Clickable control
+//      CodePen: http://codepen.io/drewbarontini/pen/yAveh
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .btn
+//
+// *************************************
+
+.btn
+  background: $btn-background
+  border-radius: $btn-borderRadius
+  border: 0
+  color: $btn-color
+  cursor: pointer
+  display: inline-block
+  font-family: $b-fontFamily-mono
+  font-size: $btn-fontSize
+  font-weight: bold
+  letter-spacing: 2px
+  line-height: 2
+  padding: $btn-space-s $btn-space-l
+  text-align: center
+  text-decoration: none
+  text-transform: uppercase
+  user-select: none
+
+  +state
+    color: $btn-color
+    background: $btn--state-background
