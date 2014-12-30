@@ -7,7 +7,7 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// .row[.row--a|b]
+// .row
 //   / ...
 //
 // *************************************
@@ -16,17 +16,5 @@
   overflow: hidden
   padding: 0 $b-space-s
 
-  +respond-to( $g-s )
+  +respond-to( $g-m )
     padding: 0 $b-space
-
-// -------------------------------------
-//   Modifiers
-// -------------------------------------
-
-// ----- Theme ----- //
-
-.row--a
-  background: $row--a-background
-
-.row--b
-  background: $row--b-background
