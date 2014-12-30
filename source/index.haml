@@ -6,8 +6,8 @@ description: "Front-end Developer at Code School"
 %section.row.has-sector
   .cell
     .g.sector.tci
-      .g-b.g-b--1of3.sector-item.sector-item--a
-        .well.well--xl
+      .g-b.g-b--m--1of3.sector-item.sector-item--a
+        .well.well--l.well--m--xl
 
           .tac
             = image_tag 'avatar.jpg', class: 'thumb dib', width: 140, height: 140
@@ -18,8 +18,8 @@ description: "Front-end Developer at Code School"
                 = link_to 'Code School', 'https://www.codeschool.com/',
                   class: 'link link--bordered link--inverted'
 
-      .g-b.g-b--2of3.sector-item.sector-item--b
-        .well.well--xl.plm
+      .g-b.g-b--m--2of3.sector-item.sector-item--b
+        .well.well--l.well--m--xl.plm--m
           - post = get_posts().first
 
           %p.label Latest Post
