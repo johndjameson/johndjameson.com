@@ -6,7 +6,6 @@
 // *************************************
 
 .post
-  margin-bottom: $b-space-l
 
   ol, ul
     padding-left: $list-space
@@ -87,7 +86,7 @@
 
 // ----- Footnotes ----- //
 
-.post > .footnotes
+.post .footnotes
   @extend .pillar
   font-size: $b-fontSize-s
   margin-top: $b-space-l
@@ -120,10 +119,11 @@
   font-size: $b-fontSize-s
   font-style: italic
   left: 100%
-  padding-left: $b-space
+  padding-left: $b-space-l
   position: absolute
   top: 0
-  width: percentage( 1 / 4 )
+  width: percentage( 1 / 2 )
+  z-index: 1
 
   +respond-to( $g-l )
     display: block

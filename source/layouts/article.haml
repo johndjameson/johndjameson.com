@@ -12,20 +12,18 @@
           %h1= current_page.data.title
           %p.mbf.tcis.tsl.tsi= current_page.data.description
 
-    %section.row
-      .cell.well.well--xl
+    %section.row.has-sector
+      .cell
         %article.post.js-sidenotes
-          = find_and_preserve do
-            = yield
 
-        .card
+          .g.sector
+            .g-b.g-b--2of3.sector-item.sector-item--a.sector-item--a--invert
+              .well.well--l.prs
 
-          .bucket
-            .bucket-media
-              = image_tag 'avatar.jpg', class: 'thumb', width: 100, height: 100
-            .bucket-content
-              %p.label.mbf Written by
-              %h4.tfh John D. Jameson
-              %p.tsm
-                Front-end Developer at
-                = link_to 'Code&nbsp;School', 'https://www.codeschool.com/'
+                = find_and_preserve do
+                  = yield
+
+            .g-b.g-b--1of3.sector-item.sector-item--b.sector-item--b--invert
+              .well.well--l.plm
+
+    = partial 'shared/footer'
