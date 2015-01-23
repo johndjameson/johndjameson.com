@@ -3,7 +3,7 @@ activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
 activate :minify_html
-activate :syntax
+activate :syntax, css_class: 'syntax js-syntax'
 
 activate :autoprefixer do | config |
   config.browsers = 'last 2 versions'
