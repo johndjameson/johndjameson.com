@@ -5,7 +5,7 @@ activate :livereload
 activate :minify_html
 activate :syntax
 
-activate :autoprefixer do |config|
+activate :autoprefixer do | config |
   config.browsers = 'last 2 versions'
   config.cascade  = false
 end
@@ -16,13 +16,13 @@ set :markdown, fenced_code_blocks: true, footnotes: true, smartypants: true
 # Define helpers
 helpers do
   def get_posts
-    sitemap.resources.select { |resource| resource.data.type == 'post' }
-      .sort_by { |resource| resource.data.date }
+    sitemap.resources.select { | resource | resource.data.type == 'post' }
+      .sort_by { | resource| resource.data.date }
       .reverse
   end
 
-  def pretty_date(date)
-    date.strftime('%B %d, %Y')
+  def pretty_date( date )
+    date.strftime( '%B %d, %Y' )
   end
 end
 
