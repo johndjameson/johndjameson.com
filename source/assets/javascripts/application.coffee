@@ -9,25 +9,25 @@
 #   Base
 # -------------------------------------
 
-##= require jdj
+#= require jdj
 
 # -------------------------------------
 #   Components
 # -------------------------------------
 
-##= require components/sidenotes
+#= require components/sidenotes
 
 # -------------------------------------
 #   Document Ready
 # -------------------------------------
 
-##= require domready
+#= require domready
 
 # -------------------------------------
 #   Self
 # -------------------------------------
 
-##= require_self
+#= require_self
 
 # -------------------------------------
 #   Inbox
