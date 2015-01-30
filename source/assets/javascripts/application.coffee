@@ -15,7 +15,7 @@
 #   Components
 # -------------------------------------
 
-#= require components/sidenotes
+#= require_tree ./components
 
 # -------------------------------------
 #   Document Ready
