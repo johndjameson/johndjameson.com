@@ -27,50 +27,11 @@
 
   > .list-item
     border-bottom: $list-border
-    padding-bottom: $list-space-s
+    padding-bottom: $list-space
 
     &:last-child
       border-bottom: 0
       padding-bottom: 0
-
-// ----- Inline ----- //
-
-.list--inline
-
-  > .list-item
-    display: inline
-    margin-right: $list-space
-
-    &:last-child
-      margin-right: 0
-
-// ----- Object ----- //
-
-.list--object
-  @extend .group
-
-  > .list-item
-    float: left
-    margin-right: $list-space
-
-    &:last-child
-      margin-right: 0
-
-// ----- Styled ----- //
-
-.list--styled
-  padding-left: $list-space
-
-  > .list-item
-    display: list-item
-    list-style-type: disc
-
-// Numbered
-
-.list--styled--numbered
-
-  > .list-item
-    list-style-type: decimal
 
 // -------------------------------------
 //   Scaffolding
@@ -80,7 +41,7 @@
 
 .list-item
   display: block
-  margin-bottom: $list-space-s
+  margin-bottom: $list-space
 
   &:last-child
     margin-bottom: 0
