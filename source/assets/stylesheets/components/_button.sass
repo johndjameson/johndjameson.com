@@ -8,7 +8,7 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// .btn
+// %a.btn
 //
 // *************************************
 
@@ -23,13 +23,32 @@
   font-size: $btn-fontSize
   font-weight: bold
   letter-spacing: 2px
-  line-height: 2
-  padding: $btn-space-s $btn-space-l
+  line-height: $btn-height
+  margin-right: $btn-pseudo-width
+  padding-left: $btn-space
+  padding-right: $btn-space-s
+  position: relative
   text-align: center
   text-decoration: none
   text-transform: uppercase
+  transition: $b-transition
   user-select: none
 
+  &::before
+    border-color: $btn-background transparent transparent transparent
+    border-style: solid
+    border-width: $btn-height $btn-pseudo-width 0 0
+    content: ''
+    height: 0
+    left: 100%
+    position: absolute
+    top: 0
+    transition: $b-transition
+    width: 0
+
   +state
-    color: $btn-color
     background: $btn--state-background
+    color: $btn-color
+
+    &::before
+      border-top-color: $btn--state-background
