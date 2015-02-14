@@ -24,8 +24,8 @@ description: "Front-end Developer at Code School"
 
           %p.label Latest Post
 
-          = link_to post.data.title, post.url, class: 'link link--inverted h2 db'
-          %p= post.data.description
+          = link_to post.data.title, post.url, class: 'link link--inverted h2 db js-orphan'
+          %p.js-orphan= post.data.description
 
           = link_to 'Read It', post.url, class: 'btn'
 
