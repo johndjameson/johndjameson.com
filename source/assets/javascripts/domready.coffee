@@ -6,6 +6,8 @@
 
 jQuery ($) ->
 
+  JDJ.fixOrphanWords()
+
   JDJ.sidenotes.init
     notes         : $('.footnotes').find('p')
     markers       : $('[id^="fnref"]')
