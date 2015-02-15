@@ -10,17 +10,29 @@
 // %pre.syntax
 //  .syntaxID
 //
+// -------------------------------------
+//
+// 1. This breaks every rule of encapsulation, but, as far as I know, it's the
+//    most direct way to ensure the desired behavior.
+//
 // *************************************
 
 .syntax
   +font-size-s
   background: $syntax-background
+  box-sizing: border-box
+  color: $white
   margin-bottom: $b-space-l
   margin-top: $b-space-l
   padding: $b-space
 
   code
+    background: transparent
     font-size: inherit
+
+  +respond-to( $g-l )
+    max-width: $b-maxWidth
+    width: calc( 100vw - #{ $row-gutter--m * 2 } ) // [1]
 
 // -------------------------------------
 //  Scaffolding
