@@ -1,4 +1,7 @@
-# Activate dependencies
+# ====================================
+#   Activate Plugins
+# ====================================
+
 activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
@@ -10,10 +13,22 @@ activate :autoprefixer do | config |
   config.cascade  = false
 end
 
+# ====================================
+#   Global Variables
+# ====================================
+
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, footnotes: true, smartypants: true
 
-# Define helpers
+set :css_dir,    'assets/stylesheets'
+set :js_dir,     'assets/javascripts'
+set :images_dir, 'assets/images'
+set :fonts_dir,  'assets/fonts'
+
+# ====================================
+#   Helpers
+# ====================================
+
 helpers do
   def get_posts
     sitemap.resources.select { | resource | resource.data.type == 'post' }
@@ -26,19 +41,19 @@ helpers do
   end
 end
 
-# Alias directories
-set :css_dir,    'assets/stylesheets'
-set :js_dir,     'assets/javascripts'
-set :images_dir, 'assets/images'
-set :fonts_dir,  'assets/fonts'
+# ====================================
+#   After Configuration
+# ====================================
 
-# Bower
 after_configuration do
   @bower_config = JSON.parse( IO.read( "#{ root }/.bowerrc" ) )
   sprockets.append_path File.join root.to_s, @bower_config[ 'directory' ]
 end
 
-# Build-specific configuration
+# ====================================
+#   Build Configuration
+# ====================================
+
 configure :build do
   activate :minify_css
   activate :minify_javascript
