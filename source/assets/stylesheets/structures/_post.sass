@@ -30,10 +30,10 @@
       margin-bottom: 0
 
   code, kbd
+    +font-size-s
     background: $c-background-dark
     display: inline-block
     font-family: $b-fontFamily-mono
-    font-size: $b-fontSize-m
     padding-left: $b-space-xs
     padding-right: $b-space-xs
 
@@ -89,7 +89,7 @@
 
 .post .footnotes
   @extend .pillar
-  font-size: $b-fontSize-s
+  +font-size-s
   margin-top: $b-space-l
 
   > hr
@@ -115,10 +115,10 @@
 // ----- Sidenote ----- //
 
 .post-sidenote
+  +font-size-s
   box-sizing: border-box
   color: $c-subdue
   display: none
-  font-size: $b-fontSize-s
   font-style: italic
   left: 100%
   margin-left: $g-gutter * 2

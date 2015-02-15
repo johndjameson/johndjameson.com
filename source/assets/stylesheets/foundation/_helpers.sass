@@ -47,13 +47,26 @@
 // -------------------------------------
 
 // ----- Font Size ----- //
-// -> Calculates a percentage font-size
+// -> Calculates responsive font sizes in rems
 //
-// $target - desired font size in pixels
-// $context - local font size in pixels
+// $sizes - map of desired font sizes in pixels (b, s, m, l)
 
-=font-size( $target, $context: $b-fontSize )
-  font-size: percentage( $target / $context )
+=font-size( $sizes )
+  @each $name, $size in $sizes
+    @if map-get( $sizes, 'b' )
+      $sizes: map-merge( $sizes, ( $name: ( $size / $b-fontSize ) * 1rem ) )
+
+  font-size: map-get( $sizes, 'b' )
+
+  @each $name, $width in $g-breakpoints
+    @media screen and ( min-width: #{ $width } )
+      font-size: map-get( $sizes, $name )
+
+// ----- Font Size - Small ----- //
+// -> Calculates a small responsive font size in rems
+
+=font-size-s
+  +font-size( ( b: $b-fontSize-s, m: $b-fontSize-s--m ) )
 
 // ----- Respond-to ----- //
 // -> Generates a media query
