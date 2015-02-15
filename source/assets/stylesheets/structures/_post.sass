@@ -19,15 +19,28 @@
     margin-top: $b-space
 
   blockquote
-    background: rgba( $c-highlight, 0.1 )
+    +font-size( ( m: 24px ) )
+    background: $c-highlight
     border-left: 10px solid $c-highlight
-    color: $c-highlight
+    box-sizing: border-box
+    color: $c-text-invert
     font-style: italic
     margin: $b-space 0
     padding: $b-space
+    position: relative
+    z-index: 1
 
     > :last-child
       margin-bottom: 0
+
+    a
+      @extend .link
+      @extend .link--bordered
+      @extend .link--inverted
+
+    +respond-to( $g-l )
+      max-width: $b-maxWidth
+      width: calc( 100vw - #{ $row-gutter--m * 2 } )
 
   code, kbd
     +font-size-s
@@ -70,7 +83,7 @@
 
 // ----- Marker ----- //
 
-[id^='fnref']
+[ id^='fnref' ]
 
   &::before
     content: '\00a0'
