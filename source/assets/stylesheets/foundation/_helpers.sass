@@ -66,7 +66,7 @@
 
 =font-size( $sizes )
   @each $name, $size in $sizes
-    @if map-get( $sizes, 'b' )
+    @if map-get( $sizes, $name )
       $sizes: map-merge( $sizes, ( $name: ( $size / $b-fontSize ) * 1rem ) )
 
   font-size: map-get( $sizes, 'b' )
