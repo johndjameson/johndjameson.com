@@ -1,14 +1,16 @@
 // *************************************
 //
 //  Syntax
-//  -> Code blocks using GitHub colors
+//  -> Highlighted code blocks
+//     https://github.com/dwayne/sass-pygments/blob/master/styles/solarized.scss
+//     http://chriskempson.github.io/base16/#tomorrow
 //
 // -------------------------------------
 //  Template (Haml)
 // -------------------------------------
 //
 // %pre.syntax
-//  .syntaxID
+//  .syntax-[...]
 //
 // -------------------------------------
 //
@@ -21,7 +23,7 @@
   +font-size-s
   background: $syntax-background
   box-sizing: border-box
-  color: $white
+  color: $syntax-color
   margin-bottom: $b-space-l
   margin-top: $b-space-l
   padding: $b-space
@@ -38,210 +40,70 @@
 //  Scaffolding
 // -------------------------------------
 
-.syntax-hll
-  background-color: #ffffcc
+// ----- Comments ----- //
 
-.syntax-c
-  color: #999988
-  font-style: italic
-
-//.syntax-err
-  //color: #a61717
-  //background-color: #e3d2d2
-
-.syntax-k
-  color: #000000
-  font-weight: bold
-
-.syntax-o
-  color: #000000
-  font-weight: bold
-
-.syntax-cm
-  color: #999988
-  font-style: italic
-
-.syntax-cp
-  color: #999999
-  font-weight: bold
-  font-style: italic
-
-.syntax-c1
-  color: #999988
-  font-style: italic
-
+.syntax-c,
+.syntax-c1,
+.syntax-cm,
+.syntax-cp,
 .syntax-cs
-  color: #999999
-  font-weight: bold
-  font-style: italic
+  color: $syntax-comment-color
 
-.syntax-gd
-  color: #000000
-  background-color: #ffdddd
+// ----- Contstants and class names ----- //
 
-.syntax-ge
-  color: #000000
-  font-style: italic
-
-.syntax-gr
-  color: #aa0000
-
-.syntax-gh
-  color: #999999
-
-.syntax-gi
-  color: #000000
-  background-color: #ddffdd
-
-.syntax-go
-  color: #888888
-
-.syntax-gp
-  color: #555555
-
-.syntax-gs
-  font-weight: bold
-
-.syntax-gu
-  color: #aaaaaa
-
-.syntax-gt
-  color: #aa0000
-
-.syntax-kc
-  color: #000000
-  font-weight: bold
-
-.syntax-kd
-  color: #000000
-  font-weight: bold
-
-.syntax-kn
-  color: #000000
-  font-weight: bold
-
-.syntax-kp
-  color: #000000
-  font-weight: bold
-
-.syntax-kr
-  color: #000000
-  font-weight: bold
-
-.syntax-kt
-  color: #445588
-  font-weight: bold
-
-.syntax-m
-  color: #009999
-
-.syntax-s
-  color: #d01040
-
-.syntax-na
-  color: #008080
-
-.syntax-nb
-  color: #0086B3
-
+.syntax-bp,
+.syntax-nb,
 .syntax-nc
-  color: #445588
-  font-weight: bold
+  color: $syntax-constant-color
 
-.syntax-no
-  color: #008080
+// ----- Keywords ----- //
 
-.syntax-nd
-  color: #3c5d5d
-  font-weight: bold
-
-.syntax-ni
-  color: #800080
-
-.syntax-ne
-  color: #990000
-  font-weight: bold
-
-.syntax-nf
-  color: #990000
-  font-weight: bold
-
-.syntax-nl
-  color: #990000
-  font-weight: bold
-
-.syntax-nn
-  color: #555555
-
-.syntax-nt
-  color: #000080
-
-.syntax-nv
-  color: #008080
-
+.syntax-k,
+.syntax-kc,
+.syntax-kd,
+.syntax-kp,
+.syntax-kr,
+.syntax-kt,
 .syntax-ow
-  color: #000000
-  font-weight: bold
+  color: $syntax-keyword-color
 
-.syntax-w
-  color: #bbbbbb
+// ----- Strings ----- //
 
-.syntax-mf
-  color: #009999
-
-.syntax-mh
-  color: #009999
-
-.syntax-mi
-  color: #009999
-
-.syntax-mo
-  color: #009999
-
-.syntax-sb
-  color: #d01040
-
-.syntax-sc
-  color: #d01040
-
-.syntax-sd
-  color: #d01040
-
-.syntax-s2
-  color: #d01040
-
-.syntax-se
-  color: #d01040
-
-.syntax-sh
-  color: #d01040
-
-.syntax-si
-  color: #d01040
-
+.syntax-il,
+.syntax-l,
+.syntax-ld,
+.syntax-m,
+.syntax-mf,
+.syntax-mh,
+.syntax-mi,
+.syntax-mo,
+.syntax-s,
+.syntax-s1,
+.syntax-s2,
+.syntax-sb,
+.syntax-sc,
+.syntax-sd,
+.syntax-se,
+.syntax-sh,
+.syntax-si,
+.syntax-sr,
+.syntax-ss,
 .syntax-sx
-  color: #d01040
+  color: $syntax-string-color
 
-.syntax-sr
-  color: #009926
+// ----- Variables, methods, and tags ----- //
 
-.syntax-s1
-  color: #d01040
-
-.syntax-ss
-  color: #990073
-
-.syntax-bp
-  color: #999999
-
-.syntax-vc
-  color: #008080
-
-.syntax-vg
-  color: #008080
-
-.syntax-vi
-  color: #008080
-
-.syntax-il
-  color: #009999
+.syntax-n,
+.syntax-na,
+.syntax-nd,
+.syntax-ne,
+.syntax-nf,
+.syntax-ni,
+.syntax-nl,
+.syntax-nn,
+.syntax-no,
+.syntax-nt,
+.syntax-nv,
+.syntax-nx,
+.syntax-py
+  color: $syntax-variable-color
