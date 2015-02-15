@@ -14,9 +14,7 @@ What Is Emmet?
 > Emmet (previously known as Zen Coding) is a web-developer’s toolkit that can
 > greatly improve your HTML &amp; CSS workflow you can type CSS-like expressions
 > that can be dynamically parsed, and produce output depending on what you type
-> in the abbreviation.
-
-&mdash; [Emmet Documentation][emmet-docs]
+> in the abbreviation. &mdash; [Emmet Documentation][emmet-docs]
 
 This means that by using Emmet we can:
 
