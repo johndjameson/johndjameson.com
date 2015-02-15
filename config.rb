@@ -32,6 +32,12 @@ set :js_dir,     'assets/javascripts'
 set :images_dir, 'assets/images'
 set :fonts_dir,  'assets/fonts'
 
+# Bower
+after_configuration do
+  @bower_config = JSON.parse( IO.read( "#{ root }/.bowerrc" ) )
+  sprockets.append_path File.join root.to_s, @bower_config[ 'directory' ]
+end
+
 # Build-specific configuration
 configure :build do
   activate :minify_css

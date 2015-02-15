@@ -1,0 +1,10 @@
+{
+  "name": "johndjameson.com",
+  "version": "7",
+  "homepage": "https://github.com/johndjameson/johndjameson.com",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "jquery": "~2.1.3"
+  }
+}
