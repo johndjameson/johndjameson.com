@@ -31,7 +31,7 @@
       src: url( '#{$path}.eot?#iefix' ) format( 'embedded-opentype' ), url( '#{ $path }.woff' ) format( 'woff' ), url( '#{ $path }.ttf' ) format( 'truetype' ), url( '#{ $path }.svg##{ $family }' ) format( 'svg' )
 
 // ----- Em ----- //
-// -> Converts pixel value to an em
+// -> Converts pixel value to ems
 //
 // $target - the target pixel size
 // $context - the context font-size
@@ -41,6 +41,19 @@
     @return 0
   @else
     @return ( $target / $context ) * 1em
+
+
+// ----- Rem ----- //
+// -> Converts pixel value to rems
+//
+// $target - the target pixel size
+// $context - the context font-size
+
+@function rem( $target, $context: $b-fontSize )
+  @if ( $target == 0 )
+    @return 0
+  @else
+    @return ( $target / $context ) * 1rem
 
 // -------------------------------------
 //   Mixins
