@@ -27,8 +27,6 @@
     font-style: italic
     margin: $b-space 0
     padding: $b-space
-    position: relative
-    z-index: 1
 
     > :last-child
       margin-bottom: 0
@@ -40,7 +38,9 @@
 
     +respond-to( $g-l )
       max-width: $b-maxWidth
+      position: relative
       width: calc( 100vw - #{ $row-gutter--m * 2 } )
+      z-index: 1
 
   code, kbd
     +font-size-s
