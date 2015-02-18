@@ -39,8 +39,8 @@ end
 # ====================================
 
 configure :build do
+  activate :cache_buster
   activate :minify_css
   activate :minify_javascript
-  activate :cache_buster
   activate :relative_assets
 end
