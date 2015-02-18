@@ -9,7 +9,7 @@ activate :minify_html
 activate :syntax, css_class: 'syntax js-syntax'
 
 activate :autoprefixer do | config |
-  config.browsers = 'last 2 versions'
+  config.browsers = [ 'last 2 versions', 'Explorer >= 10' ]
   config.cascade  = false
 end
 
