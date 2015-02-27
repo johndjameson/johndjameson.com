@@ -10,14 +10,14 @@ html
   color: $c-text
   font-family: $b-fontFamily
   font-feature-settings: 'kern'
-  font-size: $b-fontSize
+  font-size: percentage( $b-fontSize / 16px )
   line-height: $b-lineHeight
   word-spacing: em( 1px )
 
 body
 
-  +respond-to($g-m)
-    font-size: $b-fontSize--m
+  +respond-to( $g-m )
+    font-size: percentage( $b-fontSize--m / $b-fontSize )
     line-height: $b-lineHeight--m
 
 // -------------------------------------
