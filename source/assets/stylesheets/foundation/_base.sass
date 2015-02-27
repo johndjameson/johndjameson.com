@@ -14,11 +14,11 @@ html
   line-height: $b-lineHeight
   word-spacing: em( 1px )
 
-  +respond-to($g-m)
-    line-height: $b-lineHeight--m
-
 body
-  +font-size( ( m: $b-fontSize--m ) )
+
+  +respond-to($g-m)
+    font-size: $b-fontSize--m
+    line-height: $b-lineHeight--m
 
 // -------------------------------------
 //   Block Content
