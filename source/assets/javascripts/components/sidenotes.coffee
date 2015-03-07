@@ -16,8 +16,6 @@
 
 @JDJ.sidenotes = do ->
 
-  console.log 'string'
-
   # -------------------------------------
   #   Private Variables
   # -------------------------------------
@@ -47,8 +45,6 @@
 
   createSidenotes = ->
     _settings.$markers.parent().wrap( "<div class='#{ _settings.noteContextClass }'></div>" )
-
-    console.log _settings.$markers
 
     for index in [ 0..._settings.$markers.length ]
       content = $( _settings.$notes[ index ] )
