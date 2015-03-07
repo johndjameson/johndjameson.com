@@ -10,15 +10,15 @@
           .g
             .g-b.g-b--m--1of2.mbm.mbf--m
 
-              = link_to 'http://mvcss.io', class: 'dib mrm' do
+              = link_to links.mvcss, class: 'dib mrm' do
                 = image_tag 'mvcss-logo.svg', alt: 'MVCSS', width: 110
-              = link_to 'MVCSS', 'http://mvcss.io', class: 'link link--bordered link--inverted'
+              = link_to 'MVCSS', links.mvcss, class: 'link link--bordered link--inverted'
 
             .g-b.g-b--m--1of2
 
-              = link_to 'https://github.com/spellbook/spellbook', class: 'dib mrm' do
+              = link_to links.spellbook, class: 'dib mrm' do
                 = image_tag 'spellbook-logo.svg', alt: 'Spellbook', width: 110
-              = link_to 'Spellbook', 'https://github.com/spellbook/spellbook', class: 'link link--bordered link--inverted'
+              = link_to 'Spellbook', links.spellbook, class: 'link link--bordered link--inverted'
 
       .split-cell
 
@@ -27,17 +27,17 @@
         .well.well--l
 
           .dif
-            = link_to 'https://twitter.com/johndjameson' do
+            = link_to links.twitter do
               = image_tag 'icon-twitter.svg', class: 'mrs', width: 40, height: 40
-            = link_to 'https://github.com/johndjameson' do
+            = link_to links.github do
               = image_tag 'icon-github.svg', class: 'mrs', width: 40, height: 40
-            = link_to 'https://dribbble.com/johndjameson' do
+            = link_to links.dribbble do
               = image_tag 'icon-dribbble.svg', class: 'mrs', width: 40, height: 40
 
     .bdrti.ptm
       %p.mbf.tss
         Check out my site’s source code on
-        = link_to 'GitHub', 'https://github.com/johndjameson/johndjameson.com', class: 'link link--bordered link--inverted'
+        = link_to 'GitHub', links.source, class: 'link link--bordered link--inverted'
 
 = javascript_include_tag 'vendor'
 = javascript_include_tag 'application'

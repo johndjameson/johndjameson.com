@@ -20,6 +20,8 @@ end
 set :markdown_engine, :redcarpet
 set :markdown, fenced_code_blocks: true, footnotes: true, smartypants: true
 
+set :links, data.links
+
 set :css_dir,    'assets/stylesheets'
 set :js_dir,     'assets/javascripts'
 set :images_dir, 'assets/images'
