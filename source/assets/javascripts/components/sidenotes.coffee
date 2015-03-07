@@ -55,7 +55,7 @@
                 .html()
                 .replace( /&nbsp;<a href=.#fn.*<\/a>/, '' )
 
-      $( $(".#{ _settings.noteContextClass }")[ index ] )
+      $( $( ".#{ _settings.noteContextClass }" )[ index ] )
         .append( "<aside class='#{ _settings.sidenoteClass }' role='complementary'><p>#{ content }</p></aside>" )
 
   # -------------------------------------
