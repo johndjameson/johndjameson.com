@@ -1,8 +1,8 @@
 %footer.row.bc-shark.tci{ role: 'contentinfo' }
   .cell.well.well--l
 
-    .split.split--responsive
-      .split-cell.mrl
+    .g
+      .g-b.g-b--m--2of3
 
         %span.label.label--invert Built with
 
@@ -12,15 +12,17 @@
 
               = link_to links.mvcss, class: 'dib mrm' do
                 = image_tag 'mvcss-logo.svg', alt: 'MVCSS', width: 110
+
               = link_to 'MVCSS', links.mvcss, class: 'link link--bordered link--inverted'
 
             .g-b.g-b--m--1of2
 
               = link_to links.spellbook, class: 'dib mrm' do
                 = image_tag 'spellbook-logo.svg', alt: 'Spellbook', width: 110
+
               = link_to 'Spellbook', links.spellbook, class: 'link link--bordered link--inverted'
 
-      .split-cell
+      .g-b.g-b--m--1of3
 
         %span.label.label--invert Online
 
@@ -30,9 +32,11 @@
             = link_to links.twitter do
               %span.srt Twitter
               = image_tag 'icon-twitter.svg', class: 'mrs', width: 40, height: 40
+
             = link_to links.github do
               %span.srt GitHub
               = image_tag 'icon-github.svg', class: 'mrs', width: 40, height: 40
+
             = link_to links.dribbble do
               %span.srt Dribbble
               = image_tag 'icon-dribbble.svg', class: 'mrs', width: 40, height: 40
