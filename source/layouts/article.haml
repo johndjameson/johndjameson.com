@@ -5,6 +5,8 @@
   %body
     = partial 'shared/header'
 
+  %main{ role: 'main' }
+
     %section.row.bc-shark
       .cell.well.well--l
         .tci
@@ -14,7 +16,7 @@
 
     %section.row.has-sector
       .cell
-        %article.post.js-sidenotes
+        %article.post.js-sidenotes{ role: 'article' }
 
           .g.sector
             .g-b.g-b--l--2of3.sector-item.sector-item--a.sector-item--a--invert
@@ -27,4 +29,4 @@
             .g-b.g-b--l--1of3.sector-item.sector-item--b.sector-item--b--invert.dn.db--l
               .well.well--l.mbxl--m
 
-    = partial 'shared/footer'
+  = partial 'shared/footer'

@@ -5,6 +5,7 @@
   %body
     = partial 'shared/header'
 
-    = yield
+    %main{ role: 'main' }
+      = yield
 
     = partial 'shared/footer'
