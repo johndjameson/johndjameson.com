@@ -21,6 +21,14 @@
   @else
     @return ( $target / $context ) * 1em
 
+// ----- Strip Units ----- //
+// -> Removes the unit type from values
+//
+// $value - the initial number
+
+@function strip-units( $value )
+  @return $value / ( $value * 0 + 1)
+
 // ----- Rem ----- //
 // -> Converts pixel value to rems
 //
