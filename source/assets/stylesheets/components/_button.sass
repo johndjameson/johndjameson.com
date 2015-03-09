@@ -13,13 +13,11 @@
 // *************************************
 
 .btn
+  +action
   +font-size( ( b: $btn-fontSize ) )
   background: $btn-background
   border-radius: $btn-borderRadius
-  border: 0
   color: $btn-color
-  cursor: pointer
-  display: inline-block
   font-family: $b-fontFamily-mono
   font-weight: $b-fontWeight-bold
   letter-spacing: 2px
@@ -28,11 +26,7 @@
   padding-left: $btn-space
   padding-right: $btn-space-s
   position: relative
-  text-align: center
-  text-decoration: none
   text-transform: uppercase
-  transition: $b-transition
-  user-select: none
 
   &::before
     border-color: $btn-background transparent transparent transparent
