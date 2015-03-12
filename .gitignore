@@ -5,4 +5,5 @@ build/
 .DS_Store
 .cache
 /Rakefile
-bower_components
+bower_components/
+node_modules/
