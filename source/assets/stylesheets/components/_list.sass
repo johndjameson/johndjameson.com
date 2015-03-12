@@ -8,7 +8,7 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// %ul.list[divided]
+// %ul.list[divided object]
 //   %li.list-item List Item
 //   %li.list-item List Item
 //
@@ -32,6 +32,18 @@
     &:last-child
       border-bottom: 0
       padding-bottom: 0
+
+// ----- Object ----- //
+
+.list--object
+  display: inline-flex
+
+  > .list-item
+    margin-bottom: 0
+    margin-right: $b-space
+
+    &:last-child
+      margin-right: 0
 
 // -------------------------------------
 //   Scaffolding
