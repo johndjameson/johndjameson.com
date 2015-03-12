@@ -2,6 +2,7 @@
   "name": "johndjameson.com",
   "version": "7.0.0",
   "devDependencies": {
-    "grunt": "^0.4.5"
+    "grunt": "^0.4.5",
+    "grunt-svgstore": "^0.5.0"
   }
 }
