@@ -1,0 +1,10 @@
+- name   ||= ''
+- size   ||= 40
+- width  ||= size
+- height ||= size
+
+- unless defined? text
+  %span.srt= name.humanize
+
+%svg{ width: width, height: height }
+  %use{ 'xlink:href' => "#icon-#{name}" }
