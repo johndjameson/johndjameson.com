@@ -28,15 +28,18 @@
 
         .well.well--l
 
-          .dif
-            = link_to links.twitter, class: 'link link--inverted link--media link--media--inverted mrs' do
-              = partial 'shared/icon', locals: { name: 'twitter' }
+          %ul.list.list--object
+            %li.list-item
+              = link_to links.twitter, class: 'link link--inverted link--media link--media--inverted' do
+                = partial 'shared/icon', locals: { name: 'twitter' }
 
-            = link_to links.github, class: 'link link--inverted link--media link--media--inverted mrs' do
-              = partial 'shared/icon', locals: { name: 'github' }
+            %li.list-item
+              = link_to links.github, class: 'link link--inverted link--media link--media--inverted' do
+                = partial 'shared/icon', locals: { name: 'github' }
 
-            = link_to links.dribbble, class: 'link link--inverted link--media link--media--inverted mrs' do
-              = partial 'shared/icon', locals: { name: 'dribbble' }
+            %li.list-item
+              = link_to links.dribbble, class: 'link link--inverted link--media link--media--inverted' do
+                = partial 'shared/icon', locals: { name: 'dribbble' }
 
     .bdrti.ptm
       %p.mbf.tss
