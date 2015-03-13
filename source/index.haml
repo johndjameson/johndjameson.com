@@ -11,7 +11,7 @@ description: 'Front-end Developer at Code School'
 
           .tac
             = image_tag 'avatar.jpg', class: 'thumb dib mbs', width: 140, height: 140
-            %span.label.label--invert.mbf John D. Jameson
+            %span.label.label--inverted.mbf John D. Jameson
             %p
               Front-end Devloper at
               %span.db
@@ -22,7 +22,7 @@ description: 'Front-end Developer at Code School'
         .well.well--l.well--m--xl.plm--m
           - post = get_posts().first
 
-          %p.label Latest Post
+          %p.label.label--inverted Latest Post
 
           = link_to post.data.title, post.url, class: 'link link--inverted h2 db js-orphan'
           %p.js-orphan= post.data.description
