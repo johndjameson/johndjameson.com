@@ -143,18 +143,33 @@
 // ----- Sidenote ----- //
 
 .post-sidenote
-  +font-size-s
+  +font-size( ( b: 14px ) )
   box-sizing: border-box
   color: $c-subdue
   display: none
-  font-style: italic
+  font-family: $b-fontFamily-mono
   left: 100%
   margin-left: $g-gutter * 2
+  overflow: hidden
   padding-right: $g-gutter * 0.5
   position: absolute
   top: 0
   width: percentage( 1 / 2 )
+  word-spacing: 0
   z-index: 1
+
+  > p
+    margin-bottom: 0
+    margin-left: 3ch
+    position: relative
+
+    &::before
+      content: '//\a//\a//\a//\a//\a//'
+      display: block
+      left: -3ch
+      position: absolute
+      top: 0
+      white-space: pre
 
   +respond-to( $g-l )
     display: block
