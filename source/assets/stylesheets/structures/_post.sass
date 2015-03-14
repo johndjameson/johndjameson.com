@@ -96,22 +96,15 @@
 //   Scaffolding
 // -------------------------------------
 
-// ----- Marker ----- //
+// ----- Content ----- //
 
-[ id^='fnref' ]
+.post-content
 
-  &::before
-    content: '\00a0'
-    font-size: 50%
+  > p:first-child,
+  > :first-child > p
 
-  > a
-    letter-spacing: 1px
-
-    &::before
-      content: '['
-
-    &::after
-      content: ']'
+    &::first-line
+      font-feature-settings: 'kern', 'smcp'
 
 // ----- Footnotes ----- //
 
@@ -132,13 +125,22 @@
   p:last-of-type
     margin-bottom: 0
 
-// ----- Lead ----- //
+// ----- Marker ----- //
 
-.post-lead
-  color: $c-text-heading
-  font-weight: $b-fontWeight-bold
-  letter-spacing: 0.1em
-  text-transform: uppercase
+[ id^='fnref' ]
+
+  &::before
+    content: '\00a0'
+    font-size: 50%
+
+  > a
+    letter-spacing: 1px
+
+    &::before
+      content: '['
+
+    &::after
+      content: ']'
 
 // ----- Sidenote ----- //
 
