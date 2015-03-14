@@ -6,7 +6,7 @@ date: 2014-04-28
 description: "Emmet is an invaluable time-saving tool for anyone who writes HTML and CSS. Thanks to Sublime Text, it only takes a little bit of effort to install and start using right now."
 ---
 
-<b class="post-lead">One of the biggest problems</b> with hand-authoring HTML is the monotony of writing the common markup that surrounds content itself. While several templating languages exist to alleviate this issue, they introduce dependencies and abstractions that have a somewhat steep learning curve to master. Fortunately, a tool called Emmet walks the line between both manual and automated approaches&mdash;and has become one of the most useful additions to my workflow.
+One of the biggest problems with hand-authoring HTML is the monotony of writing the common markup that surrounds content itself. While several templating languages exist to alleviate this issue, they introduce dependencies and abstractions that have a somewhat steep learning curve to master. Fortunately, a tool called Emmet walks the line between both manual and automated approaches&mdash;and has become one of the most useful additions to my workflow.
 
 What Is Emmet?
 --------------
