@@ -41,16 +41,22 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4
+  color: $c-text-heading
   font-family: $b-fontFamily-heading
-  font-weight: $b-fontWeight-normal
-  letter-spacing: em( 2px )
+  font-weight: $b-fontWeight-bold
   line-height: 1.2
   margin-bottom: $b-space-xs
   margin-top: 0
-  text-transform: uppercase
 
 h1, .h1
   +font-size( ( b: $b-fontSize-h1, m: $b-fontSize-h1--m, l: $b-fontSize-h1--l ) )
+  font-weight: $b-fontWeight-normal
+  letter-spacing: 0.05em
+  text-transform: uppercase
+  word-spacing: 0
+
+  +respond-to( $g-m )
+    letter-spacing: 0.1em
 
 h2, .h2
   +font-size( ( b: $b-fontSize-h2, m: $b-fontSize-h2--m ) )
