@@ -52,6 +52,7 @@ h1, .h1
   +font-size( ( b: $b-fontSize-h1, m: $b-fontSize-h1--m, l: $b-fontSize-h1--l ) )
   font-weight: $b-fontWeight-normal
   letter-spacing: 0.05em
+  line-height: 1.05
   text-transform: uppercase
   word-spacing: 0
 
@@ -64,7 +65,7 @@ h1, .h1
 h2, .h2
   +font-size( ( b: $b-fontSize-h2, m: $b-fontSize-h2--m ) )
 
-  +respond-to($g-m)
+  +respond-to( $g-m )
     letter-spacing: -1px
 
 // -------------------------------------
