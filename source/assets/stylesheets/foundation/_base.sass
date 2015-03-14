@@ -58,8 +58,14 @@ h1, .h1
   +respond-to( $g-m )
     letter-spacing: 0.1em
 
+  +respond-to( $g-l )
+    letter-spacing: 0.125em
+
 h2, .h2
   +font-size( ( b: $b-fontSize-h2, m: $b-fontSize-h2--m ) )
+
+  +respond-to($g-m)
+    letter-spacing: -1px
 
 // -------------------------------------
 //   Inline Content
