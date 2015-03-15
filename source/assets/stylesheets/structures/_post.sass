@@ -22,6 +22,12 @@
       > li:first-child
         margin-top: $b-space-s
 
+    +respond-to( em( 900px ) ) // FIXME: Magic number!
+      padding-left: 0
+
+    +respond-within( $g-l, em( 1340px ) ) // FIXME: Magic number!
+      padding-left: $b-space
+
   h2
     margin-bottom: $b-space-s
     margin-top: $b-space
