@@ -50,7 +50,7 @@
     transition: 0.15s steps( #{ strip-units( $link-borderWidth ) } )
     width: 100%
 
-  > img
+  > img, svg
     transition: $b-transition
 
   +state
@@ -58,7 +58,7 @@
     &::before
       border-bottom-width: $link-borderWidth
 
-    > img
+    > img, svg
       opacity: 0.75
 
 // Inverted
@@ -70,5 +70,5 @@
 
   +state
 
-    > img
+    > img, svg
       opacity: 0.5
