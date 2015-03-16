@@ -4,9 +4,11 @@ module.exports = ( grunt ) ->
 
   grunt.initConfig
 
-    svgstore   :
-      default  :
-        files  :
+    svgstore      :
+      default     :
+        options   :
+          cleanup : [ 'fill' ]
+        files     :
           'source/assets/images/icons/icons.svg' : [ 'source/assets/images/icons/icon-*.svg' ]
 
   grunt.registerTask( 'default', [ 'svgstore' ] )
