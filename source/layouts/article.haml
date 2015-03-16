@@ -8,28 +8,28 @@
 
     = partial 'shared/header'
 
-  %main{ role: 'main' }
+    %main{ role: 'main' }
 
-    %section.row.bc-balticSea
-      .cell.well.well--l
-        %time.label.label--inverted.dib.mbm= pretty_date( current_page.data.date )
-        %h1.tci{ class: ( 'js-orphan' unless current_page.data.allow_orphan ) }= current_page.data.title
-        %p.mbf.tcis.tsi.tsl.js-orphan= current_page.data.description
+      %section.row.bc-balticSea
+        .cell.well.well--l
+          %time.label.label--inverted.dib.mbm= pretty_date( current_page.data.date )
+          %h1.tci{ class: ( 'js-orphan' unless current_page.data.allow_orphan ) }= current_page.data.title
+          %p.mbf.tcis.tsi.tsl.js-orphan= current_page.data.description
 
-    %section.row.has-sector
-      .cell
-        %article.post.js-sidenotes{ role: 'article' }
+      %section.row.has-sector
+        .cell
+          %article.post.js-sidenotes{ role: 'article' }
 
-          .g.sector
-            .g-b.g-b--l--2of3.sector-item.sector-item--a.sector-item--a--invert
-              .well.well--l.mbxl--m.prs--l
-                .cell.cell--s
+            .g.sector
+              .g-b.g-b--l--2of3.sector-item.sector-item--a.sector-item--a--invert
+                .well.well--l.mbxl--m.prs--l
+                  .cell.cell--s
 
-                  .post-content
-                    = find_and_preserve do
-                      = yield
+                    .post-content
+                      = find_and_preserve do
+                        = yield
 
-            .g-b.g-b--l--1of3.sector-item.sector-item--b.sector-item--b--invert.dn.db--l
-              .well.well--l.mbxl--m
+              .g-b.g-b--l--1of3.sector-item.sector-item--b.sector-item--b--invert.dn.db--l
+                .well.well--l.mbxl--m
 
-  = partial 'shared/footer'
+    = partial 'shared/footer'
