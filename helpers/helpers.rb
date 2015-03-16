@@ -10,6 +10,10 @@ module Helpers
       .reverse
   end
 
+  def icon( name, options={} )
+    partial 'shared/icon', locals: { name: name }.merge( options )
+  end
+
   def pretty_date( date )
     date.strftime( '%B %d, %Y' )
   end
