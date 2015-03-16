@@ -7,7 +7,7 @@ allow_orphan: true
 description: "With a little help from JavaScript, you can add a data attribute to any HTML element to instantly assign a shortcut key."
 ---
 
-Assigning keyboard shortcuts on the web could be as simple as adding an HTML attribute onto an element and setting its value. Even though browsers are unlikely support this approach natively, you're still able to define shortcut keys in your markup by using `data` attributes and a touch of JavaScript.
+Assigning keyboard shortcuts on the web could be as simple as adding an HTML attribute onto an element and setting its value. Even though browsers are unlikely to support this approach natively, you're still able to define shortcut keys in your markup by using `data` attributes and a touch of JavaScript.
 
 ```html
 <button data-shortcut='s'>Do Something</button>
