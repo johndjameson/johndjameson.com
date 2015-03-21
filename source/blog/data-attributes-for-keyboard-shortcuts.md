@@ -23,7 +23,7 @@ Other than scrolling past copy on code-related blog posts, these three things ma
 
 Let's go over how it works.
 
-Set up Dependencies
+Set up dependencies
 -------------------
 
 Before getting started, you'll need to grab jQuery and [jQuery Hotkeys][jquery-hotkeys], and link them up in your project.[^1] You can get by on your own without either library, but including them both helps simplify the code we'll cover down below.
@@ -34,7 +34,7 @@ Using [Bower][bower], you can download a copy of each library by entering the fo
 bower install jquery jquery.hotkeys --save
 ```
 
-Write Some JavaScript
+Write some JavaScript
 ---------------------
 
 Remember our three use cases? Well, in JavaScipt, they translate into the following behaviors:
@@ -62,7 +62,7 @@ $('[data-shortcut]').each(function() {
 
 This code will loop through every HTML element that has a `[data-shortcut]` attribute and attach the keyboard shortcut's event handler. Now when you press an assigned key, the `keyup` event will trigger both `click` and `focus` events on its related DOM element. Additionally, if the element is an `<a>` tag, your browser will follow the link provided by the element's `href` attribute.
 
-Assign Your Shortcuts
+Assign your shortcuts
 ---------------------
 
 Your JavaScript is up and running, so you can finally start assigning keyboard shortcuts in your markup! Find an `<a>`, `<button>`, or `<input>` tag that could use a shortcut, and add a `data-shortcut` attribute with the intended key as its value.

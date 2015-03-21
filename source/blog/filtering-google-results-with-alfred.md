@@ -8,7 +8,7 @@ description: "Google offers powerful filters for search results that can help yo
 
 Filtering search results on Google is always a bit of a hassle. The search tools are difficult to find, and once you've found them, you have to click each filter individually before _refreshing the page_ to enable another one. For commonly used filters or groups of filters, this can add up to be a real productivity killer. Thanks to [Alfred][alfred], however, you can configure these filters a **single time,** and then save them as a custom Web Search to use again in the future.[^1]
 
-Adding a Custom Search
+Adding a custom search
 ----------------------
 
 To get started, open the `Preferences` window in Alfred, click the `Features` tab, and then select the `Web Search` sidebar item. You should encounter a table of Alfred’s built-in Web Searches that you can augment by clicking `Add Custom Search`.
@@ -25,14 +25,14 @@ Feel free to copy the URL below:
 https://www.google.com/search?q={query}&tbs=qdr:y
 ```
 
-Useful Google Searches
+Useful Google searches
 ----------------------
 
 Configuring Google searches via the website can generate some scary-looking URLs littered with unnecessary parameters. You can shorten these dramatically before adding them to Alfred, but the process involved is rarely better than Delete Things until It Breaks.&trade;
 
 If you want to avoid that hassle altogether, here are a few more Google search URLS you can paste into Alfred and start using today.
 
-### Web Results
+### Web results
 
 ```
 Last month:
@@ -48,7 +48,7 @@ Verbatim:
 https://www.google.com/search?q={query}&tbs=li:1
 ```
 
-### Image Results
+### Image results
 
 ```
 Animated GIFs:
@@ -61,7 +61,7 @@ Labeled for reuse with modification:
 https://www.google.com/search?q={query}&tbm=isch&tbs=sur:fmc
 ```
 
-Keep 'em Coming
+Keep 'em coming
 ---------------
 
 That's it for now, but as a [crazy efficiency nerd][olivier-tweet], I'll make sure to add to this post whenever I think of another useful Google search. Until then, have fun experimenting with custom search URLs on different websites. For example, you could search for only Prime-eligible items on Amazon&mdash;or even tweets you've posted in the last month.

@@ -16,7 +16,7 @@ Ampersands are used most effectively in display contexts, such as titles and hea
 
 Today we are able to provide additional browser support thanks to the availability web fonts. With the help of Google Fonts specifically, **we're able to offer a cross-platform compatible solution that has widespread browser support and a tiny file size.**
 
-Styling Ampersands
+Styling ampersands
 ------------------
 
 We start off by adding the URI-encoded string `&text=%26` to a Google Fonts URL inside our CSS. This allows browsers to download a miniscule _1 or 2 kilobyte_ file containing **only the ampersand character** of a specified font, rather than a font file that is 50 or 60 kilobytes larger.
@@ -44,7 +44,7 @@ Ampersands <b class="amp">&amp;</b> Google Fonts
 
 Now that our HTML is marked up as intended, we have everything we need in place to start adding elegant, well-supported ampersands to our web design projects. **_But_ if you're interested in sanding out a few of the rough edges, there's still _a little more_ work we can do.**
 
-Making Improvements
+Making improvements
 -------------------
 
 With our CSS in its current state, querying the Google Fonts API for a single ampersand takes up _two_ HTTP requests. The first response contains the CSS file we previously imported into our style sheet. Because this CSS specifies a `@font-face` declaration for the requested font, the font itself becomes the _second_ HTTP request.

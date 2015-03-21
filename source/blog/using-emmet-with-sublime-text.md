@@ -8,7 +8,7 @@ description: "Emmet is an invaluable time-saving tool for anyone who writes HTML
 
 One of the biggest problems with hand-authoring HTML is the monotony of writing the common markup that surrounds content itself. While several templating languages exist to alleviate this issue, they introduce dependencies and abstractions that have a somewhat steep learning curve to master. Fortunately, a tool called Emmet walks the line between both manual and automated approaches&mdash;and has become one of the most useful additions to my workflow.
 
-What Is Emmet?
+What is Emmet?
 --------------
 
 > Emmet (previously known as Zen Coding) is a web-developer’s toolkit that can
@@ -29,7 +29,7 @@ This means that by using Emmet we can:
 
 Pretty useful, right? Let's find out how to install it using Sublime Text.
 
-Installing Plugins
+Installing plugins
 ------------------
 
 Sublime Text has an amazing add-on called **Package Control** that lets you find and install virtually _any_ plug-in from within the application itself.[^1] The line of code to install Package Control changes with every release, so you'll have to copy it directly from the [offcial website][packagecontrol-install].
@@ -53,7 +53,7 @@ Now that we have Emmet installed, we can finally start having fun with some of i
 
 And that's it! Check out some of the most useful [shortcuts][emmet-shortcuts] you can start using right now.
 
-Getting Better
+Getting better
 --------------
 
 If you’re like me, getting up to speed with new tools is an endless struggle. Fortunately, Emmet is _completely optional_ once installed and you can ignore all of its features until **you** want to use them. This makes mastering Emmet as flexible as gradually adding shortcuts to your workflow when you need them. Start with the shorthand for a class or ID, for example, and then build up from there, learning more ambitious shortcuts along the way.

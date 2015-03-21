@@ -31,7 +31,7 @@ Now you can close and reopen your terminal. With just those few commands, you sh
 
 That's it for installing your brand-new shell. Let's take a look at how to keep it _up-to-date_ with the help of Homebrew.
 
-Staying Current
+Staying current
 ---------------
 
 The Homebrew command `update` actually refers to updating Homebrew itself. If you want to install the latest version of a Homebrew _package_, you'll have to use the word `upgrade` instead:
