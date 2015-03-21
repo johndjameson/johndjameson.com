@@ -65,7 +65,7 @@
 
 =font-size( $sizes )
   @if $sizes == 's'
-    +font-size( ( b: $b-fontSize-s, m: $b-fontSize-s--m ) )
+    +font-size( ( b: $b-fontSize-s, m: $b-fontSize-s-b ) )
   @else
     @each $name, $size in $sizes
       @if map-get( $sizes, $name )
