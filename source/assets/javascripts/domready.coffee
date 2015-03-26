@@ -6,13 +6,23 @@
 
 jQuery ($) ->
 
+  # ----- Functions ----- #
+
   JDJ.fixOrphanWords()
+
+  JDJ.injectSvg
+    assetPath    : 'assets/images/icons/icons.svg'
+    elementClass : 'dn'
+
+  # ----- Modules ----- #
 
   JDJ.sidenotes.init
     $notes        : $( '.footnotes' ).find( 'p' )
-    $markers      : $( '[id^="fnref"]' )
+    $markers      : $( '[ id^="fnref" ]' )
     sidenoteClass : 'post-sidenote'
 
-  $( '.js-syntax' ).find( '[class]' ).each ->
+  # ----- Miscellaneous ----- #
+
+  $( '.js-syntax' ).find( '[ class ]' ).each ->
     node           = @
     node.className = "syntax-#{ node.className }"
