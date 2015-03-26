@@ -23,7 +23,7 @@
     classArray      = node.className.split( ' ' )
     prefixedClasses = ''
 
-    for className, index in classArray
+    for className in classArray
       prefixedClasses = "#{ prefixedClasses } #{ settings.prefix }-#{ className }"
 
     node.className = prefixedClasses
