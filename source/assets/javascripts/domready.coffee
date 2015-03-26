@@ -11,7 +11,7 @@ jQuery ($) ->
   JDJ.fixOrphanWords()
 
   JDJ.injectSvg
-    assetPath    : 'assets/images/icons/icons.svg'
+    assetPath    : '/assets/images/icons/icons.svg'
     elementClass : 'dn'
 
   # ----- Modules ----- #
