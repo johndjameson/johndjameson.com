@@ -5,7 +5,6 @@
 activate :automatic_image_sizes
 activate :directory_indexes
 activate :livereload
-activate :minify_html
 activate :syntax, css_class: 'syntax js-syntax'
 
 activate :autoprefixer do | config |
@@ -44,5 +43,6 @@ configure :build do
   activate :cache_buster
   activate :minify_css
   activate :minify_javascript
+  activate :minify_html
   activate :relative_assets
 end
