@@ -37,5 +37,5 @@
 #   Usage
 # -------------------------------------
 #
-# Spellbook.fixOrphanWords()
+# JDJ.fixOrphanWords()
 #
