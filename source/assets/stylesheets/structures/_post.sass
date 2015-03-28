@@ -22,10 +22,10 @@
       > li:first-child
         margin-top: $b-space-s
 
-    +respond-to( em( 900px ) ) // FIXME: Magic number!
+    +respond-to(em(900px)) // FIXME: Magic number!
       padding-left: 0
 
-    +respond-within( $g-l, em( 1340px ) ) // FIXME: Magic number!
+    +respond-within($g-l, em(1340px)) // FIXME: Magic number!
       padding-left: $b-space
 
   h2
@@ -37,7 +37,7 @@
     margin-top: $b-space
 
   blockquote
-    +font-size( ( l: 24px ) )
+    +font-size(( l: 24px ))
     background: $c-highlight
     border-left: 10px solid $c-highlight
     box-sizing: border-box
@@ -54,14 +54,14 @@
       @extend .link--bordered
       @extend .link--inverted
 
-    +respond-to( $g-l )
+    +respond-to($g-l)
       max-width: $b-maxWidth
       position: relative
-      width: calc( 100vw - #{ $row-gutter-b * 2 } )
+      width: calc(100vw - #{$row-gutter-b * 2})
       z-index: 1
 
   code, kbd
-    +font-size( 's' )
+    +font-size('s')
     background: $c-background-dark
     display: inline-block
     font-family: $b-fontFamily-mono
@@ -80,17 +80,17 @@
 // ----- Sidenote ----- //
 
 .has-sidenote
-  line-height: percentage( $b-lineHeight )
+  line-height: percentage($b-lineHeight)
   position: relative
 
-  +respond-to( $g-m )
-    line-height: percentage( $b-lineHeight-b )
+  +respond-to($g-m)
+    line-height: percentage($b-lineHeight-b)
 
 // ----- Sidenotes ----- //
 
 .has-sidenotes
 
-  +respond-to( $g-l )
+  +respond-to($g-l)
 
     [id^='fnref']
       display: none
@@ -116,7 +116,7 @@
 
 .post .footnotes
   @extend .pillar
-  +font-size( 's' )
+  +font-size('s')
   margin-top: $b-space-l
 
   > hr
@@ -151,7 +151,7 @@
 // ----- Sidenote ----- //
 
 .post-sidenote
-  +font-size( ( b: 14px ) )
+  +font-size(( b: 14px ))
   box-sizing: border-box
   color: $c-subdue
   display: none
@@ -162,7 +162,7 @@
   padding-right: $g-gutter * 0.5
   position: absolute
   top: 0
-  width: percentage( 1 / 2 )
+  width: percentage(1 / 2)
   word-spacing: 0
   z-index: 1
 
@@ -179,5 +179,5 @@
       top: 0
       white-space: pre
 
-  +respond-to( $g-l )
+  +respond-to($g-l)
     display: block

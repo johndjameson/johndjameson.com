@@ -15,11 +15,11 @@
 // $target - the target pixel size
 // $context - the context font-size
 
-@function em( $target, $context: $b-fontSize )
-  @if ( $target == 0 )
+@function em($target, $context: $b-fontSize)
+  @if ($target == 0)
     @return 0
   @else
-    @return ( $target / $context ) * 1em
+    @return ($target / $context) * 1em
 
 // ----- Rem ----- //
 // -> Converts pixel value to rems
@@ -27,19 +27,19 @@
 // $target - the target pixel size
 // $context - the context font-size
 
-@function rem( $target, $context: $b-fontSize )
-  @if ( $target == 0 )
+@function rem($target, $context: $b-fontSize)
+  @if ($target == 0)
     @return 0
   @else
-    @return ( $target / $context ) * 1rem
+    @return ($target / $context) * 1rem
 
 // ----- Strip Units ----- //
 // -> Removes the unit type from values
 //
 // $value - the initial number
 
-@function strip-units( $value )
-  @return $value / ( $value * 0 + 1)
+@function strip-units($value)
+  @return $value / ($value * 0 + 1)
 
 // -------------------------------------
 //   Mixins
@@ -63,19 +63,19 @@
 //
 // $sizes - map of desired font sizes in pixels (b, s, m, l)
 
-=font-size( $sizes )
+=font-size($sizes)
   @if $sizes == 's'
-    +font-size( ( b: $b-fontSize-s, m: $b-fontSize-s-b ) )
+    +font-size(( b: $b-fontSize-s, m: $b-fontSize-s-b ))
   @else
     @each $name, $size in $sizes
-      @if map-get( $sizes, $name )
-        $sizes: map-merge( $sizes, ( $name: ( $size / $b-fontSize ) * 1rem ) )
+      @if map-get($sizes, $name)
+        $sizes: map-merge($sizes, ($name: ($size / $b-fontSize) * 1rem))
 
-    font-size: map-get( $sizes, 'b' )
+    font-size: map-get($sizes, 'b')
 
     @each $name, $width in $g-breakpoints
-      @media screen and ( min-width: #{ $width } )
-        font-size: map-get( $sizes, $name )
+      @media screen and (min-width: #{$width})
+        font-size: map-get($sizes, $name)
 
 // ----- Respond-to ----- //
 // -> Generates a media query
@@ -85,8 +85,8 @@
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-to( $val, $query: min-width, $media: screen )
-  @media #{ $media } and ( $query: $val )
+=respond-to($val, $query: min-width, $media: screen)
+  @media #{$media} and ($query: $val)
     @content
 
 // ----- Respond-within ----- //
@@ -97,8 +97,8 @@
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-within( $min, $max, $media: screen )
-  @media #{ $media } and ( min-width: $min ) and ( max-width: $max )
+=respond-within($min, $max, $media: screen)
+  @media #{$media} and (min-width: $min) and (max-width: $max)
     @content
 
 // ----- State ----- //
@@ -106,10 +106,10 @@
 //
 // $class - an optional state class ('is-active')
 
-=state( $class: false )
+=state($class: false)
 
   @if $class
-    &:active, &:focus, &:hover, &.#{ $class }
+    &:active, &:focus, &:hover, &.#{$class}
       @content
 
   @else
@@ -131,7 +131,7 @@
 
 .srt
   border: 0
-  clip: rect( 0 0 0 0 )
+  clip: rect(0 0 0 0)
   height: 1px
   margin: -1px
   overflow: hidden
