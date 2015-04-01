@@ -6,7 +6,9 @@
 
 jQuery ($) ->
 
-  # ----- Functions ----- #
+  # -------------------------------------
+  #   Utilities
+  # -------------------------------------
 
   JDJ.fixOrphanWords()
 
@@ -18,7 +20,9 @@ jQuery ($) ->
     $element : $( '.js-syntax' )
     prefix   : 'syntax'
 
-  # ----- Modules ----- #
+  # -------------------------------------
+  #   Modules
+  # -------------------------------------
 
   JDJ.sidenotes.init
     $notes        : $( '.footnotes' ).find( 'p' )
