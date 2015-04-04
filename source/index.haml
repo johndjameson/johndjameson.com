@@ -36,9 +36,9 @@ description: 'Front-end Developer at Code School'
     %h2.label.mbl Blog
 
     %ul.list.list--divided
-      - get_posts().drop( 1 ).each do | post |
+      - get_posts().drop(1).each do | post |
         %li.list-item.split.split--responsive
           .split-cell.prs
             = link_to post.data.title, post.url
           .split-cell
-            %time.label= pretty_date( post.data.date )
+            %time.label= pretty_date(post.data.date)
