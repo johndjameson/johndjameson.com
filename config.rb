@@ -7,9 +7,9 @@ activate :directory_indexes
 activate :livereload
 activate :syntax, css_class: 'syntax js-syntax'
 
-activate :autoprefixer do | config |
-  config.browsers = [ 'last 2 versions', 'Explorer >= 10' ]
-  config.cascade  = false
+activate :autoprefixer do |config|
+  config.browsers = ['last 2 versions', 'Explorer >= 10']
+  config.cascade = false
 end
 
 # ====================================
@@ -21,10 +21,10 @@ set :markdown, fenced_code_blocks: true, footnotes: true, smartypants: true
 
 set :links, data.links
 
-set :css_dir,    'assets/stylesheets'
-set :js_dir,     'assets/javascripts'
+set :css_dir, 'assets/stylesheets'
+set :js_dir, 'assets/javascripts'
 set :images_dir, 'assets/images'
-set :fonts_dir,  'assets/fonts'
+set :fonts_dir, 'assets/fonts'
 
 # ====================================
 #   After Configuration
@@ -32,7 +32,7 @@ set :fonts_dir,  'assets/fonts'
 
 after_configuration do
   @bower_config = JSON.parse( IO.read( "#{ root }/.bowerrc" ) )
-  sprockets.append_path File.join root.to_s, @bower_config[ 'directory' ]
+  sprockets.append_path File.join root.to_s, @bower_config['directory']
 end
 
 # ====================================
