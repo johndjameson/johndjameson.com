@@ -73,4 +73,4 @@ That's it for now, but as a [crazy efficiency nerd][olivier-tweet], I'll make su
 [olivier-date]: http://olivierlacan.com/posts/put-a-date-on-it/
 [olivier-tweet]: https://twitter.com/olivierlacan/status/501359705550495744
 
-[alfred-preferences]: /assets/images/alfred-google-past-year.jpg
+[alfred-preferences]: alfred-google-past-year.jpg

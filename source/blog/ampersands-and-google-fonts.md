@@ -110,4 +110,4 @@ And that's it&mdash;for real this time! Using Google Fonts, a little-known query
 [jessicahische-type]: http://jessicahische.is/talkingtype
 [simplebits-ampersand]: http://simplebits.com/notebook/2008/08/14/ampersands-2/
 
-[baskerville-ampersands]: assets/images/ampersands-baskerville.svg
+[baskerville-ampersands]: ampersands-baskerville.svg
