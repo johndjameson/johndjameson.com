@@ -5,7 +5,7 @@
 #
 # *************************************
 #
-# @param assetPath    { string }
+# @param assetPath { string }
 #
 # *************************************
 
@@ -24,5 +24,5 @@
 # -------------------------------------
 #
 # JDJ.injectSvg
-#   assetPath : 'assets/images/filename.svg'
+#   assetPath : '/path/to/file.svg'
 #
