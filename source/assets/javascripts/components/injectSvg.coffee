@@ -6,21 +6,18 @@
 # *************************************
 #
 # @param assetPath    { string }
-# @param elementClass { string }
 #
 # *************************************
 
 @JDJ.injectSvg = ( options ) ->
   settings = $.extend
-    assetPath    : null
-    elementClass : null
+    assetPath : null
   , options
 
   $.get settings.assetPath, ( data ) ->
-    $element = $( "<div class='#{ options.elementClass }'></div>" )
-    svg      = new XMLSerializer().serializeToString( data.documentElement )
+    $element = $( new XMLSerializer().serializeToString( data.documentElement ) )
 
-    $element.html( svg ).appendTo( 'body' )
+    $element.css( display : 'none' ).appendTo( 'body' )
 
 # -------------------------------------
 #   Usage

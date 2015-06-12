@@ -13,8 +13,7 @@ jQuery ($) ->
   JDJ.fixOrphanWords()
 
   JDJ.injectSvg
-    assetPath    : '/assets/images/icons/icons.svg'
-    elementClass : 'dn'
+    assetPath : '/assets/images/icons/icons.svg'
 
   JDJ.prefixClasses
     $element : $( '.js-syntax' )
