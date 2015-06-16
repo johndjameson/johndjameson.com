@@ -145,3 +145,6 @@ DEPENDENCIES
   middleman-syntax
   rake
   redcarpet
+
+BUNDLED WITH
+   1.10.3
