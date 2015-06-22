@@ -2,7 +2,7 @@
 %html{ lang: 'en' }
   = partial 'shared/head'
 
-  %body
+  %body.js-dispatcher{ data: { 'dispatcher-page' => 'home' } }
     = partial 'shared/header'
 
     %main{ role: 'main' }
