@@ -46,8 +46,16 @@ after_configuration do
 end
 
 # ====================================
-#   Build Configuration
+#   Build
 # ====================================
+
+# ----- Before ----- #
+
+before_build do
+  system 'grunt'
+end
+
+# ----- Configuration ----- #
 
 configure :build do
   activate :asset_hash
