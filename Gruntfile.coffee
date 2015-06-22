@@ -10,6 +10,6 @@ module.exports = ( grunt ) ->
           cleanup             : [ 'fill' ]
           includeTitleElement : false
         files                 :
-          'source/assets/images/icons/icons.svg' : [ 'source/assets/images/icons/icon-*.svg' ]
+          'source/assets/images/icons/icons.svg' : [ 'source/assets/images/icons/_icon-*.svg' ]
 
   grunt.registerTask( 'default', [ 'svgstore' ] )
