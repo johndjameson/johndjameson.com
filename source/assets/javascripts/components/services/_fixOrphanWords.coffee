@@ -10,7 +10,7 @@
 #
 # *************************************
 
-@JDJ.fixOrphanWords = ( options ) ->
+@JDJ.Services.fixOrphanWords = ( options ) ->
   settings = $.extend
     $element : $( '.js-orphan' )
   , options

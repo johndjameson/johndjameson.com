@@ -24,8 +24,8 @@ jQuery ($) ->
 
   # ----- Services ----- #
 
-  JDJ.fixOrphanWords()
+  JDJ.Services.fixOrphanWords()
 
-  JDJ.injectSvg
+  JDJ.Services.injectSvg
     assetPath : '/assets/images/icons/icons.svg'
 

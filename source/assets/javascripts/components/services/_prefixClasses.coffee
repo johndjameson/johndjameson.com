@@ -11,7 +11,7 @@
 #
 # *************************************
 
-@JDJ.prefixClasses = ( options ) ->
+@JDJ.Services.prefixClasses = ( options ) ->
   settings = $.extend
     $element : $( '.js-prefixClasses' )
     query    : '[ class ]'

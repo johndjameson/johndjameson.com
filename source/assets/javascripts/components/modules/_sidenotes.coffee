@@ -14,7 +14,7 @@
 #
 # *************************************
 
-@JDJ.sidenotes = do ->
+@JDJ.Modules.sidenotes = do ->
 
   # -------------------------------------
   #   Private Variables

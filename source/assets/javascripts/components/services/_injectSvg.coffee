@@ -9,7 +9,7 @@
 #
 # *************************************
 
-@JDJ.injectSvg = ( options ) ->
+@JDJ.Services.injectSvg = ( options ) ->
   settings = $.extend
     assetPath : null
   , options
