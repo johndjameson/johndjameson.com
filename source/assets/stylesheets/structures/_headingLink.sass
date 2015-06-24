@@ -1,0 +1,63 @@
+// *************************************
+//
+//   Heading Link
+//   -> Section title anchor
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .headingLink
+//   %h2.headingLink-heading
+//     %a.headingLink-heading-link
+//   %input.headingLink-url
+//
+// *************************************
+
+.headingLink
+  position: relative
+
+// -------------------------------------
+//   States
+// -------------------------------------
+
+// ----- Active ----- //
+
+.headingLink.is-active
+
+  .headingLink-heading
+    pointer-events: none
+    visibility: hidden
+
+  .headingLink-url
+    display: block
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Heading ----- //
+
+// Scaffolding
+
+// Scaffolding: Link
+
+.headingLink-heading-link
+  color: inherit
+  transition: none
+
+  +state
+    color: inherit
+
+// ----- URL ----- //
+
+.headingLink-url
+  +font-size('s')
+  background-color: transparent
+  border: 0
+  box-sizing: border-box
+  display: none
+  position: absolute
+  top: 50%
+  transform: translateY(-50%)
+  width: 100%
