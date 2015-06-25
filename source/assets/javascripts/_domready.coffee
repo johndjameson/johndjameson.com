@@ -13,19 +13,11 @@ jQuery ($) ->
   new JDJ.Classes.Dispatcher
     events : [
       {
+        page : 'all'
+        run  : -> JDJ.Pages.All()
+      },
+      {
         page : 'article'
         run  : -> JDJ.Pages.Article()
       }
     ]
-
-  # -------------------------------------
-  #   Global
-  # -------------------------------------
-
-  # ----- Services ----- #
-
-  JDJ.Services.fixOrphanWords()
-
-  JDJ.Services.injectSvg
-    assetPath : '/assets/images/icons/icons.svg'
-
