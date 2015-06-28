@@ -52,7 +52,7 @@ end
 # ----- Before ----- #
 
 before_build do
-  system 'grunt'
+  system 'gulp icons'
 end
 
 # ----- Configuration ----- #
