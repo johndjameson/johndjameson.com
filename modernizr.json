@@ -1,0 +1,9 @@
+{
+  "classPrefix": "modernizr-",
+  "options": [
+    "setClasses"
+  ],
+  "feature-detects": [
+    "touchevents"
+  ]
+}

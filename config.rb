@@ -52,7 +52,7 @@ end
 # ----- Before ----- #
 
 before_build do
-  system 'gulp icons'
+  system 'gulp build'
 end
 
 # ----- Configuration ----- #

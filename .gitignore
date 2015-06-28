@@ -1,10 +1,10 @@
-/bin
+.cache
+.DS_Store
 /.bundle
 /.sass-cache
-build/
-.DS_Store
-.cache
 /Rakefile
-bower_components/
-node_modules/
-source/assets/images/icons/icons.svg
+/build/
+/bower_components/
+/node_modules/
+/source/assets/images/icons/icons.svg
+/source/assets/javascripts/vendor/
