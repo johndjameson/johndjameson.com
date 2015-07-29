@@ -43,19 +43,13 @@ set :title, 'John D. Jameson'
 after_configuration do
   @bower_config = JSON.parse( IO.read( "#{ root }/.bowerrc" ) )
   sprockets.append_path File.join root.to_s, @bower_config['directory']
+
+  system 'gulp build'
 end
 
 # ====================================
 #   Build
 # ====================================
-
-# ----- Before ----- #
-
-before_build do
-  system 'gulp build'
-end
-
-# ----- Configuration ----- #
 
 configure :build do
   require 'uglifier'
