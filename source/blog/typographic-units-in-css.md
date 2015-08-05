@@ -3,7 +3,7 @@ title: Typographic Units in CSS
 type: post
 layout: article
 date: 2015-08-05
-description: "CSS offers many more units than pixels, ems, and percentages. Over the last few years, But out of all the units available to us, I find two the most intriguing: ex and ch."
+description: "CSS offers many more units than pixels, ems, and percentages. But out of all the units available to us, I find two the most intriguing: ex and ch."
 ---
 
 `Ex` and `ch` are _typographic units_, meaning their values depend on an element's font family. When you use `em` or `rem` units, the browser computes their values based on the element's font size. It doesn't matter what font gets displayed onscreen, the browser will compute the same values for every typeface. This is where `ex` and `ch` units offer a little more flexibility. They require the browser to reference an element's font family _before_ computing values and applying styles.
@@ -30,6 +30,8 @@ Ch units
 --------
 
 `Ch` units are based on the _characters_ of a typeface, drawing their value from the width of a font's `0` glyph. I'll warn you that this is [somewhat arbitrary][meyer-defining-ch], and the width of a `0` is often a poor estimate of a typeface's average character width. However, when using a monospace typeface — where all glyphs share identical widths — `ch` units are always dependable.
+
+![Ch units equal a 0 character's width](typographic-units-ch-units.svg)
 
 With this constaint in mind, here are some of the use cases where I've found `ch` units to be particularly useful:
 
