@@ -47,7 +47,7 @@ In the following example, I'm able to declare `max-width: 75ch` on the paragraph
 Takeaways
 ---------
 
-I'll admit that `ex` and `ch` units are more than a little weird. They're unlike any other units CSS have to offer. Weirdness aside, these typographic units offer front-end developers a lot of opportunities for exploring web typography. With any luck, I hope that `ex` and `ch` wont be the only two of their kind and that additional typographic units are soon to follow.
+I'll admit that `ex` and `ch` units are more than a little weird. They're unlike any other units CSS has to offer. Weirdness aside, these typographic units offer front-end developers a lot of opportunities for exploring web typography. With any luck, I hope that `ex` and `ch` wont be the only two of their kind and that additional typographic units are soon to follow.
 
 [csstricks-45-75]: https://css-tricks.com/bookmarklet-colorize-text-45-75-characters-line-length-testing/
 [meyer-defining-ch]: http://meyerweb.com/eric/thoughts/2012/05/15/defining-ch/
