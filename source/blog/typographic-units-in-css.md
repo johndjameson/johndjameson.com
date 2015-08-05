@@ -13,7 +13,7 @@ Let's take a look at these two typographic units in more detail.
 Ex units
 --------
 
-In typographic terms, x-height is determined by the height of a typeface's lowercase letters. This is often measured by the letter x, which doesn't have any ascenders or descenders. The relationship between a typeface's font size and x-height can tell you a lot about the typeface's proportions with only a couple measurements.
+In typographic terms, x-height is determined by the height of a typeface's lowercase letters. This is often measured by the letter x, which doesn't have any ascenders or descenders. The relationship between a typeface's font size and x-height can tell you a lot about the typeface's proportions with only a couple of measurements.
 
 `Ex` units get their value from the x-height of the _font context_ they're computed in, which is determined by two things: font family and font size. In other words, they're equal to the x-height of a specific font family at a specific font size.
 
