@@ -14,69 +14,26 @@
 // Grayscale
 
 $black: #000
-$heavyMetal: #2c2c2c
-$masala: #3c3b3d
-$quill: #e2e2e0
-$alabaster: #f8f8f7
 $white: #fff
 
-// Purple
+// Red
 
-$balticSea: #1f1d23
-$shark: #232128
-$trendyPink: #865ea1
+$redish: red
 
 // ----- Base ----- //
 
-$c-background: $alabaster
+$c-background: $white
 $c-background-dark: darken($c-background, 5%)
-$c-border: lighten($quill, 4%)
-$c-border-invert: rgba($white, 0.1)
-$c-highlight: $trendyPink
-$c-subdue: darken($quill, 30%)
-$c-text: $masala
-$c-text-heading: lighten($c-text, 5%)
-$c-text-invert: $alabaster
-$c-text-invert-subdue: rgba($c-text-invert, 0.65)
-
-// ----- Components ----- //
-
-// Button
-
-$btn-background: $c-highlight
-$btn-color: $c-text-invert
-$btn--state-background: darken($btn-background, 10%)
-
-// Sector
-
-$sector-item--a-background: $shark
-$sector-item--b-background: $balticSea
-$sector-item--a--invert-background: $c-background
-$sector-item--b--invert-background: darken($c-background, 5%)
+$c-border: $black
+$c-highlight: $redish
+$c-text: $black
 
 // ----- Structures ----- //
-
-// Label
-
-$label-color: $c-subdue
-$label--invert-color: $c-text-invert-subdue
 
 // Link
 
 $link-color: $c-highlight
 $link--state-color: darken($link-color, 15%)
-$link--inverted-color: $c-text-invert
-$link--inverted--state-color: rgba($link--inverted-color, 0.5)
-
-// Syntax
-
-$syntax-background: $balticSea
-$syntax-color: #e0e0e0 // White
-$syntax-comment-color: #969896 // Gray
-$syntax-constant-color: #ca6768 // Red
-$syntax-keyword-color: #b195ba // Purple
-$syntax-string-color: #b5bc6d // Green
-$syntax-variable-color: #82a2bd // Blue
 
 // -------------------------------------
 //   Base
@@ -84,42 +41,39 @@ $syntax-variable-color: #82a2bd // Blue
 
 // ----- Borders & Box Shadow ----- //
 
-$b-borderRadius: 5px
 $b-borderStyle: solid
-$b-borderWidth: 4px
+$b-borderWidth: 3px
 $b-border: $b-borderWidth $b-borderStyle $c-border
-$b-border-invert: $b-borderWidth $b-borderStyle $c-border-invert
-$b-boxShadow: 0 2px 0 rgba($c-text, 0.25)
 
 // ----- Transitions ----- //
 
-$b-transition: 0.6s cubic-bezier(0.23, 1, 0.32, 1)
+$b-transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1)
 
 // ----- Typography ----- //
 
 $b-fontFamily: 'minion-pro', 'Athelas', 'Georgia', serif
-$b-fontFamily-heading: $b-fontFamily
 $b-fontFamily-mono: 'Source Code Pro', 'Menlo', 'Monaco', 'Andale Mono', 'Courier', 'Lucida Console', monospace
 $b-fontSize: 18px
 $b-fontSize-b: 24px
 $b-fontSize-s: 14px
 $b-fontSize-s-b: 16px
+$b-fontSize-l: 24px
+$b-fontSize-l-b: 36px
 $b-fontSize-h1: 30px
 $b-fontSize-h1-b: 45px
-$b-fontSize-h1-c: 68px
+$b-fontSize-h1-c: 96px
 $b-fontSize-h2: 20px
 $b-fontSize-h2-b: 30px
 $b-fontSize-h3: 18px
 $b-fontSize-h3-b: 24px
 $b-fontWeight-normal: 400
-$b-fontWeight-bold: 600
-$b-lineHeight: 1.4
-$b-lineHeight-b: 1.5
+$b-fontWeight-bold: 700
+$b-lineHeight: 1.375
+$b-lineHeight-b: 1.375
 
 // ----- Sizing ----- //
 
-$b-maxWidth: rem(1060px)
-$b-maxWidth-s: rem(700px)
+$b-maxWidth: rem(730px)
 $b-space: em(20px)
 $b-space-xs: $b-space * 0.25
 $b-space-s: $b-space * 0.5
@@ -129,26 +83,6 @@ $b-space-xl: $b-space * 4
 // -------------------------------------
 //   Components
 // -------------------------------------
-
-// ----- Button ----- //
-
-// Borders
-
-$btn-borderRadius: 0
-
-// Typography
-
-$btn-fontSize: 16px
-
-// Sizing
-
-$btn-height: rem(50px)
-$btn-space: rem(20px)
-$btn-space-s: $btn-space * 0.5
-
-// Psuedo Element
-
-$btn-pseudo-width: rem(40px)
 
 // ----- Grid ----- //
 
@@ -169,10 +103,6 @@ $g-gutter: rem(20px)
 $row-gutter: rem(10px)
 $row-gutter-b: rem(20px)
 
-// ----- Thumb ----- //
-
-$thumb-borderRadius: 4px
-
 // -------------------------------------
 //   Structures
 // -------------------------------------
@@ -185,4 +115,4 @@ $link-borderWidth: 2px
 // ----- Logo ----- //
 
 $logo-size: rem(50px)
-$logo-size-b: rem(60px)
+$logo-size-b: rem(70px)

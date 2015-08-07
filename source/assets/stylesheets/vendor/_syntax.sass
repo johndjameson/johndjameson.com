@@ -21,9 +21,7 @@
 
 .syntax
   +font-size('s')
-  background: $syntax-background
   box-sizing: border-box
-  color: $syntax-color
   margin-bottom: $b-space-l
   margin-top: $b-space-l
   overflow: auto
@@ -40,75 +38,3 @@
     position: relative
     width: calc(100vw - #{$row-gutter-b * 2}) // [1]
     z-index: 1
-
-// -------------------------------------
-//  Scaffolding
-// -------------------------------------
-
-// ----- Comments ----- //
-
-.syntax-c,
-.syntax-c1,
-.syntax-cm,
-.syntax-cp,
-.syntax-cs
-  color: $syntax-comment-color
-
-// ----- Contstants and class names ----- //
-
-.syntax-bp,
-.syntax-nb,
-.syntax-nc
-  color: $syntax-constant-color
-
-// ----- Keywords ----- //
-
-.syntax-k,
-.syntax-kc,
-.syntax-kd,
-.syntax-kp,
-.syntax-kr,
-.syntax-kt,
-.syntax-ow
-  color: $syntax-keyword-color
-
-// ----- Strings ----- //
-
-.syntax-il,
-.syntax-l,
-.syntax-ld,
-.syntax-m,
-.syntax-mf,
-.syntax-mh,
-.syntax-mi,
-.syntax-mo,
-.syntax-s,
-.syntax-s1,
-.syntax-s2,
-.syntax-sb,
-.syntax-sc,
-.syntax-sd,
-.syntax-se,
-.syntax-sh,
-.syntax-si,
-.syntax-sr,
-.syntax-ss,
-.syntax-sx
-  color: $syntax-string-color
-
-// ----- Variables, methods, and tags ----- //
-
-.syntax-n,
-.syntax-na,
-.syntax-nd,
-.syntax-ne,
-.syntax-nf,
-.syntax-ni,
-.syntax-nl,
-.syntax-nn,
-.syntax-no,
-.syntax-nt,
-.syntax-nv,
-.syntax-nx,
-.syntax-py
-  color: $syntax-variable-color

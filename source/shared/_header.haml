@@ -1,13 +1,5 @@
-%header.row.bch{ role: 'banner' }
-  .well.well--s.well--m--m
+%header.row{ role: 'banner' }
+  .cell.well.well--s.well--m--m
 
-    .split.split--center
-      .split-cell
-        = link_to '/index.html' do
-          = image_tag 'johndjameson-logo.svg', class: 'logo'
-      .split-cell
-        %p.mbf.tci.tss
-          Built with
-          = link_to 'MVCSS', links.mvcss, class: 'link link--bordered link--inverted'
-          and
-          = link_to 'Spellbook', links.spellbook, class: 'link link--bordered link--inverted'
+    = link_to '/index.html' do
+      = image_tag 'johndjameson-logo.svg', class: 'logo'

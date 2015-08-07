@@ -7,7 +7,7 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// .link[bordered inverted media[inverted]]
+// .link[bordered]]
 //
 // *************************************
 
@@ -25,50 +25,3 @@
 
   +state
     border-bottom-color: currentColor
-
-// ----- Inverted ----- //
-
-.link--inverted
-  color: $link--inverted-color
-
-  +state
-    color: $link--inverted--state-color
-
-// ----- Media ----- //
-
-.link--media
-  display: inline-block
-  position: relative
-
-  &::before
-    border-bottom: 0 $link-borderStyle $link--state-color
-    content: ''
-    height: 0
-    left: 0
-    position: absolute
-    top: calc(100% + #{$link-borderWidth * 2})
-    transition: 0.15s steps(#{strip-units($link-borderWidth)})
-    width: 100%
-
-  > img, svg
-    transition: $b-transition
-
-  +state
-
-    &::before
-      border-bottom-width: $link-borderWidth
-
-    > img, svg
-      opacity: 0.75
-
-// Inverted
-
-.link--media--inverted
-
-  &::before
-    border-bottom-color: $link--inverted--state-color
-
-  +state
-
-    > img, svg
-      opacity: 0.5

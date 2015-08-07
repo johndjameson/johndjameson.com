@@ -9,7 +9,8 @@ html
   background: $c-background
   color: $c-text
   font-family: $b-fontFamily
-  font-feature-settings: 'kern'
+  font-feature-settings: 'calt', 'kern', 'liga', 'onum'
+  font-kerning: normal
   font-size: percentage($b-fontSize / 16px)
   line-height: $b-lineHeight
   word-spacing: em(1px)
@@ -42,8 +43,7 @@ h1, .h1,
 h2, .h2,
 h3, .h3,
 h4, .h4
-  color: $c-text-heading
-  font-family: $b-fontFamily-heading
+  font-feature-settings: 'calt', 'dlig', 'kern', 'liga', 'onum'
   font-weight: $b-fontWeight-bold
   line-height: 1.2
   margin-bottom: $b-space-xs
@@ -51,17 +51,10 @@ h4, .h4
 
 h1, .h1
   +font-size(( b: $b-fontSize-h1, m: $b-fontSize-h1-b, l: $b-fontSize-h1-c ))
-  font-weight: $b-fontWeight-normal
-  letter-spacing: 0.05em
-  line-height: 1.05
-  text-transform: uppercase
+  font-weight: $b-fontWeight-bold
+  letter-spacing: -0.04ch
+  line-height: 0.90625
   word-spacing: 0
-
-  +respond-to($g-m)
-    letter-spacing: 0.1em
-
-  +respond-to($g-l)
-    letter-spacing: 0.125em
 
 h2, .h2
   +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))

@@ -3,31 +3,9 @@ description: 'Front-end Developer at Code School'
 ---
 
 %section.row.has-sector
-  .cell
-    .g.sector.tci
-      .g-b.g-b--m--1of3.sector-item.sector-item--a
-        .well.well--l.well--m--xl
+  .cell.well.well--l.mtxl
 
-          .tac
-            = image_tag 'avatar.jpg', class: 'thumb dib mbs', width: 140, height: 140
-            %span.label.label--inverted.mbf John D. Jameson
-            %p
-              Front-end Developer at
-              %span.db
-                = link_to 'Code School', links.codeschool,
-                  class: 'link link--bordered link--inverted'
-
-      .g-b.g-b--m--2of3.sector-item.sector-item--b
-        .well.well--l.well--m--xl.plm--m
-          - post = get_posts().first
-
-          %p.label.label--inverted.mbs Latest Post
-
-          .h2
-            = link_to post.data.title, post.url, class: 'link link--inverted js-orphan'
-          %p.js-orphan= post.data.description
-
-          = link_to 'Read It', post.url, class: 'btn'
+    %p= lorem.sentences(2)
 
 %section.row.mbm--m
   .cell.well.well--l
@@ -35,7 +13,7 @@ description: 'Front-end Developer at Code School'
     %h2.label.mbl Blog
 
     %ul.list.list--divided
-      - get_posts().drop(1).each do |post|
+      - get_posts().each do |post|
         %li.list-item.split.split--responsive
           .split-cell.prs
             = link_to post.data.title, post.url
