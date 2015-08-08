@@ -6,7 +6,7 @@
     = partial 'shared/header'
 
     %main{ role: 'main' }
-      %article.row.js-has-headingLink{ role: 'article' }
+      %article.row.article.js-has-headingLink{ role: 'article' }
         .cell.well.well--l
 
           %h1.mbm.tci{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
@@ -15,6 +15,7 @@
           = find_and_preserve do
             = yield
 
-          %time.db.twb= pretty_date(current_page.data.date)
+          .article-footer
+            %time.tsi.tss= pretty_date(current_page.data.date)
 
     = partial 'shared/footer-scripts'

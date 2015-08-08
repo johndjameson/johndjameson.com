@@ -1,0 +1,47 @@
+// *************************************
+//
+//   Article
+//   -> Markdown document
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .article[...]
+//
+// *************************************
+
+.article
+
+  h2
+    +font-size('l')
+    margin-top: $b-space
+
+    +respond-to($g-l)
+      margin-top: $b-space-l
+
+  h3
+    font-size: inherit
+
+  ul, ol
+    +list-reset
+    list-style-type: square
+    margin-bottom: $b-space
+
+    > li
+      margin-bottom: $b-space-s
+
+      &:last-of-type
+        margin-bottom: 0
+
+  code
+    +font-size('s')
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.article-footer
+  border-top: $b-border
+  margin-top: $b-space-xl
+  padding-top: $b-space

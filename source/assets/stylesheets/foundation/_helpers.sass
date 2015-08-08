@@ -79,8 +79,16 @@
       @media screen and (min-width: #{$width})
         font-size: map-get($sizes, $name)
 
+// ----- List Reset ----- //
+// -> Removes default list styles
+
+=list-reset
+  list-style-type: none
+  margin: 0
+  padding: 0
+
 // ----- Respond-to ----- //
-// -> Generates a media query
+// -> Generate a media query
 //
 // $val - the breakpoint size
 // $query - the type of query ('min-width', 'max-width')
@@ -125,9 +133,7 @@
 // ----- List Reset ----- //
 
 .lr
-  list-style-type: none
-  margin: 0
-  padding: 0
+  +list-reset
 
 // ----- Semantic Hide ----- //
 

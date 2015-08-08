@@ -13,7 +13,6 @@ html
   font-kerning: normal
   font-size: percentage($b-fontSize / 16px)
   line-height: $b-lineHeight
-  word-spacing: em(1px)
 
 body
 
@@ -30,12 +29,10 @@ ol, ul, p
   margin-top: 0
 
 li
-  margin-bottom: $b-space-s
-  margin-top: 0
+  margin: 0
 
 pre
   font-family: $b-fontFamily-mono
-  word-spacing: 0
 
 // ----- Headings ----- //
 
@@ -45,8 +42,8 @@ h3, .h3,
 h4, .h4
   font-feature-settings: 'calt', 'dlig', 'kern', 'liga', 'onum'
   font-weight: $b-fontWeight-bold
-  line-height: 1.2
-  margin-bottom: $b-space-xs
+  line-height: 1.325
+  margin-bottom: $b-space
   margin-top: 0
 
 h1, .h1
@@ -54,7 +51,6 @@ h1, .h1
   font-weight: $b-fontWeight-bold
   letter-spacing: -0.04ch
   line-height: 1
-  word-spacing: 0
 
 h2, .h2
   +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))
@@ -62,8 +58,8 @@ h2, .h2
   +respond-to($g-m)
     letter-spacing: -1px
 
-h3, h3
-  +font-size(( b: $b-fontSize-h3, m: $b-fontSize-h3-b ))
+h3, .h3
+  font-size: inherit
 
 // -------------------------------------
 //   Inline Content
@@ -78,7 +74,6 @@ a
 
 code, kbd
   font-family: $b-fontFamily-mono
-  word-spacing: 0
 
 // ----- Media ----- //
 
