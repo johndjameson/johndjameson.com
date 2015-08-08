@@ -33,7 +33,7 @@ Ch units
 
 ![Ch units equal a 0 character's width](typographic-units-ch-units.svg)
 
-With this constaint in mind, here are some of the use cases where I've found `ch` units to be particularly useful:
+With this constraint in mind, here are some of the use cases where I've found `ch` units to be particularly useful:
 
 - Setting a container's width
 - Letter-spacing text (instead of using height-based units like `em`)
