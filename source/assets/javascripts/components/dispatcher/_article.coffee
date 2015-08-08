@@ -14,11 +14,6 @@
   JDJ.Modules.headingLink.init
     $element : $( '.js-has-headingLink' ).find( 'h2, h3' )
 
-  JDJ.Modules.sidenotes.init
-    $notes        : $( '.footnotes' ).find( 'p' )
-    $markers      : $( '[ id^="fnref" ]' )
-    sidenoteClass : 'post-sidenote'
-
   # -------------------------------------
   #   Services
   # -------------------------------------
