@@ -26,7 +26,7 @@ Let's go over how it works.
 Set up dependencies
 -------------------
 
-Before getting started, you'll need to grab jQuery and [jQuery Hotkeys][jquery-hotkeys], and link them up in your project.[^1] You can get by on your own without either library, but including them both helps simplify the code we'll cover down below.
+Before getting started, you'll need to grab jQuery and [jQuery Hotkeys][jquery-hotkeys], and link them up in your project. You can get by on your own without either library, but including them both helps simplify the code we'll cover down below.
 
 Using [Bower][bower], you can download a copy of each library by entering the following shell command:
 
@@ -71,7 +71,7 @@ Your JavaScript is up and running, so you can finally start assigning keyboard s
 <a href='http://example.com/edit' data-shortcut='e'>Edit</a>
 ```
 
-If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you'll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides.[^2]
+If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you'll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides. The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
 
 ```html
 <a href='/index.html' data-shortcut='shift+1'>
@@ -83,8 +83,6 @@ If you want to assign a keyboard shortcut that requires pressing two or more key
 
 And that's it &mdash; you've set up everything you need to start assigning keyboard shortcuts in your markup. _Now go forth and empower efficiency._
 
-[^1]: jQuery Hotkeys isn't offered on any CDNs, so you'll need a local copy.
-[^2]: The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
 
 [bower]: http://bower.io/
 [jquery-hotkeys]: https://github.com/jeresig/jquery.hotkeys

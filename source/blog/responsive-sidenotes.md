@@ -7,7 +7,7 @@ description: "Footnotes and sidenotes are both useful ways to annotate online bl
 allow_orphan: true
 ---
 
-If you resize your browser window, you’ll notice that the footnotes at the very bottom of the page transform into sidenotes alongside body paragraphs.[^1] The numbered links within body text also appear and disappear, depending on the width of the browser. It’s a useful technique to display additional information on devices with ample screen space but still present the information to people using smaller devices.
+In the responsive sidenotes pattern, the footnotes at the very bottom of the page transform into sidenotes alongside body paragraphs. The numbered links within body text also appear and disappear, depending on the width of the browser. It’s a useful technique to display additional information on devices with ample screen space but still present the information to people using smaller devices.
 
 Let’s check out the code that makes it work.
 
@@ -30,7 +30,7 @@ Now, in order to mark the locations of your annotations, use the following forma
 <sup class="post-marker"><a href="#note:1">1</a></sup>
 ```
 
-The `<sup>` tag semantically identifies the child `<a>` element as a superscript and also allows us to use CSS properties on two unique elements later on.[^2] The `href="#note:1"` attribute allows users to click annotation markers, repositioning the browser window to reveal related footnotes.
+The `<sup>` tag semantically identifies the child `<a>` element as a superscript and also allows us to use CSS properties on two unique elements later on. The `href="#note:1"` attribute allows users to click annotation markers, repositioning the browser window to reveal related footnotes.
 
 Once the body text is annotated with the intended markup, it's time to provide the content of our footnotes and sidenotes. Right before the closing `</article>` tag, add the following ordered list, modified as needed for your content.
 
@@ -172,6 +172,3 @@ If you've been writing CSS for a while, you might've already considered a few of
 - Commenting on figures and images using sidenotes becomes tricky due to the awkward placement of a footnote marker on small screens. In this case, it's best to use a `<figcaption>` element beneath the related content with information that should arguably be nearby anyway.
 
 With those constraints in mind, I think responsive sidenotes are a worthwhile addition to the design of many blogs—especially when compared to footnotes alone. Responsive sidenotes move additional information out of the main flow of a blog post or article, removing potential distractions to readers while also making annotations easier to read when needed.
-
-[^1]: This text appears either on the bottom or the right of the page, depending on the width of your browser.
-[^2]: Single elements can work, but don't allow the same semantics or flexibility of display.

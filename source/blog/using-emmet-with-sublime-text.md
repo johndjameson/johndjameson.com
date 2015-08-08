@@ -32,7 +32,7 @@ Pretty useful, right? Let's find out how to install it using Sublime Text.
 Installing plugins
 ------------------
 
-Sublime Text has an amazing add-on called **Package Control** that lets you find and install virtually _any_ plug-in from within the application itself.[^1] The line of code to install Package Control changes with every release, so you'll have to copy it directly from the [offcial website][packagecontrol-install].
+Sublime Text has an amazing add-on called **Package Control** that lets you find and install virtually _any_ plug-in from within the application itself. The line of code to install Package Control changes with every release, so you'll have to copy it directly from the [offcial website][packagecontrol-install].
 
 Once you have the snippet for your version of Sublime, launch the program and show the Console (<kbd>&#x2318;+`</kbd> on OS X). Paste the intended code, hit <kbd>Enter</kbd>, then watch Package Control install itself like magic.
 
@@ -59,8 +59,6 @@ Getting better
 If you’re like me, getting up to speed with new tools is an endless struggle. Fortunately, Emmet is _completely optional_ once installed and you can ignore all of its features until **you** want to use them. This makes mastering Emmet as flexible as gradually adding shortcuts to your workflow when you need them. Start with the shorthand for a class or ID, for example, and then build up from there, learning more ambitious shortcuts along the way.
 
 You can visit the [official documentation][emmet-docs] to discover _all_ of Emmet's features, or if that isn't your cup of tea, CSS-Tricks' Chris Coyier has a sweet [screencast][csstricks-emmet-screencast] covering the basics along with everything else you'll need to know.
-
-[^1]: You can try Emmet without installing _anything_ thanks to [CodePen][codepen-pen].
 
 [codepen-pen]: http://codepen.io/pen/
 [csstricks-emmet-screencast]: http://css-tricks.com/video-screencasts/129-emmet-awesome/

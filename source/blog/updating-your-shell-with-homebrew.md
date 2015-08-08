@@ -6,7 +6,7 @@ date: 2014-07-21
 description: "If you haven't manually updated your version of Bash or Zsh on OS X, chances are it’s out-of-date. Here’s how to install the latest version and keep your shell updated using Homebrew."
 ---
 
-OS X ships with an outdated version of Bash as its default shell. The preinstalled version dates back to 2007, and since then, Bash has been updated to add features and fix troublesome bugs. If you want to use an _updated_ version of Bash&mdash;or even Zsh&mdash;as your shell, you can install it by using Homebrew, a package manager for OS X.[^1]
+OS X ships with an outdated version of Bash as its default shell. The preinstalled version dates back to 2007, and since then, Bash has been updated to add features and fix troublesome bugs. If you want to use an _updated_ version of Bash&mdash;or even Zsh&mdash;as your shell, you can install it by using [Homebrew][brew], a package manager for OS X.
 
 Installing via Homebrew
 -----------------------
@@ -43,8 +43,6 @@ brew upgrade bash
 In this example, Homebrew will look for the package named `bash` on your computer and install the latest version. If you already have the newest version installed, Homebrew will print an error message telling you exactly that. You'll have to run this command manually from time to time, but it's a much more reliable approach than downloading directly from source or maintaining a cloned version control repository.
 
 Now go out and write shell scripts for [all the things][dandenney-tweet].
-
-[^1]: You can set up Homebrew by following the instructions on its [website][homebrew].
 
 [dandenney-tweet]: https://twitter.com/dandenney/status/490210755246301185
 [homebrew]: http://brew.sh/
