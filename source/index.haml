@@ -3,15 +3,16 @@ description: 'Front-end Developer at Code School'
 ---
 
 %section.row.mbm--m
-  .cell.well.well--l.mtxl
+  .cell.well.well--l
 
     %h1 The Blog
-    %p.tsi.tsl Web typography and front-end development
+    %p.mbl.tsi.tsl Web typography and front-end development
 
     %ul.list
       - get_posts().each do |post|
-        %li.list-item.split.split--responsive
-          .split-cell.prs
-            = link_to post.data.title, post.url
-          .split-cell
-            %time.label= pretty_date(post.data.date)
+        %li.list-item
+          .g
+            .g-b.g-b--m--3of4
+              = link_to post.data.title, post.url, class: 'link link--underlined'
+            .g-b.g-b--m--1of4
+              %time.tsi.tss= pretty_date(post.data.date)

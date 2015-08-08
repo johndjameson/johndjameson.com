@@ -7,21 +7,28 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// .link[bordered]]
+// .link[underlined]
 //
 // *************************************
 
-.link
-  @extend %a
+.link, %link
+  color: inherit
+  font-weight: inherit
+  text-decoration: none
 
 // -------------------------------------
 //   Modifiers
 // -------------------------------------
 
-// ----- Bordered ----- //
+// ----- Underlined ----- //
 
-.link--bordered
-  border-bottom: $link-borderWidth $link-borderStyle currentColor
+.link--underlined
+  $shadow-offset: 0.5px
+  background-image: linear-gradient(to bottom, transparent 75%, currentColor 75%)
+  background-position: 0 calc(100% - 0.25em)
+  background-repeat: repeat-x
+  background-size: 1px 2px
+  text-shadow: -$shadow-offset -$shadow-offset 0 $c-background, $shadow-offset -$shadow-offset 0 $c-background, -$shadow-offset $shadow-offset 0 $c-background, $shadow-offset $shadow-offset 0 $c-background
 
   +state
-    border-bottom-color: currentColor
+    background-image: linear-gradient(to bottom, transparent 25%, currentColor 25%)

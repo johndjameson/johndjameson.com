@@ -6,19 +6,15 @@
     = partial 'shared/header'
 
     %main{ role: 'main' }
-      %section.row.bc-balticSea
-        .cell.well.well--xl.mbf
-          -# %time.db.twb= pretty_date(current_page.data.date)
-          %h1.tci{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
-          %p.mbf.tcis.tsi.tsl.js-orphan= current_page.data.description
+      %article.row.js-has-headingLink{ role: 'article' }
+        .cell.well.well--l
 
-      %section.row
-        .cell
-          %article.post.js-has-headingLink{ role: 'article' }
-            .well.well--l.mbxl--m.prs--l
-              .cell.cell--s
+          %h1.mbm.tci{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
+          %p.lead.mbl.js-orphan= current_page.data.description
 
-                = find_and_preserve do
-                  = yield
+          = find_and_preserve do
+            = yield
+
+          %time.db.twb= pretty_date(current_page.data.date)
 
     = partial 'shared/footer-scripts'
