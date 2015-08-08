@@ -16,24 +16,15 @@
 $black: #000
 $white: #fff
 
-// Red
-
-$redish: red
-
 // ----- Base ----- //
 
 $c-background: $white
-$c-background-dark: darken($c-background, 5%)
 $c-border: $black
-$c-highlight: $redish
 $c-text: $black
 
 // ----- Structures ----- //
 
-// Link
-
-$link-color: $c-highlight
-$link--state-color: darken($link-color, 15%)
+$link-color: inherit
 
 // -------------------------------------
 //   Base
@@ -44,10 +35,6 @@ $link--state-color: darken($link-color, 15%)
 $b-borderStyle: solid
 $b-borderWidth: 3px
 $b-border: $b-borderWidth $b-borderStyle $c-border
-
-// ----- Transitions ----- //
-
-$b-transition: 0.35s cubic-bezier(0.23, 1, 0.32, 1)
 
 // ----- Typography ----- //
 
@@ -94,7 +81,7 @@ $g-l: em(1200px)
 
 // Settings
 
-$g-columns: 3
+$g-columns: 4
 $g-breakpoints: (s: $g-s, m: $g-m, l: $g-l)
 $g-gutter: rem(20px)
 

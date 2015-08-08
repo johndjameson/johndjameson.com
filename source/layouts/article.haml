@@ -6,16 +6,13 @@
     = partial 'shared/header'
 
     %main{ role: 'main' }
-
-      %p 2345678900000
-
       %section.row.bc-balticSea
         .cell.well.well--xl.mbf
           -# %time.db.twb= pretty_date(current_page.data.date)
           %h1.tci{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
           %p.mbf.tcis.tsi.tsl.js-orphan= current_page.data.description
 
-      %section.row.has-sector
+      %section.row
         .cell
           %article.post.js-has-headingLink{ role: 'article' }
             .well.well--l.mbxl--m.prs--l

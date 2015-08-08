@@ -53,7 +53,7 @@ h1, .h1
   +font-size(( b: $b-fontSize-h1, m: $b-fontSize-h1-b, l: $b-fontSize-h1-c ))
   font-weight: $b-fontWeight-bold
   letter-spacing: -0.04ch
-  line-height: 0.90625
+  line-height: 1
   word-spacing: 0
 
 h2, .h2
@@ -73,12 +73,8 @@ h3, h3
 
 a, %a
   color: $link-color
-  font-weight: $b-fontWeight-bold
-  text-decoration: none
-  transition: $b-transition
-
-  +state
-    color: $link--state-color
+  font-weight: inherit
+  text-decoration: underline
 
 // ----- Code ----- //
 

@@ -2,17 +2,13 @@
 description: 'Front-end Developer at Code School'
 ---
 
-%section.row.has-sector
+%section.row.mbm--m
   .cell.well.well--l.mtxl
 
-    %p= lorem.sentences(2)
+    %h1 The Blog
+    %p.tsi.tsl Web typography and front-end development
 
-%section.row.mbm--m
-  .cell.well.well--l
-
-    %h2.label.mbl Blog
-
-    %ul.list.list--divided
+    %ul.list
       - get_posts().each do |post|
         %li.list-item.split.split--responsive
           .split-cell.prs
