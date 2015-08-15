@@ -68,6 +68,10 @@
     +font-size(( b: $b-fontSize-s, m: $b-fontSize-s-b ))
   @else if $sizes == 'l'
     +font-size(( b: $b-fontSize-l, m: $b-fontSize-l-b ))
+  @else if $sizes == 'h1'
+    +font-size(( b: $b-fontSize-h1, m: $b-fontSize-h1-b, L: $b-fontSize-h1-c ))
+  @else if $sizes == 'h2'
+    +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))
   @else
     @each $name, $size in $sizes
       @if map-get($sizes, $name)
