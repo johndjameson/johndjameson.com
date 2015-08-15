@@ -13,6 +13,10 @@
 
 .article
 
+  // -------------------------------------
+  //   Block Content
+  // -------------------------------------
+
   h2
     +font-size('h2')
     margin-top: $b-space
@@ -33,6 +37,14 @@
 
       &:last-of-type
         margin-bottom: 0
+
+  // -------------------------------------
+  //   Inline Content
+  // -------------------------------------
+
+  a:not([class])
+    @extend %link
+    @extend %link--underlined
 
   code
     +font-size('s')
