@@ -1,0 +1,38 @@
+// *************************************
+//
+//   Navigation Tab
+//   -> Internal link
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// (.has-navigationTab)
+//
+// .navigationTab
+//   .navigationTab-link
+//
+// *************************************
+
+.navigationTab
+  align-items: center
+  border-top: $b-border
+  display: flex
+  width: 100%
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+.has-navigationTab
+  display: flex
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Link ----- //
+
+.navigationTab-link
+  +font-size('s')
+  font-weight: $b-fontWeight-bold
