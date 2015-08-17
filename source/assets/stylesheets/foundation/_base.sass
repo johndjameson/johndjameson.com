@@ -50,6 +50,10 @@ h1, .h1
   font-weight: $b-fontWeight-bold
   letter-spacing: -0.02em
   line-height: 1
+  margin-bottom: $b-space-s
+
+  +respond-to($g-l)
+    margin-bottom: $b-space
 
 h2, .h2
   +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))
