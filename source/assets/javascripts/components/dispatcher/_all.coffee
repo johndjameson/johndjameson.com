@@ -12,6 +12,3 @@
   # -------------------------------------
 
   JDJ.Services.fixOrphanWords()
-
-  JDJ.Services.injectSvg
-    assetPath : '/assets/images/icons/icons.svg'
