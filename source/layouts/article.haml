@@ -9,7 +9,7 @@
       %article.row.article.js-has-headingLink{ role: 'article' }
         .cell.well.well--l
 
-          %h1.mbm.tci{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
+          %h1{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
           %p.lead.mbl.js-orphan= current_page.data.description
 
           = find_and_preserve do
