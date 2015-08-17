@@ -1,9 +1,7 @@
 // *************************************
 //
 //  Syntax
-//  -> Highlighted code blocks
-//     https://github.com/dwayne/sass-pygments/blob/master/styles/solarized.scss
-//     http://chriskempson.github.io/base16/#tomorrow
+//  -> Code blocks
 //
 // -------------------------------------
 //  Template (Haml)
@@ -12,22 +10,10 @@
 // %pre.syntax
 //  .syntax-[...]
 //
-// -------------------------------------
-//
-// 1. This breaks every rule of encapsulation, but, as far as I know, it's the
-//    most direct way to ensure the desired behavior.
-//
 // *************************************
 
 .syntax
-  box-sizing: border-box
   margin-bottom: $b-space-l
   margin-top: $b-space-l
   overflow: auto
   -webkit-overflow-scrolling: touch
-
-  +respond-to($g-l)
-    max-width: $b-maxWidth
-    position: relative
-    width: calc(100vw - #{$row-gutter-b * 2}) // [1]
-    z-index: 1
