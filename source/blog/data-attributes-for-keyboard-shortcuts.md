@@ -37,7 +37,7 @@ bower install jquery jquery.hotkeys --save
 Write some JavaScript
 ---------------------
 
-Remember our three use cases? Well, in JavaScipt, they translate into the following behaviors:
+Remember our three use cases? Well, in JavaScript, they translate into the following behaviors:
 
 - Triggering a `click` event
 - Changing `window.location`
