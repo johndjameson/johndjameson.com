@@ -18,8 +18,11 @@ end
 
 # ----- Configuration ----- #
 
-set :markdown_engine, :redcarpet
+set :markdown_engine, :kramdown
 set :markdown, fenced_code_blocks: true, smartypants: true
+
+Tilt::KramdownTemplate.send(:remove_const, :DUMB_QUOTES)
+Tilt::KramdownTemplate.const_set(:DUMB_QUOTES, 'lsquo,rsquo,ldquo,rdquo')
 
 # ----- Data ----- #
 
