@@ -15,17 +15,17 @@ To get things started, you need to tell Homebrew to install the latest version o
 
 Open your terminal and enter this command:
 
-```shell
+~~~shell
 brew install bash
-```
+~~~
 
 Homebrew installs packages to `/usr/local/bin/`, so you'll need to specify that path when looking for any Homebrew packages. In the following three commands, we'll initiate a shell as the `root` user, append our desired shell's path to a file of whitelisted system shells, and then change the system shell globally.
 
-```shell
+~~~shell
 sudo -s
 echo /usr/local/bin/bash >> /etc/shells
 chsh -s /usr/local/bin/bash
-```
+~~~
 
 Now you can close and reopen your terminal. With just those few commands, you should be using with the latest version of your shell. You can double-check the version you're using with the command `echo $BASH_VERSION`. Or, if you've installed Zsh, you can use the command `echo $ZSH_VERSION` to do the same.
 
@@ -36,9 +36,9 @@ Staying current
 
 The Homebrew command `update` actually refers to updating Homebrew itself. If you want to install the latest version of a Homebrew _package_, you'll have to use the word `upgrade` instead:
 
-```shell
+~~~shell
 brew upgrade bash
-```
+~~~
 
 In this example, Homebrew will look for the package named `bash` on your computer and install the latest version. If you already have the newest version installed, Homebrew will print an error message telling you exactly that. You'll have to run this command manually from time to time, but it's a much more reliable approach than downloading directly from source or maintaining a cloned version control repository.
 

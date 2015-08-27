@@ -9,9 +9,9 @@ description: "With a little help from JavaScript, you can add a data attribute t
 
 Assigning keyboard shortcuts on the web could be as simple as adding an HTML attribute onto an element and setting its value. Even though browsers are unlikely to support this approach natively, you're still able to define shortcut keys in your markup by using `data` attributes and a touch of JavaScript.
 
-```html
+~~~html
 <button data-shortcut='s'>Do Something</button>
-```
+~~~
 
 I think that's pretty intuitive. Think about all the common use cases:
 
@@ -30,9 +30,9 @@ Before getting started, you'll need to grab jQuery and [jQuery Hotkeys][jquery-h
 
 Using [Bower][bower], you can download a copy of each library by entering the following shell command:
 
-```shell
+~~~shell
 bower install jquery jquery.hotkeys --save
-```
+~~~
 
 Write some JavaScript
 ---------------------
@@ -45,7 +45,7 @@ Remember our three use cases? Well, in JavaScript, they translate into the follo
 
 With jQuery Hotkeys set up in your project, write a `$(document).ready()` call that contains the following JavaScript:
 
-```javascript
+~~~javascript
 $('[data-shortcut]').each(function() {
   var $element = $(this),
       key = $element.data('shortcut');
@@ -58,7 +58,7 @@ $('[data-shortcut]').each(function() {
     }
   });
 });
-```
+~~~
 
 This code will loop through every HTML element that has a `[data-shortcut]` attribute and attach the keyboard shortcut's event handler. Now when you press an assigned key, the `keyup` event will trigger both `click` and `focus` events on its related DOM element. Additionally, if the element is an `<a>` tag, your browser will follow the link provided by the element's `href` attribute.
 
@@ -67,19 +67,19 @@ Assign your shortcuts
 
 Your JavaScript is up and running, so you can finally start assigning keyboard shortcuts in your markup! Find an `<a>`, `<button>`, or `<input>` tag that could use a shortcut, and add a `data-shortcut` attribute with the intended key as its value.
 
-```html
+~~~html
 <a href='http://example.com/edit' data-shortcut='e'>Edit</a>
-```
+~~~
 
 If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you'll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides. The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
 
-```html
+~~~html
 <a href='/index.html' data-shortcut='shift+1'>
 
 <button data-shortcut='alt+m'>Menu</button>
 
 <input type='submit' data-shortcut='ctrl+alt+enter'>
-```
+~~~
 
 And that's it &mdash; you've set up everything you need to start assigning keyboard shortcuts in your markup. _Now go forth and empower efficiency._
 

@@ -23,9 +23,9 @@ In the example above, I've defined a custom Google search that filters out any w
 
 Feel free to copy the URL below:
 
-```
+~~~
 https://www.google.com/search?q={query}&tbs=qdr:y
-```
+~~~
 
 Useful Google searches
 ----------------------
@@ -36,7 +36,7 @@ If you want to avoid that hassle altogether, here are a few more Google search U
 
 ### Web results
 
-```
+~~~
 Last month:
 https://www.google.com/search?q={query}&tbs=qdr:m
 
@@ -48,11 +48,11 @@ https://www.google.com/search?q={query}&tbs=qdr:d
 
 Verbatim:
 https://www.google.com/search?q={query}&tbs=li:1
-```
+~~~
 
 ### Image results
 
-```
+~~~
 Animated GIFs:
 https://www.google.com/search?q={query}&tbm=isch&tbs=ift:gif,itp:animated
 
@@ -61,7 +61,7 @@ https://www.google.com/search?q={query}&tbm=isch&tbs=imgo:1
 
 Labeled for reuse with modification:
 https://www.google.com/search?q={query}&tbm=isch&tbs=sur:fmc
-```
+~~~
 
 Keep 'em coming
 ---------------

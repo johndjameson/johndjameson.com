@@ -16,31 +16,31 @@ HTML
 
 First off, we're going to need a container for our content. I'm partial to an `<article>` element with the class name `post`. Fill it with a few paragraphs inside `<p>` elements as usual, supplying whatever content you see fit.
 
-```html
+~~~html
 <article class="post">
   <p><!-- paragraph text--></p>
   <p><!-- some more text--></p>
   <p><!-- yet even more text--></p>
 </article>
-```
+~~~
 
 Now, in order to mark the locations of your annotations, use the following format:
 
-```html
+~~~html
 <sup class="post-marker"><a href="#note:1">1</a></sup>
-```
+~~~
 
 The `<sup>` tag semantically identifies the child `<a>` element as a superscript and also allows us to use CSS properties on two unique elements later on. The `href="#note:1"` attribute allows users to click annotation markers, repositioning the browser window to reveal related footnotes.
 
 Once the body text is annotated with the intended markup, it's time to provide the content of our footnotes and sidenotes. Right before the closing `</article>` tag, add the following ordered list, modified as needed for your content.
 
-```html
+~~~html
 <ol class="post-footnotes">
   <li id="note:1">This is the first annotation.</li>
   <li id="note:2">This one's the second.</li>
   <li id="note:3">And this is the third.</li>
 </ol>
-```
+~~~
 
 And that's it for the HTML. _Not so bad, right?_
 
@@ -50,12 +50,12 @@ JavaScript
 
 The first thing we need to do is create variables for the jQuery objects we'll be using later.
 
-```javascript
+~~~javascript
 var $document = $(document),
     $post = $('.post'),
     $markers = $('.post .post-marker'),
     $footnotes = $('.post-footnotes');
-```
+~~~
 
 Once that's taken care of, we need to outline our goals and write code to do the following tasks:
 
@@ -65,7 +65,7 @@ Once that's taken care of, we need to outline our goals and write code to do the
 
 In JavaScript, that looks a lot like this:
 
-```javascript
+~~~javascript
 function createSidenotes() {
     var $footnoteArray = $footnotes.children();
 
@@ -80,26 +80,26 @@ function createSidenotes() {
         );
     }
 }
-```
+~~~
 
 CSS has no way of styling parent elements, so we're also going to need to indicate whether or not our `.post` contains annotations. The following code checks whether or not any footnotes exist and then adds a class to the `.post` if the conditional statement returns `true`.
 
-```javascript
+~~~javascript
 function toggleNotes() {
     if ($footnotes.length > 0 && $markers.length > 0) {
         $post.addClass('has-sidenotes');
     }
 }
-```
+~~~
 
 Now wrap those two functions in a jQuery `ready()` method for good measure and you're almost done.
 
-```javascript
+~~~javascript
 $document.ready(function() {
     createSidenotes();
     toggleNotes();
 });
-```
+~~~
 
 CSS
 ---
@@ -116,7 +116,7 @@ Before writing any CSS, let's identify our goals this time around:
 
 Using the following CSS, let's take care of all of those goals one by one and finish things up.
 
-```css
+~~~css
 .post-marker {
   font-size: 70%;
   position: relative;
@@ -158,7 +158,7 @@ Using the following CSS, let's take care of all of those goals one by one and fi
     display: block;
   }
 }
-```
+~~~
 
 And there you have it: responsive sidenotes that display on wide browsers yet degrade gracefully to footnotes in narrow browsers and environments without JavaScript support.
 
