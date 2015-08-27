@@ -17,7 +17,7 @@
 
   settings.$element.each ->
     $element   = $(@)
-    wordArray  = $element.text().split( ' ' )
+    wordArray  = $element.text().trim().split( ' ' )
     finalTitle = ''
 
     for index in [ 0..wordArray.length - 1 ]
