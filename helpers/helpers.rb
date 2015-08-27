@@ -10,10 +10,6 @@ module Helpers
       .reverse
   end
 
-  def icon(name, options={})
-    partial 'shared/icon', locals: { name: name }.merge(options)
-  end
-
   def page_title
     if current_page.data.title
       "#{ current_page.data.title } | #{ title }"
