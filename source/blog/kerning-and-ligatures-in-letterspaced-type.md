@@ -55,7 +55,7 @@ If you look closely at the _ff_ and _ft_ pairs in the second word _liftoff_, you
 Browser support
 ---------------
 
-When I started outlining this article, I didn't expect to run into any browser support issues. But surely enough, they come up in web typography and present an interesting challenge.
+The default behavior of most browsers is to disable kerning and ligatures wherever the `letter-spacing` property is applied. Due to current browser support, it takes some very precise CSS to get all three components working together.
 
 The biggest issue is that Safari doesn't _actually_ support `font-feature-settings`. Declare the property in any way, and Safari enables both kerning and ligatures. Want to turn on small caps? You get kerning and ligatures. Want to _disable_ kerning and ligatures? You get kerning and ligatures. This is particularly problematic when the property is inherited, since there's no way to unset it by using the property itself.
 
