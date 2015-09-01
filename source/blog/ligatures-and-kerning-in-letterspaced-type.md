@@ -6,14 +6,14 @@ date: 2015-09-01
 description: "Letterspacing affects type's horizontal rhythm, and so do kerning and ligatures. Combining all three of them can make for beautifully spaced typography."
 ---
 
-I recently [wrote an article][guidelines] about the general guidelines for letterspacing type on the web. _This article_ is a follow-up and much more focused, so bear that in mind as you continue reading. I'd recommend checking out the last one if you want a quick an overview of using letterspacing on the web.
+I recently [wrote an article][guidelines] about the general guidelines for letterspacing type on the web. _This article_ is a follow-up and much more focused, so bear that in mind as you continue reading. I'd recommend checking out the last one if you want a quick overview of using letterspacing on the web.
 
 Now with that out of the way, let's jump right into the rules for letterspacing type with kerning and ligatures.
 
 Kerning
 -------
 
-It's always a good idea to enable kerning in titles, headings, and other display type. These elements attract the most attention in a design, so it's important to get their details _just right_ when typesetting.
+It's a good practice to enable kerning in titles, headings, and other display type. These elements attract the most attention in a design, so it's important to get their details _just right_ when typesetting.
 
 ### Tight letterspacing
 
@@ -21,13 +21,13 @@ The majority of kerning _decreases_ the space present between letters. By enabli
 
 <p data-height="290" data-theme-id="2137" data-slug-hash="5e36a72a168d631d7f3b3ccdcf310497" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/5e36a72a168d631d7f3b3ccdcf310497/'>5e36a72a168d631d7f3b3ccdcf310497</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
-In the example above, there's a noticeable gap between the unkerned _T_ and _o_ pair at the beginning of _Tomato_. It looks awkward in an otherwise tightly spaced word. Enabling kerning here tightens up the initial spacing and improves the overall look and feel of the word.
+In the example above, there's a noticeable gap between the unkerned _T_ and _o_ pair at the beginning of the word _Tomato_. It looks awkward in an otherwise tightly spaced context. Enabling kerning here tightens up the initial spacing and improves the overall look and feel of the word.
 
 ### Loose letterspacing
 
 Kerning becomes less important as letterspacing increases, and at a certain point, it's barely even noticeable.
 
-If we look at the same word _Tomato_ &mdash; now set with positive letterspacing &mdash; the difference is too subtle to make an impact. Kerning becomes a nice-to-have, instead of a necessity.
+If we look at the same word _Tomato_ &mdash; now set with positive letterspacing &mdash; the difference is too subtle to make an impact. Kerning becomes a nice-to-have here, instead of a necessity.
 
 <p data-height="290" data-theme-id="2137" data-slug-hash="6d702133d6c081a4af782d648e1c3ff6" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/6d702133d6c081a4af782d648e1c3ff6/'>6d702133d6c081a4af782d648e1c3ff6</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
@@ -55,16 +55,16 @@ If you look closely at the _ff_ and _ft_ pairs in the second word _liftoff_, you
 Browser support
 ---------------
 
-When I started outlining this article, I didn't expect to run into any browser support issues. But surely enough, they exist today and still present an interesting challenge.
+When I started outlining this article, I didn't expect to run into any browser support issues. But surely enough, they come up in web typography and present an interesting challenge.
 
 The biggest issue is that Safari doesn't _actually_ support `font-feature-settings`. Declare the property in any way, and Safari enables both kerning and ligatures. Want to turn on small caps? You get kerning and ligatures. Want to _disable_ kerning and ligatures? You get kerning and ligatures. This is particularly problematic when the property is inherited, since there's no way to unset it by using the property itself.
 
-I made a [CodePen demo][codepen-demo] with more information on browser support. It's a little too in-depth to embed here, but definitely take a look if you plan on using kerning and ligatures with the `letter-spacing` property.
+I made a [CodePen demo][codepen-demo] with more information on browser support. It's a little too in-depth to embed here, but definitely take a look if you plan on using kerning and ligatures together with with the `letter-spacing` property.
 
 And that's it!
 --------------
 
-Before we wrap up, I have to give a shout-out to [Bram Stein][twitter-bram] for his work on [The State of Web Type][state-of-web-type]. That site has been a _huge_ help in figuring out an approach that works across browsers.
+Before we wrap up, I have to give a shout-out to [Bram Stein][twitter-bram] for his work on [The State of Web Type][state-of-web-type]. That site has been a _huge_ help for me in figuring out an approach that works across browsers.
 
 If you have any questions about letterspacing on the web &mdash; or if you just want to chat about web typography &mdash; send me a message over on [Twitter][twitter].
 
