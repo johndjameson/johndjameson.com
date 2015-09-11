@@ -6,7 +6,7 @@ date: 2015-08-18
 description: "Blog posts on line height and vertical rhythm are all so boring. Let's get horizontal, instead."
 ---
 
-I know very few web designers who ever adjust letterspacing when setting type on the web. Small changes can have an enormous effect on the readabiltity of text. That means it's hard to make those decisions unless you're _very confident_ with your knowledge in web typography.
+I know very few web designers who ever adjust letterspacing when setting type on the web. Small changes can have an enormous effect on the readability of text. That means it's hard to make those decisions unless you're _very confident_ with your knowledge in web typography.
 
 Effectively letterspacing text can make the difference between good typography and _great_ typography. With that in mind, I decided to put together some guidelines for letterspacing type on the web.
 
