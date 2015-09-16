@@ -19,7 +19,7 @@ It's a good practice to enable kerning in titles, headings, and other display ty
 
 The majority of kerning _decreases_ the space present between letters. By enabling kerning alone, you can often decrease the horizontal spacing in a line of type &mdash; similar to reducing letterspacing. Tight letterspacing exaggerates the need for kerning, so if you make negative adjustments to the `letter-spacing` property, you should probably enable kerning, too.
 
-<p data-height="290" data-theme-id="2137" data-slug-hash="5e36a72a168d631d7f3b3ccdcf310497" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/5e36a72a168d631d7f3b3ccdcf310497/'>5e36a72a168d631d7f3b3ccdcf310497</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<%= partial 'shared/codepen', locals: { pen: '5e36a72a168d631d7f3b3ccdcf310497', height: 290 } %>
 
 In the example above, there's a noticeable gap between the unkerned _T_ and _o_ pair at the beginning of the word _Tomato_. It looks awkward in an otherwise tightly spaced context. Enabling kerning here tightens up the initial spacing and improves the overall look and feel of the word.
 
@@ -29,7 +29,7 @@ Kerning becomes less important as letterspacing increases, and at a certain poin
 
 If we look at the same word _Tomato_ &mdash; now set with positive letterspacing &mdash; the difference is too subtle to make an impact. Kerning becomes a nice-to-have here, instead of a necessity.
 
-<p data-height="290" data-theme-id="2137" data-slug-hash="6d702133d6c081a4af782d648e1c3ff6" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/6d702133d6c081a4af782d648e1c3ff6/'>6d702133d6c081a4af782d648e1c3ff6</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<%= partial 'shared/codepen', locals: { pen: '6d702133d6c081a4af782d648e1c3ff6', height: 290 } %>
 
 Ligatures
 ---------
@@ -40,7 +40,7 @@ Since ligatures are the combined form of two or more letters, and letterspacing 
 
 Ligatures are always a fixed width, but you can still letterspace the type surrounding them. As a result, ligatures end up looking clumped together within a word. It's best to avoid them altogether in loosely letterspaced type.
 
-<p data-height="230" data-theme-id="2137" data-slug-hash="e4d79dfcf8e98e856f9d5c8ba65f8b4e" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/e4d79dfcf8e98e856f9d5c8ba65f8b4e/'>Ligatures vs. Letterspacing</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<%= partial 'shared/codepen', locals: { pen: 'e4d79dfcf8e98e856f9d5c8ba65f8b4e', height: 230 } %>
 
 In this example, we're much better off using the version of _liftoff_ that doesn't contain ligatures.
 
@@ -48,7 +48,7 @@ In this example, we're much better off using the version of _liftoff_ that doesn
 
 Ligatures are often narrower than their two related characters, so they look right at home in lightly tightened type. In a very tight setting, however, ligatures can stand out as noticeably wider than other letters.
 
-<p data-height="230" data-theme-id="2137" data-slug-hash="cb5625881dcf0db7e11d26d69c2ff40c" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/cb5625881dcf0db7e11d26d69c2ff40c/'>Ligatures vs. Negative Letterspacing</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
+<%= partial 'shared/codepen', locals: { pen: 'cb5625881dcf0db7e11d26d69c2ff40c', height: 230 } %>
 
 If you look closely at the _ff_ and _ft_ pairs in the second word _liftoff_, you'll see an awkward gap between their crossbars. Enabling ligatures fixes this problem by combining the separate letters into a single glyph and merging the two crossbars into one.
 
