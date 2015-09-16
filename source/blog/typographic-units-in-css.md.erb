@@ -2,6 +2,7 @@
 title: Typographic Units in CSS
 type: post
 layout: article
+codepen: true
 date: 2015-08-05
 description: "CSS offers many more units than pixels, ems, and percentages. But out of all the units available to us, I find two the most intriguing: ex and ch."
 ---
@@ -23,8 +24,7 @@ To illustrate this, if Helvetica Neue is set at a font size of `100px`, then you
 
 Using `ex` units in CSS is just like using any other units. You're able to write them with any CSS property you'd use with pixels or `em` units.
 
-<p data-height='270' data-theme-id='2137' data-slug-hash='d81ece0b6a9436654dd4777a73634005' data-default-tab='result' data-user='johndjameson' class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/d81ece0b6a9436654dd4777a73634005/'>d81ece0b6a9436654dd4777a73634005</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src='https://assets.codepen.io/assets/embed/ei.js'></script>
+<%= partial 'shared/codepen', locals: { pen: 'd81ece0b6a9436654dd4777a73634005', height: 270 } %>
 
 Ch units
 --------
@@ -41,8 +41,7 @@ With this constraint in mind, here are some of the use cases where I've found `c
 
 In the following example, I'm able to declare `max-width: 75ch` on the paragraph element, ensuring [ideal line length][csstricks-45-75] as the user's viewport widens.
 
-<p data-height="257" data-theme-id="2137" data-slug-hash="fbfae4fd58d5356f6b95683fb219aa38" data-default-tab="result" data-user="johndjameson" class='codepen'>See the Pen <a href='http://codepen.io/johndjameson/pen/fbfae4fd58d5356f6b95683fb219aa38/'>fbfae4fd58d5356f6b95683fb219aa38</a> by John D. Jameson (<a href='http://codepen.io/johndjameson'>@johndjameson</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
-<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
+<%= partial 'shared/codepen', locals: { pen: 'fbfae4fd58d5356f6b95683fb219aa38', height: 257 } %>
 
 Takeaways
 ---------
