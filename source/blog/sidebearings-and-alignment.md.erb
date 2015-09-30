@@ -1,0 +1,37 @@
+---
+title: Sidebearings & Alignment
+type: post
+layout: article
+allow_orphan: true
+codepen: true
+date: 2015-09-30
+description: "When using different font sizes throughout a design, you'll need to account for sidebearings to keep the type looking properly aligned."
+---
+
+Sidebearings are a necesary part of any font; along with kerning, they ensure letters look well-spaced next to one another. If you look at a single glyph from a font, its _sidebearings_ are the horizontal spaces to the left and right of the letterform. These, along with the character itself, span a glyph's entire width.
+
+![Sidebearings next alongside an H](sidebearings-glyph.svg)
+
+So how can sidebearings cause problems with alignment?
+
+In left-aligned type, each line's first glyph begins at the same point, but because of their sidebearings, the characters don't. Characters in a text block appear farther inward than the element containing them. This causes large type to look indented when set directly above or below smaller type
+
+<%= partial 'shared/codepen', locals: { pen: '43118a0bceea2de380f87402ff75f3c8', height: 630 } %>
+
+As the example above demonstrates, the larger the font size is, the more indented the type appears.
+
+Use a negative margin
+---------------------
+
+You can use a negative `margin-left` value to move the type to the left.
+
+<%= partial 'shared/codepen', locals: { pen: '17300c1454dcfc16c02cc3fba9546333', height: 630 } %>
+
+Depending on the typeface and font size, the value you'll need can be wildly different, so try out different values to find what works.
+
+Conclusion
+----------
+
+As always, feel free to message me on [Twitter][twitter] if you have any questions, feedback, or topic suggestions.
+
+[twitter]: https://twitter.com/johndjameson
