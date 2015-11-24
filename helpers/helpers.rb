@@ -4,6 +4,10 @@
 
 module Helpers
 
+  def codepen(pen, height=400)
+    partial 'shared/codepen', locals: { pen: pen, height: height }
+  end
+
   def get_posts
     sitemap.resources.select { |resource| resource.data.type == 'post' }
       .sort_by { |resource| resource.data.date }
