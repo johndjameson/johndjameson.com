@@ -3,7 +3,6 @@
 # ====================================
 
 activate :automatic_image_sizes
-activate :directory_indexes
 activate :livereload
 activate :syntax, css_class: 'syntax js-syntax'
 
@@ -13,8 +12,11 @@ activate :autoprefixer do |config|
 end
 
 activate :blog do |blog|
+  blog.permalink = '{title}.html'
   blog.prefix = 'blog'
 end
+
+activate :directory_indexes
 
 # ====================================
 #   Global Variables
