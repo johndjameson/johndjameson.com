@@ -12,6 +12,10 @@ activate :autoprefixer do |config|
   config.cascade = false
 end
 
+activate :blog do |blog|
+  blog.prefix = 'blog'
+end
+
 # ====================================
 #   Global Variables
 # ====================================
