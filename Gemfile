@@ -2,11 +2,12 @@
 # the following line to use 'https'
 source 'http://rubygems.org'
 
-gem 'rake'
-gem 'redcarpet'
-
+gem 'builder'
 gem 'middleman'
 gem 'middleman-autoprefixer'
+gem 'middleman-blog'
 gem 'middleman-livereload'
 gem 'middleman-minify-html'
 gem 'middleman-syntax'
+gem 'rake'
+gem 'redcarpet'
