@@ -44,6 +44,14 @@ set :fonts_dir, 'assets/fonts'
 set :title, 'John D. Jameson'
 
 # ====================================
+#   Layouts
+# ====================================
+
+# ----- RSS Feed ----- #
+
+page '/feed.xml', layout: false
+
+# ====================================
 #   After Configuration
 # ====================================
 
