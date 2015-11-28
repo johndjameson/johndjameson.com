@@ -19,6 +19,10 @@
             = yield
 
           .article-footer
-            %time.tsi.tss= pretty_date(current_page.data.date)
+            .split
+              .split-cell
+                %time.tsi.tss= pretty_date(current_page.data.date)
+              .split-cell
+                = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
 
     = partial 'shared/footer-scripts'
