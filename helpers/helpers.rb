@@ -27,7 +27,7 @@ module Helpers
   end
 
   def prevent_widow(string)
-    string.gsub(/(\s)(\w*\z)/, '&nbsp;\2')
+    string.gsub(/(\s)([\S]*$)/, '&nbsp;\2')
   end
 
 end
