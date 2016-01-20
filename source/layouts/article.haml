@@ -1,3 +1,5 @@
+- page = current_page.data
+
 !!! 5
 %html{ lang: 'en' }
   = partial 'shared/head'
@@ -9,11 +11,11 @@
       %article.row.article.js-has-headingLink{ role: 'article' }
         .cell.well.well--l
 
-          %h1{ class: ('js-orphan' unless current_page.data.allow_orphan) }= current_page.data.title
+          %h1= page.allow_widow ? page.title : prevent_widow(page.title)
 
-          .lead.mbl.js-ophan
+          .lead.mbl
             :markdown
-              #{ current_page.data.description }
+              #{ prevent_widow(page.description) }
 
           = find_and_preserve do
             = yield
@@ -21,7 +23,7 @@
           .article-footer
             .split
               .split-cell
-                %time.tsi.tss= pretty_date(current_page.data.date)
+                %time.tsi.tss= pretty_date(page.date)
               .split-cell
                 = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
 

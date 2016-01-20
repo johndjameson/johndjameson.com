@@ -4,7 +4,7 @@ type: post
 layout: article
 date: 2014-01-27
 description: "Footnotes and sidenotes are both useful ways to annotate online blog posts and articles. With the help of responsive design, it's now possible to use both approaches at the same time."
-allow_orphan: true
+allow_widow: true
 ---
 
 In the responsive sidenotes pattern, the footnotes at the very bottom of the page transform into sidenotes alongside body paragraphs. The numbered links within body text also appear and disappear, depending on the width of the browser. It’s a useful technique to display additional information on devices with ample screen space but still present the information to people using smaller devices.

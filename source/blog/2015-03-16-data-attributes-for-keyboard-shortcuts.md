@@ -3,7 +3,7 @@ title: Data Attributes for Keyboard Shortcuts
 type: post
 layout: article
 date: 2015-03-16
-allow_orphan: true
+allow_widow: true
 description: "With a little help from JavaScript, you can add a data attribute to any HTML element to instantly assign a shortcut key."
 ---
 
