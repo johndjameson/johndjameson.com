@@ -26,4 +26,8 @@ module Helpers
     date.strftime('%B %d, %Y')
   end
 
+  def prevent_widow(string)
+    string.gsub(/(\s)(\w*\z)/, '&nbsp;\2')
+  end
+
 end
