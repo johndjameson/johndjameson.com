@@ -72,6 +72,7 @@ configure :build do
   require 'uglifier'
 
   activate :asset_hash
+  activate :gzip
   activate :minify_css
   activate :minify_html
   activate :minify_javascript, :compressor => ::Uglifier.new( output: { comments: :none } )
