@@ -3,7 +3,7 @@
 source 'http://rubygems.org'
 
 gem 'builder'
-gem 'middleman'
+gem 'middleman', '~> 3.0'
 gem 'middleman-autoprefixer'
 gem 'middleman-blog'
 gem 'middleman-livereload'
