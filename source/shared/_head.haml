@@ -7,3 +7,6 @@
   %meta{ name: 'description', content: escape_html(current_page.data.description) }
 
   = stylesheet_link_tag 'application'
+
+  = javascript_include_tag 'vendor', defer: true
+  = javascript_include_tag 'application', defer: true
