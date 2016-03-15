@@ -75,6 +75,6 @@ configure :build do
   activate :gzip
   activate :minify_css
   activate :minify_html
-  activate :minify_javascript, :compressor => ::Uglifier.new( output: { comments: :none } )
+  activate :minify_javascript,:compressor => ::Uglifier.new( output: { comments: :none } ), :inline => true
   activate :relative_assets
 end
