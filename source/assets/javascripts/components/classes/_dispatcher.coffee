@@ -6,9 +6,9 @@
 #
 # *************************************
 #
-# @param $element  { jQuery object }
-# @param dataAttr  { string }
-# @param events    { array (objects) }
+# @param $element { jQuery object }
+# @param dataAttr { string }
+# @param events   { array (objects) }
 #
 # *************************************
 
