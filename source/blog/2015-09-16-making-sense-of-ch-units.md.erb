@@ -15,7 +15,7 @@ So what causes them to be so inaccurate?
 
 It comes down to the defintion of a ch unit. According to the [specification][specification], a ch unit is equal to the width of the 0 (zero) glyph found in the font used to render it. This definition works for monospaced fonts (where every glyph shares an identical width), but it's completely unreliable for proportional fonts. On average, a ch unit ends up being 15–30% larger than the width of a font's other glyphs.
 
-<%= codepen '24f0cb69d20658c4b14f6fef8e32ce59', 540 %>
+<%= codepen({ pen: '24f0cb69d20658c4b14f6fef8e32ce59', height: 540 }) %>
 
 See the problem? When compared to a line of zeros, ch units perform _exactly_ as the specification defines them. But when compared to a line of text, ch units are too wide to be useful.
 
@@ -28,11 +28,11 @@ Let's say you have a 1000-character-long line of text and a `div` with a width o
 
 Multiply by that number when using ch units, and the resulting value gives you a number much closer to what you're looking for.
 
-<%= codepen 'c41229e9197ff46d987dceffb4f36b38', 470 %>
+<%= codepen({ pen: 'c41229e9197ff46d987dceffb4f36b38', height: 470 }) %>
 
 The more text there is, the more reliable the resulting number becomes.
 
-<%= codepen 'a6c07f62eb3d33741effa552b22abd84', 340 %>
+<%= codepen({ pen: 'a6c07f62eb3d33741effa552b22abd84', height: 340 }) %>
 
 Takeaways
 ---------
