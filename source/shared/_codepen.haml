@@ -1,5 +1,19 @@
-%p.codepen{ data: { 'theme-id' => '2137',
-  'height' => "#{ height }",
-  'slug-hash' => "#{ pen }" } }
+:ruby
+  parameters = [
+    "default-tab=#{ tabs }",
+    "height=#{ height }",
+    "theme-id=#{ theme }",
+    'embed-version=2'
+  ].join('&')
 
-    = link_to 'Check out the CodePen demo.', "http://codepen.io/johndjameson/pen/#{ pen }"
+  options = {
+    allowfullscreen: 'true',
+    allowtransparency: 'true',
+    frameborder: 'no',
+    height: height,
+    scrolling: 'no',
+    src: "https://codepen.io/#{ user }/embed/#{ pen }/?#{ parameters }",
+    style: 'width: 100%'
+  }
+
+%iframe{ options }
