@@ -8,7 +8,7 @@ module Helpers
     options[:height] ||= 300
     options[:pen]    ||= 'bpxrxB'
     options[:tabs]   ||= 'results'
-    options[:theme]  ||= 'dark'
+    options[:theme]  ||= '23596'
     options[:user]   ||= 'johndjameson'
 
     partial 'shared/codepen', locals: options
