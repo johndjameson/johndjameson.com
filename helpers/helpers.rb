@@ -4,8 +4,14 @@
 
 module Helpers
 
-  def codepen(pen, height=400)
-    partial 'shared/codepen', locals: { pen: pen, height: height }
+  def codepen(options={})
+    options[:height] ||= 300
+    options[:pen]    ||= 'bpxrxB'
+    options[:tabs]   ||= 'results'
+    options[:theme]  ||= 'dark'
+    options[:user]   ||= 'johndjameson'
+
+    partial 'shared/codepen', locals: options
   end
 
   def get_posts
