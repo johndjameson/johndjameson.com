@@ -21,26 +21,6 @@
   @else
     @return ($target / $context) * 1em
 
-// ----- Rem ----- //
-// -> Converts pixel value to rems
-//
-// $target - the target pixel size
-// $context - the context font-size
-
-@function rem($target, $context: $b-fontSize)
-  @if ($target == 0)
-    @return 0
-  @else
-    @return ($target / $context) * 1rem
-
-// ----- Strip Units ----- //
-// -> Removes the unit type from values
-//
-// $value - the initial number
-
-@function strip-units($value)
-  @return $value / ($value * 0 + 1)
-
 // -------------------------------------
 //   Mixins
 // -------------------------------------
@@ -57,31 +37,6 @@
   transition: $b-transition
   user-select: none
   white-space: nowrap
-
-// ----- Font Size ----- //
-// -> Calculates responsive font sizes in rems
-//
-// $sizes - map of desired font sizes in pixels (b, s, m, l)
-
-=font-size($sizes)
-  @if $sizes == 's'
-    +font-size(( b: $b-fontSize-s, m: $b-fontSize-s-b ))
-  @else if $sizes == 'l'
-    +font-size(( b: $b-fontSize-l, m: $b-fontSize-l-b ))
-  @else if $sizes == 'h1'
-    +font-size(( b: $b-fontSize-h1, m: $b-fontSize-h1-b, L: $b-fontSize-h1-c ))
-  @else if $sizes == 'h2'
-    +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))
-  @else
-    @each $name, $size in $sizes
-      @if map-get($sizes, $name)
-        $sizes: map-merge($sizes, ($name: ($size / $b-fontSize) * 1rem))
-
-    font-size: map-get($sizes, 'b')
-
-    @each $name, $width in $g-defaults
-      @media screen and (min-width: #{$width})
-        font-size: map-get($sizes, $name)
 
 // ----- List Reset ----- //
 // -> Removes default list styles

@@ -11,14 +11,8 @@ html
   font-family: $b-fontFamily
   font-feature-settings: 'calt', 'kern', 'liga', 'onum'
   font-kerning: normal
-  font-size: percentage($b-fontSize / 16px)
+  font-size: 21px
   line-height: $b-lineHeight
-
-body
-
-  +respond-to($g-m)
-    font-size: percentage($b-fontSize-b / $b-fontSize)
-    line-height: $b-lineHeight-b
 
 // -------------------------------------
 //   Block Content
@@ -46,24 +40,17 @@ h4, .h4
   margin-top: 0
 
 h1, .h1
-  +font-size(( b: $b-fontSize-h1, m: $b-fontSize-h1-b, l: $b-fontSize-h1-c ))
   font-family: $b-fontFamily-serif
+  font-size: 50px
   font-weight: 400
-  letter-spacing: -0.025em
-  line-height: 1
+  line-height: 56px
   margin-bottom: $b-space-s
-  margin-left: -0.025em
-  word-spacing: -0.03em
 
   +respond-to($g-l)
     margin-bottom: $b-space
-    margin-left: -0.0375em
 
 h2, .h2
-  +font-size(( b: $b-fontSize-h2, m: $b-fontSize-h2-b ))
-
-  +respond-to($g-m)
-    letter-spacing: -0.5px
+  font-size: 26px
 
 h3, .h3
   font-size: inherit
