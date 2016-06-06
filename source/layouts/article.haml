@@ -1,15 +1,12 @@
 - page = current_page.data
 
-!!! 5
-%html{ lang: 'en' }
-  = partial 'shared/head'
+= wrap_layout :layout do
 
-  %body.js-dispatcher{ data: { 'dispatcher-page' => 'article' } }
-    = partial 'shared/header'
+  %article.row.article.js-has-headingLink{ role: 'article' }
+    %section.cell.well.well--l
 
-    %main{ role: 'main' }
-      %article.row.article.js-has-headingLink{ role: 'article' }
-        .cell.well.well--l
+      .mv-g.mv-g--centered_l
+        .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
 
           %h1= page.allow_widow ? page.title : prevent_widow(page.title)
 
@@ -26,5 +23,3 @@
                 %time.tsi.tss= pretty_date(page.date)
               .split-cell
                 = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
-
-    = partial 'shared/footer-scripts'
