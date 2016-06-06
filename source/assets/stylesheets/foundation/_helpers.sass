@@ -79,7 +79,7 @@
 
     font-size: map-get($sizes, 'b')
 
-    @each $name, $width in $g-breakpoints
+    @each $name, $width in $g-defaults
       @media screen and (min-width: #{$width})
         font-size: map-get($sizes, $name)
 

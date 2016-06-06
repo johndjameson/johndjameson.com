@@ -4,15 +4,17 @@ description: 'Front-end Developer at Code School'
 
 %section.row.mbm--m
   .cell.well.well--l
+    .mv-g.mv-g--centered
+      .mv-g-b.mv-g-b--3of5_m
 
-    %h1 The Blog
-    %p.mbl.tsi.tsl Web typography and front-end development
+        %h1 The Blog
+        %p.mbl.tsi.tsl Web typography and front-end development
 
     %ul.list
       - get_posts().each do |post|
         %li.list-item
-          .g
-            .g-b.g-b--m--3of4
+          .mv-g.mv-g--centered
+            .mv-g-b.mv-g-b--2of5_m
               = link_to post.data.title, post.url, class: 'link link--underlined'
-            .g-b.g-b--m--1of4
+            .mv-g-b.mv-g-b--1of5_m
               %time.tsi.tss= pretty_date(post.data.date)
