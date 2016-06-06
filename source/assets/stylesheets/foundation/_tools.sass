@@ -6,6 +6,13 @@
 // *************************************
 
 // -------------------------------------
+//   Align Items
+// -------------------------------------
+
+.aife
+  align-items: flex-end
+
+// -------------------------------------
 //   Display
 // -------------------------------------
 
@@ -15,10 +22,19 @@
   display: inline
 .dib
   display: inline-block
+.df
+  display: flex
 .dif
   display: inline-flex
 .dn
   display: none
+
+// Responsive
+
++respond-to($g-m)
+
+  .db_m
+    display: block
 
 // -------------------------------------
 //   Margins
@@ -93,6 +109,11 @@
   margin-top: $b-space-l
 .mtxl
   margin-top: $b-space-xl
+
+// Pixels
+
+.mt30px
+  margin-top: 30px
 
 // -------------------------------------
 //   Padding
