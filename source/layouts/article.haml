@@ -17,9 +17,9 @@
           = find_and_preserve do
             = yield
 
-          .article-footer
-            .split
-              .split-cell
-                %time.tsi.tss= pretty_date(page.date)
-              .split-cell
-                = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
+      .article-footer
+        .split
+          .split-cell
+            %time.tsi.tss= pretty_date(page.date)
+          .split-cell
+            = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
