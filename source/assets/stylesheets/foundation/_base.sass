@@ -11,8 +11,13 @@ html
   font-family: $b-fontFamily
   font-feature-settings: 'calt', 'kern', 'liga', 'onum'
   font-kerning: normal
-  font-size: 21px
+  font-size: $b-fontSize
   line-height: $b-lineHeight
+
+  +fontless
+    font-family: $b-fontFamily-fallback
+    font-size: $b-fontSize-fallback
+    line-height: 1.5
 
 // -------------------------------------
 //   Block Content
@@ -50,7 +55,10 @@ h1, .h1
     margin-bottom: $b-space
 
 h2, .h2
-  font-size: 26px
+  font-size: $b-fontSize-h2
+
+  +fontless
+    font-size: $b-fontSize-h2-fallback
 
 h3, .h3
   font-size: inherit
