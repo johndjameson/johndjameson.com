@@ -3,6 +3,11 @@ description: 'Tutorials on web typography and front-end development.'
 title: 'Web Typography'
 ---
 
+:ruby
+  posts = get_posts()
+
+  latest_post = posts.first
+
 %section.row.mbm--m
   .cell.well.well--l
     .mv-g.mv-g--centered
@@ -10,11 +15,25 @@ title: 'Web Typography'
 
         %h1 The Blog
 
+        %h2 Latest post
+
+        .mbl
+          %p.mbf
+            = link_to latest_post.data.title, latest_post, class: 'link link--underlined'
+
+          %time.db.mbs.tsi.tss= pretty_date(latest_post.data.date)
+
+          %p= latest_post.data.description
+
+          = link_to 'Continue Reading', latest_post, class: 'link link--underlined tss'
+
+        %h2 More posts
+
     %ul.list
-      - get_posts().each do |post|
+      - posts.drop(1).each do |post|
         %li.list-item
           .mv-g.mv-g--centered
             .mv-g-b.mv-g-b--2of5_m
-              = link_to post.data.title, post.url, class: 'link link--underlined'
+              = link_to post.data.title, post, class: 'link link--underlined'
             .mv-g-b.mv-g-b--1of5_m
               %time.tsi.tss= pretty_date(post.data.date)
