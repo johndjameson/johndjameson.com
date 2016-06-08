@@ -6,6 +6,13 @@
 // *************************************
 
 // -------------------------------------
+//   Align Items
+// -------------------------------------
+
+.aife
+  align-items: flex-end
+
+// -------------------------------------
 //   Display
 // -------------------------------------
 
@@ -15,10 +22,19 @@
   display: inline
 .dib
   display: inline-block
+.df
+  display: flex
 .dif
   display: inline-flex
 .dn
   display: none
+
+// Responsive
+
++respond-to($g-m)
+
+  .db_m
+    display: block
 
 // -------------------------------------
 //   Margins
@@ -50,6 +66,8 @@
 
   .mbm--m
     margin-bottom: $b-space
+  .mbl--m
+    margin-bottom: $b-space-l
   .mbxl--m
     margin-bottom: $b-space-xl
 
@@ -93,6 +111,11 @@
   margin-top: $b-space-l
 .mtxl
   margin-top: $b-space-xl
+
+// Pixels
+
+.mt30px
+  margin-top: 30px
 
 // -------------------------------------
 //   Padding
@@ -188,9 +211,10 @@
 // ----- Size ----- //
 
 .tss
-  +font-size('s')
-.tsl
-  +font-size('l')
+  font-size: $b-fontSize-s
+
+  +fontless
+    font-size: $b-fontSize-s-fallback
 
 // ----- Style ----- //
 
@@ -199,7 +223,7 @@
 
 // ----- Weight ----- //
 
-.twn
-  font-weight: $b-fontWeight-normal
-.twb
-  font-weight: $b-fontWeight-bold
+.tw4
+  font-weight: 400
+.tw7
+  font-weight: 700

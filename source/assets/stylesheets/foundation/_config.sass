@@ -1,7 +1,7 @@
 // *************************************
 //
 //   Config
-//   -> Fonts, Variables
+//   -> Variables
 //
 // *************************************
 
@@ -13,7 +13,7 @@
 
 // Grayscale
 
-$black: #000
+$black: #252003
 $white: #fff
 
 // ----- Base ----- //
@@ -36,30 +36,41 @@ $b-borderStyle: solid
 $b-borderWidth: 3px
 $b-border: $b-borderWidth $b-borderStyle $c-border
 
-// ----- Typography ----- //
+// -------------------------------------
+//   Typography
+// -------------------------------------
 
-$b-fontFamily: 'minion-pro', 'Athelas', 'Georgia', serif
-$b-fontFamily-mono: 'Menlo', 'Monaco', 'Andale Mono', 'Courier', 'Lucida Console', monospace
-$b-fontSize: 18px
-$b-fontSize-b: 24px
-$b-fontSize-s: 14px
-$b-fontSize-s-b: 18px
-$b-fontSize-l: 24px
-$b-fontSize-l-b: 36px
-$b-fontSize-h1: 36px
-$b-fontSize-h1-b: 60px
-$b-fontSize-h1-c: 90px
-$b-fontSize-h2: $b-fontSize-l
-$b-fontSize-h2-b: $b-fontSize-l-b
-$b-fontWeight-normal: 400
-$b-fontWeight-bold: 700
-$b-lineHeight: 1.375
-$b-lineHeight-b: 1.375
+// ----- Family ----- //
+
+$b-fontFamily: 'cronos-pro', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+$b-fontFamily-fallback: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif
+$b-fontFamily-serif: 'Robur Web', 'Georgia', serif
+$b-fontFamily-mono: 'Courier', monospace
+
+// ----- Line Height ----- //
+
+$b-lineHeight: 1.333
+
+// ----- Size ----- //
+
+$b-fontSize: 21px
+$b-fontSize-fallback: 18px
+
+$b-fontSize-s: 16px
+$b-fontSize-s-fallback: 14px
+
+$b-fontSize-s: 16px
+$b-fontSize-s-fallback: 14px
+
+// Headings
+
+$b-fontSize-h2: 26px
+$b-fontSize-h2-fallback: 22px
 
 // ----- Sizing ----- //
 
-$b-maxWidth: rem(730px)
-$b-space: rem(28px)
+$b-maxWidth: 960px
+$b-space: 20px
 $b-space-xs: $b-space * 0.25
 $b-space-s: $b-space * 0.5
 $b-space-l: $b-space * 2
@@ -73,20 +84,15 @@ $b-space-xl: $b-space * 4
 
 // Breakpoints
 
-$g-s: em(480px)
-$g-m: em(640px)
-$g-l: em(1200px)
+$g-s: 480px
+$g-m: 650px
+$g-l: 1000px
 
 // Settings
 
-$g-columns: 4
-$g-breakpoints: (s: $g-s, m: $g-m, l: $g-l)
-$g-gutter: rem(20px)
-
-// ----- Row ----- //
-
-$row-gutter: rem(10px)
-$row-gutter-b: rem(20px)
+$g-columns: 5
+$g-defaults: (s: $g-s, m: $g-m, l: $g-l)
+$g-gutter: 40px
 
 // -------------------------------------
 //   Structures
@@ -99,5 +105,5 @@ $link-borderWidth: 2px
 
 // ----- Logo ----- //
 
-$logo-size: rem(50px)
-$logo-size-b: rem(70px)
+$logo-size: 50px
+$logo-size-b: 70px

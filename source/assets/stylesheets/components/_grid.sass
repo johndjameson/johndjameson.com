@@ -1,28 +1,42 @@
 // *************************************
 //
 //   Grid
-//   -> Based on the following:
-//      * https://github.com/necolas/suit-grid
-//      * https://github.com/csswizardry/csswizardry-grids
+//   -> Section layout
 //
 // -------------------------------------
 //   Template (Haml)
 // -------------------------------------
 //
-// .g
+// .mv-g
 //
-//   .g-b[center 1of2|...]
+//   .mv-g-b[1of12|...]
 //     / ...
 //
-//   .g-b[center 1of2|...]
+//   .mv-g-b[1of12|...]
 //     / ...
 //
 // *************************************
 
-.g
+.mv-g
   display: flex
   flex-wrap: wrap
   margin-left: -$g-gutter
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Grid ----- //
+
+.mv-g--centered
+  justify-content: center
+
+// Modifiers
+
++respond-to($g-l)
+
+  .mv-g--centered_l
+    justify-content: center
 
 // -------------------------------------
 //   Scaffolding
@@ -30,9 +44,8 @@
 
 // ----- Box ----- //
 
-.g-b
+.mv-g-b
   box-sizing: border-box
-  margin: 0
   padding-left: $g-gutter
   width: 100%
 
@@ -42,18 +55,10 @@
 
 =g-device-type($namespace: '')
 
-  .g-b--#{$namespace}1of1
-    width: 100%
-
-  @for $unit from 1 to $g-columns + 1
-    @for $column from 1 to $unit
-      .g-b--#{$namespace}#{$column}of#{$unit}
-        width: percentage($column / $unit)
-
-      @for $division from 1 to $unit
-        @if $column % $division == 0 and $unit % $division == 0
-          .g-b--#{$namespace}#{$column / $division}of#{$unit / $division}
-            @extend .g-b--#{$namespace}#{$column}of#{$unit}
+  @each $item in $g-columns
+    @for $index from 1 through $item
+      .mv-g-b--#{$index}of#{$item}#{$namespace}
+        width: percentage($index / $item)
 
 // -------------------------------------
 //   Creation
@@ -61,6 +66,7 @@
 
 +g-device-type()
 
-@each $device in $g-breakpoints
-  @media screen and (min-width: nth($device, 2))
-    +g-device-type("#{nth($device, 1)}--")
+@if $g-defaults
+  @each $breakpoint, $width in $g-defaults
+    @media screen and (min-width: $width)
+      +g-device-type("_#{$breakpoint}")
