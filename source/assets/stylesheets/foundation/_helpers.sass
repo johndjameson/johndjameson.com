@@ -46,6 +46,17 @@
   margin: 0
   padding: 0
 
+// ----- Fontless ----- //
+// -> Style fallback text
+
+=fontless
+  @if is-superselector('html', &)
+    &:not(.wf-active)
+      @content
+  @else
+    html:not(.wf-active) &
+      @content
+
 // ----- Respond-to ----- //
 // -> Generate a media query
 //
