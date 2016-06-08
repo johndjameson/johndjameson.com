@@ -18,12 +18,13 @@ title: 'Web Typography'
         %h2 Latest post
 
         .mbl
-          %p.mbf
+          %p.has-manicule.mbf
+            = image_tag 'manicule.svg', alt: '', class: 'manicule dn db_m'
             = link_to latest_post.data.title, latest_post, class: 'link link--underlined'
 
           %time.db.mbs.tsi.tss= pretty_date(latest_post.data.date)
 
-          %p= latest_post.data.description
+          %p.mbs= latest_post.data.description
 
           = link_to 'Continue Reading', latest_post, class: 'link link--underlined tss'
 
