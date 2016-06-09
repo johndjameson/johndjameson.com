@@ -21,6 +21,20 @@
 //   Modifiers
 // -------------------------------------
 
+// ----- Bulleted ----- //
+
+.list--bulleted
+
+  > .list-item
+    position: relative
+
+    &::before
+      content: '▫ '
+      position: absolute
+      right: 100%
+      top: 0
+      white-space: pre
+
 // ----- Divided ----- //
 
 .list--divided
@@ -32,18 +46,6 @@
     &:last-child
       border-bottom: 0
       padding-bottom: 0
-
-// ----- Object ----- //
-
-.list--object
-  display: inline-flex
-
-  > .list-item
-    margin-bottom: 0
-    margin-right: $b-space
-
-    &:last-child
-      margin-right: 0
 
 // -------------------------------------
 //   Scaffolding
