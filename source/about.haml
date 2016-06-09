@@ -5,10 +5,18 @@ title: 'About'
 %section.row.mbm--m
   .cell.well.well--l
 
-    .mv-g.mv-g--centered_l
-      .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
+    .mv-g
+      .mv-g-b.mv-g-b--2of5_l.tac_l
 
-        %h1= prevent_widow('Questions & Answers')
+        %h1.srt= prevent_widow('About')
+
+        = image_tag 'hey-jdj.svg', alt: 'Hey, JDJ!', class: 'mbs'
+
+        .tsi.tss
+          %p.mbf.di.db_m Questions asked by people who definitely aren’t me.
+          %p.mbf.di.db_m Send yours to #{ link_to '@johndjameson', links.twitter, class: 'link link--underlined' }.
+
+      .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
 
         .article
           :markdown
