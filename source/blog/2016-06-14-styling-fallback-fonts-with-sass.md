@@ -159,7 +159,7 @@ html {
 }
 ~~~
 
-Okay, we’re done here. Who needs conclusions on front-end blog posts? You learned a thing — go have fun jank busting fallback text. Or [send me a tweet][twitter] if you liked the article or have any questions. That’s cool, too.
+Okay, we’re done here. Who needs conclusions on front-end blog posts? You learned a thing — go have fun jank busting fallback fonts. Or [send me a tweet][twitter] if you liked the article or have any questions. That’s cool, too.
 
 [twitter]: https://twitter.com/johndjameson
 [web-font-loader]: https://github.com/typekit/webfontloader
