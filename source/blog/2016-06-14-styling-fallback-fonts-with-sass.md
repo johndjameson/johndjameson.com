@@ -3,7 +3,7 @@ title: Styling Fallback Fonts with Sass
 type: post
 layout: article
 date: 2016-06-14
-description: 'One of the pain points of loading fonts asynchronously is writing convoluted CSS for fallback styles. Fortunately, Sass can reduce the complexity needed to achieve great-looking typography when web fonts aren’t yet loaded.'
+description: 'One of the pain points of loading fonts asynchronously is writing convoluted CSS for fallback styles. Fortunately, Sass can make it easier to achieve great-looking web typography before a site’s fonts finish loading.'
 ---
 
 If you’ve ever read a blog post about loading web fonts asynchronously for performance, you’ve probably encountered CSS like this before:
@@ -38,29 +38,30 @@ html.wf-active {
 }
 ~~~
 
-I think that’s pretty intuitive for properties inherited from the `html` element, but relying on a similar approach elsewhere will introduce a couple maintenance problems throughout the CSS.
+Here, I wrote two selectors: `html` and `html.wf-active`. It’s a pretty intuitive for properties inherited from the `html` element, but relying on a similar approach elsewhere will introduce a couple maintenance problems throughout the CSS.
 
-Let’s go over the issues one by one and I’ll show you how to use Sass to clean things up.
+Let’s go over the issues one by one and I’ll show you ways to use Sass to clean things up.
 
-## Nest with the Ampersand Selector
+Nest with the Ampersand Selector
+--------------------------------
 
 The first thing we can do is use Sass’ ampersand selector to nest the current selector within an ancestor. It’s easier explain with an example:
 
 ~~~sass
 h1 {
-  font-family: 'Georgia', serif;
+  font-family: 'Arial', sans-serif;
   font-size: 34px;
   line-height: 1.25;
 
   html.wf-active & {
-    font-family: 'Source Serif Pro', 'Georgia', serif;
+    font-family: 'Source Sans Pro', 'Arial', sans-serif;
     font-size: 36px;
     line-height: 1.1;
   }
 }
 ~~~
 
-The resulting CSS looks like this:
+The compiled CSS looks like this:
 
 ~~~css
 h1 {
@@ -72,9 +73,10 @@ html.wf-active h1 {
 }
 ~~~
 
-See how the `h1` comes after `html.wf-active`? This approach cuts down on a little repetition, but there’s a lot more we can do.
+See how the `h1` comes after `html.wf-active`? Nesting this way cuts down on a little repetition, but there’s a lot more we can do.
 
-## Decrease Specificity
+Decrease Specificity
+--------------------
 
 `html.wf-active h1` is a _compound selector_, which makes it difficult to override any of its styles later on in the style sheet. Its specificity is unreasonably high for what should be a base style.
 
@@ -82,12 +84,12 @@ We can address that problem by flipping the selector so it affects specificity o
 
 ~~~css
 h1 {
-  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-family: 'Source Sans Pro', 'Arial', serif;
   font-size: 36px;
   line-height: 1.1;
 
   html:not(.wf-active) & {
-    font-family: 'Georgia', serif;
+    font-family: 'Arial', serif;
     font-size: 34px;
     line-height: 1.25;
   }
@@ -96,7 +98,8 @@ h1 {
 
 Now when web fonts finish loading and the `wf-active` class gets applied, `html:not(.wf-active) h1` styles are ignored and the `h1` specificity stays nice and low.
 
-## Put It in a Mixin
+Put It in a Mixin
+-----------------
 
 I don’t know about you, but I don’t want to write `html:not(.wf-loaded) &` for every fallback font style throughout my code. It’s easy to forget and tedious to write.
 
@@ -114,19 +117,19 @@ Now use that mixin to apply fallback font styles with ease.
 
 ~~~css
 h1 {
-  font-family: 'Source Serif Pro', 'Georgia', serif;
+  font-family: 'Source Sans Pro', 'Arial', sans-serif;
   font-size: 36px;
   line-height: 1.1;
 
   @include fontless {
-    font-family: 'Georgia', serif;
+    font-family: 'Arial', sans-serif;
     font-size: 34px;
     line-height: 1.25;
   }
 }
 ~~~
 
-If you want to use the same mixin on the `html` element, you’ll need to add a conditional to make sure it doesn’t nest inside itself. Here’s what that looks like:
+If you want to use the same mixin on the `html` element, you’ll need to add a conditional to make sure it doesn’t nest inside itself.
 
 ~~~scss
 @mixin fontless {
