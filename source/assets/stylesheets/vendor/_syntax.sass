@@ -13,7 +13,14 @@
 // *************************************
 
 .syntax
+  font-size: $b-fontSize * 0.8
   margin-bottom: $b-space-l
   margin-top: $b-space-l
   overflow: auto
   -webkit-overflow-scrolling: touch
+
+  +respond-to($g-m)
+    font-size: $b-fontSize
+
+  code
+    background: none
