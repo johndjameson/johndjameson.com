@@ -38,6 +38,15 @@
   user-select: none
   white-space: nowrap
 
+// ----- Clearix ----- //
+// -> Contain floats
+
+=clearfix
+  &::after
+    clear: both
+    content: ''
+    display: table
+
 // ----- List Reset ----- //
 // -> Removes default list styles
 
