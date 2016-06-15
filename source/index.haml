@@ -13,9 +13,9 @@ title: 'Web Typography'
     .mv-g.mv-g--centered
       .mv-g-b.mv-g-b--3of5_m
 
-        %h1.mbl--m The Blog
+        %h1.heading.heading--1.mbl--m The Blog
 
-        %h2 Latest post
+        %h2.heading.heading--2 Latest post
 
         .mbl
           %p.has-manicule.mbf
@@ -28,7 +28,7 @@ title: 'Web Typography'
 
           = link_to 'Continue Reading', latest_post, class: 'link link--underlined tss'
 
-        %h2 More posts
+        %h2.heading.heading--2 More posts
 
     %ul.list
       - posts.drop(1).each do |post|
