@@ -1,8 +1,10 @@
-- page = current_page.data
+:ruby
+  page    = current_page.data
+  initial = page.description.chars.first.downcase
 
 = wrap_layout :layout do
 
-  %article.row.article{ role: 'article' }
+  %article.row{ role: 'article' }
     %section.cell.well.well--l
       .mv-g.mv-g--centered_l
         .mv-g-b.mv-g-b--4of5_m.mv-g-b--5of5_l
@@ -13,15 +15,18 @@
         .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
 
           .lead.mbl
-            :markdown
-              #{ prevent_widow(page.description) }
+            = image_tag "https://fonts.typestudies.com/rococeaux/initials/#{initial}.svg", alt: '', class: "lead-dropCap lead-dropCap--#{initial}"
+            = prevent_widow(page.description[1..-1])
 
-          = find_and_preserve do
-            = yield
+      .article
+        .mv-g.mv-g--centered_l
+          .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
+            = find_and_preserve do
+              = yield
 
-      .article-footer
-        .split
-          .split-cell
-            %time.tsi.tss= pretty_date(page.date)
-          .split-cell
-            = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'
+        .article-footer
+          .split
+            .split-cell
+              %time.tsi.tss= pretty_date(page.date)
+            .split-cell
+              = link_to 'Subscribe via RSS', links.feedburner, class: 'link link--underlined tss'

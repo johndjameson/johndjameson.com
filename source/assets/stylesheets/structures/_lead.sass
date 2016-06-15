@@ -12,4 +12,55 @@
 // *************************************
 
 .lead
+  +clearfix
   font-weight: 700
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.lead-dropCap
+  float: left
+  max-height: 76px // FIXME: Magic number!
+  margin-top: 1px // FIXME: Magic number!
+  padding-right: 5px
+  shape-margin: 5px
+  width: auto
+
+  @supports (shape-outside: polygon(0 0))
+    padding-right: 20px
+
+// Letters
+
+.lead-dropCap--b
+  margin-left: -4px // FIXME: Magic number!
+
+.lead-dropCap--c
+  margin-left: -7px // FIXME: Magic number!
+
+.lead-dropCap--e
+  margin-left: -4px // FIXME: Magic number!
+
+.lead-dropCap--f
+  margin-left: -4px // FIXME: Magic number!
+
+.lead-dropCap--g
+  margin-left: -7px // FIXME: Magic number!
+
+.lead-dropCap--i
+  margin-left: -4px // FIXME: Magic number!
+  shape-outside: polygon(0 0, 67.8% 2.65%, 67.8% 52.65%, 66.1% 94.75%, 0% 100%) padding-box
+
+.lead-dropCap--l
+  margin-left: -4px // FIXME: Magic number!
+
+.lead-dropCap--o
+  margin-left: -7px // FIXME: Magic number!
+  shape-outside: polygon(0 0, 69.45% 4.75%, 87.05% 43.8%, 67.6% 99.05%, 0% 100%) padding-box
+
+.lead-dropCap--t
+  margin-left: -4px // FIXME: Magic number!
+
+.lead-dropCap--w
+  margin-left: -10 // FIXME: Magic number!
+  shape-outside: polygon(0 0, 90.3% 3.95%, 79.85% 97.05%, 0% 100%) padding-box
