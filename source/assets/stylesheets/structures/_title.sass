@@ -1,0 +1,26 @@
+// *************************************
+//
+//   Title
+//   -> Article display text
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .title
+//
+// *************************************
+
+.title
+  font-family: $b-fontFamily-robur
+  font-size: 30px
+  line-height: 1.12
+  margin-bottom: $b-space-s
+
+  +respond-to($g-m)
+    font-size: 50px
+
+  +respond-to($g-l)
+    font-size: 90px
+    margin-bottom: $b-space-l
+    padding-top: $b-space
