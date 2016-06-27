@@ -1,5 +1,5 @@
 ---
-description: 'Tutorials on web typography and front-end development.'
+description: 'John D. Jameson presents a bunch of blog posts on web typography.'
 title: 'Web Typography'
 ---
 
@@ -8,12 +8,25 @@ title: 'Web Typography'
 
   latest_post = posts.first
 
+%section.row.bc-black.c-white
+  .cell.well.well--2.well--4_m
+
+    %p.mbs.tsi.tsl.tac.tal_m
+      John D. Jameson
+      %span.c-red (me)
+      presents a&nbsp;bunch&nbsp;of&nbsp;blog&nbsp;posts&nbsp;on
+
+    %h1.srt Web Typography
+    = image_tag 'web-typography.svg', class: 'mv-heroTitle mbs w100p'
+
+    %p.mbf.tac.tar_m.tsi.tsl
+      Because he’s a nerd
+      %span.c-red (and&nbsp;maybe&nbsp;you&nbsp;are,&nbsp;too)
+
 %section.row.mbm--m
   .cell.well.well--l
     .mv-g.mv-g--centered
       .mv-g-b.mv-g-b--3of5_m
-
-        %h1.heading.heading--1.mbl--m The Blog
 
         %h2.heading.heading--2 Latest post
 

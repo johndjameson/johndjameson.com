@@ -13,6 +13,22 @@
   align-items: flex-end
 
 // -------------------------------------
+//   Background Color
+// -------------------------------------
+
+.bc-black
+  background-color: $black
+
+// -------------------------------------
+//   Color
+// -------------------------------------
+
+.c-red
+  color: $red
+.c-white
+  color: $white
+
+// -------------------------------------
 //   Display
 // -------------------------------------
 
@@ -217,6 +233,13 @@
 
 // Responsive
 
++respond-to($g-m)
+
+  .tal_m
+    text-align: left
+  .tar_m
+    text-align: right
+
 +respond-to($g-l)
 
   .tac_l
@@ -236,6 +259,12 @@
   +fontless
     font-size: $b-fontSize-s-fallback
 
+.tsl
+  font-size: $b-fontSize-l
+
+  +fontless
+    font-size: $b-fontSize-l-fallback
+
 // ----- Style ----- //
 
 .tsi
@@ -247,3 +276,10 @@
   font-weight: 400
 .tw7
   font-weight: 700
+
+// -------------------------------------
+//   Width
+// -------------------------------------
+
+.w100p
+  width: 100%
