@@ -63,6 +63,18 @@
   margin: 0
   padding: 0
 
+// ----- Fluid Font Size ----- //
+// -> Resize with browser within range
+
+=fluid-font-size($minSize, $maxSize, $minWidth, $maxWidth)
+  font-size: $minSize
+
+  +respond-to($minWidth)
+    font-size: calc(#{$minSize} + (#{strip-units($maxSize - $minSize)} * (100vw - #{$minWidth}) / (#{strip-units($maxWidth - $minWidth)})))
+
+  +respond-to($maxWidth)
+    font-size: $maxSize
+
 // ----- Fontless ----- //
 // -> Style fallback text
 
