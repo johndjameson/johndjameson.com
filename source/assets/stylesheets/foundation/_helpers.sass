@@ -21,14 +21,6 @@
   @else
     @return ($target / $context) * 1em
 
-// ----- Strip Units ----- //
-// -> Remove number units
-//
-// $number - the value to strip units from
-
-@function strip-units($number)
-  @return $number / ($number * 0 + 1)
-
 // -------------------------------------
 //   Mixins
 // -------------------------------------
@@ -62,18 +54,6 @@
   list-style-type: none
   margin: 0
   padding: 0
-
-// ----- Fluid Font Size ----- //
-// -> Resize with browser within range
-
-=fluid-font-size($minSize, $maxSize, $minWidth, $maxWidth)
-  font-size: $minSize
-
-  +respond-to($minWidth)
-    font-size: calc(#{$minSize} + (#{strip-units($maxSize - $minSize)} * (100vw - #{$minWidth}) / (#{strip-units($maxWidth - $minWidth)})))
-
-  +respond-to($maxWidth)
-    font-size: $maxSize
 
 // ----- Fontless ----- //
 // -> Style fallback text
