@@ -7,14 +7,17 @@
 //   Template (Haml)
 // -------------------------------------
 //
-// %img.manicule
+// .has-manicule
+//
+// .mv-manicule
+//   %img.mv-manicule-image
+//   %p.mv-manicule-text
 //
 // *************************************
 
-.manicule
-  height: auto
+.mv-manicule
   position: absolute
-  right: calc(100% + #{$b-space-xs})
+  right: calc(100% + 6px)
   top: -3px
   width: 70px
 
@@ -24,3 +27,27 @@
 
 .has-manicule
   position: relative
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Image ----- //
+
+.mv-manicule-image
+  display: block
+  width: 100%
+
+// ----- Text ----- //
+
+.mv-manicule-text
+  color: $red
+  display: block
+  font-size: 14px
+  font-weight: 700
+  letter-spacing: 0.1em
+  line-height: 1
+  margin-bottom: 0
+  margin-top: -5px // FIXME: Magic number!
+  text-transform: uppercase
+  text-align: center
