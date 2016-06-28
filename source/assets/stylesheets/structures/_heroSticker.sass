@@ -1,0 +1,43 @@
+// *************************************
+//
+//   Hero Sticker
+//   -> Home page callout
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .has-heroSticker
+//
+// .mv-heroSticker
+//
+// *************************************
+
+.mv-heroSticker
+  align-items: center
+  background: $red
+  border-radius: 50%
+  color: $white
+  display: flex
+  font-family: $b-fontFamily-robur
+  font-size: 20px
+  height: 130px
+  letter-spacing: 0.05em
+  margin: 0
+  position: absolute
+  right: -10px
+  text-align: center
+  text-transform: uppercase
+  top: 0
+  transform: translateY(-50%) rotate(15deg)
+  width: 130px
+
+  +respond-until($g-m)
+    display: none
+
+// -------------------------------------
+//   Context
+// -------------------------------------
+
+.hasheroSticker
+  position: relative
