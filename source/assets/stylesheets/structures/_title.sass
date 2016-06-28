@@ -14,14 +14,21 @@
 .title
   color: $red
   font-family: $b-fontFamily-robur
-  font-size: 30px
+  font-size: 26px
   line-height: 1.12
   margin-bottom: $b-space-s
 
-  +respond-to($g-m)
-    font-size: 50px
-
   +respond-to($g-l)
-    font-size: 90px
+    font-size: 40px
     margin-bottom: $b-space-l
     padding-top: $b-space
+
+  &:first-line
+
+    +respond-to($g-m)
+      color: $black
+      font-size: 60px
+      line-height: 1
+
+    +respond-to($g-l)
+      font-size: 100px

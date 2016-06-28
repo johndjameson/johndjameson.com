@@ -14,9 +14,8 @@
       .mv-g.mv-g--centered_l
         .mv-g-b.mv-g-b--4of5_m.mv-g-b--3of5_l
 
-          .lead.mbl
-            = image_tag "https://fonts.typestudies.com/rococeaux/initials/#{initial}.svg", alt: '', class: "lead-dropCap lead-dropCap--#{initial}"
-            = prevent_widow(page.description[1..-1])
+          .mbl.tw7
+            = prevent_widow(page.description)
 
       .article
         .mv-g.mv-g--centered_l
