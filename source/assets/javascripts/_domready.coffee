@@ -17,7 +17,7 @@ jQuery ($) ->
         run  : -> JDJ.Pages.All()
       },
       {
-        page : 'article'
-        run  : -> JDJ.Pages.Article()
+        page : 'home'
+        run  : -> JDJ.Pages.Home()
       }
     ]
