@@ -30,9 +30,8 @@ title: 'Web Typography'
 
 %section.row.mbm--m
   .cell.well.well--l
-    .mv-g.mv-g--centered
+    .mv-g
       .mv-g-b.mv-g-b--3of5_m
-
         %h2.heading.heading--2 Latest post
 
         .has-manicule.mbl
@@ -50,11 +49,39 @@ title: 'Web Typography'
 
         %h2.heading.heading--2 More posts
 
-    %ul.list
-      - posts.drop(1).each do |post|
-        %li.list-item
-          .mv-g.mv-g--centered
-            .mv-g-b.mv-g-b--2of5_m
-              = link_to post.data.title, post, class: 'link link--underlined'
-            .mv-g-b.mv-g-b--1of5_m
-              %time.tsi.tss= pretty_date(post.data.date)
+        %ul.list
+          - posts.drop(1).each do |post|
+            %li.list-item
+              .mv-g.mv-g--centered
+                .mv-g-b.mv-g-b--2of3_m
+                  = link_to post.data.title, post, class: 'link link--underlined'
+                .mv-g-b.mv-g-b--1of3_m
+                  %time.tsi.tss= pretty_date(post.data.date)
+
+      .mv-g-b.mv-g-b--2of5_m
+        .bdl2px.plm
+          %h2.heading.heading--3 Projects
+
+          %ul.list.list--s.mbm
+            %li.list-item
+              %p.mbf Type Studies
+              = link_to 'typestudies.com', 'https://typestudies.com/', class: 'link link--underlined tss'
+
+          %h2.heading.heading--3 Cool People
+
+          %ul.list.list--s
+            %li.list-item
+              %p.mbf Dan Denney
+              = link_to 'dandenney.com', 'http://dandenney.com/', class: 'link link--underlined tss'
+
+            %li.list-item
+              %p.mbf Drew Barontini
+              = link_to 'drewbarontini.com', 'http://drewbarontini.com/', class: 'link link--underlined tss'
+
+            %li.list-item
+              %p.mbf Drew Powers
+              = link_to 'pow.rs', 'http://pow.rs/', class: 'link link--underlined tss'
+
+            %li.list-item
+              %p.mbf James Blevins
+              = link_to 'james-blevins.com', 'http://www.james-blevins.com/', class: 'link link--underlined tss'
