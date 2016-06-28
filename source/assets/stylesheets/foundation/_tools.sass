@@ -23,8 +23,12 @@
 //   Border
 // -------------------------------------
 
-.bdl2px
-  border-left: 2px solid $black
+// Responsive
+
++respond-to($g-m)
+
+  .bdl2px_m
+    border-left: 2px solid $black
 
 // -------------------------------------
 //   Color
@@ -84,6 +88,11 @@
   margin-bottom: $b-space-xl
 
 // Responsive
+
++respond-until($g-m)
+
+  .mbl_M
+    margin-bottom: $b-space-l
 
 +respond-to($g-m)
 
@@ -194,7 +203,7 @@
 
 +respond-to($g-m)
 
-  .plm--m
+  .plm_m
     padding-left: $b-space
 
 // ----- Right ----- //
