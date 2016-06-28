@@ -69,13 +69,13 @@
 // ----- Respond-to ----- //
 // -> Generate a media query
 //
-// $val - the breakpoint size
+// $value - the breakpoint size
 // $query - the type of query ('min-width', 'max-width')
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-to($val, $query: min-width, $media: screen)
-  @media #{$media} and ($query: $val)
+=respond-to($value, $query: min-width, $media: screen)
+  @media #{$media} and ($query: $value)
     @content
 
 // ----- Respond-within ----- //
@@ -88,6 +88,16 @@
 
 =respond-within($min, $max, $media: screen)
   @media #{$media} and (min-width: $min) and (max-width: $max)
+    @content
+
+// ----- Respond-to ----- //
+// -> Generate a media query
+//
+// $value - the breakpoint size
+// @content - the generated content within the mixin
+
+=respond-until($value, $media: screen)
+  @media #{$media} and (max-width: $value - 1px)
     @content
 
 // ----- State ----- //
