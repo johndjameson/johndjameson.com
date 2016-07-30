@@ -14,8 +14,9 @@
 //
 // *************************************
 
-.list
-  @extend .lr
+.list {
+  @extend .lr;
+}
 
 // -------------------------------------
 //   Modifiers
@@ -23,36 +24,41 @@
 
 // ----- Bulleted ----- //
 
-.list--bulleted
+.list--bulleted {
+  > .list-item {
+    position: relative;
 
-  > .list-item
-    position: relative
-
-    &::before
-      content: '▫ '
-      position: absolute
-      right: 100%
-      top: 0
-      white-space: pre
+    &::before {
+      content: "▫ ";
+      position: absolute;
+      right: 100%;
+      top: 0;
+      white-space: pre;
+    }
+  }
+}
 
 // ----- Divided ----- //
 
-.list--divided
+.list--divided {
+  > .list-item {
+    border-bottom: $b-border;
+    padding-bottom: $b-space;
 
-  > .list-item
-    border-bottom: $b-border
-    padding-bottom: $b-space
-
-    &:last-child
-      border-bottom: 0
-      padding-bottom: 0
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+  }
+}
 
 // ----- Sizes ----- //
 
-.list--s
-
-  > .list-item
-    margin-bottom: $b-space-s
+.list--s {
+  > .list-item {
+    margin-bottom: $b-space-s;
+  }
+}
 
 // -------------------------------------
 //   Scaffolding
@@ -60,9 +66,11 @@
 
 // ----- Item ----- //
 
-.list-item
-  display: block
-  margin-bottom: $b-space
+.list-item {
+  display: block;
+  margin-bottom: $b-space;
 
-  &:last-child
-    margin-bottom: 0
+  &:last-child {
+    margin-bottom: 0;
+  }
+}

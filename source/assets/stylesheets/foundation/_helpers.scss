@@ -15,11 +15,14 @@
 // $target - the target pixel size
 // $context - the context font-size
 
-@function em($target, $context: $b-fontSize)
-  @if ($target == 0)
-    @return 0
-  @else
-    @return ($target / $context) * 1em
+@function em($target, $context: $b-fontSize) {
+  @if $target == 0 {
+    @return 0;
+  }
+  @else {
+    @return $target / $context * 1em;
+  }
+}
 
 // -------------------------------------
 //   Mixins
@@ -28,43 +31,52 @@
 // ----- Action ----- //
 // -> Sets clickable element defaults
 
-=action
-  border: 0
-  cursor: pointer
-  display: inline-block
-  text-align: center
-  text-decoration: none
-  transition: $b-transition
-  user-select: none
-  white-space: nowrap
+@mixin action {
+  border: 0;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+  transition: $b-transition;
+  user-select: none;
+  white-space: nowrap;
+}
 
 // ----- Clearix ----- //
 // -> Contain floats
 
-=clearfix
-  &::after
-    clear: both
-    content: ''
-    display: table
+@mixin clearfix {
+  &::after {
+    clear: both;
+    content: "";
+    display: table;
+  }
+}
 
 // ----- List Reset ----- //
 // -> Removes default list styles
 
-=list-reset
-  list-style-type: none
-  margin: 0
-  padding: 0
+@mixin list-reset {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
 
 // ----- Fontless ----- //
 // -> Style fallback text
 
-=fontless
-  @if is-superselector('html', &)
-    &:not(.wf-active)
-      @content
-  @else
-    html:not(.wf-active) &
-      @content
+@mixin fontless {
+  @if is-superselector("html", &) {
+    &:not(.wf-active) {
+      @content;
+    }
+  }
+  @else {
+    html:not(.wf-active) & {
+      @content;
+    }
+  }
+}
 
 // ----- Respond-to ----- //
 // -> Generate a media query
@@ -74,9 +86,11 @@
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-to($value, $query: min-width, $media: screen)
-  @media #{$media} and ($query: $value)
-    @content
+@mixin respond-to($value, $query: min-width, $media: screen) {
+  @media #{$media} and ($query: $value) {
+    @content;
+  }
+}
 
 // ----- Respond-within ----- //
 // -> Generates a media query within a range
@@ -86,9 +100,11 @@
 // $media - the media type ('screen', 'print', etc.)
 // @content - the generated content within the mixin
 
-=respond-within($min, $max, $media: screen)
-  @media #{$media} and (min-width: $min) and (max-width: $max)
-    @content
+@mixin respond-within($min, $max, $media: screen) {
+  @media #{$media} and (min-width: $min) and (max-width: $max) {
+    @content;
+  }
+}
 
 // ----- Respond-to ----- //
 // -> Generate a media query
@@ -96,24 +112,29 @@
 // $value - the breakpoint size
 // @content - the generated content within the mixin
 
-=respond-until($value, $media: screen)
-  @media #{$media} and (max-width: $value - 1px)
-    @content
+@mixin respond-until($value, $media: screen) {
+  @media #{$media} and (max-width: $value - 1px) {
+    @content;
+  }
+}
 
 // ----- State ----- //
 // -> Combines state-related pseudo-classes
 //
 // $class - an optional state class ('is-active')
 
-=state($class: false)
-
-  @if $class
-    &:active, &:focus, &:hover, &.#{$class}
-      @content
-
-  @else
-    &:active, &:focus, &:hover
-      @content
+@mixin state($class: false) {
+  @if $class {
+    &:active, &:focus, &:hover, &.#{$class} {
+      @content;
+    }
+  }
+  @else {
+    &:active, &:focus, &:hover {
+      @content;
+    }
+  }
+}
 
 // -------------------------------------
 //   Extends
@@ -121,20 +142,22 @@
 
 // ----- List Reset ----- //
 
-.lr
-  +list-reset
+.lr {
+  @include list-reset;
+}
 
 // ----- Semantic Hide ----- //
 
-.srt
-  border: 0
-  clip: rect(0 0 0 0)
-  height: 1px
-  margin: -1px
-  overflow: hidden
-  padding: 0
-  position: absolute
-  width: 1px
+.srt {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
 
 // -------------------------------------
 //   Animations

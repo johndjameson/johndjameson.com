@@ -12,9 +12,10 @@
 //
 // *************************************
 
-.well
-  margin-bottom: $b-space
-  margin-top: $b-space
+.well {
+  margin-bottom: $b-space;
+  margin-top: $b-space;
+}
 
 // -------------------------------------
 //   Modifiers
@@ -22,22 +23,26 @@
 
 // ----- Sizes ----- //
 
-.well--l
-  margin-bottom: $b-space-l
-  margin-top: $b-space-l
+.well--l {
+  margin-bottom: $b-space-l;
+  margin-top: $b-space-l;
+}
 
-.well--2
-  margin-bottom: $b-space * 2
-  margin-top: $b-space * 2
+.well--2 {
+  margin-bottom: $b-space * 2;
+  margin-top: $b-space * 2;
+}
 
-.well--4
-  margin-bottom: $b-space * 4
-  margin-top: $b-space * 4
+.well--4 {
+  margin-bottom: $b-space * 4;
+  margin-top: $b-space * 4;
+}
 
 // Responsive
 
-+respond-to($g-m)
-
-  .well--4_m
-    margin-bottom: $b-space * 4
-    margin-top: $b-space * 4
+@include respond-to($g-m) {
+  .well--4_m {
+    margin-bottom: $b-space * 4;
+    margin-top: $b-space * 4;
+  }
+}

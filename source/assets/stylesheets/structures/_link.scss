@@ -1,0 +1,54 @@
+// *************************************
+//
+//   Link
+//   -> Actionable text
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .link[underlined]
+//
+// *************************************
+
+.link, %link {
+  color: inherit;
+  font-weight: inherit;
+  text-decoration: none;
+}
+
+// -------------------------------------
+//   Modifiers
+// -------------------------------------
+
+// ----- Underlined ----- //
+
+.link--underlined, %link--underlined {
+  $shadow-offset: 0.5px;
+
+  background-image: linear-gradient(to bottom, transparent 75%, currentColor 75%);
+  background-position: 0 calc(100% - 0.25em);
+  background-repeat: repeat-x;
+  background-size: 1px 2px;
+  text-shadow: (-$shadow-offset - $shadow-offset) 0 $c-background, ($shadow-offset - $shadow-offset) 0 $c-background, (-$shadow-offset) $shadow-offset 0 $c-background, $shadow-offset $shadow-offset 0 $c-background;
+
+  @include state {
+    background-image: linear-gradient(to bottom, transparent 25%, $red 25%);
+    color: $red;
+  }
+
+
+  @include fontless {
+    background-position: 0 calc(100% - 0.125em);
+  }
+}
+
+// Small
+
+.link--underlined--s {
+  background-position: 0 calc(100% - 0.175em);
+
+  @include fontless {
+    background-position: 0 calc(100% - 0.1em);
+  }
+}

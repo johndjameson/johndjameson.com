@@ -15,18 +15,20 @@
 //
 // *************************************
 
-.mv-manicule
-  position: absolute
-  right: calc(100% + 6px)
-  top: -3px
-  width: 70px
+.mv-manicule {
+  position: absolute;
+  right: calc(100% + 6px);
+  top: -3px;
+  width: 70px;
+}
 
 // -------------------------------------
 //   Context
 // -------------------------------------
 
-.has-manicule
-  position: relative
+.has-manicule {
+  position: relative;
+}
 
 // -------------------------------------
 //   Scaffolding
@@ -34,20 +36,22 @@
 
 // ----- Image ----- //
 
-.mv-manicule-image
-  display: block
-  width: 100%
+.mv-manicule-image {
+  display: block;
+  width: 100%;
+}
 
 // ----- Text ----- //
 
-.mv-manicule-text
-  color: $red
-  display: block
-  font-size: 14px
-  font-weight: 700
-  letter-spacing: 0.1em
-  line-height: 1
-  margin-bottom: 0
-  margin-top: -5px // FIXME: Magic number!
-  text-transform: uppercase
-  text-align: center
+.mv-manicule-text {
+  color: $red;
+  display: block;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  line-height: 1;
+  margin-bottom: 0;
+  margin-top: -5px;
+  text-transform: uppercase;
+  text-align: center;
+}

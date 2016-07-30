@@ -1,0 +1,89 @@
+// *************************************
+//
+//   Article
+//   -> Markdown document
+//
+// -------------------------------------
+//   Template (Haml)
+// -------------------------------------
+//
+// .article[...]
+//
+// *************************************
+
+.article {
+  // -------------------------------------
+  //   Block Content
+  // -------------------------------------
+
+  h2 {
+    @extend .heading;
+
+    @extend .heading--2;
+
+    margin-top: $b-space;
+
+    @include respond-to($g-l) {
+      margin-top: $b-space-l;
+    }
+  }
+
+  h3 {
+    @extend .heading;
+
+    margin-top: $b-space;
+  }
+
+  ul, ol {
+    @include list-reset;
+
+    list-style-type: square;
+    margin-bottom: $b-space;
+
+    > li {
+      margin-bottom: $b-space-s;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  iframe {
+    margin-bottom: $b-space;
+  }
+
+  img {
+    display: block;
+    margin: 0 auto;
+  }
+
+  // -------------------------------------
+  //   Inline Content
+  // -------------------------------------
+
+  a:not([class]) {
+    @extend %link;
+
+    @extend %link--underlined;
+  }
+
+  code, kbd {
+    background: #f3f3f1;
+    font-family: $b-fontFamily-mono;
+    font-size: 90%;
+    letter-spacing: -0.025ch;
+    padding-left: 0.25ch;
+    padding-right: 0.25ch;
+  }
+}
+
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+.article-footer {
+  border-top: $b-border;
+  margin-top: $b-space-xl;
+  padding-top: $b-space;
+}

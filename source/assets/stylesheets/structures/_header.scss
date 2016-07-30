@@ -12,12 +12,14 @@
 //
 // *************************************
 
-.mv-header
-  border-bottom: 1px solid $black
-  padding-bottom: 3px
+.mv-header {
+  border-bottom: 1px solid $black;
+  padding-bottom: 3px;
 
-  &::after
-    background: $black
-    content: ''
-    display: block
-    height: 4px
+  &::after {
+    background: $black;
+    content: "";
+    display: block;
+    height: 4px;
+  }
+}

@@ -18,9 +18,10 @@
 //
 // *************************************
 
-.split
-  align-items: baseline
-  display: flex
+.split {
+  align-items: baseline;
+  display: flex;
+}
 
 // -------------------------------------
 //   Scaffolding
@@ -28,10 +29,12 @@
 
 // ----- Cell ----- //
 
-.split-cell
+.split-cell {
+  &:first-child {
+    flex-grow: 1;
+  }
 
-  &:first-child
-    flex-grow: 1
-
-  &:last-child
-    flex-shrink: 0
+  &:last-child {
+    flex-shrink: 0;
+  }
+}

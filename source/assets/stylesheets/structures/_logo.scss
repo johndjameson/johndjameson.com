@@ -1,19 +1,22 @@
 // *************************************
 //
-//   Cell
-//   -> Width-limiting blocks
+//   Logo
+//   -> Brand mark
 //
 // -------------------------------------
 //   Template (Haml)
 // -------------------------------------
 //
-// .cell
-//   / ...
+// %img.logo
 //
 // *************************************
 
-.cell
-  margin-left: auto
-  margin-right: auto
-  max-width: $b-maxWidth
-  position: relative
+.logo {
+  height: $logo-size;
+  width: $logo-size;
+
+  @include respond-to($g-m) {
+    height: $logo-size-b;
+    width: $logo-size-b;
+  }
+}

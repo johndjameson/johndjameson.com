@@ -12,10 +12,12 @@
 //
 // *************************************
 
-.row
-  border-bottom: 1px solid transparent
-  border-top: 1px solid transparent
-  padding: 0 $b-space
+.row {
+  border-bottom: 1px solid transparent;
+  border-top: 1px solid transparent;
+  padding: 0 $b-space;
 
-  +respond-to($g-m)
-    padding: 0 $b-space-l
+  @include respond-to($g-m) {
+    padding: 0 $b-space-l;
+  }
+}
