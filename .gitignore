@@ -3,7 +3,8 @@
 /.bundle
 /.sass-cache
 /Rakefile
-/build/
 /bower_components/
+/build/
 /node_modules/
 /source/assets/javascripts/vendor/
+*.sublime-workspace
