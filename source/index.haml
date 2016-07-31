@@ -49,7 +49,7 @@ title: 'Web Typography'
 
         %h2.heading.heading--2 More posts
 
-        %ul.list
+        %ul.list.mbl
           - posts.drop(1).each do |post|
             %li.list-item
               .mv-g.mv-g--centered
@@ -57,6 +57,17 @@ title: 'Web Typography'
                   = link_to post.data.title, post, class: 'link link--underlined'
                 .mv-g-b.mv-g-b--1of3_m
                   %time.tsi.tss= pretty_date(post.data.date)
+
+        %h2.heading.heading--2 On the Code School Blog
+
+        %ul.list
+          - data.codeschool_posts.each do |post|
+            %li.list-item
+              .mv-g.mv-g--centered
+                .mv-g-b.mv-g-b--2of3_m
+                  = link_to post.title, post.url, class: 'link link--underlined'
+                .mv-g-b.mv-g-b--1of3_m
+                  %time.tsi.tss= post.date
 
       .mv-g-b.mv-g-b--2of5_m
         .bdl2px_m.plm_m
