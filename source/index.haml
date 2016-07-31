@@ -14,7 +14,7 @@ title: 'Web Typography'
     %p.mbs.tsi.tsl.tac.tal_m
       John D. Jameson
       %span.c-red (me)
-      wrote a&nbsp;bunch&nbsp;of&nbsp;blog&nbsp;posts&nbsp;on
+      presents a&nbsp;bunch&nbsp;of&nbsp;things&nbsp;about
 
     %h1.srt Web Typography
     = image_tag 'web-typography.svg', width: 975, height: 65, class: 'mv-heroTitle mbs w100p'
@@ -23,10 +23,15 @@ title: 'Web Typography'
       Because he’s a nerd
       %span.c-red (and&nbsp;maybe&nbsp;you&nbsp;are,&nbsp;too)
 
-.row
-  .cell
-    .has-heroSticker
-      %p.mv-heroSticker.mbf.js-heroSticker
+%section.row
+  .cell.well.well--l
+    .mv-g.has-cropHeight
+      .mv-g-b.mv-g-b--3of5_m.mbm.mbf--m
+        = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
+
+      .mv-g-b.mv-g-b--2of5_m.has-cropHeight
+        .mv-cropHeight_m.mv-thumbnail
+          = image_tag 'type-specimens@2x.jpg', class: 'mv-thumbnail-media'
 
 %section.row.mbm--m
   .cell.well.well--l
@@ -71,17 +76,6 @@ title: 'Web Typography'
 
       .mv-g-b.mv-g-b--2of5_m
         .bdl2px_m.plm_m
-          %h2.heading.heading--3.mbs Projects
-
-          %ul.list.list--s.mbm
-            %li.list-item
-              %p.mbf Type Specimens
-              = link_to 'typespecimens.io', links.typespecimens, class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Type Studies
-              = link_to 'typestudies.com', links.typestudies, class: 'link link--underlined tss'
-
           %h2.heading.heading--3.mbs Cool People
 
           %ul.list.list--s
