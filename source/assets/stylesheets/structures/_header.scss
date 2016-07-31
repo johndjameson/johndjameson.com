@@ -12,14 +12,17 @@
 //
 // *************************************
 
-.mv-header {
-  border-bottom: 1px solid $black;
-  padding-bottom: 3px;
+// .mv-header {}
 
-  &::after {
-    background: $black;
-    content: "";
-    display: block;
-    height: 4px;
-  }
+// -------------------------------------
+//   Scaffolding
+// -------------------------------------
+
+// ----- Rule ----- //
+
+.mv-header-rule {
+  border-bottom: 1px solid $black;
+  border-top: 4px solid $black;
+  display: block;
+  height: 3px;
 }

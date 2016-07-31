@@ -1,3 +1,5 @@
+- isHome = current_page.path == 'index.html'
+
 %header.mv-header{ role: 'banner' }
   .row
     .cell.well
@@ -8,7 +10,7 @@
             = link_to '/index.html', class: 'db mrm' do
               = image_tag 'johndjameson-logo.svg', class: 'db logo'
 
-            - unless current_page.path == 'index.html'
+            - unless isHome
               %div.dn.db_m
                 %p.mbf.tss.tw7 John D. Jameson
                 %p.mbf.tsi.tss Blog posts on web typography
@@ -16,3 +18,7 @@
         .mv-g-b.mv-g-b--2of5.mv-g-b--1of5_m.tar
 
           = link_to 'About', '/about.html', class: 'tss tw7'
+
+    - unless isHome
+      .cell
+        .mv-header-rule
