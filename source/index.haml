@@ -30,10 +30,13 @@ title: 'Web Typography'
 
     .mv-g.has-cropHeight
       .mv-g-b.mv-g-b--3of5_m.mbm.mbf--m
-        = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
+        = link_to links.typestudies, class: 'db' do
+          %p.srt Type Specimens
+          = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
 
       .mv-g-b.mv-g-b--2of5_m.has-cropHeight
-        .mv-cropHeight_m.mv-thumbnail
+        = link_to links.typestudies, class: 'mv-cropHeight_m mv-thumbnail' do
+          %p.srt Type Studies
           = image_tag 'type-specimens@2x.jpg', class: 'mv-thumbnail-media w100p'
 
 %section.row.mbm--m
