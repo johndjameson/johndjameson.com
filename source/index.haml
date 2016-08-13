@@ -25,6 +25,9 @@ title: 'Web Typography'
 
 %section.row
   .cell.well.well--l.mbf
+    .mv-strikeAround.mbl
+      %h2.heading--uppercase Projects
+
     .mv-g.has-cropHeight
       .mv-g-b.mv-g-b--3of5_m.mbm.mbf--m
         = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
@@ -35,9 +38,12 @@ title: 'Web Typography'
 
 %section.row.mbm--m
   .cell.well.well--l
+    .mv-strikeAround.mbl
+      %h2.heading--uppercase Blog Posts
+
     .mv-g
       .mv-g-b.mv-g-b--3of5_m.mbl_M
-        %h2.heading.heading--2 Latest post
+        %h3.heading.heading--2 Latest Post
 
         .has-manicule.mbl
           .mv-manicule.dn_1180
@@ -52,7 +58,7 @@ title: 'Web Typography'
 
           = link_to 'Continue Reading', latest_post, class: 'link link--underlined link--underlined--s tss'
 
-        %h2.heading.heading--2 More posts
+        %h3.heading.heading--2 More Posts
 
         %ul.list
           - posts.drop(1).each do |post|
@@ -64,12 +70,11 @@ title: 'Web Typography'
                   %time.tsi.tss= pretty_date(post.data.date)
 
       .mv-g-b.mv-g-b--2of5_m
-        .bdl2px_m.plm_m
-          %h2.heading.heading--2 Code School Blog
+        %h3.heading.heading--2 Code School Blog
 
-          %ul.list
-            - data.codeschool_posts.each do |post|
-              %li.list-item
-                %p.mbf
-                  = link_to post.title, post.url, class: 'link link--underlined'
-                %time.tsi.tss= post.date
+        %ul.list
+          - data.codeschool_posts.each do |post|
+            %li.list-item
+              %p.mbf
+                = link_to post.title, post.url, class: 'link link--underlined'
+              %time.tsi.tss= post.date
