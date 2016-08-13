@@ -14,7 +14,7 @@ title: 'Web Typography'
     %p.mbs.tsi.tsl.tac.tal_m
       John D. Jameson
       %span.c-red (me)
-      wrote a&nbsp;bunch&nbsp;of&nbsp;blog&nbsp;posts&nbsp;on
+      presents a&nbsp;bunch&nbsp;of&nbsp;things&nbsp;about
 
     %h1.srt Web Typography
     = image_tag 'web-typography.svg', width: 975, height: 65, class: 'mv-heroTitle mbs w100p'
@@ -23,16 +23,30 @@ title: 'Web Typography'
       Because he’s a nerd
       %span.c-red (and&nbsp;maybe&nbsp;you&nbsp;are,&nbsp;too)
 
-.row
-  .cell
-    .has-heroSticker
-      %p.mv-heroSticker.mbf.js-heroSticker
+%section.row
+  .cell.well.well--l.mbf
+    .mv-strikeAround.mbl
+      %h2.heading--uppercase Projects
+
+    .mv-g.has-cropHeight
+      .mv-g-b.mv-g-b--3of5_m.mbm.mbf--m
+        = link_to links.typestudies, class: 'db' do
+          %p.srt Type Specimens
+          = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
+
+      .mv-g-b.mv-g-b--2of5_m.has-cropHeight
+        = link_to links.typestudies, class: 'mv-cropHeight_m mv-thumbnail' do
+          %p.srt Type Studies
+          = image_tag 'type-specimens@2x.jpg', class: 'mv-thumbnail-media w100p'
 
 %section.row.mbm--m
   .cell.well.well--l
+    .mv-strikeAround.mbl
+      %h2.heading--uppercase Blog Posts
+
     .mv-g
       .mv-g-b.mv-g-b--3of5_m.mbl_M
-        %h2.heading.heading--2 Latest post
+        %h3.heading.heading--2 Latest Post
 
         .has-manicule.mbl
           .mv-manicule.dn_1180
@@ -47,9 +61,9 @@ title: 'Web Typography'
 
           = link_to 'Continue Reading', latest_post, class: 'link link--underlined link--underlined--s tss'
 
-        %h2.heading.heading--2 More posts
+        %h3.heading.heading--2 More Posts
 
-        %ul.list.mbl
+        %ul.list
           - posts.drop(1).each do |post|
             %li.list-item
               .mv-g.mv-g--centered
@@ -58,45 +72,12 @@ title: 'Web Typography'
                 .mv-g-b.mv-g-b--1of3_m
                   %time.tsi.tss= pretty_date(post.data.date)
 
-        %h2.heading.heading--2 On the Code School Blog
+      .mv-g-b.mv-g-b--2of5_m
+        %h3.heading.heading--2 Code School Blog
 
         %ul.list
           - data.codeschool_posts.each do |post|
             %li.list-item
-              .mv-g.mv-g--centered
-                .mv-g-b.mv-g-b--2of3_m
-                  = link_to post.title, post.url, class: 'link link--underlined'
-                .mv-g-b.mv-g-b--1of3_m
-                  %time.tsi.tss= post.date
-
-      .mv-g-b.mv-g-b--2of5_m
-        .bdl2px_m.plm_m
-          %h2.heading.heading--3.mbs Projects
-
-          %ul.list.list--s.mbm
-            %li.list-item
-              %p.mbf Type Specimens
-              = link_to 'typespecimens.io', links.typespecimens, class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Type Studies
-              = link_to 'typestudies.com', links.typestudies, class: 'link link--underlined tss'
-
-          %h2.heading.heading--3.mbs Cool People
-
-          %ul.list.list--s
-            %li.list-item
-              %p.mbf Dan Denney
-              = link_to 'dandenney.com', 'http://dandenney.com/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Drew Barontini
-              = link_to 'drewbarontini.com', 'http://drewbarontini.com/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Drew Powers
-              = link_to 'pow.rs', 'http://pow.rs/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf James Blevins
-              = link_to 'james-blevins.com', 'http://www.james-blevins.com/', class: 'link link--underlined tss'
+              %p.mbf
+                = link_to post.title, post.url, class: 'link link--underlined'
+              %time.tsi.tss= post.date
