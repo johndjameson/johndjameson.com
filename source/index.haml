@@ -24,14 +24,14 @@ title: 'Web Typography'
       %span.c-red (and&nbsp;maybe&nbsp;you&nbsp;are,&nbsp;too)
 
 %section.row
-  .cell.well.well--l
+  .cell.well.well--l.mbf
     .mv-g.has-cropHeight
       .mv-g-b.mv-g-b--3of5_m.mbm.mbf--m
         = image_tag 'type-studies@2x.png', class: 'mv-thumbnail'
 
       .mv-g-b.mv-g-b--2of5_m.has-cropHeight
         .mv-cropHeight_m.mv-thumbnail
-          = image_tag 'type-specimens@2x.jpg', class: 'mv-thumbnail-media'
+          = image_tag 'type-specimens@2x.jpg', class: 'mv-thumbnail-media w100p'
 
 %section.row.mbm--m
   .cell.well.well--l
@@ -54,7 +54,7 @@ title: 'Web Typography'
 
         %h2.heading.heading--2 More posts
 
-        %ul.list.mbl
+        %ul.list
           - posts.drop(1).each do |post|
             %li.list-item
               .mv-g.mv-g--centered
@@ -63,34 +63,13 @@ title: 'Web Typography'
                 .mv-g-b.mv-g-b--1of3_m
                   %time.tsi.tss= pretty_date(post.data.date)
 
-        %h2.heading.heading--2 On the Code School Blog
-
-        %ul.list
-          - data.codeschool_posts.each do |post|
-            %li.list-item
-              .mv-g.mv-g--centered
-                .mv-g-b.mv-g-b--2of3_m
-                  = link_to post.title, post.url, class: 'link link--underlined'
-                .mv-g-b.mv-g-b--1of3_m
-                  %time.tsi.tss= post.date
-
       .mv-g-b.mv-g-b--2of5_m
         .bdl2px_m.plm_m
-          %h2.heading.heading--3.mbs Cool People
+          %h2.heading.heading--2 Code School Blog
 
-          %ul.list.list--s
-            %li.list-item
-              %p.mbf Dan Denney
-              = link_to 'dandenney.com', 'http://dandenney.com/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Drew Barontini
-              = link_to 'drewbarontini.com', 'http://drewbarontini.com/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf Drew Powers
-              = link_to 'pow.rs', 'http://pow.rs/', class: 'link link--underlined tss'
-
-            %li.list-item
-              %p.mbf James Blevins
-              = link_to 'james-blevins.com', 'http://www.james-blevins.com/', class: 'link link--underlined tss'
+          %ul.list
+            - data.codeschool_posts.each do |post|
+              %li.list-item
+                %p.mbf
+                  = link_to post.title, post.url, class: 'link link--underlined'
+                %time.tsi.tss= post.date
