@@ -73,6 +73,15 @@ title: 'Web Typography'
                   %time.tsi.tss= pretty_date(post.data.date)
 
       .mv-g-b.mv-g-b--2of5_m
+        %h3.heading.heading--2 CSS-Tricks
+
+        %ul.list.mbm
+          - data.css_tricks_posts.each do |post|
+            %li.list-item
+              %p.mbf
+                = link_to post.title, post.url, class: 'link link--underlined'
+              %time.tsi.tss= post.date
+
         %h3.heading.heading--2 Code School Blog
 
         %ul.list
