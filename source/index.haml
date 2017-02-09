@@ -73,6 +73,15 @@ title: 'Web Typography'
                   %time.tsi.tss= pretty_date(post.data.date)
 
       .mv-g-b.mv-g-b--2of5_m
+        %h3.heading.heading--2 Interviews
+
+        %ul.list.mbm
+          - data.interviews.each do |interview|
+            %li.list-item
+              %p.mbf
+                = link_to interview.title, interview.url, class: 'link link--underlined'
+              %time.tsi.tss= interview.date
+
         %h3.heading.heading--2 CSS-Tricks
 
         %ul.list.mbm
