@@ -13,6 +13,10 @@ const Header = () => (
               <Link className='db mrm' href='/'>
                 <img className='db logo' src={logo} alt='' />
               </Link>
+              <div class='dn db_m'>
+                <p class='mbf tss tw7'>John D. Jameson</p>
+                <p class='mbf tsi tss'>Blog posts on web typography</p>
+              </div>
             </div>
           </div>
         </div>
