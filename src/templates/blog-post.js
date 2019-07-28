@@ -4,44 +4,42 @@ import { graphql } from 'gatsby'
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-class BlogPostTemplate extends React.Component {
-  render() {
-    const post = this.props.data.markdownRemark
-    const siteTitle = this.props.data.site.siteMetadata.title
+function BlogPostTemplate({ data, location }) {
+  const post = data.markdownRemark
+  const siteTitle = data.site.siteMetadata.title
 
-    return (
-      <Layout location={this.props.location} title={siteTitle}>
-        <SEO
-          description={post.frontmatter.description || post.excerpt}
-          title={post.frontmatter.title}
-        />
+  return (
+    <Layout location={location} title={siteTitle}>
+      <SEO
+        description={post.frontmatter.description || post.excerpt}
+        title={post.frontmatter.title}
+      />
 
-        <article class='row'>
-          <section class='cell well well--l'>
-            <div class='mv-g mv-g--centered_l'>
-              <div class='mv-g-b mv-g-b--4of5_m mv-g-b--5of5_l'>
-                <h1 class='title tac_l'>{post.frontmatter.title}</h1>
-              </div>
+      <article class='row'>
+        <section class='cell well well--l'>
+          <div class='mv-g mv-g--centered_l'>
+            <div class='mv-g-b mv-g-b--4of5_m mv-g-b--5of5_l'>
+              <h1 class='title tac_l'>{post.frontmatter.title}</h1>
             </div>
+          </div>
 
+          <div class='mv-g mv-g--centered_l'>
+            <div class='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
+              <div class='mbm mbl_l tw7'>{post.frontmatter.description}</div>
+            </div>
+          </div>
+
+          <div class='article'>
             <div class='mv-g mv-g--centered_l'>
               <div class='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
-                <div class='mbm mbl_l tw7'>{post.frontmatter.description}</div>
+                <div dangerouslySetInnerHTML={{ __html: post.html }} />
               </div>
             </div>
-
-            <div class='article'>
-              <div class='mv-g mv-g--centered_l'>
-                <div class='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
-                  <div dangerouslySetInnerHTML={{ __html: post.html }} />
-                </div>
-              </div>
-            </div>
-          </section>
-        </article>
-      </Layout>
-    )
-  }
+          </div>
+        </section>
+      </article>
+    </Layout>
+  )
 }
 
 export default BlogPostTemplate

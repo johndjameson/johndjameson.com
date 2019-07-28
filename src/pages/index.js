@@ -86,7 +86,7 @@ const IndexPage = () => (
                 </div>
                 <Link
                   className='link link--underlined'
-                  to='/styling-fallback-fonts-with-sass'
+                  to='/blog/styling-fallback-fonts-with-sass'
                 >
                   Styling Fallback Fonts with Sass
                 </Link>
@@ -99,7 +99,7 @@ const IndexPage = () => (
                 </p>
                 <Link
                   className='link link--underlined link--underlined--s tss'
-                  to='/styling-fallback-fonts-with-sass'
+                  to='/blog/styling-fallback-fonts-with-sass'
                 >
                   Continue Reading
                 </Link>
@@ -111,7 +111,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/sidebearings-and-alignment'
+                        to='/blog/sidebearings-and-alignment'
                       >
                         Sidebearings &amp; Alignment
                       </Link>
@@ -126,7 +126,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/making-sense-of-ch-units'
+                        to='/blog/making-sense-of-ch-units'
                       >
                         Making Sense of Ch Units
                       </Link>
@@ -141,7 +141,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/kerning-and-ligatures-in-letterspaced-type'
+                        to='/blog/kerning-and-ligatures-in-letterspaced-type'
                       >
                         Kerning &amp; Ligatures in Letterspaced Type
                       </Link>
@@ -156,7 +156,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/guidelines-for-letterspacing-type'
+                        to='/blog/guidelines-for-letterspacing-type'
                       >
                         Guidelines for Letterspacing Type
                       </Link>
@@ -171,7 +171,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/typographic-units-in-css'
+                        to='/blog/typographic-units-in-css'
                       >
                         Typographic Units in CSS
                       </Link>
@@ -186,7 +186,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/data-attributes-for-keyboard-shortcuts'
+                        to='/blog/data-attributes-for-keyboard-shortcuts'
                       >
                         Data Attributes for Keyboard Shortcuts
                       </Link>
@@ -201,7 +201,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/filtering-google-results-with-alfred'
+                        to='/blog/filtering-google-results-with-alfred'
                       >
                         Filtering Google Results with Alfred
                       </Link>
@@ -216,7 +216,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/updating-your-shell-with-homebrew'
+                        to='/blog/updating-your-shell-with-homebrew'
                       >
                         Updating Your Shell with Homebrew
                       </Link>
@@ -231,7 +231,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/using-emmet-with-sublime-text'
+                        to='/blog/using-emmet-with-sublime-text'
                       >
                         Using Emmet with Sublime Text
                       </Link>
@@ -246,7 +246,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/ampersands-and-google-fonts'
+                        to='/blog/ampersands-and-google-fonts'
                       >
                         Ampersands &amp; Google Fonts
                       </Link>
@@ -261,7 +261,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/responsive-sidenotes'
+                        to='/blog/responsive-sidenotes'
                       >
                         Responsive Sidenotes
                       </Link>
