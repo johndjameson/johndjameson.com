@@ -1,15 +1,13 @@
 import React from 'react'
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql } from 'gatsby'
 
 import Layout from '../components/layout'
 import SEO from '../components/seo'
 
-function BlogPostTemplate({ data, location }) {
-  const post = data.markdownRemark
-  const siteTitle = data.site.siteMetadata.title
-
+function PageTemplate({ data: { mdx: post } }) {
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout>
       <SEO
         description={post.frontmatter.description || post.excerpt}
         title={post.frontmatter.title}
@@ -32,7 +30,7 @@ function BlogPostTemplate({ data, location }) {
           <div class='article'>
             <div class='mv-g mv-g--centered_l'>
               <div class='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
-                <div dangerouslySetInnerHTML={{ __html: post.html }} />
+                <MDXRenderer>{post.body}</MDXRenderer>
               </div>
             </div>
           </div>
@@ -42,25 +40,17 @@ function BlogPostTemplate({ data, location }) {
   )
 }
 
-export default BlogPostTemplate
+export default PageTemplate
 
 export const pageQuery = graphql`
-  query BlogPostBySlug($slug: String!) {
-    site {
-      siteMetadata {
-        title
-        author
-      }
-    }
-    markdownRemark(fields: { slug: { eq: $slug } }) {
+  query BlogPostQuery($id: String) {
+    mdx(id: { eq: $id }) {
       id
       excerpt(pruneLength: 160)
-      html
       frontmatter {
         title
-        date(formatString: "MMMM DD, YYYY")
-        description
       }
+      body
     }
   }
 `

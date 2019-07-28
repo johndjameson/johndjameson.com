@@ -1,55 +1,58 @@
 const path = require(`path`)
 const { createFilePath } = require(`gatsby-source-filesystem`)
 
-exports.createPages = async ({ graphql, actions }) => {
-  const { createPage } = actions
-
-  const blogPost = path.resolve(`./src/templates/blog-post.js`)
-  const result = await graphql(
-    `
-      {
-        allMarkdownRemark(
-          sort: { fields: [frontmatter___date], order: DESC }
-          limit: 1000
-        ) {
-          edges {
-            node {
-              fields {
-                slug
-              }
-              frontmatter {
-                title
-              }
-            }
-          }
-        }
-      }
-    `
-  )
-
-  if (result.errors) {
-    throw result.errors
-  }
-
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    createPage({
-      path: `/blog${node.fields.slug}`,
-      component: blogPost,
-      context: { slug: node.fields.slug },
-    })
-  })
-}
-
-exports.onCreateNode = ({ node, actions, getNode }) => {
-  const { createNodeField } = actions
-
-  if (node.internal.type === `MarkdownRemark`) {
+exports.onCreateNode = ({ node, actions: { createNodeField }, getNode }) => {
+  if (node.internal.type === 'Mdx') {
     const value = createFilePath({ node, getNode })
 
     createNodeField({
-      name: `slug`,
+      name: 'slug',
       node,
-      value,
+      value: `/blog${value}`,
     })
   }
+}
+
+exports.createPages = ({ graphql, actions }) => {
+  // Destructure the createPage function from the actions object
+  const { createPage } = actions
+  return new Promise((resolve, reject) => {
+    resolve(
+      graphql(
+        `
+          {
+            allMdx {
+              edges {
+                node {
+                  id
+                  fields {
+                    slug
+                  }
+                }
+              }
+            }
+          }
+        `
+      ).then(result => {
+        // this is some boilerlate to handle errors
+        if (result.errors) {
+          console.error(result.errors)
+          reject(result.errors)
+        }
+        // We'll call `createPage` for each result
+        result.data.allMdx.edges.forEach(({ node }) => {
+          createPage({
+            // This is the slug we created before
+            // (or `node.frontmatter.slug`)
+            path: node.fields.slug,
+            // This component will wrap our MDX content
+            component: path.resolve(`./src/templates/blog-post.js`),
+            // We can use the values in this context in
+            // our page layout component
+            context: { id: node.id },
+          })
+        })
+      })
+    )
+  })
 }
