@@ -778,6 +778,7 @@ html:not(.wf-active) .link--underlined--s {
   color: #c93347;
   font-family: serif;
   font-size: 26px;
+  font-weight: 700;
   line-height: 1.12;
   margin-bottom: 10px;
 }
