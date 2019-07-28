@@ -42,7 +42,7 @@ const IndexPage = () => (
           </div>
           <div className='mv-g has-cropHeight'>
             <div className='mv-g-b mv-g-b--3of5_m mbm mbf--m'>
-              <Link className='db' href='https://typestudies.com/'>
+              <Link className='db' href='https://typestudies.com'>
                 <p className='srt'>Type Specimens</p>
                 <img
                   alt=''
@@ -56,7 +56,7 @@ const IndexPage = () => (
             <div className='mv-g-b mv-g-b--2of5_m has-cropHeight'>
               <Link
                 className='mv-cropHeight_m mv-thumbnail'
-                href='https://typespecimens.io/'
+                href='https://typespecimens.io'
               >
                 <p className='srt'>Type Studies</p>
                 <img
@@ -86,7 +86,7 @@ const IndexPage = () => (
                 </div>
                 <Link
                   className='link link--underlined'
-                  to='/blog/styling-fallback-fonts-with-sass/'
+                  to='/styling-fallback-fonts-with-sass'
                 >
                   Styling Fallback Fonts with Sass
                 </Link>
@@ -99,7 +99,7 @@ const IndexPage = () => (
                 </p>
                 <Link
                   className='link link--underlined link--underlined--s tss'
-                  to='/blog/styling-fallback-fonts-with-sass/'
+                  to='/styling-fallback-fonts-with-sass'
                 >
                   Continue Reading
                 </Link>
@@ -111,7 +111,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/sidebearings-and-alignment/'
+                        to='/sidebearings-and-alignment'
                       >
                         Sidebearings &amp; Alignment
                       </Link>
@@ -126,7 +126,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/making-sense-of-ch-units/'
+                        to='/making-sense-of-ch-units'
                       >
                         Making Sense of Ch Units
                       </Link>
@@ -141,7 +141,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/kerning-and-ligatures-in-letterspaced-type/'
+                        to='/kerning-and-ligatures-in-letterspaced-type'
                       >
                         Kerning &amp; Ligatures in Letterspaced Type
                       </Link>
@@ -156,7 +156,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/guidelines-for-letterspacing-type/'
+                        to='/guidelines-for-letterspacing-type'
                       >
                         Guidelines for Letterspacing Type
                       </Link>
@@ -171,7 +171,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/typographic-units-in-css/'
+                        to='/typographic-units-in-css'
                       >
                         Typographic Units in CSS
                       </Link>
@@ -186,7 +186,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/data-attributes-for-keyboard-shortcuts/'
+                        to='/data-attributes-for-keyboard-shortcuts'
                       >
                         Data Attributes for Keyboard Shortcuts
                       </Link>
@@ -201,7 +201,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/filtering-google-results-with-alfred/'
+                        to='/filtering-google-results-with-alfred'
                       >
                         Filtering Google Results with Alfred
                       </Link>
@@ -216,7 +216,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/updating-your-shell-with-homebrew/'
+                        to='/updating-your-shell-with-homebrew'
                       >
                         Updating Your Shell with Homebrew
                       </Link>
@@ -231,7 +231,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/using-emmet-with-sublime-text/'
+                        to='/using-emmet-with-sublime-text'
                       >
                         Using Emmet with Sublime Text
                       </Link>
@@ -246,7 +246,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/ampersands-and-google-fonts/'
+                        to='/ampersands-and-google-fonts'
                       >
                         Ampersands &amp; Google Fonts
                       </Link>
@@ -261,7 +261,7 @@ const IndexPage = () => (
                     <div className='mv-g-b mv-g-b--2of3_m'>
                       <Link
                         className='link link--underlined'
-                        to='/blog/responsive-sidenotes/'
+                        to='/responsive-sidenotes'
                       >
                         Responsive Sidenotes
                       </Link>
@@ -294,7 +294,7 @@ const IndexPage = () => (
                   <p className='mbf'>
                     <a
                       className='link link--underlined'
-                      href='https://css-tricks.com/styling-underlines-web/'
+                      href='https://css-tricks.com/styling-underlines-web'
                     >
                       Styling Underlines on the Web
                     </a>
