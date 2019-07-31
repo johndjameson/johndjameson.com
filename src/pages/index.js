@@ -42,7 +42,7 @@ const IndexPage = () => (
           </div>
           <div className='mv-g has-cropHeight'>
             <div className='mv-g-b mv-g-b--3of5_m mbm mbf--m'>
-              <Link className='db' href='https://typestudies.com'>
+              <a className='db' href='https://typestudies.com'>
                 <p className='srt'>Type Specimens</p>
                 <img
                   alt=''
@@ -51,10 +51,10 @@ const IndexPage = () => (
                   src={typeStudies}
                   width='584'
                 />
-              </Link>
+              </a>
             </div>
             <div className='mv-g-b mv-g-b--2of5_m has-cropHeight'>
-              <Link
+              <a
                 className='mv-cropHeight_m mv-thumbnail'
                 href='https://typespecimens.io'
               >
@@ -66,7 +66,7 @@ const IndexPage = () => (
                   src={typeSpecimens}
                   width='366'
                 />
-              </Link>
+              </a>
             </div>
           </div>
         </div>
