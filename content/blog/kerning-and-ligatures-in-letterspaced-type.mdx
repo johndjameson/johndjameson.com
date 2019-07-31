@@ -10,8 +10,7 @@ I recently [wrote an article][guidelines] about the general guidelines for lette
 
 Now with that out of the way, let's jump right into the rules for letterspacing type with kerning and ligatures.
 
-Kerning
--------
+## Kerning
 
 It's a good practice to enable kerning in titles, headings, and other display type. These elements attract the most attention in a design, so it's important to get their details _just right_ when typesetting.
 
@@ -31,8 +30,7 @@ If we look at the same word _Tomato_ &mdash; now set with positive letterspacing
 
 <%= codepen({ pen: '6d702133d6c081a4af782d648e1c3ff6', height: 290 }) %>
 
-Ligatures
----------
+## Ligatures
 
 Since ligatures are the combined form of two or more letters, and letterspacing adjusts the space _in between_ those letters, you end up with two typesetting techniques that are at cross-purposes. That's not to say you shouldn't letterspace type containing ligatures, but there are a couple considerations to keep in mind.
 
@@ -52,8 +50,7 @@ Ligatures are often narrower than their two related characters, so they look rig
 
 If you look closely at the _ff_ and _ft_ pairs in the second word _liftoff_, you'll see an awkward gap between their crossbars. Enabling ligatures fixes this problem by combining the separate letters into a single glyph and merging the two crossbars into one.
 
-Browser support
----------------
+## Browser support
 
 The default behavior of most browsers is to disable kerning and ligatures wherever the `letter-spacing` property is applied. Due to current browser support, it takes some very precise CSS to get all three components working together.
 
@@ -61,8 +58,7 @@ The biggest issue is that Safari doesn't _actually_ support `font-feature-settin
 
 I made a [CodePen demo][codepen-demo] with more information on browser support. It's a little too in-depth to embed here, but definitely take a look if you plan on using kerning and ligatures together with with the `letter-spacing` property.
 
-And that's it!
---------------
+## And that's it!
 
 Before we wrap up, I have to give a shout-out to [Bram Stein][twitter-bram] for his work on [The State of Web Type][state-of-web-type]. That site has been a _huge_ help for me in figuring out an approach that works across browsers.
 

@@ -10,8 +10,7 @@ Filtering search results on Google is always a bit of a hassle. The search tools
 
 For an introduction to Alfred check out Drew Barontini's _excellent_ [article][drew-alfred] on how to set up Aflred like a pro.
 
-Adding a custom search
-----------------------
+## Adding a custom search
 
 To get started, open the `Preferences` window in Alfred, click the `Features` tab, and then select the `Web Search` sidebar item. You should encounter a table of Alfred’s built-in Web Searches that you can augment by clicking `Add Custom Search`.
 
@@ -23,12 +22,11 @@ In the example above, I've defined a custom Google search that filters out any w
 
 Feel free to copy the URL below:
 
-~~~
+```
 https://www.google.com/search?q={query}&tbs=qdr:y
-~~~
+```
 
-Useful Google searches
-----------------------
+## Useful Google searches
 
 Configuring Google searches via the website can generate some scary-looking URLs littered with unnecessary parameters. You can shorten these dramatically before adding them to Alfred, but the process involved is rarely better than Delete Things until It Breaks.&trade;
 
@@ -36,7 +34,7 @@ If you want to avoid that hassle altogether, here are a few more Google search U
 
 ### Web results
 
-~~~
+```
 Last month:
 https://www.google.com/search?q={query}&tbs=qdr:m
 
@@ -48,11 +46,11 @@ https://www.google.com/search?q={query}&tbs=qdr:d
 
 Verbatim:
 https://www.google.com/search?q={query}&tbs=li:1
-~~~
+```
 
 ### Image results
 
-~~~
+```
 Animated GIFs:
 https://www.google.com/search?q={query}&tbm=isch&tbs=ift:gif,itp:animated
 
@@ -61,10 +59,9 @@ https://www.google.com/search?q={query}&tbm=isch&tbs=imgo:1
 
 Labeled for reuse with modification:
 https://www.google.com/search?q={query}&tbm=isch&tbs=sur:fmc
-~~~
+```
 
-Keep 'em coming
----------------
+## Keep 'em coming
 
 That's it for now, but as a [crazy efficiency nerd][olivier-tweet], I'll make sure to add to this post whenever I think of another useful Google search. Until then, have fun experimenting with custom search URLs on different websites. For example, you could search for only Prime-eligible items on Amazon&mdash;or even tweets you've posted in the last month.
 
@@ -72,5 +69,4 @@ That's it for now, but as a [crazy efficiency nerd][olivier-tweet], I'll make su
 [drew-alfred]: http://drewbarontini.com/setup/alfred/
 [olivier-date]: http://olivierlacan.com/posts/put-a-date-on-it/
 [olivier-tweet]: https://twitter.com/olivierlacan/status/501359705550495744
-
 [alfred-preferences]: alfred-google-past-year.jpg
