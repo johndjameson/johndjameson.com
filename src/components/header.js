@@ -1,7 +1,7 @@
-import { Link } from 'gatsby'
 import React from 'react'
+import { Link } from 'gatsby'
 
-import logo from '../images/logo-johndjameson.svg'
+import logo from 'images/logo-johndjameson.svg'
 
 const Header = () => (
   <header className='mv-header' role='banner'>
