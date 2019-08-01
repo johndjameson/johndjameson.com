@@ -1,9 +1,11 @@
 import React from 'react'
+import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql } from 'gatsby'
 
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import Layout from 'components/layout'
+import SEO from 'components/seo'
+import SmartLink from 'components/SmartLink'
 
 function PageTemplate({ data: { mdx: post } }) {
   return (
@@ -23,14 +25,22 @@ function PageTemplate({ data: { mdx: post } }) {
 
           <div className='mv-g mv-g--centered_l'>
             <div className='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
-              <div className='mbm mbl_l tw7'>{post.frontmatter.description}</div>
+              <div className='mbm mbl_l tw7'>
+                {post.frontmatter.description}
+              </div>
             </div>
           </div>
 
           <div className='article'>
             <div className='mv-g mv-g--centered_l'>
               <div className='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
-                <MDXRenderer>{post.body}</MDXRenderer>
+                <MDXProvider
+                  components={{
+                    a: SmartLink,
+                  }}
+                >
+                  <MDXRenderer>{post.body}</MDXRenderer>
+                </MDXProvider>
               </div>
             </div>
           </div>
