@@ -1,12 +1,13 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import Layout from '../components/layout'
-import SEO from '../components/seo'
+import ExternalLink from 'components/ExternalLink'
+import Layout from 'components/layout'
+import SEO from 'components/seo'
 
-import manicule from '../images/manicule.svg'
-import typeSpecimens from '../images/type-specimens.jpg'
-import typeStudies from '../images/type-studies.png'
-import webTypography from '../images/web-typography.svg'
+import manicule from 'images/manicule.svg'
+import typeSpecimens from 'images/type-specimens.jpg'
+import typeStudies from 'images/type-studies.png'
+import webTypography from 'images/web-typography.svg'
 
 const IndexPage = () => (
   <Layout>
@@ -42,7 +43,7 @@ const IndexPage = () => (
           </div>
           <div className='mv-g has-cropHeight'>
             <div className='mv-g-b mv-g-b--3of5_m mbm mbf--m'>
-              <a className='db' href='https://typestudies.com'>
+              <ExternalLink className='db' href='https://typestudies.com'>
                 <p className='srt'>Type Specimens</p>
                 <img
                   alt=''
@@ -51,10 +52,10 @@ const IndexPage = () => (
                   src={typeStudies}
                   width='584'
                 />
-              </a>
+              </ExternalLink>
             </div>
             <div className='mv-g-b mv-g-b--2of5_m has-cropHeight'>
-              <a
+              <ExternalLink
                 className='mv-cropHeight_m mv-thumbnail'
                 href='https://typespecimens.io'
               >
@@ -66,7 +67,7 @@ const IndexPage = () => (
                   src={typeSpecimens}
                   width='366'
                 />
-              </a>
+              </ExternalLink>
             </div>
           </div>
         </div>
@@ -278,12 +279,12 @@ const IndexPage = () => (
               <ul className='list mbm'>
                 <li className='list-item'>
                   <p className='mbf'>
-                    <a
+                    <ExternalLink
                       className='link link--underlined'
                       href='https://medium.com/type-thursday/type-specimens-on-the-web-59a4335c1a3'
                     >
                       Type Specimens on the Web
-                    </a>
+                    </ExternalLink>
                   </p>
                   <time className='tsi tss'>October 8, 2016</time>
                 </li>
@@ -292,12 +293,12 @@ const IndexPage = () => (
               <ul className='list mbm'>
                 <li className='list-item'>
                   <p className='mbf'>
-                    <a
+                    <ExternalLink
                       className='link link--underlined'
                       href='https://css-tricks.com/styling-underlines-web'
                     >
                       Styling Underlines on the Web
-                    </a>
+                    </ExternalLink>
                   </p>
                   <time className='tsi tss'>October 10, 2016</time>
                 </li>
