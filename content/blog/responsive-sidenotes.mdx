@@ -3,7 +3,7 @@ title: Responsive Sidenotes
 type: post
 layout: article
 date: 2014-01-27
-description: "Footnotes and sidenotes are both useful ways to annotate online blog posts and articles. With the help of responsive design, it's now possible to use both approaches at the same time."
+description: 'Footnotes and sidenotes are both useful ways to annotate online blog posts and articles. With the help of responsive design, it’s now possible to use both approaches at the same time.'
 allow_widow: true
 ---
 
@@ -13,7 +13,7 @@ Let’s check out the code that makes it work.
 
 ## HTML
 
-First off, we're going to need a container for our content. I'm partial to an `<article>` element with the class name `post`. Fill it with a few paragraphs inside `<p>` elements as usual, supplying whatever content you see fit.
+First off, we’re going to need a container for our content. I’m partial to an `<article>` element with the class name `post`. Fill it with a few paragraphs inside `<p>` elements as usual, supplying whatever content you see fit.
 
 ```html
 <article class="post">
@@ -31,21 +31,21 @@ Now, in order to mark the locations of your annotations, use the following forma
 
 The `<sup>` tag semantically identifies the child `<a>` element as a superscript and also allows us to use CSS properties on two unique elements later on. The `href="#note:1"` attribute allows users to click annotation markers, repositioning the browser window to reveal related footnotes.
 
-Once the body text is annotated with the intended markup, it's time to provide the content of our footnotes and sidenotes. Right before the closing `</article>` tag, add the following ordered list, modified as needed for your content.
+Once the body text is annotated with the intended markup, it’s time to provide the content of our footnotes and sidenotes. Right before the closing `</article>` tag, add the following ordered list, modified as needed for your content.
 
 ```html
 <ol class="post-footnotes">
   <li id="note:1">This is the first annotation.</li>
-  <li id="note:2">This one's the second.</li>
+  <li id="note:2">This one’s the second.</li>
   <li id="note:3">And this is the third.</li>
 </ol>
 ```
 
-And that's it for the HTML. _Not so bad, right?_
+And that’s it for the HTML. _Not so bad, right?_
 
 ## JavaScript
 
-The first thing we need to do is create variables for the jQuery objects we'll be using later.
+The first thing we need to do is create variables for the jQuery objects we’ll be using later.
 
 ```javascript
 var $document = $(document),
@@ -54,7 +54,7 @@ var $document = $(document),
   $footnotes = $('.post-footnotes')
 ```
 
-Once that's taken care of, we need to outline our goals and write code to do the following tasks:
+Once that’s taken care of, we need to outline our goals and write code to do the following tasks:
 
 1. Identify each individual footnote within the `.post-footnotes` list.
 2. Contain the parent of each `.post-marker` inside a `<div>` for future presentation.
@@ -79,7 +79,7 @@ function createSidenotes() {
 }
 ```
 
-CSS has no way of styling parent elements, so we're also going to need to indicate whether or not our `.post` contains annotations. The following code checks whether or not any footnotes exist and then adds a class to the `.post` if the conditional statement returns `true`.
+CSS has no way of styling parent elements, so we’re also going to need to indicate whether or not our `.post` contains annotations. The following code checks whether or not any footnotes exist and then adds a class to the `.post` if the conditional statement returns `true`.
 
 ```javascript
 function toggleNotes() {
@@ -89,7 +89,7 @@ function toggleNotes() {
 }
 ```
 
-Now wrap those two functions in a jQuery `ready()` method for good measure and you're almost done.
+Now wrap those two functions in a jQuery `ready()` method for good measure and you’re almost done.
 
 ```javascript
 $document.ready(function() {
@@ -102,7 +102,7 @@ $document.ready(function() {
 
 Without any CSS to style and structure the new markup, our footnotes remain visible at the bottom of the page, regardless of browser width. Even worse, the _sidenotes_ fall directly beneath related `<p>` elements, making them completely ineffective until fixed.
 
-Before writing any CSS, let's identify our goals this time around:
+Before writing any CSS, let’s identify our goals this time around:
 
 1. Style annotation markers to be visually distinct from body text.
 2. Connect each annotation marker with its subject so they are not separated by new lines.
@@ -110,7 +110,7 @@ Before writing any CSS, let's identify our goals this time around:
 4. Display sidenotes when the browser width is **less than** a certain width.
 5. Style sidenotes to position themselves within the margin of the page.
 
-Using the following CSS, let's take care of all of those goals one by one and finish things up.
+Using the following CSS, let’s take care of all of those goals one by one and finish things up.
 
 ```css
 .post-marker {
@@ -140,7 +140,7 @@ Using the following CSS, let's take care of all of those goals one by one and fi
   box-sizing: border-box; /* Add vendor prefixes as needed */
   display: none;
   left: 100%;
-  padding-left: 20px; /* Your site's gutter value */
+  padding-left: 20px; /* Your site’s gutter value */
   position: absolute;
   top: 0;
   width: 25%;
@@ -160,10 +160,10 @@ And there you have it: responsive sidenotes that display on wide browsers yet de
 
 ## Gotchas
 
-If you've been writing CSS for a while, you might've already considered a few of the limitations associated with this approach, mainly:
+If you’ve been writing CSS for a while, you might’ve already considered a few of the limitations associated with this approach, mainly:
 
 - Absolutely positioning the `<aside>` elements relative to a parent `div` means you can provide only a single sidenote per paragraph. Otherwise, multiple annotations will stack on one another, making them completely illegible.
-- When displayed in the margin, lengthy sidenotes can invade the starting place of other sidenotes. Adjusting line height, font size, italics, and width will help address the issue, but isn't guaranteed to solve it in every situation.
-- Commenting on figures and images using sidenotes becomes tricky due to the awkward placement of a footnote marker on small screens. In this case, it's best to use a `<figcaption>` element beneath the related content with information that should arguably be nearby anyway.
+- When displayed in the margin, lengthy sidenotes can invade the starting place of other sidenotes. Adjusting line height, font size, italics, and width will help address the issue, but isn’t guaranteed to solve it in every situation.
+- Commenting on figures and images using sidenotes becomes tricky due to the awkward placement of a footnote marker on small screens. In this case, it’s best to use a `<figcaption>` element beneath the related content with information that should arguably be nearby anyway.
 
 With those constraints in mind, I think responsive sidenotes are a worthwhile addition to the design of many blogs—especially when compared to footnotes alone. Responsive sidenotes move additional information out of the main flow of a blog post or article, removing potential distractions to readers while also making annotations easier to read when needed.

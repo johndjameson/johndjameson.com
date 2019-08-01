@@ -7,13 +7,13 @@ allow_widow: true
 description: 'With a little help from JavaScript, you can add a data attribute to any HTML element to instantly assign a shortcut key.'
 ---
 
-Assigning keyboard shortcuts on the web could be as simple as adding an HTML attribute onto an element and setting its value. Even though browsers are unlikely to support this approach natively, you're still able to define shortcut keys in your markup by using `data` attributes and a touch of JavaScript.
+Assigning keyboard shortcuts on the web could be as simple as adding an HTML attribute onto an element and setting its value. Even though browsers are unlikely to support this approach natively, you’re still able to define shortcut keys in your markup by using `data` attributes and a touch of JavaScript.
 
 ```html
 <button data-shortcut="s">Do Something</button>
 ```
 
-I think that's pretty intuitive. Think about all the common use cases:
+I think that’s pretty intuitive. Think about all the common use cases:
 
 - Clicking a button
 - Following a link
@@ -21,11 +21,11 @@ I think that's pretty intuitive. Think about all the common use cases:
 
 Other than scrolling past copy on code-related blog posts, these three things make up **most of the interactions on the web.** Using `data` attributes can give you an expressive, reusable syntax for assigning keyboard shortcuts to each of these use cases.
 
-Let's go over how it works.
+Let’s go over how it works.
 
 ## Set up dependencies
 
-Before getting started, you'll need to grab jQuery and [jQuery Hotkeys][jquery-hotkeys], and link them up in your project. You can get by on your own without either library, but including them both helps simplify the code we'll cover down below.
+Before getting started, you’ll need to grab jQuery and [jQuery Hotkeys][jquery-hotkeys], and link them up in your project. You can get by on your own without either library, but including them both helps simplify the code we’ll cover down below.
 
 Using [Bower][bower], you can download a copy of each library by entering the following shell command:
 
@@ -58,7 +58,7 @@ $('[data-shortcut]').each(function() {
 })
 ```
 
-This code will loop through every HTML element that has a `[data-shortcut]` attribute and attach the keyboard shortcut's event handler. Now when you press an assigned key, the `keyup` event will trigger both `click` and `focus` events on its related DOM element. Additionally, if the element is an `<a>` tag, your browser will follow the link provided by the element's `href` attribute.
+This code will loop through every HTML element that has a `[data-shortcut]` attribute and attach the keyboard shortcut’s event handler. Now when you press an assigned key, the `keyup` event will trigger both `click` and `focus` events on its related DOM element. Additionally, if the element is an `<a>` tag, your browser will follow the link provided by the element’s `href` attribute.
 
 ## Assign your shortcuts
 
@@ -68,7 +68,7 @@ Your JavaScript is up and running, so you can finally start assigning keyboard s
 <a href="http://example.com/edit" data-shortcut="e">Edit</a>
 ```
 
-If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you'll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides. The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
+If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you’ll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides. The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
 
 ```html
 <a href="/index.html" data-shortcut="shift+1">
@@ -78,7 +78,7 @@ If you want to assign a keyboard shortcut that requires pressing two or more key
 /></a>
 ```
 
-And that's it &mdash; you've set up everything you need to start assigning keyboard shortcuts in your markup. _Now go forth and empower efficiency._
+And that’s it &mdash; you’ve set up everything you need to start assigning keyboard shortcuts in your markup. _Now go forth and empower efficiency._
 
 [bower]: http://bower.io/
 [jquery-hotkeys]: https://github.com/jeresig/jquery.hotkeys

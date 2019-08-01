@@ -6,15 +6,15 @@ date: 2014-03-08
 description: 'Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before.'
 ---
 
-Ampersands are used most effectively in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we're often better off using a more interesting and elaborate alternative. Many fonts feature an _italic_ ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.
+Ampersands are used most effectively in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we’re often better off using a more interesting and elaborate alternative. Many fonts feature an _italic_ ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.
 
-![Baskerville's ampersand compared with Baskerville Italic's ampersand][baskerville-ampersands]
+![Baskerville’s ampersand compared with Baskerville Italic’s ampersand][baskerville-ampersands]
 
 **But what do you do if the italic version of a font lacks an interesting ampersand?**
 
 [Dan Cederholm][simplebits-ampersand] and [Chris Coyier][csstricks-ampersand] explored this issue a few years ago, offering a way to mark up ampersands within a span element and then providing a series of fallback fonts via CSS. The most attractive ampersands are exclusive to OS X system fonts, however, offering an unideal experience to the majority of people browsing the web.
 
-Today we are able to provide additional browser support thanks to the availability web fonts. With the help of Google Fonts specifically, **we're able to offer a cross-platform compatible solution that has widespread browser support and a tiny file size.**
+Today we are able to provide additional browser support thanks to the availability web fonts. With the help of Google Fonts specifically, **we’re able to offer a cross-platform compatible solution that has widespread browser support and a tiny file size.**
 
 ## Styling ampersands
 
@@ -24,7 +24,7 @@ We start off by adding the URI-encoded string `&text=%26` to a Google Fonts URL 
 @import url(http://fonts.googleapis.com/css?family=Font+Name&text=%26);
 ```
 
-Then we create an ampersand class to apply throughout our HTML. Using some of the fonts discussed in previously mentioned articles, we're able to provide potential fallbacks in the unlikely event Google Fonts aren't supported.
+Then we create an ampersand class to apply throughout our HTML. Using some of the fonts discussed in previously mentioned articles, we’re able to provide potential fallbacks in the unlikely event Google Fonts aren’t supported.
 
 ```css
 .amp {
@@ -41,7 +41,7 @@ We can now identify ampersands anywhere in our markup by using the new-and-impro
 Ampersands <b class="amp">&amp;</b> Google Fonts
 ```
 
-Now that our HTML is marked up as intended, we have everything we need in place to start adding elegant, well-supported ampersands to our web design projects. **_But_ if you're interested in sanding out a few of the rough edges, there's still _a little more_ work we can do.**
+Now that our HTML is marked up as intended, we have everything we need in place to start adding elegant, well-supported ampersands to our web design projects. **_But_ if you’re interested in sanding out a few of the rough edges, there’s still _a little more_ work we can do.**
 
 ## Making improvements
 
@@ -59,7 +59,7 @@ With our CSS in its current state, querying the Google Fonts API for a single am
 }
 ```
 
-Due to different implentations of `@font-face` across older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you're willing to drop Google's user agent detection _in favor of making fewer HTTP requests_, then **we can paste this CSS directly into our style sheet.**
+Due to different implentations of `@font-face` across older browsers, Google delivers unique versions of this file depending on what browser makes the request. The `@font-face` syntax has been standardized in recent years, making user agent detection less and less necesary as time goes on. If you’re willing to drop Google’s user agent detection _in favor of making fewer HTTP requests_, then **we can paste this CSS directly into our style sheet.**
 
 ```css
 @font-face {
@@ -82,7 +82,7 @@ Due to different implentations of `@font-face` across older browsers, Google del
 
 Alternatively, we can manually download the WOFF file Google provides and encode it as Base64 _straight into the style sheet_, saving ourselves an additional HTTP request as part of the process.
 
-Although Google's CSS references both WOFF2 and WOFF files, we need only the WOFF file in our own style sheet. The main advantage of the WOFF2 format is its smaller file size, but because we are embeddeding actual font data directly in the CSS, it makes little sense to include both file formats. A standard WOFF file has better support and makes a reliable default in the majority of browsers.
+Although Google’s CSS references both WOFF2 and WOFF files, we need only the WOFF file in our own style sheet. The main advantage of the WOFF2 format is its smaller file size, but because we are embeddeding actual font data directly in the CSS, it makes little sense to include both file formats. A standard WOFF file has better support and makes a reliable default in the majority of browsers.
 
 To convert a file to Base64, we can use an [online tool][base64-encoder] or the following Terminal command:
 
@@ -101,7 +101,7 @@ We then add the resulting Base64 string inside our authored CSS.
 }
 ```
 
-And that's it&mdash;for real this time! Using Google Fonts, a little-known query string, and a touch of Base64 magic, we're able to encode stunning ampersands directly into our CSS files and with very a microscopic file size. This approach won't always work perfecly, but it's definitely a step toward upping your type game on the web.
+And that’s it&mdash;for real this time! Using Google Fonts, a little-known query string, and a touch of Base64 magic, we’re able to encode stunning ampersands directly into our CSS files and with very a microscopic file size. This approach won’t always work perfecly, but it’s definitely a step toward upping your type game on the web.
 
 [base64-encoder]: http://www.motobit.com/util/base64-decoder-encoder.asp
 [caniuse-woff]: http://caniuse.com/#search=woff
