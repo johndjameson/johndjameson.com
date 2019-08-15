@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
@@ -6,6 +7,11 @@ import { graphql } from 'gatsby'
 import Layout from 'components/layout'
 import SEO from 'components/seo'
 import SmartLink from 'components/SmartLink'
+
+// Breaks Sharp if imported 🙃
+function BlogImage(props) {
+  return <img loading='lazy' {...props} />
+}
 
 function PageTemplate({ data: { mdx: post } }) {
   return (
@@ -37,6 +43,7 @@ function PageTemplate({ data: { mdx: post } }) {
                 <MDXProvider
                   components={{
                     a: SmartLink,
+                    img: BlogImage
                   }}
                 >
                   <MDXRenderer>{post.body}</MDXRenderer>
