@@ -1082,3 +1082,12 @@ html:not(.wf-active) .tsl {
 .w100p {
   width: 100%;
 }
+.gatsby-resp-image-wrapper {
+  margin-left: unset !important;
+  margin-right: unset !important;
+  max-width: unset !important;
+  position: unset !important;
+}
+.gatsby-resp-image-background-image {
+  display: none !important;
+}

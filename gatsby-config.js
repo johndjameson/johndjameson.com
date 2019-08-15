@@ -23,7 +23,13 @@ module.exports = {
       resolve: `gatsby-plugin-mdx`,
       options: {
         gatsbyRemarkPlugins: [
-          { resolve: `gatsby-remark-images` },
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              linkImagesToOriginal: false,
+              maxWidth: 600,
+            },
+          },
           { resolve: `gatsby-remark-copy-linked-files` },
         ],
       },
