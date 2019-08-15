@@ -20,7 +20,7 @@ In typographic terms, x-height is determined by the height of a typeface’s low
 
 To illustrate this, if Helvetica Neue is set at a font size of `100px`, then you can expect `1ex` to equal about `52px`:
 
-![Ex units equal the x-height of a typeface](typographic-units-ex-units.svg)
+![Ex units equal the x-height of a typeface](./ex-units.svg)
 
 Using `ex` units in CSS is just like using any other units. You’re able to write them with any CSS property you’d use with pixels or `em` units.
 
@@ -34,7 +34,7 @@ Using `ex` units in CSS is just like using any other units. You’re able to wri
 
 `Ch` units are based on the _characters_ of a typeface, drawing their value from the width of a font’s `0` glyph. I’ll warn you that this is [somewhat arbitrary][meyer-defining-ch], and the width of a `0` is often a poor estimate of a typeface’s average character width. However, when using a monospace typeface — where all glyphs share identical widths — `ch` units are always dependable.
 
-![Ch units equal a 0 character’s width](typographic-units-ch-units.svg)
+![Ch units equal a 0 character’s width](./ch-units.svg)
 
 With this constraint in mind, here are some of the use cases where I’ve found `ch` units to be particularly useful:
 
