@@ -599,22 +599,7 @@ a,
 }
 .link--underlined,
 .article a:not([class]) {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(75%, transparent),
-    color-stop(75%, currentColor)
-  );
-  background-image: linear-gradient(
-    to bottom,
-    transparent 75%,
-    currentColor 75%
-  );
-  background-position: 0 calc(100% - 0.25em);
-  background-repeat: repeat-x;
-  background-size: 1px 2px;
-  text-shadow: -1px 0 #fff, 0px 0 #fff, -0.5px 0.5px 0 #fff, 0.5px 0.5px 0 #fff;
+  text-decoration: underline;
 }
 .link--underlined:active,
 .link--underlined:focus,
@@ -622,18 +607,7 @@ a,
 .article a:active:not([class]),
 .article a:focus:not([class]),
 .article a:hover:not([class]) {
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    left bottom,
-    color-stop(25%, transparent),
-    color-stop(25%, #c93347)
-  );
-  background-image: linear-gradient(to bottom, transparent 25%, #c93347 25%);
   color: #c93347;
-}
-.link--underlined--s {
-  background-position: 0 calc(100% - 0.175em);
 }
 .logo {
   height: 50px;

@@ -79,7 +79,7 @@ function IndexPage({
                   </Link>
                   <p className='mbs'>{latestPost.frontmatter.description}</p>
                   <Link
-                    className='link link--underlined link--underlined--s tss'
+                    className='link link--underlined tss'
                     to={latestPost.fields.slug}
                   >
                     Continue Reading
