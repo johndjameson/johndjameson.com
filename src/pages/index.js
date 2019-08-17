@@ -77,9 +77,6 @@ function IndexPage({
                   >
                     {latestPost.frontmatter.title}
                   </Link>
-                  <time className='db mbs tsi tss'>
-                    {latestPost.frontmatter.date}
-                  </time>
                   <p className='mbs'>{latestPost.frontmatter.description}</p>
                   <Link
                     className='link link--underlined link--underlined--s tss'
@@ -93,28 +90,19 @@ function IndexPage({
                 <ul className='list'>
                   {posts.slice(1).map(({ node: post }) => (
                     <li className='list-item' key={post.fields.slug}>
-                      <div className='mv-g mv-g--centered'>
-                        <div className='mv-g-b mv-g-b--2of3_m'>
-                          <Link
-                            className='link link--underlined'
-                            to={post.fields.slug}
-                          >
-                            {post.frontmatter.title}
-                          </Link>
-                        </div>
-                        <div className='mv-g-b mv-g-b--1of3_m'>
-                          <time className='tsi tss'>
-                            {post.frontmatter.date}
-                          </time>
-                        </div>
-                      </div>
+                      <Link
+                        className='link link--underlined'
+                        to={post.fields.slug}
+                      >
+                        {post.frontmatter.title}
+                      </Link>
                     </li>
                   ))}
                 </ul>
               </div>
 
               <div className='mv-g-b mv-g-b--2of5_m'>
-                <h3 className='heading heading--2'>Interviews</h3>
+                <h3 className='heading heading--2'>Guest Posts</h3>
                 <ul className='list mbm'>
                   <li className='list-item'>
                     <p className='mbf'>
@@ -125,12 +113,8 @@ function IndexPage({
                         Type Specimens on the Web
                       </ExternalLink>
                     </p>
-                    <time className='tsi tss'>October 8, 2016</time>
                   </li>
-                </ul>
 
-                <h3 className='heading heading--2'>CSS-Tricks</h3>
-                <ul className='list mbm'>
                   <li className='list-item'>
                     <p className='mbf'>
                       <ExternalLink
@@ -140,7 +124,6 @@ function IndexPage({
                         Styling Underlines on the Web
                       </ExternalLink>
                     </p>
-                    <time className='tsi tss'>October 10, 2016</time>
                   </li>
                 </ul>
               </div>
