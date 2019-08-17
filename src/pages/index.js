@@ -7,7 +7,6 @@ import SEO from 'components/seo'
 import manicule from 'images/manicule.svg'
 import typeSpecimens from 'images/type-specimens.jpg'
 import typeStudies from 'images/type-studies.png'
-import webTypography from 'images/web-typography.svg'
 
 function IndexPage({
   data: {
@@ -21,28 +20,6 @@ function IndexPage({
       <SEO title='Home' />
 
       <main role='main'>
-        <section className='row bc-black c-white'>
-          <div className='cell well well--2 well--4_m'>
-            <p className='mbs tsi tsl tac tal_m'>
-              John D. Jameson <span className='c-red'>(me)</span> presents
-              a&nbsp;bunch&nbsp;of&nbsp;things&nbsp;about
-            </p>
-            <h1 className='srt'>Web Typography</h1>
-            <img
-              alt=''
-              className='mv-heroTitle mbs w100p'
-              height='65'
-              src={webTypography}
-              width='975'
-            />
-            <p className='mbf tac tar_m tsi tsl'>
-              Because he’s a nerd{' '}
-              <span className='c-red'>
-                (and&nbsp;maybe&nbsp;you&nbsp;are,&nbsp;too)
-              </span>
-            </p>
-          </div>
-        </section>
         <section className='row'>
           <div className='cell well well--l mbf'>
             <div className='mv-strikeAround mbl'>
@@ -126,7 +103,9 @@ function IndexPage({
                           </Link>
                         </div>
                         <div className='mv-g-b mv-g-b--1of3_m'>
-                          <time className='tsi tss'>{post.frontmatter.date}</time>
+                          <time className='tsi tss'>
+                            {post.frontmatter.date}
+                          </time>
                         </div>
                       </div>
                     </li>

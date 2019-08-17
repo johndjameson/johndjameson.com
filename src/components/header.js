@@ -15,7 +15,6 @@ const Header = () => (
               </Link>
               <div className='dn db_m'>
                 <p className='mbf tss tw7'>John D. Jameson</p>
-                <p className='mbf tsi tss'>Blog posts on web typography</p>
               </div>
             </div>
           </div>
