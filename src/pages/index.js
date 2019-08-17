@@ -139,13 +139,10 @@ export default IndexPage
 
 export const pageQuery = graphql`
   query {
-    site {
-      siteMetadata {
-        title
-      }
-    }
-
-    allMdx(sort: { fields: [frontmatter___date], order: DESC }) {
+    allMdx(
+      filter: { frontmatter: { archived: { ne: true } } }
+      sort: { fields: frontmatter___date, order: DESC }
+    ) {
       edges {
         node {
           fields {

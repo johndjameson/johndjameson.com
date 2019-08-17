@@ -4,7 +4,9 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { graphql } from 'gatsby'
 
+import ArchiveNotice from 'components/ArchiveNotice'
 import Layout from 'components/layout'
+import PreventOrphan from 'components/PreventOrphan'
 import SEO from 'components/seo'
 import SmartLink from 'components/SmartLink'
 
@@ -29,8 +31,17 @@ function PageTemplate({ data: { mdx: post } }) {
             </div>
           </div>
 
-          <div className='mv-g mv-g--centered_l'>
+          <div className='mv-g mv-g--centered_l ptm'>
             <div className='mv-g-b mv-g-b--4of5_m mv-g-b--3of5_l'>
+              {post.frontmatter.archived && (
+                <ArchiveNotice>
+                  <PreventOrphan>
+                    This post is out of date and has been archived. Don’t say I
+                    didn’t warn you!
+                  </PreventOrphan>
+                </ArchiveNotice>
+              )}
+
               <div className='mbm mbl_l tw7'>
                 {post.frontmatter.description}
               </div>
@@ -43,7 +54,7 @@ function PageTemplate({ data: { mdx: post } }) {
                 <MDXProvider
                   components={{
                     a: SmartLink,
-                    img: BlogImage
+                    img: BlogImage,
                   }}
                 >
                   <MDXRenderer>{post.body}</MDXRenderer>
@@ -65,6 +76,7 @@ export const pageQuery = graphql`
       id
       excerpt(pruneLength: 160)
       frontmatter {
+        archived
         title
       }
       body
