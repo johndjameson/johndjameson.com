@@ -68,22 +68,10 @@ Ligatures are often narrower than their two related characters, so they look rig
 
 If you look closely at the _ff_ and _ft_ pairs in the second word _liftoff_, you’ll see an awkward gap between their crossbars. Enabling ligatures fixes this problem by combining the separate letters into a single glyph and merging the two crossbars into one.
 
-## Browser support
-
-The default behavior of most browsers is to disable kerning and ligatures wherever the `letter-spacing` property is applied. Due to current browser support, it takes some very precise CSS to get all three components working together.
-
-The biggest issue is that Safari doesn’t _actually_ support `font-feature-settings`. Declare the property in any way, and Safari enables both kerning and ligatures. Want to turn on small caps? You get kerning and ligatures. Want to _disable_ kerning and ligatures? You get kerning and ligatures. This is particularly problematic when the property is inherited, since there’s no way to unset it by using the property itself.
-
-I made a [CodePen demo][codepen-demo] with more information on browser support. It’s a little too in-depth to embed here, but definitely take a look if you plan on using kerning and ligatures together with with the `letter-spacing` property.
-
 ## And that’s it!
-
-Before we wrap up, I have to give a shout-out to [Bram Stein][twitter-bram] for his work on [The State of Web Type][state-of-web-type]. That site has been a _huge_ help for me in figuring out an approach that works across browsers.
 
 If you have any questions about letterspacing on the web &mdash; or if you just want to chat about web typography &mdash; send me a message over on [Twitter][twitter].
 
-[codepen-demo]: http://codepen.io/johndjameson/pen/e96a930f0a73dd36f9ff173422b48523?editors=110
 [guidelines]: guidelines-for-letterspacing-type.html
-[state-of-web-type]: http://stateofwebtype.com/
 [twitter]: https://twitter.com/johndjameson
 [twitter-bram]: https://twitter.com/bram_stein
