@@ -8,38 +8,32 @@ function getPosts(filePath) {
   console.clear()
   const posts = []
 
-  const getFiles = () =>
-    new Promise(resolve => {
-      if (fs.existsSync(`./src/${filePath}`)) {
-        klaw(`./src/${filePath}`)
-          .on('data', file => {
-            if (
-              path.extname(file.path) === '.md' ||
-              path.extname(file.path) === '.mdx'
-            ) {
-              const {
-                content,
-                data: { date, title },
-              } = matter.read(file.path)
+  return new Promise(resolve => {
+    if (fs.existsSync(`./src/${filePath}`)) {
+      klaw(`./src/${filePath}`)
+        .on('data', file => {
+          if (['.md', '.mdx'].includes(path.extname(file.path))) {
+            const {
+              content,
+              data: { date, title },
+            } = matter.read(file.path)
 
-              posts.push({
-                content,
-                date,
-                slug: slugify(title, { lower: true }),
-                title,
-              })
-            }
-          })
-          .on('error', console.log)
-          .on('end', () => {
-            resolve(posts)
-          })
-      } else {
-        resolve(posts)
-      }
-    })
-
-  return getFiles()
+            posts.push({
+              content,
+              date,
+              slug: slugify(title, { lower: true }),
+              title,
+            })
+          }
+        })
+        .on('error', console.log)
+        .on('end', () => {
+          resolve(posts)
+        })
+    } else {
+      resolve(posts)
+    }
+  })
 }
 
 export default {
