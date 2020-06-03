@@ -2,6 +2,7 @@ import React from 'react'
 import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
 import Markdown from 'react-markdown'
+import SmartLink from 'components/SmartLink'
 import Title from 'components/Title'
 
 function Post({ children }) {
@@ -14,7 +15,10 @@ function Post({ children }) {
       <article>
         <Link to='/blog'>Back</Link>
         <h1>{post.title}</h1>
-        <Markdown source={post.content} />
+        <Markdown
+          renderers={{ link: SmartLink, linkReference: SmartLink }}
+          source={post.content}
+        />
       </article>
     </>
   )
