@@ -1,16 +1,15 @@
 import React from 'react'
-import { Head, useRouteData } from 'react-static'
+import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
 import Markdown from 'react-markdown'
+import Title from 'components/Title'
 
 function Post({ children }) {
   const { post } = useRouteData()
 
   return (
     <>
-      <Head>
-        <title>{post.title}</title>
-      </Head>
+      <Title>{post.title}</Title>
 
       <article>
         <Link to='/blog'>Back</Link>

@@ -1,15 +1,14 @@
 import React from 'react'
-import { Head, useRouteData } from 'react-static'
+import { useRouteData } from 'react-static'
 import { Link } from '@reach/router'
+import Title from 'components/Title'
 
 function Blog() {
   const { posts } = useRouteData()
 
   return (
     <>
-      <Head>
-        <title>Blog</title>
-      </Head>
+      <Title>Blog</Title>
 
       <div>
         <h1>It's blog time.</h1>

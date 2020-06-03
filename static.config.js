@@ -53,6 +53,9 @@ export default {
       },
     ]
   },
+  getSiteData: () => ({
+    siteTitle: 'John D. Jameson',
+  }),
   plugins: [
     'react-static-plugin-mdx',
     [
