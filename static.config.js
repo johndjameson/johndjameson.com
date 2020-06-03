@@ -47,10 +47,7 @@ export default {
           template: 'src/templates/Post',
         })),
         getData: () => ({
-          posts: posts.map(post => {
-            delete post.content
-            return post
-          }),
+          posts: posts.map(({ date, slug, title }) => ({ date, slug, title })),
         }),
         path: '/blog',
       },
