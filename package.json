@@ -40,6 +40,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.14.3",
     "eslint-plugin-react-hooks": "^4.0.2",
+    "react-static-plugin-file-watch-reload": "^1.0.3",
     "serve": "^11.1.0"
   }
 }
