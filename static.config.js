@@ -5,7 +5,6 @@ import path from 'path'
 import slugify from 'slugify'
 
 function getPosts(filePath) {
-  console.clear()
   const posts = []
 
   return new Promise(resolve => {
@@ -47,12 +46,18 @@ export default {
           path: `/${post.slug}`,
           template: 'src/templates/Post',
         })),
-        getData: () => ({ posts }),
+        getData: () => ({
+          posts: posts.map(post => {
+            delete post.content
+            return post
+          }),
+        }),
         path: '/blog',
       },
     ]
   },
   plugins: [
+    'react-static-plugin-mdx',
     [
       require.resolve('react-static-plugin-source-filesystem'),
       { location: path.resolve('./src/pages') },

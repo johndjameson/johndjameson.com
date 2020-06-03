@@ -1,23 +1,29 @@
 import React from 'react'
-import { useRouteData } from 'react-static'
-import { Link } from 'components/Router'
+import { Head, useRouteData } from 'react-static'
+import { Link } from '@reach/router'
 
 function Blog() {
   const { posts } = useRouteData()
 
   return (
-    <div>
-      <h1>It's blog time.</h1>
+    <>
+      <Head>
+        <title>Blog</title>
+      </Head>
 
-      <h2>All Posts</h2>
-      <ul>
-        {posts.map(post => (
-          <li key={post.slug}>
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-          </li>
-        ))}
-      </ul>
-    </div>
+      <div>
+        <h1>It's blog time.</h1>
+
+        <h2>All Posts</h2>
+        <ul>
+          {posts.map(post => (
+            <li key={post.slug}>
+              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   )
 }
 
