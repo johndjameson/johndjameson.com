@@ -14,8 +14,10 @@ function getPosts(filePath) {
           if (['.md', '.mdx'].includes(path.extname(file.path))) {
             const {
               content,
-              data: { date, title },
+              data: { archived, date, title },
             } = matter.read(file.path)
+
+            if (archived) return
 
             posts.push({
               content,
@@ -27,7 +29,7 @@ function getPosts(filePath) {
         })
         .on('error', console.log)
         .on('end', () => {
-          resolve(posts)
+          resolve(posts.sort((a, b) => new Date(b.date) - new Date(a.date)))
         })
     } else {
       resolve(posts)
