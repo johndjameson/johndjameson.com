@@ -14,11 +14,13 @@ function Blog() {
 
       <h2>All Posts</h2>
       <ul>
-        {posts.map(post => (
-          <li key={post.slug}>
-            <Link to={`/blog/${post.slug}`}>{post.title}</Link>
-          </li>
-        ))}
+        {posts
+          .filter(post => !post.archived)
+          .map(post => (
+            <li key={post.slug}>
+              <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+            </li>
+          ))}
       </ul>
     </>
   )

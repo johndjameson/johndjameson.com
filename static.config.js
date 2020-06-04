@@ -17,9 +17,8 @@ function getPosts(filePath) {
               data: { archived, date, title },
             } = matter.read(file.path)
 
-            if (archived) return
-
             posts.push({
+              archived,
               content,
               date,
               slug: slugify(title, { lower: true }),
@@ -49,7 +48,12 @@ export default {
           template: 'src/templates/Post',
         })),
         getData: () => ({
-          posts: posts.map(({ date, slug, title }) => ({ date, slug, title })),
+          posts: posts.map(({ archived, date, slug, title }) => ({
+            archived,
+            date,
+            slug,
+            title,
+          })),
         }),
         path: '/blog',
       },
