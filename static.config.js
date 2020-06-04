@@ -14,13 +14,14 @@ function getPosts(filePath) {
           if (['.md', '.mdx'].includes(path.extname(file.path))) {
             const {
               content,
-              data: { archived, date, title },
+              data: { archived, date, description, title },
             } = matter.read(file.path)
 
             posts.push({
               archived: Boolean(archived),
               content,
               date,
+              description,
               slug: slugify(title, { lower: true }),
               title,
             })
@@ -48,12 +49,10 @@ export default {
           template: 'src/containers/PostContainer/index',
         })),
         getData: () => ({
-          posts: posts.map(({ archived, date, slug, title }) => ({
-            archived,
-            date,
-            slug,
-            title,
-          })),
+          posts: posts.map(post => {
+            const { content, ...rest } = post
+            return rest
+          }),
         }),
         path: '/blog',
       },

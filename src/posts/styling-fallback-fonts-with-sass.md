@@ -1,7 +1,5 @@
 ---
 title: Styling Fallback Fonts with Sass
-type: post
-layout: article
 date: 2016-06-14
 description: 'One of the pain points of loading fonts asynchronously is writing convoluted CSS for fallback styles. Fortunately, Sass can make it easier to achieve great-looking web typography before a site’s fonts finish loading.'
 ---

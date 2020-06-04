@@ -12,6 +12,7 @@ function PostContainer() {
       <Post
         archived={post.archived}
         date={post.date}
+        description={post.description}
         title={post.title}
       >
         {post.content}
