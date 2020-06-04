@@ -5,13 +5,13 @@ import { rem, rgba } from 'polished'
 export const PostBase = styled.article`
   margin-left: auto;
   margin-right: auto;
-  max-width: ${rem(600)};
+  max-width: ${rem(630)};
 `
 
 export const PostTitle = styled.h1`
   // margin-left: -0.025em; // Sidebearing offset
-  color: #292525;
-  font-family: var(--text-heading);
+  color: var(--heading-color);
+  font-family: var(--font-display);
   font-size: ${rem(80)};
   font-style: italic;
   font-weight: 700;

@@ -3,13 +3,13 @@ import { rem, rgba } from 'polished'
 
 export const CodeBlockBase = styled.div`
   background-color: ${rgba('#000', 0.05)};
-  color: ${rgba('#080505', 0.9)};
-  padding: ${rem(20)};
+  color: var(--heading-color);
+  padding: ${rem(18)} ${rem(20)} ${rem(20)};
 `
 
 export const CodeBlockLabel = styled.p`
   border-bottom: 1px solid #332e2e;
-  font-family: var(--text-sans-serif);
+  font-family: var(--font-small-caps);
   font-size: ${rem(14)};
   font-weight: 700;
   line-height: 1.35;
@@ -18,7 +18,7 @@ export const CodeBlockLabel = styled.p`
 `
 
 export const CodeBlockPre = styled.pre`
-  font-family: var(--text-monospace);
+  font-family: var(--font-monospace);
   font-size: ${rem(14.5)};
   font-weight: 500;
   line-height: 1.5;
