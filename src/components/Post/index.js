@@ -2,7 +2,6 @@ import Markdown from 'react-markdown'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ArchiveNotice from 'components/ArchiveNotice'
-import SmartLink from 'components/SmartLink'
 import PostList from './PostList'
 import {
   PostBase,
@@ -11,6 +10,7 @@ import {
   PostDescription,
   PostHeading,
   PostImage,
+  PostLink,
   PostListItem,
   PostParagraph,
   PostTitle,
@@ -31,8 +31,8 @@ function Post({ archived, children, description, title }) {
           heading: PostHeading,
           image: PostImage,
           inlineCode: PostCode,
-          link: SmartLink,
-          linkReference: SmartLink,
+          link: PostLink,
+          linkReference: PostLink,
           list: PostList,
           listItem: PostListItem,
           paragraph: PostParagraph,

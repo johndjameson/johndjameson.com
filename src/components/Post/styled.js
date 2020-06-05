@@ -1,6 +1,8 @@
-import CodeBlock from 'components/CodeBlock'
 import styled from 'styled-components'
 import { rem, rgba } from 'polished'
+import { underline } from 'styles/mixins'
+import CodeBlock from 'components/CodeBlock'
+import SmartLink from 'components/SmartLink'
 
 export const PostBase = styled.article`
   margin-left: auto;
@@ -56,8 +58,18 @@ export const PostImage = styled.img`
 `
 
 PostImage.defaultProps = {
-  loading: 'lazy'
+  loading: 'lazy',
 }
+
+export const PostLink = styled(SmartLink)`
+  ${underline()}
+  transition: opacity var(--transition);
+
+  &:focus,
+  &:hover {
+    opacity: 0.5;
+  }
+`
 
 export const PostListItem = styled.li`
   margin-bottom: ${rem(5)};

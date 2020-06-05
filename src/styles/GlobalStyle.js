@@ -10,6 +10,9 @@ const GlobalStyle = createGlobalStyle`
     --font-small-caps: 'Hermes Maia C4', system-ui, -apple-system, sans-serif;
     --heading-color: #292525;
     --text-color: #080505;
+    --transition-function: ease-in-out;
+    --transition-speed: 0.2s;
+    --transition: var(--transition-speed) var(--transition-function);
     cursor: initial; // Sanitize
   }
 
