@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 import { rem, rgba } from 'polished'
-import { underline } from 'styles/mixins'
+import { transition, underline } from 'styles/mixins'
 import CodeBlock from 'components/CodeBlock'
 import SmartLink from 'components/SmartLink'
 
@@ -20,7 +20,6 @@ export const PostBase = styled.article`
 `
 
 export const PostTitle = styled.h1`
-  // margin-left: -0.025em; // Sidebearing offset
   color: var(--heading-color);
   font-family: var(--font-display);
   font-size: ${rem(80)};
@@ -38,7 +37,9 @@ export const PostDescription = styled.p`
   margin-bottom: ${rem(20)};
 `
 
-export const PostCode = styled.code`${codeStyles}`
+export const PostCode = styled.code`
+  ${codeStyles}
+`
 
 export const PostCodeBlock = styled(CodeBlock)`
   margin-bottom: ${rem(25)};
@@ -63,15 +64,18 @@ PostImage.defaultProps = {
   loading: 'lazy',
 }
 
-export const PostKeyboard = styled.kbd`${codeStyles}`
+export const PostKeyboard = styled.kbd`
+  ${codeStyles}
+`
 
 export const PostLink = styled(SmartLink)`
-  ${underline()}
-  transition: opacity var(--transition);
+  ${transition()}
+  ${underline({ color: rgba('#000', 0.5) })}
 
   &:focus,
   &:hover {
-    opacity: 0.5;
+    ${underline()}
+    color: #000;
   }
 `
 
@@ -82,7 +86,6 @@ export const PostListItem = styled.li`
 export const PostOrderedList = styled.ol`
   counter-reset: postOrderedList;
   margin-bottom: ${rem(20)};
-  // padding-left: ${rem(20)};
 
   ${PostListItem} {
     position: relative;
