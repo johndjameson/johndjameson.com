@@ -1,6 +1,8 @@
+import { css } from 'styled-components'
+
 export function underline({ skip = true } = {}) {
-  return {
-    textDecoration: 'underline',
-    textDecorationSkipInk: skip ? 'auto' : 'none',
-  }
+  return css`
+    text-decoration-skip-ink: ${skip ? 'auto' : 'none'};
+    text-decoration: underline;
+  `
 }
