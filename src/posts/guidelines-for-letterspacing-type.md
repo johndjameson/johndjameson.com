@@ -6,8 +6,6 @@ date: 2015-08-18
 description: 'Blog posts on line height and vertical rhythm are all so boring. Let’s get horizontal, instead.'
 ---
 
-import CodePen from 'components/CodePen'
-
 I know very few web designers who ever adjust letterspacing when setting type on the web. Small changes can have an enormous effect on the readability of text. That means it’s hard to make those decisions unless you’re _very confident_ with your knowledge in web typography.
 
 Effectively letterspacing text can make the difference between good typography and _great_ typography. With that in mind, I decided to put together some guidelines for letterspacing type on the web.
@@ -19,7 +17,7 @@ It’s almost always a good idea to increase letterspacing with uppercase type. 
 This usually involves setting a `letter-spacing` value around 0.2–0.25 ems for headings and a value around 0.05–0.1 ems for acronyms.
 
 <CodePen
-  height={220}
+  height='220'
   id='QbRayd'
   title='Spaced out capital heading and acronyms'
 />
@@ -37,7 +35,7 @@ In more practical terms, here’s what that relationship looks like:
 - Very small text should have increased letterspacing.
 
 <CodePen
-  height={500}
+  height='500'
   id='aa39c703c30de9f1b65a3c738ad344c2'
   title='Large text with tight spacing, small text with loose spacing'
 />
@@ -49,7 +47,7 @@ Like with font size, the relationship between font weight and letterspacing foll
 This is because of the way typefaces at look and feel at certain weights. Light typefaces have an airy aesthetic that’s complemented by open letterspacing, while bold typefaces have a dark and heavy aesthetic that’s complemented by pulling the letters _closer together_.
 
 <CodePen
-  height={370}
+  height='370'
   id='ba2516c0e03124d5afe2d7f0eefec5fd'
   title='Light text with loose letterspacing, bold text with tight letterspacing'
 />
@@ -63,7 +61,7 @@ Light type set on a dark background usually benefits from a small increase in le
 If you look at the following example, you’ll notice that the white-on-black text appears _bolder_ than the black-on-white text. They’re the exact same size and weight, but the white-on-black text still looks a little bit thicker. To compensate for that difference, you’ll need to make a subtle increase in letterspacing.
 
 <CodePen
-  height={314}
+  height='314'
   id='qdGyJY'
   title='Black-on-white text with normal letterspacing, white-on-black text with loose letterspacing'
 />

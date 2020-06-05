@@ -6,8 +6,6 @@ date: 2015-09-16
 description: 'If you try to use ch units with most fonts, things will probably end up broken. Here are some of the issues you’ll come across as well as ways you can fix them.'
 ---
 
-import CodePen from 'components/CodePen'
-
 Ch units can be an [invaluable tool][typographic-units] when you’re working with monospaced fonts. For example, you can declare `width: 60ch` on an element and it’ll be the perfect size to fit 60 characters per line of text.
 
 But when using ch units with non-monospaced (proportional) fonts, you’ll encounter some unexpected results. Declaring the same width of `60ch` on a container _should_ work, but it doesn’t. You’ll end up with somewhere around 70 or 75 characters per line.
@@ -17,7 +15,7 @@ So what causes them to be so inaccurate?
 It comes down to the defintion of a ch unit. According to the [specification][specification], a ch unit is equal to the width of the 0 (zero) glyph found in the font used to render it. This definition works for monospaced fonts (where every glyph shares an identical width), but it’s completely unreliable for proportional fonts. On average, a ch unit ends up being 15–30% larger than the width of a font’s other glyphs.
 
 <CodePen
-  height={560}
+  height='560'
   id='24f0cb69d20658c4b14f6fef8e32ce59'
   title='Mismatched text and ch widths'
 />
@@ -33,7 +31,7 @@ Let’s say you have a 1000-character-long line of text and a `div` with a width
 Multiply by that number when using ch units, and the resulting value gives you a number much closer to what you’re looking for.
 
 <CodePen
-  height={490}
+  height='490'
   id='c41229e9197ff46d987dceffb4f36b38'
   title='Corrected text and ch widths'
 />
@@ -41,7 +39,7 @@ Multiply by that number when using ch units, and the resulting value gives you a
 The more text there is, the more reliable the resulting number becomes.
 
 <CodePen
-  height={360}
+  height='370'
   id='a6c07f62eb3d33741effa552b22abd84'
   title='Corrected paragraph text matching ch width'
 />

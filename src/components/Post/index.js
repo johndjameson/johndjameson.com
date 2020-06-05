@@ -1,7 +1,8 @@
-import Markdown from 'react-markdown'
+import Markdown from 'react-markdown/with-html'
 import PropTypes from 'prop-types'
 import React from 'react'
 import ArchiveNotice from 'components/ArchiveNotice'
+import PostHtml from './PostHtml'
 import PostList from './PostList'
 import {
   PostBase,
@@ -26,6 +27,7 @@ function Post({ archived, children, description, title }) {
       {description && <PostDescription>{description}</PostDescription>}
 
       <Markdown
+        escapeHtml={false}
         renderers={{
           code: PostCodeBlock,
           heading: PostHeading,
@@ -36,6 +38,7 @@ function Post({ archived, children, description, title }) {
           list: PostList,
           listItem: PostListItem,
           paragraph: PostParagraph,
+          parsedHtml: PostHtml,
         }}
         source={children}
       />

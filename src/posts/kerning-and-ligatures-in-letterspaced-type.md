@@ -6,8 +6,6 @@ date: 2015-09-01
 description: 'Letterspacing affects type’s horizontal rhythm, and so do kerning and ligatures. Combining all three of them can make for beautifully spaced typography.'
 ---
 
-import CodePen from 'components/CodePen'
-
 I recently [wrote an article][guidelines] about the general guidelines for letterspacing type on the web. _This article_ is a follow-up and much more focused, so bear that in mind as you continue reading. I’d recommend checking out the last one if you want a quick overview of using letterspacing on the web.
 
 Now with that out of the way, let’s jump right into the rules for letterspacing type with kerning and ligatures.
@@ -21,7 +19,7 @@ It’s a good practice to enable kerning in titles, headings, and other display 
 The majority of kerning _decreases_ the space present between letters. By enabling kerning alone, you can often decrease the horizontal spacing in a line of type &mdash; similar to reducing letterspacing. Tight letterspacing exaggerates the need for kerning, so if you make negative adjustments to the `letter-spacing` property, you should probably enable kerning, too.
 
 <CodePen
-  height={330}
+  height='330'
   id='5e36a72a168d631d7f3b3ccdcf310497'
   title='Comparison of kerned and unkerned bold type where the unkerned text looks unattractive'
 />
@@ -35,7 +33,7 @@ Kerning becomes less important as letterspacing increases, and at a certain poin
 If we look at the same word _Tomato_ &mdash; now set with positive letterspacing &mdash; the difference is too subtle to make an impact. Kerning becomes a nice-to-have here, instead of a necessity.
 
 <CodePen
-  height={330}
+  height='330'
   id='6d702133d6c081a4af782d648e1c3ff6'
   title='Comparison of kerned and unkerned thin type looking nearly identical'
 />
@@ -49,7 +47,7 @@ Since ligatures are the combined form of two or more letters, and letterspacing 
 Ligatures are always a fixed width, but you can still letterspace the type surrounding them. As a result, ligatures end up looking clumped together within a word. It’s best to avoid them altogether in loosely letterspaced type.
 
 <CodePen
-  height={270}
+  height='270'
   id='e4d79dfcf8e98e856f9d5c8ba65f8b4e'
   title='Spaced-out type with two awkardly joined letters in the FT ligature'
 />
@@ -61,7 +59,7 @@ In this example, we’re much better off using the version of _liftoff_ that doe
 Ligatures are often narrower than their two related characters, so they look right at home in lightly tightened type. In a very tight setting, however, ligatures can stand out as noticeably wider than other letters.
 
 <CodePen
-  height={270}
+  height='270'
   id='cb5625881dcf0db7e11d26d69c2ff40c'
   title='Tight type where FT looks awkward as separate letters instead of a ligature'
 />

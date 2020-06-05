@@ -6,8 +6,6 @@ date: 2015-08-05
 description: 'CSS offers many more units than pixels, ems, and percentages. Out of all the units available to us, I find two the most intriguing: ex and ch.'
 ---
 
-import CodePen from 'components/CodePen'
-
 `Ex` and `ch` are _typographic units_, meaning their values depend on an element’s font family. When you use `em` or `rem` units, the browser computes their values based on the element’s font size. It doesn’t matter what font gets displayed onscreen, the browser will compute the same values for every typeface. This is where `ex` and `ch` units offer a little more flexibility. They require the browser to reference an element’s font family _before_ computing values and applying styles.
 
 Let’s take a look at these two typographic units in more detail.
@@ -25,7 +23,7 @@ To illustrate this, if Helvetica Neue is set at a font size of `100px`, then you
 Using `ex` units in CSS is just like using any other units. You’re able to write them with any CSS property you’d use with pixels or `em` units.
 
 <CodePen
-  height={290}
+  height='290'
   id='d81ece0b6a9436654dd4777a73634005'
   title='Ex unit height highlighted'
 />
@@ -45,7 +43,7 @@ With this constraint in mind, here are some of the use cases where I’ve found 
 In the following example, I’m able to declare `max-width: 75ch` on the paragraph element, ensuring [ideal line length][csstricks-45-75] as the user’s viewport widens.
 
 <CodePen
-  height={340}
+  height='340'
   id='fbfae4fd58d5356f6b95683fb219aa38'
   title='Monospace type at 75ch'
 />

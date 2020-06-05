@@ -7,8 +7,6 @@ date: 2015-09-30
 description: 'When using different font sizes throughout a design, you’ll need to account for sidebearings to keep the type looking properly aligned.'
 ---
 
-import CodePen from 'components/CodePen'
-
 Sidebearings are a necesary part of any font; along with kerning, they ensure that letters look well-spaced next to one another. If you look at one of the glyphs in a font, its _sidebearings_ are the spaces to the left and right of the letterform. These, along with the character itself, span a glyph’s entire width.
 
 ![Sidebearings next alongside an H](/images/sidebearings-glyph.svg)
@@ -18,7 +16,7 @@ So how can sidebearings cause problems with alignment?
 In left-aligned type, each line’s first glyph begins at the same point, but because of their sidebearings, the actual _characters_ don’t. This causes large type to look indented — especially when set above or below smaller type.
 
 <CodePen
-  height={650}
+  height='650'
   id='43118a0bceea2de380f87402ff75f3c8'
   title='Misaligned headings of different sizes'
 />
@@ -32,7 +30,7 @@ Accounting for sidebearings in left-aligned type is pretty straightforward in CS
 Depending on the typeface and font size, the value you’ll need can differ wildly, so try out several values to see what works best. I’ve found that they usually fall within the -0.02em to -0.1em range.
 
 <CodePen
-  height={650}
+  height='650'
   id='17300c1454dcfc16c02cc3fba9546333'
   title='Left-aligned headings of different sizes'
 />
