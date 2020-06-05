@@ -1,8 +1,17 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { rem, rgba } from 'polished'
 import { underline } from 'styles/mixins'
 import CodeBlock from 'components/CodeBlock'
 import SmartLink from 'components/SmartLink'
+
+const codeStyles = css`
+  background-color: ${rgba('#000', 0.05)};
+  color: ${rgba('#080505', 0.9)};
+  font-size: 0.9em;
+  font-weight: 500;
+  padding-left: ${rem(5)};
+  padding-right: ${rem(5)};
+`
 
 export const PostBase = styled.article`
   margin-left: auto;
@@ -29,14 +38,7 @@ export const PostDescription = styled.p`
   margin-bottom: ${rem(20)};
 `
 
-export const PostCode = styled.code`
-  background-color: ${rgba('#000', 0.05)};
-  color: ${rgba('#080505', 0.9)};
-  font-size: 0.9em;
-  font-weight: 500;
-  padding-left: ${rem(5)};
-  padding-right: ${rem(5)};
-`
+export const PostCode = styled.code`${codeStyles}`
 
 export const PostCodeBlock = styled(CodeBlock)`
   margin-bottom: ${rem(25)};
@@ -60,6 +62,8 @@ export const PostImage = styled.img`
 PostImage.defaultProps = {
   loading: 'lazy',
 }
+
+export const PostKeyboard = styled.kbd`${codeStyles}`
 
 export const PostLink = styled(SmartLink)`
   ${underline()}
