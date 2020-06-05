@@ -48,6 +48,17 @@ export const PostHeading = styled.h2`
   margin-top: ${rem(40)};
 `
 
+export const PostImage = styled.img`
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+`
+
+PostImage.defaultProps = {
+  loading: 'lazy'
+}
+
 export const PostListItem = styled.li`
   margin-bottom: ${rem(5)};
 `

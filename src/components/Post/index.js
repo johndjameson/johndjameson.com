@@ -10,6 +10,7 @@ import {
   PostCodeBlock,
   PostDescription,
   PostHeading,
+  PostImage,
   PostListItem,
   PostParagraph,
   PostTitle,
@@ -28,6 +29,7 @@ function Post({ archived, children, description, title }) {
         renderers={{
           code: PostCodeBlock,
           heading: PostHeading,
+          image: PostImage,
           inlineCode: PostCode,
           link: SmartLink,
           linkReference: SmartLink,
