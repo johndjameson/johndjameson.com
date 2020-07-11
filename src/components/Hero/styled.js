@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { createGlobalStyle } from 'styled-components'
-import { rem } from 'polished'
+import styled, { createGlobalStyle } from 'styled-components'
+import { rem, rgba } from 'polished'
+import Polaroid from 'components/Polaroid'
 
 const bgColor = '#161616'
 
@@ -11,6 +11,7 @@ export const HeroGlobal = createGlobalStyle`
 `
 
 export const HeroBase = styled.main`
+  --hero-image-overlap: 90px;
   background-color: ${bgColor};
   color: #fffefa;
   display: flex;
@@ -32,7 +33,36 @@ export const HeroGrid = styled.div`
 `
 
 export const HeroImages = styled.div`
-  // ...
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding-left: 1%; // Magic number to indent rotation
+  padding-right: 3%; // Magic number to indent rotation
+`
+
+const HeroImage = styled(Polaroid)`
+  box-shadow: 0 3px 10px ${rgba(bgColor, 0.5)};
+  position: relative;
+  transition: transform 0.2s ease-in;
+  width: 100%;
+
+  &:hover {
+    box-shadow: 0 4px 20px ${rgba(bgColor, 0.4)};
+    transform: scale(1.05);
+    transition-timing-function: ease-out;
+  }
+`
+
+export const HeroSummer = styled(HeroImage)`
+  left: calc(var(--hero-image-overlap) * 0.5);
+  transform: rotate(-2deg);
+  z-index: 1;
+`
+
+export const HeroHalloweeen = styled(HeroImage)`
+  margin-top: 90px;
+  right: calc(var(--hero-image-overlap) * 0.5);
+  transform: rotate(6deg);
+  transition: transform 0.25s ease-in-out;
 `
 
 export const HeroContent = styled.div`

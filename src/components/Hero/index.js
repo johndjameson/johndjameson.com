@@ -1,14 +1,17 @@
 import React from 'react'
 import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
-
+import polaroidHalloween from 'assets/polaroid-halloween.jpg'
+import polaroidSummer from 'assets/polaroid-summer.jpg'
 import {
   HeroBase,
   HeroContent,
   HeroGlobal,
   HeroGrid,
+  HeroHalloweeen,
   HeroHeading,
   HeroImages,
+  HeroSummer,
 } from './styled'
 
 function ArchiveNotice({ children }) {
@@ -19,7 +22,8 @@ function ArchiveNotice({ children }) {
       <HeroBase>
         <HeroGrid>
           <HeroImages>
-            <img alt='Summer of ’rona' src='https://placehold.it/402x489' />
+            <HeroSummer alt='Summer of ’rona' src={polaroidSummer} />
+            <HeroHalloweeen alt='Halloween 2019' src={polaroidHalloween} />
           </HeroImages>
 
           <HeroContent>
