@@ -1,12 +1,31 @@
 import { createGlobalStyle } from 'styled-components'
 import { rem } from 'polished'
+import argentThinItalic from 'assets/fonts/argent-thin-italic.woff2'
+import hermesMaiaT3 from 'assets/fonts/hermes-maia-t3-regular.woff'
 
 const GlobalStyle = createGlobalStyle`
+  @font-face {
+    font-display: block;
+    font-family: 'argent-web';
+    font-style: italic;
+    font-weight: 200;
+    src: url(${argentThinItalic}) format('woff2');
+  }
+
+  @font-face {
+    font-display: block;
+    font-family: 'hermes-maia-web';
+    font-style: normal;
+    font-weight: 300;
+    src: url(${hermesMaiaT3}) format('woff');
+  }
+
+  // ----- Inline Content ----- //
+
   html {
-    --font-display: 'Argent CF', serif;
-    --font-monospace: 'Fira Mono', 'Monaco', monospace;
-    --font-sans-serif: 'Hermes Maia T4', system-ui, -apple-system, sans-serif;
-    --font-serif: 'Valkyrie T4', serif;
+    --font-display: 'argent-web', serif;
+    --font-monospace: 'fira-mono-web', 'Monaco', monospace;
+    --font-sans-serif: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
     --font-small-caps: 'Hermes Maia C4', system-ui, -apple-system, sans-serif;
     --heading-color: #292525;
     --text-color: #080505;
@@ -24,7 +43,7 @@ const GlobalStyle = createGlobalStyle`
     color: var(--text-color);
     font-family: var(--font-sans-serif);
     font-size: ${rem(18)};
-    font-weight: 400;
+    font-weight: 300;
     margin: 0;
     padding: 0;
   }

@@ -75,7 +75,7 @@ export const HeroHeading = styled.h1`
   font-family: var(--font-display);
   font-size: ${rem(92)};
   font-style: italic;
-  font-weight: 100;
+  font-weight: 200;
   line-height: 0.85;
   margin-bottom: 20px;
 `
