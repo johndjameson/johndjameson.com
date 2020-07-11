@@ -1,19 +1,15 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
 import React from 'react'
-import PropTypes from 'prop-types'
-import { Link } from 'gatsby'
-import ExternalLink from 'components/ExternalLink'
+import { Link } from '@reach/router'
 
-function SmartLink({ href, ...rest }) {
+function SmartLink(props) {
+  const { href, ...moreProps } = props
+
   return href.startsWith('http') ? (
-    <ExternalLink href={href} {...rest} />
+    // eslint-disable-next-line jsx-a11y/anchor-has-content
+    <a target='_blank' rel='noopener noreferrer' {...props} />
   ) : (
-    <Link to={href} {...rest} />
+    <Link to={href} {...moreProps} />
   )
-}
-
-SmartLink.propTypes = {
-  href: PropTypes.string.isRequired,
 }
 
 export default SmartLink
