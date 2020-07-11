@@ -22,7 +22,7 @@ const GlobalStyle = createGlobalStyle`
 
   body {
     color: var(--text-color);
-    font-family: var(--font-serif);
+    font-family: var(--font-sans-serif);
     font-size: ${rem(18)};
     font-weight: 400;
     margin: 0;
