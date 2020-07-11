@@ -31,7 +31,10 @@ function ArchiveNotice({ children }) {
 
             <p>
               Hello, I’m{' '}
-              <InkUnderline as='strong'>John D. Jameson</InkUnderline>.
+              <InkUnderline as='strong' highlight>
+                John D. Jameson
+              </InkUnderline>
+              .
             </p>
 
             <PreventOrphan as='p'>
