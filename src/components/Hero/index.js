@@ -1,4 +1,5 @@
 import React from 'react'
+import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
 
 import {
@@ -24,7 +25,9 @@ function ArchiveNotice({ children }) {
           <HeroContent>
             <HeroHeading>Front-end Engineer</HeroHeading>
 
-            <p>Hello, I’m John D. Jameson.</p>
+            <p>
+              Hello, I’m <InkUnderline>John D. Jameson</InkUnderline>.
+            </p>
 
             <PreventOrphan as='p'>
               I’m passionate about building highly polished design systems and
