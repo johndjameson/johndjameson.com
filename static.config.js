@@ -63,6 +63,7 @@ export default {
   }),
   plugins: [
     'react-static-plugin-mdx',
+    'react-static-plugin-styled-components',
     ['react-static-plugin-file-watch-reload', { paths: ['src/posts'] }],
     [
       require.resolve('react-static-plugin-source-filesystem'),
