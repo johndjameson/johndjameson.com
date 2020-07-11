@@ -30,7 +30,8 @@
     "react-static-plugin-sitemap": "^7.2.0",
     "react-static-plugin-source-filesystem": "^7.4.0",
     "sanitize.css": "^11.0.1",
-    "slugify": "^1.4.0"
+    "slugify": "^1.4.0",
+    "styled-components": "^5.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.2",
