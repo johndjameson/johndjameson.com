@@ -27,8 +27,10 @@ export const HeroBase = styled.main`
   line-height: 1.5;
   min-height: 100vh;
   overflow: hidden;
+  padding-bottom: 40px;
   padding-left: var(--hero-padding);
   padding-right: var(--hero-padding);
+  padding-top: 40px;
 
   ${media.widerThan(heroBreakpoints.layout)`
     --hero-padding: 40px;
@@ -60,7 +62,6 @@ export const HeroImages = styled.div`
     margin-left: auto;
     margin-right: auto;
     max-width: 400px;
-    padding-top: 40px;
   `}
 `
 
