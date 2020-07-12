@@ -2,7 +2,13 @@ import React from 'react'
 import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
 import polaroidHalloween from 'assets/polaroid-halloween.jpg'
+import polaroidHalloween2x from 'assets/polaroid-halloween@2x.jpg'
+import polaroidHalloweenWebp from 'assets/polaroid-halloween.webp'
+import polaroidHalloweenWebp2x from 'assets/polaroid-halloween@2x.webp'
 import polaroidSummer from 'assets/polaroid-summer.jpg'
+import polaroidSummer2x from 'assets/polaroid-summer@2x.jpg'
+import polaroidSummerWebp from 'assets/polaroid-summer.webp'
+import polaroidSummerWebp2x from 'assets/polaroid-summer@2x.webp'
 import {
   HeroBase,
   HeroContent,
@@ -22,8 +28,20 @@ function ArchiveNotice({ children }) {
       <HeroBase>
         <HeroGrid>
           <HeroImages>
-            <HeroSummer alt='Summer of ’rona' src={polaroidSummer} />
-            <HeroHalloweeen alt='Halloween 2019' src={polaroidHalloween} />
+            <HeroSummer
+              alt='Summer of ’rona'
+              src2x={polaroidSummer2x}
+              src={polaroidSummer}
+              webpSrc2x={polaroidSummerWebp2x}
+              webpSrc={polaroidSummerWebp}
+            />
+            <HeroHalloweeen
+              alt='Halloween 2019'
+              src2x={polaroidHalloween2x}
+              src={polaroidHalloween}
+              webpSrc2x={polaroidHalloweenWebp2x}
+              webpSrc={polaroidHalloweenWebp}
+            />
           </HeroImages>
 
           <HeroContent>
