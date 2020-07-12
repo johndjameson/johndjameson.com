@@ -59,6 +59,8 @@ export default {
     ]
   },
   getSiteData: () => ({
+    siteDescription:
+      'Front-end Engineer in Austin, TX. Builds design systems emphasizing architecture, UI components, rendering performance, and typography.',
     siteTitle: 'John D. Jameson',
   }),
   plugins: [
