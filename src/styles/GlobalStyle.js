@@ -1,7 +1,7 @@
 import { createGlobalStyle } from 'styled-components'
 import { rem } from 'polished'
 import argentThinItalic from 'assets/fonts/argent-thin-italic.woff2'
-import hermesMaiaT3 from 'assets/fonts/hermes-maia-t3-regular.woff'
+import hermesMaiaT3 from 'assets/fonts/hermes-maia-t3-regular.woff2'
 
 const GlobalStyle = createGlobalStyle`
   @font-face {
@@ -17,7 +17,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'hermes-maia-web';
     font-style: normal;
     font-weight: 300;
-    src: url(${hermesMaiaT3}) format('woff');
+    src: url(${hermesMaiaT3}) format('woff2');
   }
 
   // ----- Inline Content ----- //
