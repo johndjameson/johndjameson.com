@@ -26,6 +26,7 @@ export const HeroBase = styled.main`
   justify-content: center;
   line-height: 1.5;
   min-height: 100vh;
+  overflow: hidden;
   padding-left: var(--hero-padding);
   padding-right: var(--hero-padding);
 
