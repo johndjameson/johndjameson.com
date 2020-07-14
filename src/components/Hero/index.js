@@ -1,4 +1,5 @@
 import React from 'react'
+import { imageKitUrl } from 'common/helpers'
 import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
 import {
@@ -22,17 +23,13 @@ function ArchiveNotice({ children }) {
           <HeroImages>
             <HeroSummer
               alt='Summer of ’rona'
-              height={290}
-              src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290,dpr-2/johndjameson/polaroid-summer-square.jpg'
-              src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290/johndjameson/polaroid-summer-square.jpg'
-              width={290}
+              src2x={imageKitUrl({ path: 'polaroid-summer-square.jpg', transformations: { w: 290, dpr: 2 }, })}
+              src={imageKitUrl({ path: 'polaroid-summer-square.jpg', transformations: { w: 290 }, })}
             />
             <HeroHalloweeen
               alt='Summer of ’rona'
-              height={290}
-              src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290,dpr-2/johndjameson/polaroid-halloween-square.jpg'
-              src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290/johndjameson/polaroid-halloween-square.jpg'
-              width={290}
+              src2x={imageKitUrl({ path: 'polaroid-halloween-square.jpg', transformations: { w: 290, dpr: 2 }, })}
+              src={imageKitUrl({ path: 'polaroid-halloween-square.jpg', transformations: { w: 290 }, })}
             />
           </HeroImages>
 

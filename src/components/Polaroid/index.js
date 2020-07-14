@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import { imageKitUrl } from 'common/helpers'
 import { PolaroidBase, PolaroidFrame, PolaroidImage } from './styled'
 
 function Polaroid({ alt, className, ...moreProps }) {
@@ -15,8 +16,14 @@ function Polaroid({ alt, className, ...moreProps }) {
       />
       <PolaroidFrame
         onLoad={() => setFrameLoaded(true)}
-        src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-335,dpr-2/johndjameson/polaroid-600.png'
-        src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-335/johndjameson/polaroid-600.png'
+        src2x={imageKitUrl({
+          path: 'polaroid-600.png',
+          transformations: { w: 670, dpr: 2 },
+        })}
+        src={imageKitUrl({
+          path: 'polaroid-600.png',
+          transformations: { w: 670 },
+        })}
       />
     </PolaroidBase>
   )
