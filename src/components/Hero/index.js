@@ -1,14 +1,7 @@
 import React from 'react'
+import { imageKitUrl } from 'common/helpers'
 import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
-import polaroidHalloween from 'assets/polaroid-halloween.jpg'
-import polaroidHalloween2x from 'assets/polaroid-halloween@2x.jpg'
-import polaroidHalloweenWebp from 'assets/polaroid-halloween.webp'
-import polaroidHalloweenWebp2x from 'assets/polaroid-halloween@2x.webp'
-import polaroidSummer from 'assets/polaroid-summer.jpg'
-import polaroidSummer2x from 'assets/polaroid-summer@2x.jpg'
-import polaroidSummerWebp from 'assets/polaroid-summer.webp'
-import polaroidSummerWebp2x from 'assets/polaroid-summer@2x.webp'
 import {
   HeroBase,
   HeroContent,
@@ -30,17 +23,13 @@ function ArchiveNotice({ children }) {
           <HeroImages>
             <HeroSummer
               alt='Summer of ’rona'
-              src2x={polaroidSummer2x}
-              src={polaroidSummer}
-              webpSrc2x={polaroidSummerWebp2x}
-              webpSrc={polaroidSummerWebp}
+              src2x={imageKitUrl({ path: 'polaroid-summer-square.jpg', transformations: { w: 290, dpr: 2 }, })}
+              src={imageKitUrl({ path: 'polaroid-summer-square.jpg', transformations: { w: 290 }, })}
             />
             <HeroHalloweeen
-              alt='Halloween 2019'
-              src2x={polaroidHalloween2x}
-              src={polaroidHalloween}
-              webpSrc2x={polaroidHalloweenWebp2x}
-              webpSrc={polaroidHalloweenWebp}
+              alt='Summer of ’rona'
+              src2x={imageKitUrl({ path: 'polaroid-halloween-square.jpg', transformations: { w: 290, dpr: 2 }, })}
+              src={imageKitUrl({ path: 'polaroid-halloween-square.jpg', transformations: { w: 290 }, })}
             />
           </HeroImages>
 

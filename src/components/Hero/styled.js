@@ -52,6 +52,7 @@ export const HeroGrid = styled.div`
 `
 
 export const HeroImages = styled.div`
+  align-items: start;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-left: 1.5%; // Magic number to indent rotation
@@ -80,7 +81,6 @@ const HeroImage = styled(Polaroid)`
 `
 
 export const HeroSummer = styled(HeroImage)`
-  // left: calc(var(--hero-image-overlap) * 0.5);
   transform: rotate(-2deg);
   z-index: 1;
 `
@@ -89,7 +89,7 @@ export const HeroHalloweeen = styled(HeroImage)`
   margin-top: 90px;
   right: calc(var(--hero-image-overlap) * 0.5);
   transform: rotate(6deg);
-  transition: transform 0.25s ease-in-out;
+  transition-duration: 0.25s;
 `
 
 export const HeroContent = styled.div`
