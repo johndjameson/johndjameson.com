@@ -1,12 +1,24 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import { PolaroidBase } from './styled'
+import { PolaroidBase, PolaroidFrame, PolaroidImage } from './styled'
 
-function Polaroid(props) {
-  const [loaded, setLoaded] = useState(false)
+function Polaroid({ alt, className, ...moreProps }) {
+  const [frameLoaded, setFrameLoaded] = useState(false)
+  const [imageLoaded, setImageLoaded] = useState(false)
 
   return (
-    <PolaroidBase loaded={loaded} onLoad={() => setLoaded(true)} {...props} />
+    <PolaroidBase className={className} loaded={frameLoaded && imageLoaded}>
+      <PolaroidImage
+        alt={alt}
+        onLoad={() => setImageLoaded(true)}
+        {...moreProps}
+      />
+      <PolaroidFrame
+        onLoad={() => setFrameLoaded(true)}
+        src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-335,dpr-2/johndjameson/polaroid-600.png'
+        src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-335/johndjameson/polaroid-600.png'
+      />
+    </PolaroidBase>
   )
 }
 

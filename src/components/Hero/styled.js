@@ -52,6 +52,7 @@ export const HeroGrid = styled.div`
 `
 
 export const HeroImages = styled.div`
+  align-items: start;
   display: grid;
   grid-template-columns: 1fr 1fr;
   padding-left: 1.5%; // Magic number to indent rotation

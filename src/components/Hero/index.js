@@ -1,14 +1,6 @@
 import React from 'react'
 import InkUnderline from 'components/InkUnderline'
 import PreventOrphan from 'components/PreventOrphan'
-import polaroidHalloween from 'assets/polaroid-halloween.jpg'
-import polaroidHalloween2x from 'assets/polaroid-halloween@2x.jpg'
-import polaroidHalloweenWebp from 'assets/polaroid-halloween.webp'
-import polaroidHalloweenWebp2x from 'assets/polaroid-halloween@2x.webp'
-import polaroidSummer from 'assets/polaroid-summer.jpg'
-import polaroidSummer2x from 'assets/polaroid-summer@2x.jpg'
-import polaroidSummerWebp from 'assets/polaroid-summer.webp'
-import polaroidSummerWebp2x from 'assets/polaroid-summer@2x.webp'
 import {
   HeroBase,
   HeroContent,
@@ -30,17 +22,17 @@ function ArchiveNotice({ children }) {
           <HeroImages>
             <HeroSummer
               alt='Summer of ’rona'
-              src2x={polaroidSummer2x}
-              src={polaroidSummer}
-              webpSrc2x={polaroidSummerWebp2x}
-              webpSrc={polaroidSummerWebp}
+              height={290}
+              src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290,dpr-2/johndjameson/polaroid-summer-square.jpg'
+              src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290/johndjameson/polaroid-summer-square.jpg'
+              width={290}
             />
             <HeroHalloweeen
-              alt='Halloween 2019'
-              src2x={polaroidHalloween2x}
-              src={polaroidHalloween}
-              webpSrc2x={polaroidHalloweenWebp2x}
-              webpSrc={polaroidHalloweenWebp}
+              alt='Summer of ’rona'
+              height={290}
+              src2x='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290,dpr-2/johndjameson/polaroid-halloween-square.jpg'
+              src='https://ik.imagekit.io/johndjameson/tr:f-auto,w-290/johndjameson/polaroid-halloween-square.jpg'
+              width={290}
             />
           </HeroImages>
 
