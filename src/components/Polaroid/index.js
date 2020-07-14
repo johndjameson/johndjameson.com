@@ -1,9 +1,13 @@
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
-import React from 'react'
 import { PolaroidBase } from './styled'
 
 function Polaroid(props) {
-  return <PolaroidBase {...props} />
+  const [loaded, setLoaded] = useState(false)
+
+  return (
+    <PolaroidBase loaded={loaded} onLoad={() => setLoaded(true)} {...props} />
+  )
 }
 
 Polaroid.propTypes = {
