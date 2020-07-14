@@ -6,6 +6,7 @@ import Polaroid from 'components/Polaroid'
 const heroBackground = '#161616'
 
 const heroBreakpoints = {
+  fontSize: 900,
   layout: 800,
 }
 
@@ -107,6 +108,11 @@ export const HeroHeading = styled.h1`
 
   ${media.widerThan(heroBreakpoints.layout)`
     margin-bottom: 20px;
+    font-size: ${rem(76)};
+  `}
+
+  ${media.widerThan(heroBreakpoints.fontSize)`
     font-size: ${rem(92)};
   `}
+
 `
