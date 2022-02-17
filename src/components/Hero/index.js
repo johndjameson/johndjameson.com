@@ -51,7 +51,7 @@ function ArchiveNotice({ children }) {
             </PreventOrphan>
 
             <PreventOrphan as='p'>
-              Raised in Miami, today you can find me coding away at Sips By in Austin, pretending I’m not an escaped Florida Man on the
+              Raised in Miami, today you can find me coding away at Sips by in Austin, pretending I’m not an escaped Florida Man on the
               loose.
             </PreventOrphan>
           </HeroContent>
