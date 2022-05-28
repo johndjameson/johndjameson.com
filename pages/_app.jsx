@@ -1,3 +1,4 @@
+import Container from 'components/Container/Container';
 import Head from 'next/head';
 import Header from 'components/Header/Header';
 import Link from 'next/link';
@@ -29,21 +30,19 @@ function App({ Component, pageProps }) {
       </Head>
 
       <Header>
-        <div className="container">
-          <Header.Item full>
-            <Link href="/" passHref>
-              <a>
-                <span className="visually-hidden">Home</span>
-                <img
-                  alt=""
-                  height={50}
-                  src="/images/logo-johndjameson.svg"
-                  width={50}
-                />
-              </a>
-            </Link>
-          </Header.Item>
-        </div>
+        <Header.Item as="nav" full>
+          <Link href="/" passHref>
+            <a>
+              <span className="visually-hidden">Home</span>
+              <img
+                alt=""
+                height={50}
+                src="/images/logo-johndjameson.svg"
+                width={50}
+              />
+            </a>
+          </Link>
+        </Header.Item>
       </Header>
 
       <main>

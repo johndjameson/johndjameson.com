@@ -73,11 +73,6 @@
   text-decoration-line: none;
 }
 
-.container {
-  padding-left: var(--jdj-layout-container-width-padding-x);
-  padding-right: var(--jdj-layout-container-width-padding-x);
-}
-
 /* https://github.com/h5bp/html5-boilerplate */
 .visually-hidden {
   border: 0;

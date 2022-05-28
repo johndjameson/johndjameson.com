@@ -7,8 +7,8 @@ const Header = styled.header`
   display: flex;
   gap: 24px;
   height: 80px;
-  padding-left: var(--jdj-layout-gutter);
-  padding-right: var(--jdj-layout-gutter);
+  padding-left: var(--jdj-layout-container-width-padding-x);
+  padding-right: var(--jdj-layout-container-width-padding-x);
 `;
 
 const HeaderItem = styled.div`
