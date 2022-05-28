@@ -9,7 +9,7 @@ import {
   HeroHeading,
   HeroImages,
   HeroSummer,
-} from './styled';
+} from './Hero.styled';
 import { imageKitUrl } from 'helpers/imageKitUrl';
 
 function Hero() {
