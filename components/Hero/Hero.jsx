@@ -9,7 +9,7 @@ import {
   HeroHeading,
   HeroImages,
   HeroSummer,
-} from './styled';
+} from './Hero.styled';
 import { imageKitUrl } from 'helpers/imageKitUrl';
 
 function Hero() {
@@ -46,7 +46,7 @@ function Hero() {
 
           <p>
             Hello, I’m{' '}
-            <InkUnderline as="strong" highlight>
+            <InkUnderline accentColor="#bf645f" as="strong">
               John D. Jameson
             </InkUnderline>
             .

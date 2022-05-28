@@ -1,3 +1,5 @@
+/** @jsxImportSource theme-ui */
+import Container from 'components/Container/Container';
 import Head from 'next/head';
 import Hero from 'components/Hero/Hero';
 import fs from 'fs';
@@ -15,19 +17,37 @@ function Home({ posts }) {
 
       <h1 className="visually-hidden">John D. Jameson, Front-End Engineer</h1>
 
-      {/*
-      <h2>Posts</h2>
-      <ul>
-        {posts.map((post) => (
-          <li key={post.frontMatter.title}>
-            <time dateTime={post.frontMatter.date}>
-              {post.frontMatter.date}
-            </time>
-            <a href={`blog/${post.slug}`}>{post.frontMatter.title}</a>
-          </li>
-        ))}
-      </ul>
-    */}
+      <Container
+        sx={{ paddingBottom: [6, 8, 10], paddingTop: [4, null, 6, null, 8] }}
+        width="narrow"
+      >
+        <h2 sx={{ fontSize: 4, fontWeight: 'semibold', marginBottom: 3 }}>
+          Posts
+        </h2>
+        <ul>
+          {posts.map((post) => (
+            <li key={post.frontMatter.title} sx={{ marginBottom: 4 }}>
+              <a
+                href={`blog/${post.slug}`}
+                sx={{
+                  display: 'block',
+                  fontSize: 3,
+                  lineHeight: 'heading',
+                  marginBottom: 1,
+                  width: 'max-content',
+
+                  '&:hover': {
+                    textDecorationLine: 'underline',
+                  },
+                }}
+              >
+                {post.frontMatter.title}
+              </a>
+              <p>{post.frontMatter.description}</p>
+            </li>
+          ))}
+        </ul>
+      </Container>
     </>
   );
 }

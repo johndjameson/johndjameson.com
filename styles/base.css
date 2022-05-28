@@ -18,21 +18,43 @@
 :where(:root) {
   --jdj-color-fg: #000;
 
-  --jdj-font-body-line-height: 1.5;
-  --jdj-font-heading-line-height: 1.25;
-  --jdj-font-heading: 'argent-web', serif;
-  --jdj-font-sans-serif: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
+  --jdj-font-family-mono: 'Monaco', monospace;
+  --jdj-font-family-sans: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
+  --jdj-font-family-serif: 'argent-web', serif;
+
+  --jdj-font-family-body: var(--jdj-font-family-sans);
+  --jdj-font-family-code: var(--jdj-font-family-mono);
+  --jdj-font-family-heading: var(--jdj-font-family-serif);
+
+  --jdj-font-line-height-body: 1.5;
+  --jdj-font-line-height-heading: 1.25;
+
   --jdj-font-underline-offset: min(1px, 0.025em);
   --jdj-font-underline-thickness: max(1px, 0.075em);
 
-  --jdj-layout-gutter: 20px;
+  --jdj-layout-gutter: 24px;
   --jdj-layout-container-width: 1280px;
+  --jdj-layout-container-width-narrow: 700px;
   --jdj-layout-container-width-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width)) / 2));
+  --jdj-layout-container-width-narrow-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width-narrow)) / 2));
+}
+
+@media screen and (min-width: 554px) {
+  :root {
+    --jdj-layout-gutter: 32px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  :root {
+    --jdj-layout-gutter: 40px;
+  }
 }
 
 :where(html) {
   /* font-size: clamp(16px, calc(10px + 1vw), 20px); */
   background: #fff;
+  cursor: initial; /* Reset Sanitize.css `default` value */
   font-size: 16px;
   height: 100%;
 }
@@ -40,9 +62,9 @@
 :where(body) {
   -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
   color: var(--jdj-color-fg);
-  font-family: var(--jdj-font-sans-serif);
+  font-family: var(--jdj-font-family-body);
   height: 100%;
-  line-height: var(--jdj-font-body-line-height);
+  line-height: var(--jdj-font-line-height-body);
 }
 
 :where(*),
@@ -61,6 +83,7 @@
 :where(h1, h2, h3, h4, h5, h6) {
   font-size: inherit;
   font-weight: inherit;
+  line-height: var(--jdj-font-line-height-heading);
 }
 
 :where(canvas, img, picture, svg, video) {
@@ -84,4 +107,8 @@
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+code {
+  font-family: var(--jdj-font-family-code);
 }

@@ -1,5 +1,6 @@
 import Polaroid from 'components/Polaroid/Polaroid';
 import styled from 'styled-components';
+import { get } from  'styles/theme';
 import { media } from 'styles/mixins';
 import { rem, rgba } from 'polished';
 
@@ -20,12 +21,11 @@ export const HeroBase = styled.section`
   font-size: ${rem(18)};
   justify-content: center;
   line-height: 1.5;
-  min-height: calc(100vh - 80px);
   overflow: hidden;
-  padding-bottom: 80px;
+  padding-bottom: ${get('space.11')};
   padding-left: var(--hero-padding-x);
   padding-right: var(--hero-padding-x);
-  padding-top: 80px;
+  padding-top: ${get('space.11')};
 
   ${media.widerThan(heroBreakpoints.layout)`
     font-size: ${rem(21)};
@@ -97,7 +97,7 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroHeading = styled.h1`
-  font-family: var(--jdj-font-heading);
+  font-family: var(--jdj-font-family-heading);
   font-size: ${rem(60)};
   font-style: italic;
   font-weight: 200;

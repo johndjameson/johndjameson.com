@@ -1,22 +1,48 @@
+/** @jsxImportSource theme-ui */
+import ArchiveNotice from 'components/ArchiveNotice/ArchiveNotice';
 import CodePen from 'components/CodePen/CodePen';
+import Container from 'components/Container/Container';
 import Head from 'next/head';
+import PreventOrphan from 'components/PreventOrphan/PreventOrphan';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
+import { BaseStyles } from 'theme-ui';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-function Post({ frontMatter: { title }, mdxSource }) {
+function Post({ frontMatter: { archived, date, title }, mdxSource }) {
   return (
     <>
       <Head>
         <title>{title} | John D. Jameson</title>
       </Head>
 
-      <article>
-        <h1>{title}</h1>
-        <MDXRemote components={{ CodePen }} {...mdxSource} />
-      </article>
+      <Container
+        as="article"
+        sx={{
+          paddingBottom: [6, 8, 10],
+          paddingTop: [4, null, 6, null, 8],
+        }}
+        width="narrow"
+      >
+        <PreventOrphan
+          as="h1"
+          sx={{ fontSize: [5, 6, 7], fontWeight: 'bold', marginBottom: 1 }}
+        >
+          {title}
+        </PreventOrphan>
+
+        <p sx={{ marginBottom: 3 }}>
+          Published <time dateTime={date}>{date}</time>
+        </p>
+
+        {archived ? <ArchiveNotice sx={{ marginBottom: 4 }} /> : null}
+
+        <BaseStyles>
+          <MDXRemote components={{ CodePen }} {...mdxSource} />
+        </BaseStyles>
+      </Container>
     </>
   );
 }
