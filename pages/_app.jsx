@@ -16,6 +16,22 @@ function App({ Component, pageProps }) {
           content="Senior Front-End Engineer in Austin, TX"
           name="description"
         />
+
+        <link
+          href="/favicon.ico"
+          rel="icon"
+          sizes="any"
+        />
+        <link
+          href="/favicon.svg"
+          rel="icon"
+          type="image/svg+xml"
+        />
+        <link
+          href="/favicon_180x180.png"
+          rel="apple-touch-icon"
+          sizes="180x180"
+        />
       </Head>
 
       <Component {...pageProps} />
