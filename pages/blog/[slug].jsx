@@ -21,14 +21,16 @@ function Post({ frontMatter: { title }, mdxSource }) {
   );
 }
 
-const getStaticPaths = async () => {
+export const getStaticPaths = async () => {
   const files = fs.readdirSync(path.join('posts'));
 
-  const paths = files.map((filename) => ({
-    params: {
-      slug: filename.replace('.mdx', ''),
-    },
-  }));
+  const paths = files
+    .filter((filename) => ['.md', '.mdx'].includes(path.extname(filename)))
+    .map((filename) => ({
+      params: {
+        slug: filename.replace(/\.mdx?/, ''),
+      },
+    }));
 
   return {
     fallback: false,
@@ -36,7 +38,7 @@ const getStaticPaths = async () => {
   };
 };
 
-const getStaticProps = async ({ params: { slug } }) => {
+export const getStaticProps = async ({ params: { slug } }) => {
   const markdownWithMeta = fs.readFileSync(
     path.join('posts', slug + '.mdx'),
     'utf-8'
@@ -55,5 +57,4 @@ const getStaticProps = async ({ params: { slug } }) => {
   };
 };
 
-export { getStaticProps, getStaticPaths };
 export default Post;

@@ -1,0 +1,61 @@
+:where(:root) {
+  --jdj-color-fg: #000;
+  --jdj-font-body-line-height: 1.5;
+  --jdj-font-heading-line-height: 1.25;
+  --jdj-font-serif: serif;
+  --jdj-font-underline-offset: min(1px, 0.025em);
+  --jdj-font-underline-thickness: max(1px, 0.075em);
+}
+
+:where(html) {
+  font-size: clamp(16px, calc(10px + 1vw), 20px);
+  height: 100%;
+}
+
+:where(body) {
+  -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
+  color: var(--jdj-color-fg);
+  height: 100%;
+  line-height: var(--jdj-font-body-line-height);
+}
+
+:where(*),
+:where(::before),
+:where(::after) {
+  margin: 0;
+  text-decoration-thickness: var(--jdj-font-underline-thickness);
+  text-underline-offset: var(--jdj-font-underline-offset);
+}
+
+:where(ol, ul) {
+  list-style-type: none;
+  padding: 0;
+}
+
+:where(h1, h2, h3, h4, h5, h6) {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+:where(canvas, img, picture, svg, video) {
+  display: block;
+  max-width: 100%;
+}
+
+:where(a) {
+  color: inherit;
+  text-decoration-line: none;
+}
+
+/* https://github.com/h5bp/html5-boilerplate */
+.visually-hidden {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
