@@ -1,24 +1,18 @@
-import Polaroid from 'components/Polaroid/Polaroid'
-import styled, { createGlobalStyle } from 'styled-components'
-import { media } from 'styles/mixins'
-import { rem, rgba } from 'polished'
+import Polaroid from 'components/Polaroid/Polaroid';
+import styled from 'styled-components';
+import { media } from 'styles/mixins';
+import { rem, rgba } from 'polished';
 
-const heroBackground = '#161616'
+const heroBackground = '#161616';
 
 const heroBreakpoints = {
   fontSize: 900,
   layout: 800,
-}
+};
 
-export const HeroGlobal = createGlobalStyle`
-  html {
-    background-color: ${heroBackground};
-  }
-`
-
-export const HeroBase = styled.main`
+export const HeroBase = styled.section`
   --hero-image-overlap: 90px;
-  --hero-padding: 20px;
+  --hero-padding-x: var(--jdj-layout-gutter);
   align-items: center;
   background-color: ${heroBackground};
   color: #fffefa;
@@ -26,18 +20,17 @@ export const HeroBase = styled.main`
   font-size: ${rem(18)};
   justify-content: center;
   line-height: 1.5;
-  min-height: 100vh;
+  min-height: calc(100vh - 80px);
   overflow: hidden;
-  padding-bottom: 40px;
-  padding-left: var(--hero-padding);
-  padding-right: var(--hero-padding);
-  padding-top: 40px;
+  padding-bottom: 80px;
+  padding-left: var(--hero-padding-x);
+  padding-right: var(--hero-padding-x);
+  padding-top: 80px;
 
   ${media.widerThan(heroBreakpoints.layout)`
-    --hero-padding: 40px;
     font-size: ${rem(21)};
   `}
-`
+`;
 
 export const HeroGrid = styled.div`
   display: grid;
@@ -50,7 +43,7 @@ export const HeroGrid = styled.div`
     grid-column-gap: 60px;
     grid-template-columns: 1fr 1fr;
   `}
-`
+`;
 
 export const HeroImages = styled.div`
   align-items: start;
@@ -65,7 +58,7 @@ export const HeroImages = styled.div`
     margin-right: auto;
     max-width: 400px;
   `}
-`
+`;
 
 const HeroImage = styled(Polaroid)`
   box-shadow: 0 3px 10px ${rgba(heroBackground, 0.5)};
@@ -74,30 +67,32 @@ const HeroImage = styled(Polaroid)`
   transition: transform 0.2s ease-in;
   width: calc(100% + (var(--hero-image-overlap) * 0.5));
 
-  &:hover {
-    box-shadow: 0 4px 20px ${rgba(heroBackground, 0.4)};
-    transform: scale(1.05);
-    transition-timing-function: ease-out;
+  @media (hover) {
+    &:hover {
+      box-shadow: 0 4px 20px ${rgba(heroBackground, 0.4)};
+      transform: scale(1.05);
+      transition-timing-function: ease-out;
+    }
   }
-`
+`;
 
 export const HeroSummer = styled(HeroImage)`
   transform: rotate(-2deg);
   z-index: 1;
-`
+`;
 
 export const HeroHalloweeen = styled(HeroImage)`
   margin-top: 90px;
   right: calc(var(--hero-image-overlap) * 0.5);
   transform: rotate(6deg);
   transition-duration: 0.25s;
-`
+`;
 
 export const HeroContent = styled.div`
   display: grid;
   grid-row-gap: 20px;
   max-width: ${rem(500)};
-`
+`;
 
 export const HeroHeading = styled.h1`
   font-family: var(--jdj-font-heading);
@@ -114,5 +109,4 @@ export const HeroHeading = styled.h1`
   ${media.widerThan(heroBreakpoints.fontSize)`
     font-size: ${rem(92)};
   `}
-
-`
+`;

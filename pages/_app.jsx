@@ -1,4 +1,6 @@
 import Head from 'next/head';
+import Header from 'components/Header/Header';
+import Link from 'next/link';
 
 import 'sanitize.css';
 import 'sanitize.css/typography.css';
@@ -17,16 +19,8 @@ function App({ Component, pageProps }) {
           name="description"
         />
 
-        <link
-          href="/favicon.ico"
-          rel="icon"
-          sizes="any"
-        />
-        <link
-          href="/favicon.svg"
-          rel="icon"
-          type="image/svg+xml"
-        />
+        <link href="/favicon.ico" rel="icon" sizes="any" />
+        <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
         <link
           href="/favicon_180x180.png"
           rel="apple-touch-icon"
@@ -34,7 +28,27 @@ function App({ Component, pageProps }) {
         />
       </Head>
 
-      <Component {...pageProps} />
+      <Header>
+        <div className="container">
+          <Header.Item full>
+            <Link href="/" passHref>
+              <a>
+                <span className="visually-hidden">Home</span>
+                <img
+                  alt=""
+                  height={50}
+                  src="/images/logo-johndjameson.svg"
+                  width={50}
+                />
+              </a>
+            </Link>
+          </Header.Item>
+        </div>
+      </Header>
+
+      <main>
+        <Component {...pageProps} />
+      </main>
     </>
   );
 }
