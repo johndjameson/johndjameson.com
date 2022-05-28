@@ -27,6 +27,32 @@ export const theme = {
     heading: 1.25,
   },
   space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 96, 112, 128],
+  styles: {
+    '*': {
+      mb: 4,
+    },
+    a: {
+      textDecorationLine: 'underline',
+    },
+    h2: {
+      fontSize: 4,
+      fontWeight: 'bold',
+    },
+    h3: {
+      fontSize: 3,
+      fontWeight: 'bold',
+    },
+    h4: {
+      fontSize: 2,
+      fontWeight: 'bold',
+    },
+    code: {
+      fontSize: 1,
+    },
+    pre: {
+      fontSize: 1,
+    },
+  },
 };
 
 export const get = (path, toPx = true) => {
