@@ -46,7 +46,7 @@ function Hero() {
 
           <p>
             Hello, I’m{' '}
-            <InkUnderline as="strong" highlight>
+            <InkUnderline accentColor="#bf645f" as="strong">
               John D. Jameson
             </InkUnderline>
             .
