@@ -8,9 +8,12 @@ export const theme = {
     text: '#000',
   },
   fonts: {
-    body: 'system-ui, sans-serif',
-    heading: '"Avenir Next", sans-serif',
-    monospace: 'Menlo, monospace',
+    body: 'var(--jdj-font-family-body)',
+    code: 'var(--jdj-font-family-code)',
+    heading: 'var(--jdj-font-family-heading)',
+    mono: 'var(--jdj-font-family-mono)',
+    sans: 'var(--jdj-font-family-sans)',
+    serif: 'var(--jdj-font-family-serif)',
   },
   fontSizes: [12, 14, 16, 20, 24, 32, 40, 48, 64],
   fontWeights: {
