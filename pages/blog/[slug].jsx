@@ -1,4 +1,5 @@
 import CodePen from 'components/CodePen/CodePen';
+import Container from 'components/Container/Container';
 import Head from 'next/head';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -6,17 +7,22 @@ import path from 'path';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-function Post({ frontMatter: { title }, mdxSource }) {
+function Post({ frontMatter: { date, title }, mdxSource }) {
   return (
     <>
       <Head>
         <title>{title} | John D. Jameson</title>
       </Head>
 
-      <article>
+      <Container as="article">
         <h1>{title}</h1>
+
+        <time dateTime={date} sx={{ display: 'block' }}>
+          {date}
+        </time>
+
         <MDXRemote components={{ CodePen }} {...mdxSource} />
-      </article>
+      </Container>
     </>
   );
 }

@@ -1,4 +1,3 @@
-import Container from 'components/Container/Container';
 import Head from 'next/head';
 import Header from 'components/Header/Header';
 import Link from 'next/link';
