@@ -67,11 +67,13 @@ const HeroImage = styled(Polaroid)`
   transition: transform 0.2s ease-in;
   width: calc(100% + (var(--hero-image-overlap) * 0.5));
 
-  @media (hover) {
-    &:hover {
-      box-shadow: 0 4px 20px ${rgba(heroBackground, 0.4)};
-      transform: scale(1.05);
-      transition-timing-function: ease-out;
+  @media (prefers-reduced-motion: no-preference) {
+    @media (hover) {
+      &:hover {
+        box-shadow: 0 4px 20px ${rgba(heroBackground, 0.4)};
+        transform: scale(1.05);
+        transition-timing-function: ease-out;
+      }
     }
   }
 `;
