@@ -14,18 +14,25 @@
   src: url('/fonts/hermes-maia-t3-regular.woff2') format('woff2');
 }
 
+/* prettier-ignore */
 :where(:root) {
   --jdj-color-fg: #000;
+
   --jdj-font-body-line-height: 1.5;
   --jdj-font-heading-line-height: 1.25;
   --jdj-font-heading: 'argent-web', serif;
   --jdj-font-sans-serif: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
   --jdj-font-underline-offset: min(1px, 0.025em);
   --jdj-font-underline-thickness: max(1px, 0.075em);
+
+  --jdj-layout-gutter: 20px;
+  --jdj-layout-container-width: 1280px;
+  --jdj-layout-container-width-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width)) / 2));
 }
 
 :where(html) {
   /* font-size: clamp(16px, calc(10px + 1vw), 20px); */
+  background: #fff;
   font-size: 16px;
   height: 100%;
 }
@@ -64,6 +71,11 @@
 :where(a) {
   color: inherit;
   text-decoration-line: none;
+}
+
+.container {
+  padding-left: var(--jdj-layout-container-width-padding-x);
+  padding-right: var(--jdj-layout-container-width-padding-x);
 }
 
 /* https://github.com/h5bp/html5-boilerplate */
