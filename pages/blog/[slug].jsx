@@ -1,4 +1,5 @@
 /** @jsxImportSource theme-ui */
+import ArchiveNotice from 'components/ArchiveNotice/ArchiveNotice';
 import CodePen from 'components/CodePen/CodePen';
 import Container from 'components/Container/Container';
 import Head from 'next/head';
@@ -10,7 +11,7 @@ import { BaseStyles } from 'theme-ui';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 
-function Post({ frontMatter: { date, title }, mdxSource }) {
+function Post({ frontMatter: { archived, date, title }, mdxSource }) {
   return (
     <>
       <Head>
@@ -35,6 +36,8 @@ function Post({ frontMatter: { date, title }, mdxSource }) {
         <p sx={{ marginBottom: 3 }}>
           Published <time dateTime={date}>{date}</time>
         </p>
+
+        {archived ? <ArchiveNotice sx={{ marginBottom: 4 }} /> : null}
 
         <BaseStyles>
           <MDXRemote components={{ CodePen }} {...mdxSource} />
