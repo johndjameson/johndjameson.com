@@ -2,6 +2,8 @@ import Container from 'components/Container/Container';
 import Head from 'next/head';
 import Header from 'components/Header/Header';
 import Link from 'next/link';
+import { ThemeProvider } from 'theme-ui';
+import { theme } from 'styles/theme';
 
 import 'sanitize.css';
 import 'sanitize.css/typography.css';
@@ -29,25 +31,27 @@ function App({ Component, pageProps }) {
         />
       </Head>
 
-      <Header>
-        <Header.Item as="nav" full>
-          <Link href="/" passHref>
-            <a>
-              <span className="visually-hidden">Home</span>
-              <img
-                alt=""
-                height={50}
-                src="/images/logo-johndjameson.svg"
-                width={50}
-              />
-            </a>
-          </Link>
-        </Header.Item>
-      </Header>
+      <ThemeProvider theme={theme}>
+        <Header>
+          <Header.Item as="nav" full>
+            <Link href="/" passHref>
+              <a>
+                <span className="visually-hidden">Home</span>
+                <img
+                  alt=""
+                  height={50}
+                  src="/images/logo-johndjameson.svg"
+                  width={50}
+                />
+              </a>
+            </Link>
+          </Header.Item>
+        </Header>
 
-      <main>
-        <Component {...pageProps} />
-      </main>
+        <main>
+          <Component {...pageProps} />
+        </main>
+      </ThemeProvider>
     </>
   );
 }
