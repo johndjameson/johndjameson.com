@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import Hero from 'components/Hero/Hero';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
@@ -7,11 +8,14 @@ function Home({ posts }) {
   return (
     <>
       <Head>
-        <title>John D. Jameson</title>
+        <title>John D. Jameson | Front-End Engineer</title>
       </Head>
+
+      <Hero />
 
       <h1 className="visually-hidden">John D. Jameson, Front-End Engineer</h1>
 
+      {/*
       <h2>Posts</h2>
       <ul>
         {posts.map((post) => (
@@ -23,6 +27,7 @@ function Home({ posts }) {
           </li>
         ))}
       </ul>
+    */}
     </>
   );
 }
