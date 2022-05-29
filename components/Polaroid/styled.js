@@ -1,6 +1,6 @@
 import Image from 'components/Image/Image';
 import React from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { rgba } from 'polished';
 
 export const PolaroidBase = styled(({ loaded, ...moreProps }) => (
@@ -14,13 +14,15 @@ export const PolaroidBase = styled(({ loaded, ...moreProps }) => (
 
 export const PolaroidImage = styled(Image)`
   height: auto;
-  left: calc((100% - var(--polaroid-image-size)) * 0.5);
+  left: 4%;
   position: absolute;
-  top: calc((100% - var(--polaroid-image-size)) * 0.5);
+  top: 4.5%;
   transition: filter 2s ease-in-out;
   width: var(--polaroid-image-size);
 `;
 
 export const PolaroidFrame = styled(Image)`
+  height: auto;
   position: relative;
+  width: 100%;
 `;
