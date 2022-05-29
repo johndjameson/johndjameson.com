@@ -34,7 +34,7 @@ function Home({ posts }) {
                   fontSize: 3,
                   lineHeight: 'heading',
                   marginBottom: 1,
-                  width: 'max-content',
+                  width: 'fit-content',
 
                   '&:hover': {
                     textDecorationLine: 'underline',
