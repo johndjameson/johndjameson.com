@@ -1,10 +1,10 @@
 import Polaroid from 'components/Polaroid/Polaroid';
 import styled from 'styled-components';
-import { get } from  'styles/theme';
+import { get } from 'styles/theme';
 import { media } from 'styles/mixins';
 import { rem, rgba } from 'polished';
 
-const heroBackground = '#161616';
+const heroBg = '#161616';
 
 const heroBreakpoints = {
   fontSize: 900,
@@ -15,10 +15,10 @@ export const HeroBase = styled.section`
   --hero-image-overlap: 90px;
   --hero-padding-x: var(--jdj-layout-gutter);
   align-items: center;
-  background-color: ${heroBackground};
-  color: var(--jdj-color-fg-default);
+  background-color: ${heroBg};
+  color: var(--jdj-color-palette-white);
   display: flex;
-  font-size: ${rem(18)};
+  font-size: var(--jdj-font-size-200);
   justify-content: center;
   line-height: 1.5;
   overflow: hidden;
@@ -28,7 +28,7 @@ export const HeroBase = styled.section`
   padding-top: ${get('space.11')};
 
   ${media.widerThan(heroBreakpoints.layout)`
-    font-size: ${rem(21)};
+    font-size: var(--jdj-font-size-300);
   `}
 `;
 
@@ -61,7 +61,7 @@ export const HeroImages = styled.div`
 `;
 
 const HeroImage = styled(Polaroid)`
-  box-shadow: 0 3px 10px ${rgba(heroBackground, 0.5)};
+  box-shadow: 0 3px 10px ${rgba(heroBg, 0.5)};
   max-width: none;
   position: relative;
   transition: transform 0.2s ease-in;
@@ -70,7 +70,7 @@ const HeroImage = styled(Polaroid)`
   @media (prefers-reduced-motion: no-preference) {
     @media (hover) {
       &:hover {
-        box-shadow: 0 4px 20px ${rgba(heroBackground, 0.4)};
+        box-shadow: 0 4px 20px ${rgba(heroBg, 0.4)};
         transform: scale(1.05);
         transition-timing-function: ease-out;
       }

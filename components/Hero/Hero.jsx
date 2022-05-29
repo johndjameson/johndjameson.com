@@ -53,14 +53,14 @@ function Hero() {
           </p>
 
           <PreventOrphan as="p">
-            I’m passionate about building highly polished design systems and
-            user experiences with special attention given to architecture,
-            component libraries, rendering performance, and typography.
+            I work with teams to build inclusive digital products and nerd out
+            about design systems, CSS architecture, page speed performance,
+            React, and web typography.
           </PreventOrphan>
 
           <PreventOrphan as="p">
-            Raised in Miami, today you can find me coding away at Sips by in
-            Austin, pretending I’m not an escaped Florida Man on the loose.
+            Originally raised in Miami, today you can find me coding away in
+            Austin and pretending I’m not an escaped Florida Man on the loose.
           </PreventOrphan>
         </HeroContent>
       </HeroGrid>
