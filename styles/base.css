@@ -1,5 +1,5 @@
 @font-face {
-  font-display: block;
+  font-display: swap;
   font-family: 'argent-web';
   font-style: italic;
   font-weight: 200;
@@ -7,14 +7,13 @@
 }
 
 @font-face {
-  font-display: block;
-  font-family: 'hermes-maia-web';
-  font-style: normal;
-  font-weight: 300;
-  src: url('/fonts/hermes-maia-t3-regular.woff2') format('woff2');
+  font-display: swap;
+  font-family: 'argent-web';
+  font-style: italic;
+  font-weight: 600;
+  src: url('/fonts/argent-demibold-italic.woff2') format('woff2');
 }
 
-/* prettier-ignore */
 :where(:root) {
   --jdj-color-palette-black: #000;
   --jdj-color-palette-white: #fff;
@@ -22,15 +21,22 @@
   --jdj-color-bg-default: var(--jdj-color-palette-white);
   --jdj-color-fg-default: var(--jdj-color-palette-black);
 
-  --jdj-font-family-mono: 'Monaco', monospace;
-  --jdj-font-family-sans: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
+  --jdj-font-family-mono: 'Monaco', ui-monospace, 'Menlo', 'Consolas',
+    'Roboto Mono', 'Ubuntu Monospace', 'Noto Mono', 'Oxygen Mono',
+    'Liberation Mono', monospace, 'Apple Color Emoji', 'Segoe UI Emoji',
+    'Segoe UI Symbol', 'Noto Color Emoji';
+  --jdj-font-family-sans: system-ui, -apple-system, 'Segoe UI',
+    'Roboto', 'Ubuntu', 'Cantarell', 'Noto Sans', sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   --jdj-font-family-serif: 'argent-web', serif;
 
   --jdj-font-family-body: var(--jdj-font-family-sans);
   --jdj-font-family-code: var(--jdj-font-family-mono);
-  --jdj-font-family-heading: var(--jdj-font-family-serif);
+  --jdj-font-family-display: var(--jdj-font-family-serif);
+  --jdj-font-family-heading: var(--jdj-font-family-sans);
 
   --jdj-font-line-height-body: 1.5;
+  --jdj-font-line-height-display: 1.125;
   --jdj-font-line-height-heading: 1.25;
 
   --jdj-font-size-000: 12px;
@@ -49,8 +55,14 @@
   --jdj-layout-gutter: 24px;
   --jdj-layout-container-width: 1280px;
   --jdj-layout-container-width-narrow: 700px;
-  --jdj-layout-container-width-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width)) / 2));
-  --jdj-layout-container-width-narrow-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width-narrow)) / 2));
+  --jdj-layout-container-width-padding-x: max(
+    var(--jdj-layout-gutter),
+    calc((100vw - var(--jdj-layout-container-width)) / 2)
+  );
+  --jdj-layout-container-width-narrow-padding-x: max(
+    var(--jdj-layout-gutter),
+    calc((100vw - var(--jdj-layout-container-width-narrow)) / 2)
+  );
 
   --jdj-space-000: 0;
   --jdj-space-100: 4px;
@@ -88,19 +100,19 @@
 }
 
 :where(html) {
-  /* font-size: clamp(16px, calc(10px + 1vw), 20px); */
+  -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
   background: var(--jdj-color-bg-default);
+  color: var(--jdj-color-fg-default);
   cursor: initial; /* Reset Sanitize.css `default` value */
+  font-family: var(--jdj-font-family-body);
   font-size: 16px;
+  font-weight: 380;
   height: 100%;
+  line-height: var(--jdj-font-line-height-body);
 }
 
 :where(body) {
-  -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
-  color: var(--jdj-color-fg-default);
-  font-family: var(--jdj-font-family-body);
   height: 100%;
-  line-height: var(--jdj-font-line-height-body);
 }
 
 :where(*),
@@ -132,6 +144,9 @@
   text-decoration-line: none;
 }
 
-code {
+code,
+kbd,
+samp,
+pre {
   font-family: var(--jdj-font-family-code);
 }

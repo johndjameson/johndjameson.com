@@ -28,7 +28,13 @@ function Post({ frontMatter: { archived, date, title }, mdxSource }) {
       >
         <PreventOrphan
           as="h1"
-          sx={{ fontSize: [5, 6, 7], fontWeight: 'bold', marginBottom: 1 }}
+          sx={{
+            fontFamily: 'display',
+            fontSize: [6, 7, 8],
+            fontWeight: '600',
+            lineHeight: 'display',
+            marginBottom: 2,
+          }}
         >
           {title}
         </PreventOrphan>

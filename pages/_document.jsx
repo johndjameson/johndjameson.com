@@ -5,7 +5,20 @@ export default class CustomDocument extends Document {
   render() {
     return (
       <Html lang="en-US">
-        <Head />
+        <Head>
+          <meta charSet="utf-8" />
+          <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+          <meta name="theme-color" content="#000" />
+
+          <link href="/favicon.ico" rel="icon" sizes="any" />
+          <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link
+            href="/favicon_180x180.png"
+            rel="apple-touch-icon"
+            sizes="180x180"
+          />
+        </Head>
 
         <body>
           <Main />

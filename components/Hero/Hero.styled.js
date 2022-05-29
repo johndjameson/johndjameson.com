@@ -97,7 +97,7 @@ export const HeroContent = styled.div`
 `;
 
 export const HeroHeading = styled.h1`
-  font-family: var(--jdj-font-family-heading);
+  font-family: var(--jdj-font-family-display);
   font-size: ${rem(60)};
   font-style: italic;
   font-weight: 200;

@@ -10,10 +10,8 @@ export const theme = {
   fonts: {
     body: 'var(--jdj-font-family-body)',
     code: 'var(--jdj-font-family-code)',
+    display: 'var(--jdj-font-family-display)',
     heading: 'var(--jdj-font-family-heading)',
-    mono: 'var(--jdj-font-family-mono)',
-    sans: 'var(--jdj-font-family-sans)',
-    serif: 'var(--jdj-font-family-serif)',
   },
   fontSizes: [
     'var(--jdj-font-size-000)',
@@ -34,6 +32,7 @@ export const theme = {
   },
   lineHeights: {
     body: 'var(--jdj-font-line-height-body)',
+    display: 'var(--jdj-font-line-height-display)',
     heading: 'var(--jdj-font-line-height-heading)',
   },
   space: [
