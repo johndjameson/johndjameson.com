@@ -69,6 +69,12 @@
   color-scheme: light;
 }
 
+:where([data-theme='dark']) {
+  --jdj-color-bg-default: var(--jdj-color-palette-black);
+  --jdj-color-fg-default: var(--jdj-color-palette-white);
+  color-scheme: dark;
+}
+
 @media screen and (min-width: 554px) {
   :root {
     --jdj-layout-gutter: 32px;
