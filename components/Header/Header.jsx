@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 
 const Header = styled.header`
-  --jdj-header-bg: #fff;
+  --jdj-header-bg: var(--jdj-color-bg-default);
   align-items: center;
   background-color: var(--jdj-header-bg);
   display: flex;

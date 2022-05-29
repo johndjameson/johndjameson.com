@@ -3,9 +3,9 @@ import { get as themeUiGet } from 'theme-ui';
 export const theme = {
   breakpoints: [544, 768, 1012, 1280].map((bp) => `${bp}px`),
   colors: {
-    background: '#fff',
-    primary: '#33e',
-    text: '#000',
+    bg: {
+      default: 'var(--jdj-color-bg-default)',
+    },
   },
   fonts: {
     body: 'var(--jdj-font-family-body)',
@@ -15,7 +15,17 @@ export const theme = {
     sans: 'var(--jdj-font-family-sans)',
     serif: 'var(--jdj-font-family-serif)',
   },
-  fontSizes: [12, 14, 16, 20, 24, 32, 40, 48, 64],
+  fontSizes: [
+    'var(--jdj-font-size-000)',
+    'var(--jdj-font-size-100)',
+    'var(--jdj-font-size-200)',
+    'var(--jdj-font-size-300)',
+    'var(--jdj-font-size-400)',
+    'var(--jdj-font-size-500)',
+    'var(--jdj-font-size-600)',
+    'var(--jdj-font-size-700)',
+    'var(--jdj-font-size-800)',
+  ],
   fontWeights: {
     light: 300,
     medium: 500,
@@ -23,10 +33,24 @@ export const theme = {
     semibold: 600,
   },
   lineHeights: {
-    body: 1.5,
-    heading: 1.25,
+    body: 'var(--jdj-font-line-height-body)',
+    heading: 'var(--jdj-font-line-height-heading)',
   },
-  space: [0, 4, 8, 16, 24, 32, 40, 48, 64, 80, 96, 112, 128],
+  space: [
+    'var(--jdj-space-000)',
+    'var(--jdj-space-100)',
+    'var(--jdj-space-200)',
+    'var(--jdj-space-300)',
+    'var(--jdj-space-400)',
+    'var(--jdj-space-500)',
+    'var(--jdj-space-600)',
+    'var(--jdj-space-700)',
+    'var(--jdj-space-800)',
+    'var(--jdj-space-900)',
+    'var(--jdj-space-1000)',
+    'var(--jdj-space-1100)',
+    'var(--jdj-space-1200)',
+  ],
   styles: {
     '*': {
       mb: 4,
@@ -55,16 +79,4 @@ export const theme = {
   },
 };
 
-export const get = (path, toPx = true) => {
-  const value = themeUiGet(theme, path);
-
-  if (!toPx) {
-    return value;
-  }
-
-  if (isNaN(value)) {
-    throw new Error(`${value} is not a px value`);
-  }
-
-  return `${value}px`;
-};
+export const get = (path) => themeUiGet(theme, path);

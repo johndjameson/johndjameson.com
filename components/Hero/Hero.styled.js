@@ -16,7 +16,7 @@ export const HeroBase = styled.section`
   --hero-padding-x: var(--jdj-layout-gutter);
   align-items: center;
   background-color: ${heroBackground};
-  color: #fffefa;
+  color: var(--jdj-color-fg-default);
   display: flex;
   font-size: ${rem(18)};
   justify-content: center;

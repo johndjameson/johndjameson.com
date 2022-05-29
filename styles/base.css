@@ -16,7 +16,11 @@
 
 /* prettier-ignore */
 :where(:root) {
-  --jdj-color-fg: #000;
+  --jdj-color-palette-black: #000;
+  --jdj-color-palette-white: #fff;
+
+  --jdj-color-bg-default: var(--jdj-color-palette-white);
+  --jdj-color-fg-default: var(--jdj-color-palette-black);
 
   --jdj-font-family-mono: 'Monaco', monospace;
   --jdj-font-family-sans: 'hermes-maia-web', system-ui, -apple-system, sans-serif;
@@ -29,6 +33,16 @@
   --jdj-font-line-height-body: 1.5;
   --jdj-font-line-height-heading: 1.25;
 
+  --jdj-font-size-000: 12px;
+  --jdj-font-size-100: 14px;
+  --jdj-font-size-200: 16px;
+  --jdj-font-size-300: 20px;
+  --jdj-font-size-400: 24px;
+  --jdj-font-size-500: 32px;
+  --jdj-font-size-600: 40px;
+  --jdj-font-size-700: 48px;
+  --jdj-font-size-800: 64px;
+
   --jdj-font-underline-offset: min(1px, 0.025em);
   --jdj-font-underline-thickness: max(1px, 0.075em);
 
@@ -37,6 +51,22 @@
   --jdj-layout-container-width-narrow: 700px;
   --jdj-layout-container-width-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width)) / 2));
   --jdj-layout-container-width-narrow-padding-x: max(var(--jdj-layout-gutter), calc((100vw - var(--jdj-layout-container-width-narrow)) / 2));
+
+  --jdj-space-000: 0;
+  --jdj-space-100: 4px;
+  --jdj-space-200: 8px;
+  --jdj-space-300: 16px;
+  --jdj-space-400: 24px;
+  --jdj-space-500: 32px;
+  --jdj-space-600: 40px;
+  --jdj-space-700: 48px;
+  --jdj-space-800: 64px;
+  --jdj-space-900: 80px;
+  --jdj-space-1000: 96px;
+  --jdj-space-1100: 112px;
+  --jdj-space-1200: 128px;
+
+  color-scheme: light;
 }
 
 @media screen and (min-width: 554px) {
@@ -53,7 +83,7 @@
 
 :where(html) {
   /* font-size: clamp(16px, calc(10px + 1vw), 20px); */
-  background: #fff;
+  background: var(--jdj-color-bg-default);
   cursor: initial; /* Reset Sanitize.css `default` value */
   font-size: 16px;
   height: 100%;
@@ -61,7 +91,7 @@
 
 :where(body) {
   -webkit-font-smoothing: antialiased; /* https://www.joshwcomeau.com/css/custom-css-reset/#digit-font-smoothing */
-  color: var(--jdj-color-fg);
+  color: var(--jdj-color-fg-default);
   font-family: var(--jdj-font-family-body);
   height: 100%;
   line-height: var(--jdj-font-line-height-body);
