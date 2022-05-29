@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Header from 'components/Header/Header';
 import Link from 'next/link';
+import VisuallyHidden from 'components/VisuallyHidden/VisuallyHidden';
 import { ThemeProvider } from 'theme-ui';
 import { theme } from 'styles/theme';
 
@@ -35,7 +36,7 @@ function App({ Component, pageProps }) {
           <Header.Item as="nav" full>
             <Link href="/" passHref>
               <a>
-                <span className="visually-hidden">Home</span>
+                <VisuallyHidden>Home</VisuallyHidden>
                 <img
                   alt=""
                   height={50}

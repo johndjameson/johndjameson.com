@@ -132,19 +132,6 @@
   text-decoration-line: none;
 }
 
-/* https://github.com/h5bp/html5-boilerplate */
-.visually-hidden {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  white-space: nowrap;
-  width: 1px;
-}
-
 code {
   font-family: var(--jdj-font-family-code);
 }

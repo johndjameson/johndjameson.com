@@ -15,8 +15,6 @@ function Home({ posts }) {
 
       <Hero />
 
-      <h1 className="visually-hidden">John D. Jameson, Front-End Engineer</h1>
-
       <Container
         sx={{ paddingBottom: [6, 8, 10], paddingTop: [4, null, 6, null, 8] }}
         width="narrow"
