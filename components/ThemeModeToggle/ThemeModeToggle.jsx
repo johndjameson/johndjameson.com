@@ -1,5 +1,19 @@
 import Button from 'components/Button/Button';
-import { useCallback, useReducer } from 'react';
+import { useCallback, useEffect, useReducer } from 'react';
+
+function getInitialThemeState(themeMode) {
+  return themeMode === 'light'
+    ? {
+        mode: 'light',
+        isLight: true,
+        isDark: false,
+      }
+    : {
+        mode: 'dark',
+        isLight: false,
+        isDark: true,
+      };
+}
 
 function themeStateReducer(_state, action) {
   switch (action.type) {
@@ -20,24 +34,28 @@ function themeStateReducer(_state, action) {
   }
 }
 
-const getInitialThemeState = (themeMode) =>
-  themeMode === 'light'
-    ? {
-        mode: 'light',
-        isLight: true,
-        isDark: false,
-      }
-    : {
-        mode: 'dark',
-        isLight: false,
-        isDark: true,
-      };
-
 function ThemeModeToggle() {
   const [themeState, dispatchThemeStateAction] = useReducer(
     themeStateReducer,
     getInitialThemeState(document.documentElement.dataset.theme)
   );
+
+  useEffect(() => {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+    function handleChange() {
+      const targetTheme = prefersDark.matches ? 'dark' : 'light';
+
+      dispatchThemeStateAction({ type: targetTheme });
+      document.documentElement.dataset.theme = targetTheme;
+    }
+
+    prefersDark.addEventListener('change', handleChange);
+
+    return () => {
+      prefersDark.removeEventListener('change', handleChange);
+    };
+  });
 
   const toggleThemeMode = useCallback(() => {
     const targetTheme = themeState.mode === 'light' ? 'dark' : 'light';

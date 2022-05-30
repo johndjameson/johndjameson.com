@@ -6,12 +6,19 @@ import { ServerStyleSheet } from 'styled-components';
 function setActiveThemeMode() {
   const storedThemeMode = window.localStorage.getItem('theme-mode');
 
-  if (!['dark', 'light'].includes(storedThemeMode)) {
-    document.documentElement.dataset.theme = 'light';
+  // User has a allowed theme mode stored. Use that and skip media query logic
+  if (['dark', 'light'].includes(storedThemeMode)) {
+    document.documentElement.dataset.theme = storedThemeMode;
     return;
   }
 
-  document.documentElement.dataset.theme = storedThemeMode;
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  if (prefersDark.matches) {
+    document.documentElement.dataset.theme = 'dark';
+  } else {
+    document.documentElement.dataset.theme = 'light';
+  }
 }
 
 export default class CustomDocument extends Document {
