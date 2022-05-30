@@ -4,7 +4,7 @@ import { get } from 'styles/theme';
 import { media } from 'styles/mixins';
 import { rem, rgba } from 'polished';
 
-const heroBg = '#161616';
+const heroBg = '#090513';
 
 const heroBreakpoints = {
   fontSize: 900,

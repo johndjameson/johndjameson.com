@@ -10,9 +10,13 @@ import {
   HeroImages,
   HeroSummer,
 } from './Hero.styled';
+import { ThemeModeContext } from 'styles/theme-mode';
 import { imageKitUrl } from 'helpers/imageKitUrl';
+import { useContext } from 'react';
 
 function Hero() {
+  const themeState = useContext(ThemeModeContext);
+
   return (
     <HeroBase>
       <HeroGrid>
@@ -46,7 +50,10 @@ function Hero() {
 
           <p>
             Hello, I’m{' '}
-            <InkUnderline accentColor="#bf645f" as="strong">
+            <InkUnderline
+              accentColor={themeState.isLight ? '#bf645f' : '#9c84c1'}
+              as="strong"
+            >
               John D. Jameson
             </InkUnderline>
             .

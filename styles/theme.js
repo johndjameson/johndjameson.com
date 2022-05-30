@@ -3,9 +3,11 @@ import { get as themeUiGet } from 'theme-ui';
 export const theme = {
   breakpoints: [544, 768, 1012, 1280].map((bp) => `${bp}px`),
   colors: {
+    background: 'var(--jdj-color-bg-default)',
     bg: {
       default: 'var(--jdj-color-bg-default)',
     },
+    text: 'var(--jdj-color-fg-default)',
   },
   fonts: {
     body: 'var(--jdj-font-family-body)',
@@ -25,10 +27,10 @@ export const theme = {
     'var(--jdj-font-size-800)',
   ],
   fontWeights: {
-    light: 300,
-    medium: 500,
-    normal: 400,
-    semibold: 600,
+    extraLight: 'var(--jdj-font-weight-extra-light)',
+    normal: 'var(--jdj-font-weight-normal)',
+    medium: 'var(--jdj-font-weight-medium)',
+    semibold: 'var(--jdj-font-weight-semibold)',
   },
   lineHeights: {
     body: 'var(--jdj-font-line-height-body)',

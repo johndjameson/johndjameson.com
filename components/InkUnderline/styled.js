@@ -13,6 +13,7 @@ export const InkUnderlineSvg = styled.svg`
   max-width: none;
   position: absolute;
   top: calc(100% + 0.1em);
+  transition: 0.2s ease-out;
   width: calc(100% + (var(--ink-underline-outdent) * 2));
 `;
 
