@@ -1,6 +1,19 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+// Determine and set active theme mode. Must be set using a blocking function to prevent FOUC:
+// https://sreetamdas.com/blog/the-perfect-dark-mode
+function setActiveThemeMode() {
+  const storedThemeMode = window.localStorage.getItem('theme-mode');
+
+  if (!['dark', 'light'].includes(storedThemeMode)) {
+    document.documentElement.dataset.theme = 'light';
+    return;
+  }
+
+  document.documentElement.dataset.theme = storedThemeMode;
+}
+
 export default class CustomDocument extends Document {
   render() {
     return (
@@ -18,6 +31,12 @@ export default class CustomDocument extends Document {
             rel="apple-touch-icon"
             sizes="180x180"
           />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `${setActiveThemeMode.toString()}; setActiveThemeMode();`,
+            }}
+          ></script>
         </Head>
 
         <body>

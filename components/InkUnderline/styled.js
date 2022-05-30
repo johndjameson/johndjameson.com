@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 
 export const InkUnderlineBase = styled.span`
   --ink-underline-outdent: 0.5ch;

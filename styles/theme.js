@@ -71,6 +71,9 @@ export const theme = {
       fontSize: 2,
       fontWeight: 'bold',
     },
+    img: {
+      background: '#fff',
+    },
     code: {
       fontSize: 1,
     },
