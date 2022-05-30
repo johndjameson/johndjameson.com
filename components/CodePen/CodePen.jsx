@@ -1,19 +1,28 @@
 import PropTypes from 'prop-types';
+import styled from 'styled-components';
+
+const StyledIframe = styled.iframe`
+  background: #ddd;
+  border-radius: 6px;
+  border: none;
+  display: block;
+  width: 100%;
+`;
 
 function CodePen({ height, id, tabs, theme, title, user, version }) {
-  const parameters = new URLSearchParams();
+  const url = new URL(`https://codepen.io/${user}/embed/${id}`);
 
-  parameters.set('default-tab', tabs);
-  parameters.set('embed-version', version);
-  parameters.set('theme-id', theme);
+  url.searchParams.set('default-tab', tabs);
+  url.searchParams.set('embed-version', version);
+  url.searchParams.set('theme-id', theme);
 
   return (
-    <iframe
+    <StyledIframe
       height={height}
       loading="lazy"
       scrolling="no"
-      src={`https://codepen.io/${user}/embed/${id}/?${parameters.toString()}`}
-      style={{ border: 'none', display: 'block', height: `${height}px`, width: '100%' }}
+      src={url.toString()}
+      style={{ height: `${height}px` }}
       title={title}
     />
   );
