@@ -41,7 +41,7 @@ CodePen.propTypes = {
 CodePen.defaultProps = {
   height: 400,
   tabs: 'results',
-  theme: 23596,
+  theme: 41300,
   user: 'johndjameson',
   version: 2,
 };

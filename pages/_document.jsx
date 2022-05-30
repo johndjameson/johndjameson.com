@@ -1,6 +1,26 @@
 import Document, { Head, Html, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
+// Determine and set active theme mode. Must be set using a blocking function to prevent FOUC:
+// https://sreetamdas.com/blog/the-perfect-dark-mode
+function setActiveThemeMode() {
+  const storedThemeMode = window.localStorage.getItem('theme-mode');
+
+  // User has a allowed theme mode stored. Use that and skip media query logic
+  if (['dark', 'light'].includes(storedThemeMode)) {
+    document.documentElement.dataset.theme = storedThemeMode;
+    return;
+  }
+
+  const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+
+  if (prefersDark.matches) {
+    document.documentElement.dataset.theme = 'dark';
+  } else {
+    document.documentElement.dataset.theme = 'light';
+  }
+}
+
 export default class CustomDocument extends Document {
   render() {
     return (
@@ -18,6 +38,12 @@ export default class CustomDocument extends Document {
             rel="apple-touch-icon"
             sizes="180x180"
           />
+
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `${setActiveThemeMode.toString()}; setActiveThemeMode();`,
+            }}
+          ></script>
         </Head>
 
         <body>

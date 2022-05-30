@@ -97,6 +97,9 @@
   --jdj-color-btn-shadow-primary: rgb(74 23 64 / 15%);
 
   --jdj-color-header-bg: var(--jdj-color-bg-default);
+  --jdj-color-header-logo-fill: #000;
+
+  --jdj-color-ink-underline-bg: #bf645f;
 
   color-scheme: light;
 }
@@ -115,6 +118,9 @@
   --jdj-color-btn-shadow-primary: rgb(16 8 59 / 15%);
 
   --jdj-color-header-bg: #191527;
+  --jdj-color-header-logo-fill: #aca2bb;
+
+  --jdj-color-ink-underline-bg: #9c84c1;
 
   color-scheme: dark;
 }
