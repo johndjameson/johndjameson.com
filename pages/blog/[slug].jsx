@@ -31,6 +31,7 @@ function Post({ frontMatter: { archived, date, title }, mdxSource }) {
           sx={{
             fontFamily: 'display',
             fontSize: [6, 7, 8],
+            fontStyle: 'italic',
             fontWeight: '600',
             lineHeight: 'display',
             marginBottom: 2,
