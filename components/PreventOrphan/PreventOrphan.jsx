@@ -1,25 +1,44 @@
-import React, { Fragment } from 'react'
-import PropTypes from 'prop-types'
+import React, { Fragment } from 'react';
+import PropTypes from 'prop-types';
 
-function PreventOrphan({ as: Tag, children: string, ...moreProps }) {
-  const spaceIndex = string.lastIndexOf(' ')
+function PreventOrphan({ as: Tag, children, limit, ...moreProps }) {
+  if (typeof children !== 'string') {
+    return children;
+  }
 
-  return spaceIndex >= 0 ? (
+  const str = children;
+
+  const words = str.split(' ');
+
+  if (words.length < 4) {
+    return <Tag {...moreProps}>{str}</Tag>;
+  }
+
+  const joinedWordsLength =
+    words[words.length - 1].length + 1 + words[words.length - 2].length;
+
+  if (joinedWordsLength > limit) {
+    return <Tag {...moreProps}>{str}</Tag>;
+  }
+
+  const spaceIndex = str.lastIndexOf(' ');
+
+  return (
     <Tag {...moreProps}>
-      {string.substr(0, spaceIndex)}&nbsp;{string.substr(spaceIndex + 1)}
+      {str.substring(0, spaceIndex)}&nbsp;{str.substring(spaceIndex + 1)}
     </Tag>
-  ) : (
-    <Tag {...moreProps}>{string}</Tag>
-  )
+  );
 }
 
 PreventOrphan.propTypes = {
   as: PropTypes.elementType,
   children: PropTypes.string.isRequired,
-}
+  limit: PropTypes.number.isRequired,
+};
 
 PreventOrphan.defaultProps = {
   as: Fragment,
-}
+  limit: 14,
+};
 
-export default PreventOrphan
+export default PreventOrphan;
