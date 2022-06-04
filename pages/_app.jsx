@@ -34,7 +34,7 @@ function App({ Component, pageProps }) {
         <Header>
           <Header.Item as="nav" full>
             <Link href="/" passHref>
-              <a>
+              <a sx={{ display: 'block', width: 'fit-content' }}>
                 <VisuallyHidden>Home</VisuallyHidden>
                 <svg
                   height="50"
