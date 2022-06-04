@@ -5,14 +5,14 @@ import { useCallback, useEffect, useReducer } from 'react';
 function getInitialThemeState(themeMode) {
   return themeMode === 'light'
     ? {
-        mode: 'light',
-        isLight: true,
         isDark: false,
+        isLight: true,
+        mode: 'light',
       }
     : {
-        mode: 'dark',
-        isLight: false,
         isDark: true,
+        isLight: false,
+        mode: 'dark',
       };
 }
 
