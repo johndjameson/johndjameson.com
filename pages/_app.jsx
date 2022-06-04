@@ -24,6 +24,8 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <meta name="viewport" content="width=device-width,initial-scale=1" />
+
         <meta
           content="Senior Front-End Engineer in Austin, TX"
           name="description"
