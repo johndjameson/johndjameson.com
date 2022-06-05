@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import Highlight, { defaultProps } from 'prism-react-renderer';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
+import { theme } from './theme';
 
 const displayNames = {
   css: 'CSS',
@@ -14,21 +15,27 @@ const displayNames = {
 function getDisplayName(language) {
   const displayName = displayNames[language];
 
-  if (displayName) {
-    return displayName;
+  if (!displayName) {
+    throw new Error(`No display name for language \`${language}\``);
   }
 
-  throw new Error(`No display name for language \`${language}\``);
+  return displayName;
 }
 
-function SyntaxHeader({ language, ...moreProps }) {
-  return <div {...moreProps}>{getDisplayName(language)}</div>;
-}
-
-const StyledSyntaxHeader = styled(SyntaxHeader)`
-  background: #191527;
+const StyledSyntaxHeader = styled.div`
+  background: var(--jdj-color-syntax-highlighter-header-bg);
+  color: var(--jdj-color-syntax-highlighter-fg);
   font-size: 12px;
-  padding: var(--jdj-space-200) var(--jdj-space-400); ;
+  font-weight: 600;
+  padding: var(--jdj-space-200) var(--jdj-space-400);
+
+  ${({ children }) => {
+    if (children.split('').every((char) => char === char.toUpperCase())) {
+      return css`
+        letter-spacing: 0.05em;
+      `;
+    }
+  }}
 `;
 
 // https://www.peterlunch.com/blog/prism-react-render-nextjs
@@ -41,9 +48,14 @@ function SyntaxHighlighter({ children, ...moreProps }) {
   /* eslint-disable react/jsx-key */ // Keys are returned from getLineProps and getTokenProps
   return (
     <div {...moreProps}>
-      <StyledSyntaxHeader language={language} />
+      <StyledSyntaxHeader>{getDisplayName(language)}</StyledSyntaxHeader>
 
-      <Highlight code={text} language={language} {...defaultProps}>
+      <Highlight
+        Prism={defaultProps.Prism}
+        code={text}
+        language={language}
+        theme={theme}
+      >
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
           <pre className={className} style={{ ...style }}>
             {tokens.slice(0, -1).map((line, i) => (
