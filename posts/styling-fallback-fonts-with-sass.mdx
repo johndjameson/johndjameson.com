@@ -78,7 +78,7 @@ See how the `h1` comes after `html.wf-active`? Nesting this way cuts down on a l
 
 We can address that problem by flipping the selector so it affects specificity only when web fonts _haven’t_ loaded. The `not()` pseudo-class lets us do exactly that.
 
-```css
+```scss
 h1 {
   font-family: 'Source Sans Pro', 'Arial', serif;
   font-size: 36px;
