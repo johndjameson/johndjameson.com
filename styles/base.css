@@ -155,7 +155,9 @@
   background: var(--jdj-color-bg-default); /* Override Theme UI on html */
   color: var(--jdj-color-fg-default); /* Override Theme UI on html */
   height: 100%;
-  transition: 0.2s ease-out;
+  transition-duration: 0.2s;
+  transition-property: background-color, color;
+  transition-timing-function: ease-out;
 }
 
 :where(*),
