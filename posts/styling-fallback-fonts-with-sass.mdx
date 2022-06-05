@@ -44,7 +44,7 @@ Let’s go over the issues one by one and I’ll show you ways to use Sass to cl
 
 The first thing we can do is use Sass’ ampersand selector to nest the current selector within an ancestor. It’s easier explain with an example:
 
-```sass
+```scss
 h1 {
   font-family: 'Arial', sans-serif;
   font-size: 34px;
@@ -78,7 +78,7 @@ See how the `h1` comes after `html.wf-active`? Nesting this way cuts down on a l
 
 We can address that problem by flipping the selector so it affects specificity only when web fonts _haven’t_ loaded. The `not()` pseudo-class lets us do exactly that.
 
-```css
+```scss
 h1 {
   font-family: 'Source Sans Pro', 'Arial', serif;
   font-size: 36px;

@@ -4,6 +4,7 @@ import CodePen from 'components/CodePen/CodePen';
 import Container from 'components/Container/Container';
 import Head from 'next/head';
 import PreventOrphan from 'components/PreventOrphan/PreventOrphan';
+import SyntaxHighlighter from 'components/SyntaxHighlighter/SyntaxHighlighter';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
@@ -47,7 +48,10 @@ function Post({ frontMatter: { archived, date, title }, mdxSource }) {
         {archived ? <ArchiveNotice sx={{ marginBottom: 4 }} /> : null}
 
         <BaseStyles>
-          <MDXRemote components={{ CodePen }} {...mdxSource} />
+          <MDXRemote
+            components={{ CodePen, pre: SyntaxHighlighter }}
+            {...mdxSource}
+          />
         </BaseStyles>
       </Container>
     </>

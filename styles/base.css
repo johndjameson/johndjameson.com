@@ -101,6 +101,10 @@
 
   --jdj-color-ink-underline-bg: #bf645f;
 
+  --jdj-color-syntax-highlighter-bg: #090513;
+  --jdj-color-syntax-highlighter-fg: #eeebff;
+  --jdj-color-syntax-highlighter-header-bg: #191527;
+
   color-scheme: light;
 }
 
