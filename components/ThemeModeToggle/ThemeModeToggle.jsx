@@ -1,4 +1,5 @@
 import Button from 'components/Button/Button';
+import VisuallyHidden from 'components/VisuallyHidden/VisuallyHidden';
 import { a11yProps } from 'helpers/commonProps';
 import { useCallback, useEffect, useReducer } from 'react';
 
@@ -67,11 +68,8 @@ function ThemeModeToggle() {
   }, [themeState.mode]);
 
   return (
-    <Button
-      aria-label="Dark theme"
-      aria-pressed={themeState.isDark}
-      onClick={toggleThemeMode}
-    >
+    <Button aria-pressed={themeState.isDark} onClick={toggleThemeMode}>
+      <VisuallyHidden>Dark theme</VisuallyHidden>
       {themeState.isDark ? (
         <svg height="16" width="16" {...a11yProps.svg}>
           <path d="M6 0C2.5.9 0 4.1 0 7.9 0 12.4 3.6 16 8.1 16c3.8 0 6.9-2.5 7.9-6C9.9 11.7 4.3 6.1 6 0z" />
