@@ -4,6 +4,7 @@ import Header from 'components/Header/Header';
 import Link from 'next/link';
 import VisuallyHidden from 'components/VisuallyHidden/VisuallyHidden';
 import dynamic from 'next/dynamic';
+import { Analytics } from '@vercel/analytics/react';
 import { ThemeProvider } from 'theme-ui';
 import { a11yProps } from 'helpers/commonProps';
 import { theme } from 'styles/theme';
@@ -57,6 +58,7 @@ function App({ Component, pageProps }) {
 
         <main>
           <Component {...pageProps} />
+          <Analytics />
         </main>
       </ThemeProvider>
     </>
