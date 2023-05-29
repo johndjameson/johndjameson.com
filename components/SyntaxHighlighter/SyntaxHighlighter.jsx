@@ -1,5 +1,5 @@
 /** @jsxImportSource theme-ui */
-import Highlight, { defaultProps } from 'prism-react-renderer';
+import { Highlight } from 'prism-react-renderer';
 import styled, { css } from 'styled-components';
 import { theme } from './theme';
 
@@ -51,7 +51,6 @@ function SyntaxHighlighter({ children, ...moreProps }) {
       <StyledSyntaxHeader>{getDisplayName(language)}</StyledSyntaxHeader>
 
       <Highlight
-        Prism={defaultProps.Prism}
         code={text}
         language={language}
         theme={theme}
