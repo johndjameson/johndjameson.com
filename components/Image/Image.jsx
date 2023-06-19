@@ -8,7 +8,14 @@ function Image({ alt, src, src2x, ...moreProps }) {
     imgProps.srcSet = `${src}, ${src2x} 2x`;
   }
 
-  return <img alt={alt} src={src} {...imgProps} {...moreProps} />;
+  return (
+    <img
+      alt={alt}
+      src={src}
+      {...imgProps}
+      {...moreProps}
+    />
+  );
 }
 
 Image.propTypes = {

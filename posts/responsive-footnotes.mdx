@@ -51,7 +51,7 @@ The first thing we need to do is create variables for the jQuery objects we’ll
 var $document = $(document),
   $post = $('.post'),
   $markers = $('.post .post-marker'),
-  $footnotes = $('.post-footnotes')
+  $footnotes = $('.post-footnotes');
 ```
 
 Once that’s taken care of, we need to outline our goals and write code to do the following tasks:
@@ -64,9 +64,9 @@ In JavaScript, that looks a lot like this:
 
 ```javascript
 function createSidenotes() {
-  var $footnoteArray = $footnotes.children()
+  var $footnoteArray = $footnotes.children();
 
-  $markers.parent().wrap("<div class='post-subject'></div>")
+  $markers.parent().wrap("<div class='post-subject'></div>");
 
   for (var i = 0; i < $markers.length; i++) {
     $($('.post-subject')[i]).append(
@@ -74,7 +74,7 @@ function createSidenotes() {
       "<aside class='post-sidenote' role='complementary'><p>" +
         $($footnoteArray[i]).html() +
         '</p></aside>'
-    )
+    );
   }
 }
 ```
@@ -84,7 +84,7 @@ CSS has no way of styling parent elements, so we’re also going to need to indi
 ```javascript
 function toggleNotes() {
   if ($footnotes.length > 0 && $markers.length > 0) {
-    $post.addClass('has-sidenotes')
+    $post.addClass('has-sidenotes');
   }
 }
 ```
@@ -92,10 +92,10 @@ function toggleNotes() {
 Now wrap those two functions in a jQuery `ready()` method for good measure and you’re almost done.
 
 ```javascript
-$document.ready(function() {
-  createSidenotes()
-  toggleNotes()
-})
+$document.ready(function () {
+  createSidenotes();
+  toggleNotes();
+});
 ```
 
 ## CSS

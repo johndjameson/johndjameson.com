@@ -6,7 +6,12 @@ import { imageKitUrl } from 'helpers/imageKitUrl';
 function Polaroid({ alt, className, ...moreProps }) {
   return (
     <PolaroidBase className={className}>
-      <PolaroidImage alt={alt} height={290} width={290} {...moreProps} />
+      <PolaroidImage
+        alt={alt}
+        height={290}
+        width={290}
+        {...moreProps}
+      />
       <PolaroidFrame
         src2x={imageKitUrl({
           path: 'polaroid-600.png',

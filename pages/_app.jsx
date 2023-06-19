@@ -25,7 +25,10 @@ function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <meta
+          name="viewport"
+          content="width=device-width,initial-scale=1"
+        />
 
         <meta
           content="Senior Front-End Engineer in Austin, TX"
@@ -35,8 +38,15 @@ function App({ Component, pageProps }) {
 
       <ThemeProvider theme={theme}>
         <Header>
-          <Header.Item as="nav" full>
-            <Link href="/" passHref sx={{ display: 'block', width: 'fit-content' }}>
+          <Header.Item
+            as="nav"
+            full
+          >
+            <Link
+              href="/"
+              passHref
+              sx={{ display: 'block', width: 'fit-content' }}
+            >
               <VisuallyHidden>Home</VisuallyHidden>
               <svg
                 height="50"

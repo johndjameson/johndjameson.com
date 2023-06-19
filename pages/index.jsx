@@ -24,7 +24,10 @@ function Home({ posts }) {
         </h2>
         <ul>
           {posts.map((post) => (
-            <li key={post.frontMatter.title} sx={{ marginBottom: 4 }}>
+            <li
+              key={post.frontMatter.title}
+              sx={{ marginBottom: 4 }}
+            >
               <a
                 href={`blog/${post.slug}`}
                 sx={{

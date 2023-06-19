@@ -56,7 +56,10 @@ function SyntaxHighlighter({ children, ...moreProps }) {
         theme={theme}
       >
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
-          <pre className={className} style={{ ...style }}>
+          <pre
+            className={className}
+            style={{ ...style }}
+          >
             {tokens.slice(0, -1).map((line, i) => (
               <div {...getLineProps({ line, key: i })}>
                 {line.map((token, key) => (

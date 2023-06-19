@@ -28,10 +28,21 @@ export default class CustomDocument extends Document {
         <Head>
           <meta charSet="utf-8" />
 
-          <meta name="theme-color" content="#000" />
+          <meta
+            name="theme-color"
+            content="#000"
+          />
 
-          <link href="/favicon.ico" rel="icon" sizes="any" />
-          <link href="/favicon.svg" rel="icon" type="image/svg+xml" />
+          <link
+            href="/favicon.ico"
+            rel="icon"
+            sizes="any"
+          />
+          <link
+            href="/favicon.svg"
+            rel="icon"
+            type="image/svg+xml"
+          />
           <link
             href="/favicon_180x180.png"
             rel="apple-touch-icon"

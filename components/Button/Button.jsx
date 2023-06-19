@@ -40,7 +40,11 @@ function Button({ href, children, ...moreProps }) {
   const as = href ? 'a' : 'button';
 
   return (
-    <StyledButton as={as} href={href} {...moreProps}>
+    <StyledButton
+      as={as}
+      href={href}
+      {...moreProps}
+    >
       {children}
     </StyledButton>
   );

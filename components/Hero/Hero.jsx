@@ -45,11 +45,7 @@ function Hero() {
           <HeroHeading>Front-end Engineer</HeroHeading>
 
           <p>
-            Hello, I’m{' '}
-            <InkUnderline as="strong">
-              John D. Jameson
-            </InkUnderline>
-            .
+            Hello, I’m <InkUnderline as="strong">John D. Jameson</InkUnderline>.
           </p>
 
           <PreventOrphan as="p">
