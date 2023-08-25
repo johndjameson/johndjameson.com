@@ -1,18 +1,35 @@
-import { format, parseISO } from "date-fns";
 import { allPosts } from "contentlayer/generated";
+import { format, parseISO } from "date-fns";
+import { Metadata } from "next";
+import { useMDXComponent } from "next-contentlayer/hooks";
+import type { MDXComponents } from "mdx/types";
+
+import CodePen from "@/app/posts/[slug]/_CodePen";
+
+const mdxComponents: MDXComponents = {
+  CodePen,
+};
 
 export const generateStaticParams = async () =>
   allPosts.map((post) => ({ slug: post._raw.flattenedPath }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
-  return { title: post.title };
+
+  return {
+    description: post.description,
+    title: post.title,
+  } satisfies Metadata;
 };
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug);
+
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
+
+  const MDXContent = useMDXComponent(post.body.code);
 
   return (
     <article>
@@ -22,7 +39,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
         </time>
         <h1>{post.title}</h1>
       </div>
-      <div dangerouslySetInnerHTML={{ __html: post.body.html }} />
+      <MDXContent components={mdxComponents} />
     </article>
   );
 };

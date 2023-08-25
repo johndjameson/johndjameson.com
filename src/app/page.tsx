@@ -15,7 +15,6 @@ function PostPreview(post: Post) {
       <time dateTime={post.date}>
         {format(parseISO(post.date), "LLLL d, yyyy")}
       </time>
-      <div dangerouslySetInnerHTML={{ __html: post.description }} />
     </div>
   );
 }
