@@ -1,0 +1,53 @@
+---
+title: Making Sense of Ch Units
+date: 2015-09-16
+description: If you try to use ch units with most fonts, things will probably end up broken. Here are some of the issues you’ll come across as well as ways you can fix them.
+---
+
+Ch units can be an [invaluable tool][typographic-units] when you’re working with monospaced fonts. For example, you can declare `width: 60ch` on an element and it’ll be the perfect size to fit 60 characters per line of text.
+
+But when using ch units with non-monospaced (proportional) fonts, you’ll encounter some unexpected results. Declaring the same width of `60ch` on a container _should_ work, but it doesn’t. You’ll end up with somewhere around 70 or 75 characters per line.
+
+So what causes them to be so inaccurate?
+
+It comes down to the defintion of a ch unit. According to the [specification][specification], a ch unit is equal to the width of the 0 (zero) glyph found in the font used to render it. This definition works for monospaced fonts (where every glyph shares an identical width), but it’s completely unreliable for proportional fonts. On average, a ch unit ends up being 15–30% larger than the width of a font’s other glyphs.
+
+<CodePen
+  height={560}
+  id="24f0cb69d20658c4b14f6fef8e32ce59"
+  title="Mismatched text and ch widths"
+/>
+
+See the problem? When compared to a line of zeros, ch units perform _exactly_ as the specification defines them. But when compared to a line of text, ch units are too wide to be useful.
+
+## So let’s fix the problem
+
+Ch units have a lot of potential, but it’ll take some math to get them working with proportional fonts.
+
+Let’s say you have a 1000-character-long line of text and a `div` with a width of `1000ch`. Like in the demo above, the line of text will be shorter than the same number of ch units. Okay, we expect that now. But what’s cool is that you can divide the width of the line of text by the width of the `div` to calculate a ratio that accounts for the discrepancy. The number you’ll end up with is usually in the 0.75–0.85 range for non-monospaced fonts.
+
+Multiply by that number when using ch units, and the resulting value gives you a number much closer to what you’re looking for.
+
+<CodePen
+  height={490}
+  id="c41229e9197ff46d987dceffb4f36b38"
+  title="Corrected text and ch widths"
+/>
+
+The more text there is, the more reliable the resulting number becomes.
+
+<CodePen
+  height={370}
+  id="a6c07f62eb3d33741effa552b22abd84"
+  title="Corrected paragraph text matching ch width"
+/>
+
+## Takeaways
+
+Ch units offer a lot of interesting potential once you get past their quirks. They’re _invaluable_ tools when working with monospaced fonts, and if you’re willing to take a few measurements and calculate a couple ratios, they’re _excellent_ for proportional fonts, too.
+
+Send me a message on [Twitter][twitter] if you have any questions or feedback — or if you just want to geek out over web typography.
+
+[specification]: http://www.w3.org/TR/css3-values/#font-relative-lengths
+[twitter]: https://twitter.com/johndjameson
+[typographic-units]: /blog/typographic-units-in-css.html
