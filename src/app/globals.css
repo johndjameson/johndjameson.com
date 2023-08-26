@@ -12,6 +12,11 @@
     tab-size: 2; /* Override modern-normalize */
   }
 
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+
   audio,
   canvas,
   iframe,
