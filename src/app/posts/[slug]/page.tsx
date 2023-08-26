@@ -4,7 +4,7 @@ import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import type { MDXComponents } from "mdx/types";
 
-import CodePen from "@/app/posts/[slug]/_CodePen";
+import CodePen from "@/components/CodePen/CodePen";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 
 const mdxComponents: MDXComponents = {
