@@ -1,12 +1,5 @@
 import PropTypes from "prop-types";
-
-const styles = {
-  background: "#ddd",
-  borderRadius: "6px",
-  border: "none",
-  display: "block",
-  width: "100%",
-};
+import codePenStyles from "@/components/CodePen/CodePen.module.css";
 
 type CodePenProps = {
   height: number;
@@ -35,10 +28,11 @@ function CodePen({
 
   return (
     <iframe
+      className={codePenStyles.demo}
       height={height}
       loading="lazy"
       src={url.toString()}
-      style={{ ...styles, height: `${height}px` }}
+      style={{ height: `${height}px` }}
       title={title}
     />
   );
