@@ -1,5 +1,6 @@
 import "./layers.css";
 import "./globals.css";
+import Header from "@/components/Header/Header";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -14,7 +15,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US">
-      <body>{children}</body>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }
