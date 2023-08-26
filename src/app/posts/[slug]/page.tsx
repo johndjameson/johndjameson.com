@@ -37,7 +37,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     <article className={postStyles.cell}>
       <div className={postStyles.container}>
         <div className={postStyles.header}>
-          {/* <h1 className={postStyles.title}>{post.title}</h1> */}
+          <h1 className={postStyles.title}>{post.title}</h1>
           <p>
             Published{" "}
             <time dateTime={post.date}>
