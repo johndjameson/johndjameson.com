@@ -1,8 +1,22 @@
 @import "node_modules/modern-normalize/modern-normalize.css" layer(reset.vendor);
 
-@layer reset.override {
+@layer reset.local {
+  * {
+    padding: 0;
+    margin: 0;
+  }
+
   html {
     tab-size: 2; /* Override modern-normalize */
+  }
+
+  audio,
+  canvas,
+  iframe,
+  img,
+  svg,
+  video {
+    vertical-align: middle;
   }
 }
 
@@ -41,12 +55,6 @@
     );
   }
 
-  * {
-    box-sizing: border-box;
-    padding: 0;
-    margin: 0;
-  }
-
   html {
     background: rgb(var(--color-surface-background));
     color: rgb(var(--color-text-primary));
@@ -58,8 +66,8 @@
 
   code,
   kbd,
-  samp,
-  pre {
+  pre,
+  samp {
     font-family: var(--font-mono);
   }
 }
