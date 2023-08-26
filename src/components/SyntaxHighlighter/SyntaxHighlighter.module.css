@@ -1,0 +1,23 @@
+.highlighter {
+  --syntax-highlighter-gutter: var(--space-300);
+  background: #090513;
+  border-radius: 6px;
+  color: #fff;
+  font-family: Monaco, Menlo, monospace;
+  line-height: 1.7;
+  overflow: hidden;
+}
+
+.header {
+  background: #191527;
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+  padding: var(--space-100) var(--syntax-highlighter-gutter);
+}
+
+.pre {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  padding: var(--syntax-highlighter-gutter);
+}

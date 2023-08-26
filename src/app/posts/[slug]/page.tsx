@@ -5,9 +5,11 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import type { MDXComponents } from "mdx/types";
 
 import CodePen from "@/app/posts/[slug]/_CodePen";
+import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 
 const mdxComponents: MDXComponents = {
   CodePen,
+  pre: SyntaxHighlighter as any, // TODO: Fix this any
 };
 
 export const generateStaticParams = async () =>
