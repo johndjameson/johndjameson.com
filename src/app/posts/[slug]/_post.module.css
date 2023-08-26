@@ -16,8 +16,8 @@
 
   .title {
     color: rgb(72 57 226 / 81%);
-    font-family: "cendra-web", serif;
-    font-size: 13cqw;
+    font-family: var(--font-cendra);
+    font-size: 12cqw;
     font-weight: 900;
     line-height: 0.75;
     margin-bottom: var(--space-300);
@@ -38,5 +38,10 @@
   .content a {
     color: rgb(223 0 151);
     font-weight: 500;
+  }
+
+  .content :where(h2, h3, h4, h5, h6) {
+    color: rgb(72 57 226 / 81%);
+    font-family: var(--font-cendra);
   }
 }

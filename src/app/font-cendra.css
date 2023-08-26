@@ -127,3 +127,19 @@
   font-weight: 900;
   src: url("https://jdj.land/cendra-blackitalic-webfont.woff2") format("woff2");
 }
+
+@font-face {
+  font-family: cendra-web-fallback-arial;
+  src: local(arial);
+  descent-override: 15%;
+  ascent-override: 65%; /* Match Cendra baseline */
+  size-adjust: 128%;
+}
+
+@font-face {
+  font-family: cendra-web-fallback-helvetica-neue;
+  src: local("Helvetica Neue");
+  descent-override: 16%;
+  ascent-override: 67.5%; /* Match Cendra baseline */
+  size-adjust: 120%;
+}
