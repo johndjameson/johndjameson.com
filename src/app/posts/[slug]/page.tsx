@@ -2,10 +2,10 @@ import { allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
-import type { MDXComponents } from "mdx/types";
-
 import CodePen from "@/components/CodePen/CodePen";
+import postStyles from "@/app/posts/[slug]/_post.module.css";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
+import type { MDXComponents } from "mdx/types";
 
 const mdxComponents: MDXComponents = {
   CodePen,
@@ -34,14 +34,22 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <article>
-      <div>
-        <time dateTime={post.date}>
-          {format(parseISO(post.date), "LLLL d, yyyy")}
-        </time>
-        <h1>{post.title}</h1>
+    <article className={postStyles.cell}>
+      <div className={postStyles.container}>
+        <div className={postStyles.header}>
+          {/* <h1 className={postStyles.title}>{post.title}</h1> */}
+          <p>
+            Published{" "}
+            <time dateTime={post.date}>
+              {format(parseISO(post.date), "LLLL d, yyyy")}
+            </time>
+          </p>
+        </div>
+
+        <div className={postStyles.content}>
+          <MDXContent components={mdxComponents} />
+        </div>
       </div>
-      <MDXContent components={mdxComponents} />
     </article>
   );
 };

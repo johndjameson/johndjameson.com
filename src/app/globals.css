@@ -1,4 +1,6 @@
-@import "node_modules/modern-normalize/modern-normalize.css" layer(reset.vendor);
+@import "src/app/layers.css";
+@import "src/app/modern-normalize-layer.css";
+@import "src/app/font-cendra.css";
 
 @layer reset.local {
   * {
@@ -41,6 +43,12 @@
     --space-400: 32px;
     --space-500: 40px;
     --space-600: 48px;
+    --space-700: 56px;
+    --space-800: 64px;
+    --space-900: 80px;
+    --space-1000: 96px;
+    --space-1100: 112px;
+    --space-1200: 128px;
 
     --layout-gutter: var(--space-300);
     --layout-container-width: 1280px;
@@ -58,6 +66,8 @@
   html {
     background: rgb(var(--color-surface-background));
     color: rgb(var(--color-text-primary));
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
   }
 
   body {

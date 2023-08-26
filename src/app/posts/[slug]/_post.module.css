@@ -1,0 +1,42 @@
+@layer component {
+  .cell {
+    padding-left: var(--layout-container-width-narrow-padding-x);
+    padding-right: var(--layout-container-width-narrow-padding-x);
+  }
+
+  .container {
+    container-type: inline-size;
+  }
+
+  .header {
+    font-size: clamp(14px, 2.75cqw, 16px);
+    margin-bottom: var(--space-400);
+    padding-top: 5cqw;
+  }
+
+  .title {
+    color: rgb(72 57 226 / 81%);
+    font-family: "cendra-web", serif;
+    font-size: 13cqw;
+    font-weight: 900;
+    line-height: 0.75;
+    margin-bottom: var(--space-300);
+    text-wrap: balance;
+  }
+
+  .title::first-line {
+    color: rgb(253 64 192);
+  }
+
+  .content {
+    display: grid;
+    font-size: clamp(16px, 3cqw, 19px);
+    grid-row-gap: 1.5em;
+    padding-bottom: 20cqw;
+  }
+
+  .content a {
+    color: rgb(223 0 151);
+    font-weight: 500;
+  }
+}

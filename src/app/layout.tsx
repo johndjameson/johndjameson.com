@@ -1,5 +1,7 @@
-import "./layers.css";
-import "./globals.css";
+import "@/app/layers.css";
+import "@/app/modern-normalize-layer.css";
+import "@/app/font-cendra.css";
+import "@/app/globals.css";
 import Header from "@/components/Header/Header";
 import type { Metadata } from "next";
 
