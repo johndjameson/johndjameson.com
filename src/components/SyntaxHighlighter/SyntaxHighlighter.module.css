@@ -16,6 +16,10 @@
   padding: var(--space-100) var(--syntax-highlighter-gutter);
 }
 
+.headerCaps {
+  letter-spacing: 0.05em;
+}
+
 .pre {
   font-family: var(--font-mono);
   font-size: 14px;

@@ -1,10 +1,11 @@
 "use client";
 
 import { Highlight } from "prism-react-renderer";
+import clsx from "clsx";
 import theme from "@/components/SyntaxHighlighter/theme";
 import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
 
-const displayNames = {
+const displayLanguages = {
   css: "CSS",
   html: "HTML",
   javascript: "JavaScript",
@@ -13,14 +14,14 @@ const displayNames = {
   shell: "Shell",
 } as const;
 
-function getDisplayName(language: keyof typeof displayNames) {
-  const displayName = displayNames[language];
+function getDisplayLanguage(language: keyof typeof displayLanguages) {
+  const displayLanguage = displayLanguages[language];
 
-  if (!displayName) {
+  if (!displayLanguage) {
     throw new Error(`No display name for language \`${language}\``);
   }
 
-  return displayName;
+  return displayLanguage;
 }
 
 interface SyntaxHighlighterProps
@@ -37,9 +38,17 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
   const language = codeProps.className?.replace("language-", "") || "plain";
   const text = codeProps.children;
 
+  const displayLanguage = getDisplayLanguage(language);
+
   return (
     <div {...moreProps} className={css.highlighter}>
-      <div className={css.header}>{getDisplayName(language)}</div>
+      <div
+        className={clsx(css.header, {
+          [css.headerCaps]: displayLanguage === displayLanguage.toUpperCase(),
+        })}
+      >
+        {displayLanguage}
+      </div>
 
       <Highlight
         code={text}
