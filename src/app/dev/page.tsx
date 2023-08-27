@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const overlapText = "Styling Fallback Fonts with Sass";
 
-export default function Home() {
+export default function Development() {
   return (
     <div
       style={{
