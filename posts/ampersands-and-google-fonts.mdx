@@ -1,9 +1,7 @@
 ---
 title: Ampersands & Google Fonts
-type: post
-layout: article
-date: '2014-03-08'
-description: 'Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before.'
+date: 2014-03-08
+description: Titles, headings, and display text can all benefit from the use of a well-placed ampersand. Today Google Fonts makes using beautiful ampersands on the web easier and more widely supported than ever before.
 ---
 
 Ampersands are used most effectively in display contexts, such as titles and headings, so it rarely makes sense to use the dull, standard-issue ampersands that accompany most fonts. Instead, we’re often better off using a more interesting and elaborate alternative. Many fonts feature an _italic_ ampersand that is far more elegant than its conventional counterpart, making the italic ampersand preferable in a variety of contexts.
@@ -28,7 +26,7 @@ Then we create an ampersand class to apply throughout our HTML. Using some of th
 
 ```css
 .amp {
-  font-family: 'Font Name', 'Baskerville', 'Palatino', inherit;
+  font-family: "Font Name", "Baskerville", "Palatino", inherit;
   font-size: 125%; // A little bigger just because
   font-style: italic;
   font-weight: normal;
@@ -49,13 +47,13 @@ With our CSS in its current state, querying the Google Fonts API for a single am
 
 ```css
 @font-face {
-  font-family: 'Font Name';
+  font-family: "Font Name";
   font-style: italic;
   font-weight: 400;
-  src: local('Font Name'), local('FontName-Italic'),
+  src: local("Font Name"), local("FontName-Italic"),
     url(http://themes.googleusercontent.com/licensed/font?kit=V_k5El2vkhx93NlGwmIB5Y3CqX6P7Jx8H90cFJ_LRto)
-      format('woff2'), url(http://themes.googleusercontent.com/licensed/font?kit=p0-i_LrFh6jEfrY2wE1ZTo3CqX6P7Jx8H90cFJ_LRto)
-      format('woff');
+      format("woff2"), url(http://themes.googleusercontent.com/licensed/font?kit=p0-i_LrFh6jEfrY2wE1ZTo3CqX6P7Jx8H90cFJ_LRto)
+      format("woff");
 }
 ```
 
@@ -63,17 +61,17 @@ Due to different implentations of `@font-face` across older browsers, Google del
 
 ```css
 @font-face {
-  font-family: 'Font Name';
+  font-family: "Font Name";
   font-style: italic;
   font-weight: 400;
-  src: local('Font Name'), local('FontName-Italic'),
+  src: local("Font Name"), local("FontName-Italic"),
     url(http://themes.googleusercontent.com/licensed/font?kit=V_k5El2vkhx93NlGwmIB5Y3CqX6P7Jx8H90cFJ_LRto)
-      format('woff2'), url(http://themes.googleusercontent.com/licensed/font?kit=p0-i_LrFh6jEfrY2wE1ZTo3CqX6P7Jx8H90cFJ_LRto)
-      format('woff');
+      format("woff2"), url(http://themes.googleusercontent.com/licensed/font?kit=p0-i_LrFh6jEfrY2wE1ZTo3CqX6P7Jx8H90cFJ_LRto)
+      format("woff");
 }
 
 .amp {
-  font-family: 'Font Name', 'Baskerville', 'Palatino', inherit;
+  font-family: "Font Name", "Baskerville", "Palatino", inherit;
   font-size: 125%;
   font-style: italic;
   font-weight: normal;
@@ -94,10 +92,10 @@ We then add the resulting Base64 string inside our authored CSS.
 
 ```css
 @font-face {
-  font-family: 'Font Name', 'Baskerville', 'Palatino', inherit;
+  font-family: "Font Name", "Baskerville", "Palatino", inherit;
   font-style: italic;
   font-weight: 400;
-  src: url(data:application/font-woff;charset=utf-8;base64,base64 string) format('woff');
+  src: url(data:application/font-woff;charset=utf-8;base64,base64 string) format("woff");
 }
 ```
 

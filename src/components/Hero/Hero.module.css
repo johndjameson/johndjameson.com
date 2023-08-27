@@ -1,0 +1,26 @@
+@layer component {
+  .container {
+    aspect-ratio: 2.13333333;
+    background: #33277b;
+    border-radius: 40px;
+    container-type: inline-size;
+    overflow: hidden;
+  }
+
+  .content {
+    color: #a25dc2;
+    font-family: var(--font-cendra);
+    font-size: 6.5cqw;
+    font-weight: 800;
+    line-height: 1.1;
+    text-transform: uppercase;
+    transform: translate(-50%, 20%) rotate(-45deg);
+    user-select: none;
+    white-space: nowrap;
+  }
+
+  .line:nth-child(even) {
+    color: rgb(143 84 199);
+    transform: translateX(-75%);
+  }
+}

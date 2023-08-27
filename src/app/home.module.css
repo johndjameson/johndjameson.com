@@ -1,0 +1,43 @@
+@layer component {
+  .container {
+    padding-bottom: var(--space-1100);
+    padding-left: var(--layout-container-width-padding-x);
+    padding-right: var(--layout-container-width-padding-x);
+  }
+
+  .hero {
+    margin-bottom: var(--space-400);
+    margin-top: var(--space-300);
+  }
+
+  .h2 {
+    color: rgba(72, 57, 226, 0.81);
+    margin-bottom: var(--space-300);
+    font-size: 32px;
+    font-family: var(--font-cendra);
+  }
+
+  .post {
+    font-size: 19px;
+    margin-bottom: var(--space-300);
+  }
+
+  .post:not(:last-child) {
+    border-bottom: 2px solid rgba(230, 225, 233, 1);
+    padding-bottom: var(--space-200);
+    margin-bottom: var(--space-200);
+  }
+
+  .postTitle {
+    font-family: var(--font-cendra);
+    font-size: 24px;
+  }
+
+  /* .postDescription {} */
+
+  @media (hover) {
+    .postLink:hover {
+      text-decoration: underline;
+    }
+  }
+}

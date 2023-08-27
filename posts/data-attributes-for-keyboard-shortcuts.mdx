@@ -1,7 +1,7 @@
 ---
 archived: true
-date: '2015-03-16'
-description: 'With a little help from JavaScript, you can add a data attribute to any HTML element to instantly assign a shortcut key.'
+date: 2015-03-16
+description: With a little help from JavaScript, you can add a data attribute to any HTML element to instantly assign a shortcut key.
 title: Data Attributes for Keyboard Shortcuts
 ---
 
@@ -42,15 +42,15 @@ Remember our three use cases? Well, in JavaScript, they translate into the follo
 With jQuery Hotkeys set up in your project, write a `$(document).ready()` call that contains the following JavaScript:
 
 ```javascript
-$('[data-shortcut]').each(function () {
+$("[data-shortcut]").each(function () {
   var $element = $(this),
-    key = $element.data('shortcut');
+    key = $element.data("shortcut");
 
-  $(document).on('keyup', null, String(key), function () {
-    $element.trigger('focus').trigger('click');
+  $(document).on("keyup", null, String(key), function () {
+    $element.trigger("focus").trigger("click");
 
-    if ($element.prop('tagName').toLowerCase() === 'a') {
-      window.location = element.attr('href');
+    if ($element.prop("tagName").toLowerCase() === "a") {
+      window.location = element.attr("href");
     }
   });
 });
@@ -63,25 +63,15 @@ This code will loop through every HTML element that has a `[data-shortcut]` attr
 Your JavaScript is up and running, so you can finally start assigning keyboard shortcuts in your markup! Find an `<a>`, `<button>`, or `<input>` tag that could use a shortcut, and add a `data-shortcut` attribute with the intended key as its value.
 
 ```html
-<a
-  href="http://example.com/edit"
-  data-shortcut="e"
-  >Edit</a
->
+<a href="http://example.com/edit" data-shortcut="e">Edit</a>
 ```
 
 If you want to assign a keyboard shortcut that requires pressing two or more keys at once, you’ll need to use the [syntax][jquery-hotkeys-notes] that jQuery Hotkeys provides. The jQuery Hotkeys [example page][jquery-hotkeys-example] has even more key combinations.
 
 ```html
-<a
-  href="/index.html"
-  data-shortcut="shift+1"
->
+<a href="/index.html" data-shortcut="shift+1">
   <button data-shortcut="alt+m">Menu</button>
-  <input
-    type="submit"
-    data-shortcut="ctrl+alt+enter"
-  />
+  <input type="submit" data-shortcut="ctrl+alt+enter" />
 </a>
 ```
 
