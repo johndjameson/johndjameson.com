@@ -1,31 +1,38 @@
-import Link from "next/link";
-import { compareDesc, format, parseISO } from "date-fns";
 import { allPosts, Post } from "contentlayer/generated";
+import { compareDesc, format, parseISO } from "date-fns";
+import Hero from "@/components/Hero/Hero";
+import homeStyles from "@/app/home.module.css";
+import Link from "next/link";
+import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 
 const posts = allPosts.sort((a, b) =>
   compareDesc(new Date(a.date), new Date(b.date))
 );
 
-function PostPreview(post: Post) {
-  return (
-    <div>
-      <h2>
-        <Link href={post.url}>{post.title}</Link>
-      </h2>
-      <time dateTime={post.date}>
-        {format(parseISO(post.date), "LLLL d, yyyy")}
-      </time>
-    </div>
-  );
-}
-
 export default function Home() {
   return (
     <>
-      <h1>Blog</h1>
-      {posts.map((post, index) => (
-        <PostPreview key={index} {...post} />
-      ))}
+      <VisuallyHidden as="h1">
+        John D. Jameson, Front-End Engineer
+      </VisuallyHidden>
+
+      <div className={homeStyles.container}>
+        <div className={homeStyles.hero}>
+          <Hero>John D. Jameson Front-End Engineer</Hero>
+        </div>
+
+        <h2 className={homeStyles.h2}>Posts</h2>
+        {posts.map((post, index) => (
+          <div className={homeStyles.post} key={index}>
+            <h3 className={homeStyles.postTitle}>
+              <Link className={homeStyles.postLink} href={post.url}>
+                {post.title}
+              </Link>
+            </h3>
+            <p className={homeStyles.postDescription}>{post.description}</p>
+          </div>
+        ))}
+      </div>
     </>
   );
 }
