@@ -62,7 +62,7 @@
 
     --layout-gutter: var(--space-300);
     --layout-container-width: 1280px;
-    --layout-container-width-narrow: 700px;
+    --layout-container-width-narrow: min(43.75rem, 700px);
     --layout-container-width-padding-x: max(
       var(--layout-gutter),
       calc((100vw - var(--layout-container-width)) / 2)

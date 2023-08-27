@@ -9,9 +9,9 @@
   }
 
   .header {
-    font-size: clamp(14px, 2.75cqw, 16px);
-    margin-bottom: var(--space-400);
-    padding-top: 5cqw;
+    font-size: clamp(12px, calc(0.375rem + 1.75cqw), 14px);
+    margin-bottom: 2em;
+    padding-top: 3em;
   }
 
   .title {
@@ -20,7 +20,7 @@
     font-size: 12cqw;
     font-weight: 900;
     line-height: 0.75;
-    margin-bottom: var(--space-300);
+    margin-bottom: 2cqw;
     text-wrap: balance;
   }
 
@@ -30,24 +30,40 @@
 
   .content {
     display: grid;
-    font-size: clamp(16px, 3cqw, 19px);
+    font-size: clamp(16px, calc(0.5rem + 1.75cqw), 20px);
     grid-row-gap: 1.5em;
     padding-bottom: 20cqw;
   }
 
-  .content a {
-    color: rgb(223 0 151);
-    font-weight: 500;
-  }
-
   .content :where(h2, h3, h4, h5, h6) {
     color: rgb(72 57 226 / 81%);
+    line-height: 1.35;
     font-family: var(--font-cendra);
   }
 
-  .content img {
+  .content :where(a) {
+    color: rgb(223 0 151);
+    font-weight: 500;
+    text-decoration: underline;
+    transition: color 0.2s ease-out;
+  }
+
+  @media (hover) {
+    .content :where(a):hover {
+      color: rgb(170 0 115);
+    }
+  }
+
+  .content :where(img) {
     display: block;
     margin-left: auto;
     margin-right: auto;
+  }
+
+  .content :where(code) {
+    border: 1px solid rgb(230 225 233);
+    border-radius: 6px;
+    padding: 0.125em 0.25em;
+    font-size: 0.875em;
   }
 }

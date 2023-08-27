@@ -6,34 +6,37 @@
   }
 
   .hero {
-    margin-bottom: var(--space-400);
+    margin-bottom: var(--space-600);
     margin-top: var(--space-300);
   }
 
   .h2 {
-    color: rgba(72, 57, 226, 0.81);
-    margin-bottom: var(--space-300);
-    font-size: 32px;
+    color: rgb(72 57 226 / 0.81);
+    margin-bottom: 1em;
+    font-size: clamp(24px, calc(0.75rem + 1.75cqw), 32px);
     font-family: var(--font-cendra);
   }
 
   .post {
-    font-size: 19px;
-    margin-bottom: var(--space-300);
+    container-type: inline-size;
+    font-size: clamp(16px, calc(0.5rem + 1.75cqw), 20px);
   }
 
   .post:not(:last-child) {
-    border-bottom: 2px solid rgba(230, 225, 233, 1);
-    padding-bottom: var(--space-200);
-    margin-bottom: var(--space-200);
+    border-bottom: 2px solid rgb(230 225 233);
+    padding-bottom: 1.35em;
+    margin-bottom: 1.35em;
   }
 
   .postTitle {
     font-family: var(--font-cendra);
-    font-size: 24px;
+    font-size: clamp(18px, calc(0.5625rem + 1.75cqw), 24px);
+    line-height: var(--lineHeight-heading);
+    margin-bottom: 0.25em;
   }
 
-  /* .postDescription {} */
+  .postDescription {
+  }
 
   @media (hover) {
     .postLink:hover {
