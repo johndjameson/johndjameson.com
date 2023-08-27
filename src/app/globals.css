@@ -92,4 +92,14 @@
   samp {
     font-family: var(--font-mono);
   }
+
+  :focus-visible {
+    outline: 3px solid rgb(223 0 151);
+    outline-offset: 2px;
+    outline-style: dotted;
+  }
+
+  ::selection {
+    background: rgb(223 0 152 / 0.2);
+  }
 }
