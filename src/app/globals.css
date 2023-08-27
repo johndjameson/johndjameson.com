@@ -42,7 +42,9 @@
       "Helvetica Neue", sans-serif;
 
     --lineHeight-body: 1.5;
-    --lineHeight-heading: 1.333;
+    --lineHeight-heading: 1.25;
+
+    --radius-base: 6px;
 
     --space-25: 2px;
     --space-50: 4px;
@@ -62,7 +64,7 @@
 
     --layout-gutter: var(--space-300);
     --layout-container-width: 1280px;
-    --layout-container-width-narrow: min(43.75rem, 700px);
+    --layout-container-width-narrow: clamp(700px, 43.75rem, 800px);
     --layout-container-width-padding-x: max(
       var(--layout-gutter),
       calc((100vw - var(--layout-container-width)) / 2)
