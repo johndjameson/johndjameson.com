@@ -1,18 +1,23 @@
 @layer component {
   .container {
-    aspect-ratio: 2.13333333;
-    background: #33277b;
-    border-radius: 40px;
+    --hero-background-color: rgb(43 32 109);
+    --hero-text-color: rgb(171 97 203);
+    --hero-text-color-subdued: rgb(152 90 212);
     container-type: inline-size;
-    overflow: hidden;
   }
 
   .content {
-    color: #a25dc2;
+    aspect-ratio: 2.13333333;
+    background: var(--hero-background-color);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  .lines {
+    color: var(--hero-text-color);
     font-family: var(--font-cendra);
-    font-size: 6.5cqw;
     font-weight: 800;
-    line-height: 1.1;
+    line-height: 1;
     text-transform: uppercase;
     transform: translate(-50%, 20%) rotate(-45deg);
     user-select: none;
@@ -20,7 +25,8 @@
   }
 
   .line:nth-child(even) {
-    color: rgb(143 84 199);
+    background: var(--hero-background-color);
+    color: var(--hero-text-color-subdued);
     transform: translateX(-75%);
   }
 }
