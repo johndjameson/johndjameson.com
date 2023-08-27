@@ -15,11 +15,11 @@
   }
 
   .title {
-    color: rgb(72 57 226 / 81%);
+    color: rgb(107 95 232);
     font-family: var(--font-cendra);
     font-size: 12cqw;
     font-weight: 900;
-    line-height: 0.75;
+    line-height: 0.95;
     margin-bottom: 2cqw;
     text-wrap: balance;
   }
