@@ -5,9 +5,9 @@ import homeStyles from "@/app/home.module.css";
 import Link from "next/link";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 
-const posts = allPosts.sort((a, b) =>
-  compareDesc(new Date(a.date), new Date(b.date))
-);
+const posts = allPosts
+  .filter((post) => !post.development)
+  .sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
 export default function Home() {
   return (

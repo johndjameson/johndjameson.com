@@ -23,6 +23,9 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   return {
     description: post.description,
     title: post.title,
+    robots: {
+      index: !post.development,
+    },
   } satisfies Metadata;
 };
 
