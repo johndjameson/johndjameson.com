@@ -1,0 +1,108 @@
+---
+title: Storage with Cloudflare Domains & R2
+date: 2023-08-29
+description: Learn how to host files on the web using Cloudflare’s R2 bucket storage and Cloudflare’s inexpensive domain registration.
+---
+
+What’s [Cloudflare R2](https://www.cloudflare.com/developer-platform/r2/)? If you’ve ever used Amazon S3, Cloudflare pitches their R2 service as comparable object storage but without egress fees. What’s an egress fee? [Nothing, what’s an egress fee with you?](https://www.youtube.com/watch?v=X_lIhrzNhwA) Seriously though, for my purposes, their [pricing calculator](https://r2-calculator.cloudflare.com/) says it’s $0.00, and I enjoy using other Cloudflare products, so that’s why I picked R2 instead of something else.
+
+If you want to buy a new domain and set up an R2 bucket for hosting web files, here are the steps to make that happen:
+
+1. [Buy a domain](#buy-a-domain)
+2. [Create an R2 bucket](#create-a-bucket)
+3. [Connect the bucket to your domain](#connect-to-your-domain)
+4. [Get CORS working](#configure-cors)
+5. [Upload files](#upload-files)
+
+Sound reasonable? Let’s get into it.
+
+## Buy a domain
+
+The first step is to purchase a domain on Cloudflare. You can buy domains anywhere, but having your domain and storage in one place makes for less hassle setting them up together. Cloudflare sells new domains [at cost](https://twitter.com/GergelyOrosz/status/1671407196591259648), so it’s tough to find a cheaper option unless a competing registrar is selling domains at some introductory rate before adding their margin at renewal.
+
+Here’s how to purchase a domain on Cloudflare:
+
+1. Visit your [Cloudflare dashboard](https://dash.cloudflare.com) (create an account first if needed)
+2. In the sidebar menu, choose **Domain Registration > Register Domains**
+3. Search for the domain name you want and follow the **Purchase** link to complete checkout
+
+With your new domain acquired, it’s time to move on to the next step.
+
+## Create a bucket
+
+To host files from your new domain, you’ll need to create an empty R2 bucket to store them. Here’s how to do that:
+
+1. In the sidebar menu, choose **R2 > Overview**
+2. Click the **Create bucket** button
+3. Enter a bucket name and click **Create bucket** again to submit
+
+You should be greeted with the page for your new R2 bucket.
+
+## Connect to your domain
+
+On the new R2 bucket’s page, complete the following steps:
+
+1. Click the **Settings** tab
+2. Click the **Connect Domain** button
+3. Write the domain name you intend to use, without `https` or any slashes
+4. Click the **Connect domain** button
+5. Give it a minute and refresh the page to confirm that **Status** is `Active`
+
+When the status switches over, you’re ready to set up CORS for your new R2 bucket.
+
+## Configure CORS
+
+Cross-origin resource sharing: the wrench in the works of any new integration and a frequent “what went wrong” topic in sprint retrospectives. It takes a few steps to set up the right CORS config. When I set up a public R2 bucket for myself, configuring CORS took longer than all the other steps put together. Luckily, it’s a pretty straightforward process if you know what to do.
+
+Here are the steps to set your CORS policy:
+
+1. In the sidebar navigation, choose **R2 > Overview**
+2. Find your bucket in the **Buckets** table and follow its link
+3. Click the **Settings** tab
+4. Follow the link to **Edit CORS policy**
+5. Submit the following JSON. Cloudflare recommends this code in their official [documentation](https://developers.cloudflare.com/r2/buckets/cors/#example):
+
+```
+[
+  {
+    "AllowedOrigins": [
+      "http://localhost:3000"
+    ],
+    "AllowedMethods": [
+      "GET"
+    ]
+  }
+]
+```
+
+The last CORS-related step is setting the correct `access-control-allow-origin=*` header. This permits browsers to use the cross-origin resources they request:
+
+1. In the sidebar menu, click **Websites**
+2. Follow the link to your domain name
+3. In the sidebar menu again, click **Rules > Transform Rules**
+4. Click the **Modify Response Header** tab
+5. Click **Create rule**
+
+You should now be on a page with a form to create a new header modification rule. It took me a while to figure out this step, and thanks to [Giorgio on the Cloudflare forums](https://community.cloudflare.com/t/problem-with-settings-cors-policies-on-r2/432339/18), I was able to finish CORS setup with this final change:
+
+![Screenshot of the HTTP Response Header Modification Rule form filled out](https://jdj.land/cloudflare-access-header.png)
+
+1. Fill out the **Rule name** field. I used `Access-Control-Allow-Origin=*`
+1. Select `Custom filter expression`
+1. Fill out the **When incoming request match…** fields with the following 3 values: **Field** is `hostname`, **Operator** is `equals`, and **Value** is the domain name
+1. In the **Then…** section, set the dropdown to `Set static`, the **Header name** field to `access-control-allow-origin`, and the **Value** to `*`
+1. Click **Deploy** to ship the change
+
+Now the only thing left is to upload some files.
+
+## Upload files
+
+Back on the page for your new bucket, you can drag whatever files you want to host into the **Objects** table and they will automatically upload. There are also [programmatic ways to upload files](https://developers.cloudflare.com/r2/objects/upload-objects/#upload-objects-via-wrangler) that I haven’t explored yet. Expect a follow-up post whenever I need to set up more technical R2 integration.
+
+Files uploaded to an R2 bucket can be accessed by their public URLs. A file named `image-file.jpg` uploaded to an `example.com` bucket can be requested with the URL `example.com/image.jpg`. Files nested inside directories will have their folder structure maintained in the resulting URL: `example.com/path/to/image.jpg`
+
+## Wrap-up
+
+Following the steps in this guide, you should now have a new domain set up to host static files from Cloudflare R2. You can upload anything to R2 and have it publicly accessible on the web. I’m using it for fonts and images on this blog, for example.
+
+Have fun building! Feel free to reach out to me on [Twitter](https://twitter.com/johndjameson) if you run into any issues with this setup.
