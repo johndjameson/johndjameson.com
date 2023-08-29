@@ -65,7 +65,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 
   return {
     description: post.description,
-    title: post.title,
+    title: `${post.title} | John D. Jameson`,
     robots: {
       index: !post.development,
     },
