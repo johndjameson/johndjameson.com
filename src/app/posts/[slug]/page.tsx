@@ -4,11 +4,54 @@ import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import postStyles from "@/app/posts/[slug]/_post.module.css";
+import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import type { MDXComponents } from "mdx/types";
 
+const DynamicLink = (props: React.ComponentPropsWithoutRef<"a">) => {
+  if (!props.href) {
+    throw new Error("Link is missing an href attribute");
+  }
+
+  const linkProps = props.href.startsWith("http")
+    ? ({
+        rel: "noopener noreferrer",
+        target: "_blank",
+      } satisfies React.ComponentPropsWithoutRef<"a">)
+    : {};
+
+  return <a {...props} {...linkProps} />;
+};
+
+type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
+
+type HeadingProps = React.ComponentPropsWithoutRef<Heading> & {
+  level: Heading;
+};
+
+const Heading = (props: HeadingProps) => {
+  const { level, ...forwardProps } = props;
+  const { children } = props;
+  const Tag = level;
+
+  if (typeof children !== "string") {
+    throw new Error("Heading children are not of type string");
+  }
+
+  return <Tag {...forwardProps} id={slugify(children, { lower: true })} />;
+};
+
 const mdxComponents: MDXComponents = {
+  a: DynamicLink,
   CodePen,
+  h1: () => {
+    throw new Error("Don’t put an h1 in Markdown content");
+  },
+  h2: (props) => <Heading {...props} level="h2" />,
+  h3: (props) => <Heading {...props} level="h3" />,
+  h4: (props) => <Heading {...props} level="h4" />,
+  h5: (props) => <Heading {...props} level="h5" />,
+  h6: (props) => <Heading {...props} level="h6" />,
   pre: SyntaxHighlighter as any, // TODO: Fix this any
 };
 
