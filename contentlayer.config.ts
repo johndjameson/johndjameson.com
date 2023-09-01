@@ -12,9 +12,14 @@ export const Post = defineDocumentType(() => ({
     title: { type: "string", required: true },
   },
   computedFields: {
+    slug: {
+      type: "string",
+      resolve: (post) => post._raw.sourceFileName.replace(".mdx", ""),
+    },
     url: {
       type: "string",
-      resolve: (post) => `/posts/${post._raw.flattenedPath}`,
+      resolve: (post) =>
+        `/posts/${post._raw.sourceFileName.replace(".mdx", "")}`,
     },
   },
 }));
