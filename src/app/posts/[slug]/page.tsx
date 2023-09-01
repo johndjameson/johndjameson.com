@@ -3,25 +3,11 @@ import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer/hooks";
 import CodePen from "@/components/CodePen/CodePen";
+import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import postStyles from "@/app/posts/[slug]/_post.module.css";
 import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import type { MDXComponents } from "mdx/types";
-
-const DynamicLink = (props: React.ComponentPropsWithoutRef<"a">) => {
-  if (!props.href) {
-    throw new Error("Link is missing an href attribute");
-  }
-
-  const linkProps = props.href.startsWith("http")
-    ? ({
-        rel: "noopener noreferrer",
-        target: "_blank",
-      } satisfies React.ComponentPropsWithoutRef<"a">)
-    : {};
-
-  return <a {...props} {...linkProps} />;
-};
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
 
