@@ -1,5 +1,5 @@
 ---
-title: Styling Text With SVG Filters
+title: Styling Text with SVG Filters
 date: 2016-04-21
 description: There are many different ways to underline text on the web. From tried-and-true CSS to SVG filters, these are some of the methods you can use.
 publication: code-school
