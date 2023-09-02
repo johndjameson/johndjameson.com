@@ -1,6 +1,7 @@
 import { defineDocumentType, makeSource } from "contentlayer/source-files";
 
 const publications = {
+  "code-school": "Code School",
   "css-tricks": "CSS-Tricks",
 } as const;
 

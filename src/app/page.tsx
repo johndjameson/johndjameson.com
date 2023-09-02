@@ -29,14 +29,24 @@ export default function Home() {
 
           return (
             <div className={homeStyles.post} key={post.url}>
-              {isExternal && post.publication === "css-tricks" ? (
-                <img
-                  alt={post.publicationDisplayName}
-                  className={homeStyles.publication}
-                  height={20}
-                  src="https://jdj.land/logo-css-tricks.svg"
-                  width={120}
-                />
+              {isExternal ? (
+                post.publication === "css-tricks" ? (
+                  <img
+                    alt={post.publicationDisplayName}
+                    className={homeStyles.publication}
+                    height={30}
+                    src="https://jdj.land/logo-css-tricks.svg"
+                    width={120}
+                  />
+                ) : (
+                  <img
+                    alt={post.publicationDisplayName}
+                    className={homeStyles.publication}
+                    height={30}
+                    src="https://jdj.land/logo-code-school.svg"
+                    width={120}
+                  />
+                )
               ) : null}
               <h3 className={homeStyles.postTitle}>
                 <DynamicLink
