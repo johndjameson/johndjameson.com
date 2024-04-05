@@ -63,6 +63,7 @@ const mdxComponents: MDXComponents = {
   h6: (props) => (
     <Heading {...props} className="text-sm md:text-base" level="h6" />
   ),
+  img: (props) => <img className="mx-auto block" {...props} />, // eslint-disable-line jsx-a11y/alt-text
   pre: SyntaxHighlighter as any, // TODO: Fix this any
 };
 

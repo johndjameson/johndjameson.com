@@ -19,12 +19,6 @@
     list-style: disc;
   }
 
-  .content :where(img) {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
   .content :where(code) {
     border: 1px solid rgb(230 225 233);
     border-radius: 6px;
