@@ -56,7 +56,7 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
         theme={theme as any /* TODO: Fix this any*/}
       >
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
-          <pre className={`${className} ${css.pre}`} style={{ ...style }}>
+          <pre className={clsx(css.pre, className)} style={{ ...style }}>
             {tokens
               .slice(0, -1) // Remove trailing newline
               .map((line, tokenIndex) => (
