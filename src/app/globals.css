@@ -1,33 +1,20 @@
-@import "src/app/layers.css";
-@import "src/app/modern-normalize-layer.css";
-@import "src/app/font-cendra.css";
+@layer base.tailwind, base.local, component.tailwind, component.local, utility;
 
-@layer reset.local {
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  html {
-    tab-size: 2; /* Override modern-normalize */
-  }
-
-  img {
-    height: auto;
-    max-width: 100%;
-  }
-
-  audio,
-  canvas,
-  iframe,
-  img,
-  svg,
-  video {
-    vertical-align: middle;
-  }
+@layer base.tailwind {
+  @tailwind base;
 }
 
-@layer base {
+@layer component.tailwind {
+  @tailwind components;
+}
+
+@layer utility.tailwind {
+  @tailwind utilities;
+}
+
+@import "src/app/font-cendra.css";
+
+@layer base.local {
   :root {
     --color-text-primary: 0 0 0;
     --color-surface-background: 255 255 255;
