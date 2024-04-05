@@ -74,6 +74,9 @@ const mdxComponents: MDXComponents = {
   h6: (props) => (
     <Heading {...props} className="text-sm md:text-base" level="h6" />
   ),
+  iframe: (props) => (
+    <iframe {...props} className="aspect-video h-auto w-full" />
+  ),
   img: (props) => <img className="mx-auto block" {...props} />, // eslint-disable-line jsx-a11y/alt-text
   li: (props) => <li {...props} className="mb-1" />,
   ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
