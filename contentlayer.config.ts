@@ -1,9 +1,5 @@
 import { defineDocumentType, makeSource } from "contentlayer2/source-files";
-
-const publications = {
-  "code-school": "Code School",
-  "css-tricks": "CSS-Tricks",
-} as const;
+import { publications } from "./src/constants/publications";
 
 const publicationField = {
   type: "enum",
