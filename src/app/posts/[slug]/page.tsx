@@ -44,6 +44,17 @@ const mdxComponents: MDXComponents = {
       className="font-medium text-[rgb(223_0_151)] underline transition hover:text-[rgb(170_0_115)]"
     />
   ),
+  code: (props) => {
+    return (
+      <code
+        {...props}
+        className={clsx(
+          props.className,
+          "rounded-md border border-[rgb(230_225_233)] px-1 py-0.5 text-[0.875em]",
+        )}
+      />
+    );
+  },
   CodePen,
   h1: () => {
     throw new Error("Don’t put an h1 in Markdown content");

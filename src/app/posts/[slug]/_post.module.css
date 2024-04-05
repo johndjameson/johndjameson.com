@@ -3,13 +3,6 @@
     container-type: inline-size;
   }
 
-  .content :where(code) {
-    border: 1px solid rgb(230 225 233);
-    border-radius: 6px;
-    padding: 0.125em 0.25em;
-    font-size: 0.875em;
-  }
-
   .content :where(iframe) {
     aspect-ratio: 16 / 9;
     height: auto;
