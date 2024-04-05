@@ -16,9 +16,6 @@
 
 @layer base.local {
   :root {
-    --color-text-primary: 0 0 0;
-    --color-surface-background: 255 255 255;
-
     --font-cendra: cendra-web, cendra-web-fallback-helvetica-neue,
       cendra-web-fallback-arial;
     /* --font-inter defined with JS import */
