@@ -12,6 +12,7 @@ const displayLanguages = {
   plain: "Plain Text",
   scss: "SCSS",
   shell: "Shell",
+  svg: "SVG",
 } as const;
 
 function getDisplayLanguage(language: keyof typeof displayLanguages) {
@@ -56,7 +57,7 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
         theme={theme as any /* TODO: Fix this any*/}
       >
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
-          <pre className={clsx(css.pre, className)} style={{ ...style }}>
+          <pre className={clsx(css.pre)} style={{ ...style }}>
             {tokens
               .slice(0, -1) // Remove trailing newline
               .map((line, tokenIndex) => (
