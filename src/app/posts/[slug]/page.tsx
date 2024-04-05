@@ -4,7 +4,6 @@ import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
-import postStyles from "@/app/posts/[slug]/_post.module.css";
 import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import type { MDXComponents } from "mdx/types";
@@ -110,27 +109,20 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <div className={postStyles.container}>
-        <div className="mb-8 mt-10">
-          <h1 className="mb-4 text-balance font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)] first-line:text-[rgb(253_64_192)] sm:text-6xl/[0.95] md:text-7xl/[0.95] lg:text-[84px]/[0.95]">
-            {post.title}
-          </h1>
-          <p className="text-sm">
-            Published{" "}
-            <time dateTime={post.date}>
-              {format(parseISO(post.date), "LLLL d, yyyy")}
-            </time>
-          </p>
-        </div>
+      <div className="mb-8 mt-10">
+        <h1 className="mb-4 text-balance font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)] first-line:text-[rgb(253_64_192)] sm:text-6xl/[0.95] md:text-7xl/[0.95] lg:text-[84px]/[0.95]">
+          {post.title}
+        </h1>
+        <p className="text-sm">
+          Published{" "}
+          <time dateTime={post.date}>
+            {format(parseISO(post.date), "LLLL d, yyyy")}
+          </time>
+        </p>
+      </div>
 
-        <div
-          className={clsx(
-            postStyles.content,
-            "pb-20 text-base *:mb-4 sm:text-lg/[1.5] md:pb-28 md:text-xl/[1.5] md:*:mb-6",
-          )}
-        >
-          <MDXContent components={mdxComponents} />
-        </div>
+      <div className="pb-20 text-base *:mb-4 sm:text-lg/[1.5] md:pb-28 md:text-xl/[1.5] md:*:mb-6">
+        <MDXContent components={mdxComponents} />
       </div>
     </article>
   );
