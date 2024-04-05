@@ -52,27 +52,6 @@
     );
   }
 
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: var(--lineHeight-heading);
-  }
-
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: var(--font-mono);
-  }
-
   :focus-visible {
     outline: 3px solid rgb(223 0 151);
     outline-offset: 2px;
