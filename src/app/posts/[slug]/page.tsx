@@ -1,7 +1,7 @@
 import { allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import { Metadata } from "next";
-import { useMDXComponent } from "next-contentlayer/hooks";
+import { useMDXComponent } from "next-contentlayer2/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import postStyles from "@/app/posts/[slug]/_post.module.css";
