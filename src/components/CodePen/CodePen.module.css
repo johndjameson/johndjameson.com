@@ -1,9 +1,0 @@
-@layer component {
-  .demo {
-    background: #ddd;
-    border-radius: 6px;
-    border: none;
-    display: block;
-    width: 100%;
-  }
-}

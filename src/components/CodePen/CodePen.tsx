@@ -1,6 +1,3 @@
-import PropTypes from "prop-types";
-import codePenStyles from "@/components/CodePen/CodePen.module.css";
-
 type CodePenProps = {
   height: number;
   id: number;
@@ -28,7 +25,7 @@ function CodePen({
 
   return (
     <iframe
-      className={codePenStyles.demo}
+      className="w-full rounded-md border-none bg-slate-200"
       height={height}
       loading="lazy"
       src={url.toString()}
