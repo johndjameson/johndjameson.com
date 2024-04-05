@@ -1,0 +1,199 @@
+---
+title: Styling Text with SVG Filters
+date: 2016-04-21
+description: There are many different ways to underline text on the web. From tried-and-true CSS to SVG filters, these are some of the methods you can use.
+---
+
+**Note:** This article was originally published on the [Code School Blog](https://web.archive.org/web/20170707134107/https://www.codeschool.com/blog/2016/04/21/styling-text-with-svg-filters/).
+
+If you look at a US dollar bill up close, there are a lot of typographic niceties going on: the huge numbers in the corners, the beefy capitals across the top and bottom, and even the vibrant serial numbers on each half of the bill. But my absolute _favorite_ part is the layered style used for “The United States of America.” {/*Let’s take a detailed look at the word “States.”*/}
+
+{/*See what I’m talking about? There’s a lot going on! */}Thanks to SVG, we can build a reusable filter to apply the same style to any text we want.
+
+## Recreating the effect
+
+Let’s get things started by adding a new SVG element to the page and centering the word `STATES` inside.
+
+```svg
+<svg width='600' height='200' >
+  <text x='50%' y='50%' dominant-baseline='middle' text-anchor='middle'>
+    STATES
+  </text>
+</svg>
+```
+
+Here the combined `x`, `y`, `dominant-baseline`, and `text-anchor` attributes allow us to center the text horizontally and vertically within the SVG. That means no more guessing `x` and `y` values — `50%` will always work.
+
+Using CSS, we’ll specify a `background`, `fill`, and `font-size`. We want a typeface similar to the one on the dollar bill, so we’ll pick [Playfair Display](https://fonts.google.com/specimen/Playfair+Display) from Google Fonts.
+
+<CodePen
+  height={284}
+  id="116cc1d6f27d6a0ae41b4480ef25761b"
+  title="The word States in all caps in a high-contrast typeface"
+  user="anon"
+/>
+
+### The syntax
+
+An SVG’s filters are defined in its markup like any other SVG elements. You can create an SVG filter with the `filter` tag and reference its `id` in CSS.
+
+```svg
+<filter id='money'>
+  <!-- Filter effects go here. -->
+</filter>
+```
+
+```css
+text {
+  filter: url('#money');
+}
+```
+
+If there’s nothing _in_ a filter (like in the example above), whatever you apply it to will disappear entirely. That’s the normal behavior, so no worries. Let’s fix that by adding in a few filter effects.
+
+### Expanding the text
+
+```svg
+The first thing we want to do is expand the text a small amount in all directions. The filter effect to do that is feMorphology, and here’s what that markup looks like:
+```
+
+There’s a lot going on in that short snippet, so let’s break things down piece by piece.
+
+- `in` names the input for the filter effect.
+- `SourceGraphic` refers to the original image.
+- `operator` identifies which behavior we want: erode or dilate. Using erode will shrink the resulting image, while dilate will cause it to expand.
+- `radius` refers to how far we want to shrink or expand the image.
+- `result` names the output for the filter effect.
+
+So once we update the filter’s markup, this is what we end up with:
+
+<CodePen
+  height={284}
+  id="64a1475643beeb7645bdd4760d5de2a0"
+  title="The previous States with much thicker letters"
+  user="anon"
+/>
+
+Looks bolder, right? That’s exactly what we want.
+
+### Adding a shadow
+
+The next thing we want to add is a _solid shadow_ — the kind that’s a single color and stretches out in a direction. I thought SVG filters would give us an easy way to make a solid shadow, but it’s surprisingly difficult to do. Here’s the approach I came up with:
+
+- Duplicate the text with `feOffset`.
+- Move the filter effect down and to the right by a single pixel.
+- Repeat for the ideal length of the shadow (e.g., 12 times for an `11px` shadow).
+- Merge the resulting filter effects together with `feMerge`.
+
+Here’s what the markup for that looks like:
+
+```svg
+<feOffset in='expand' dx='1' dy='1' result='shadow_1'/>
+<!-- Repeat for 2 through 11... -->
+
+<feMerge result='shadow'>
+  <feMergeNode in='expand'/>
+  <feMergeNode in='shadow_1'/>
+  <!-- Repeat for 2 through 11... -->
+</feMerge>
+```
+
+<CodePen
+  height={284}
+  id="1cb98adadfbd4b84e676de0ce0202a01"
+  title="The previous States with much thicker letters"
+  user="anon"
+/>
+
+### A quick detour
+
+Is anyone else tired of staring at the same colors? Let’s try something a little different and learn about `feFlood` and `feComposite` in the process.
+
+Here’s what each one does:
+
+- `feFlood` creates a solid-color layer.
+- `feComposite` combines two layers into a single layer, depending on how they overlap and which operator is used. We’ll be using the value in, but there are a lot more options. Check out [Matthew Bystedt’s guide](https://apike.ca/prog_svg_filter_feComposite.html) for more information.
+
+To change the solid shadow’s color, we’ll write markup like this:
+
+```svg
+<feFlood flood-color='#0e483b'/>
+<feComposite in2='shadow' operator='in' result='shadow'/>
+
+<feMerge>
+  <feMergeNode in='shadow'/>
+  <feMergeNode in='SourceGraphic'/>
+</feMerge>
+```
+
+`feComposite` uses the `in2` attribute for its second input, but we skipped writing `in` for the first. The same goes for `feFlood` — we skipped writing result. That’s because if you have a filter effect right after another, the result from one becomes the implied input for the next.
+
+<CodePen
+  height={380}
+  id="1879e338e0daaf773412fd667e0562a1"
+  title="The previous States with much thicker letters"
+  user="anon"
+/>
+
+Okay, the detour’s over — let’s get back to work.
+
+### Adding a border
+
+Like in the example above, we’ll use `feFlood` and `feComposite` to give a color to the SVG text’s shadow. Here, we’re using the same color as the background for a see-through effect.
+
+```svg
+<feFlood flood-color='#ebe7e0'/>
+<feComposite in2='shadow' operator='in' result='shadow'/>
+```
+
+We can use `feMorphology` again here to create a border around the shadow.
+
+```svg
+<feMorphology operator='dilate' radius='1' result='border'/>
+<feFlood flood-color='#35322a'/>
+<feComposite in2='border' operator='in' result='border'/>
+```
+
+<CodePen
+  height={284}
+  id="c8f40e9aa73cfb9a620ee17fd3f1c275"
+  title="The previous States with much thicker letters"
+  user="anon"
+/>
+
+### Adding a second shadow
+
+Using the same `feOffset` technique we used earlier, we’ll take the new `border` layer and create a second shadow with it.
+
+```svg
+<feOffset dx='1' dy='1' in='border' result='secondShadow_1'/>
+<!-- Repeat for 2 through 11... -->
+
+<feMerge result='secondShadow'>
+  <feMergeNode in='border'/>
+  <feMergeNode in='secondShadow_1'/>
+  <!-- Repeat for 2 through 11... -->
+</feMerge>
+```
+
+Browser support for tiled images in SVG can be unreliable, so I saved out a pre-tiled `stripes.svg` at 600 by 200 pixels. We’ll use `feImage` to load it into the SVG filter, then use `feComposite` to mask it beneath the second shadow.
+
+```svg
+<feImage x='0' y='0' width='600' height='200' xlink:href='stripes.svg'/>
+<feComposite in2='secondShadow' operator='in' result='secondShadow'/>
+```
+
+<CodePen
+  height={284}
+  id="0332be0a2fe6870d98064b074df31ea2"
+  title="The previous States with much thicker letters"
+  user="anon"
+/>
+
+{/*Close-up of the word states on a US dollar bill*/}
+
+## Browser Support
+
+It’s hard to predict how browsers will support certain SVG filters, especially when combining them to create complex effects. The approach in this article works in Chrome, Firefox, Safari, and Opera, but the second shadow ends up partially clipped in Internet Explorer and Edge. For the most part, SVG filters have great support across browsers, but I’d still recommend testing things out early on in development. You might have to compromise here and there to get things working.
+
+{/*Want to learn the basics of SVG in your browser? Play through our new [SVG course](https://www.pluralsight.com/courses/code-school-you-me-svg), You, Me & SVG, to learn how you can create SVG images for your own projects.*/}
