@@ -4,6 +4,7 @@ import Hero from "@/components/Hero/Hero";
 import homeStyles from "@/app/home.module.css";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import { publications } from "@/constants/publications";
 
 const combinedPosts = [
   ...allPosts.filter((post) => !post.development),
@@ -25,29 +26,17 @@ export default function Home() {
         <h2 className={homeStyles.h2}>Posts</h2>
 
         {combinedPosts.map((post) => {
-          const isExternal = post.type === "ExternalPost";
-
           return (
             <div className={homeStyles.post} key={post.url}>
-              {isExternal ? (
-                post.publication === "css-tricks" ? (
-                  <img
-                    alt={post.publicationDisplayName}
-                    className={homeStyles.publication}
-                    height={30}
-                    src="https://jdj.land/logo-css-tricks.svg"
-                    width={120}
-                  />
-                ) : (
-                  <img
-                    alt={post.publicationDisplayName}
-                    className={homeStyles.publication}
-                    height={30}
-                    src="https://jdj.land/logo-code-school.svg"
-                    width={120}
-                  />
-                )
-              ) : null}
+              {post.publication && (
+                <img
+                  alt={publications[post.publication].displayName}
+                  className={homeStyles.publication}
+                  height={30}
+                  src={publications[post.publication].logo}
+                  width={120}
+                />
+              )}
               <h3 className={homeStyles.postTitle}>
                 <DynamicLink
                   className={homeStyles.postDynamicLink}

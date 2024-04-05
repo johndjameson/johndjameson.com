@@ -5,6 +5,11 @@ const publications = {
   "css-tricks": "CSS-Tricks",
 } as const;
 
+const publicationField = {
+  type: "enum",
+  options: Object.keys(publications),
+} as const;
+
 export const ExternalPost = defineDocumentType(() => ({
   name: "ExternalPost",
   filePathPattern: `external-posts/*.md`,
@@ -13,27 +18,11 @@ export const ExternalPost = defineDocumentType(() => ({
     date: { type: "date", required: true },
     description: { type: "string", required: true },
     publication: {
-      type: "enum",
-      options: Object.keys(publications),
+      ...publicationField,
       required: true,
     },
     title: { type: "string", required: true },
     url: { type: "string", required: true },
-  },
-  computedFields: {
-    publicationDisplayName: {
-      type: "string",
-      resolve: (post) => {
-        if (publications[post.publication]) {
-          return publications[post.publication];
-        }
-
-        // Log error message for bad data Contentlayer allows silently
-        throw new Error(
-          `\`${post.publication}\` is not an enumerated publication`
-        );
-      },
-    },
   },
 }));
 
@@ -46,6 +35,7 @@ export const Post = defineDocumentType(() => ({
     date: { type: "date", required: true },
     development: { type: "boolean" },
     description: { type: "string", required: true },
+    publication: publicationField,
     title: { type: "string", required: true },
   },
   computedFields: {
