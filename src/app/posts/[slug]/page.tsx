@@ -105,7 +105,12 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
           </p>
         </div>
 
-        <div className={postStyles.content}>
+        <div
+          className={clsx(
+            postStyles.content,
+            "pb-20 text-base *:mb-4 sm:text-lg/[1.5] md:pb-28 md:text-xl/[1.5] md:*:mb-6",
+          )}
+        >
           <MDXContent components={mdxComponents} />
         </div>
       </div>

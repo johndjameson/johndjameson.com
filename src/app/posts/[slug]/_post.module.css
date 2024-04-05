@@ -3,15 +3,6 @@
     container-type: inline-size;
   }
 
-  .content {
-    font-size: clamp(16px, calc(0.5rem + 1.75cqw), 20px);
-    padding-bottom: 20cqw;
-  }
-
-  .content > :where(*) {
-    margin-bottom: 1em;
-  }
-
   .content > :where(ol, ul) {
     padding-left: 2em;
   }
