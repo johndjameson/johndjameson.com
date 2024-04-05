@@ -17,7 +17,7 @@ export default function Home() {
         John D. Jameson, Front-End Engineer
       </VisuallyHidden>
 
-      <div className="px-[var(--layout-container-width-padding-x)] pb-28">
+      <div className="px-container-w pb-28">
         <div className="mb-12 mt-6">
           <Hero>John D. Jameson Front-End Engineer</Hero>
         </div>
