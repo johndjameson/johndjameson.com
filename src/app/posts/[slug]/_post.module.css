@@ -12,19 +12,6 @@
     margin-bottom: 1em;
   }
 
-  .content :where(a) {
-    color: rgb(223 0 151);
-    font-weight: 500;
-    text-decoration: underline;
-    transition: color 0.2s ease-out;
-  }
-
-  @media (hover) {
-    .content :where(a):hover {
-      color: rgb(170 0 115);
-    }
-  }
-
   .content > :where(ol, ul) {
     padding-left: 2em;
   }

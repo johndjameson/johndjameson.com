@@ -38,7 +38,12 @@ const Heading = (props: HeadingProps) => {
 };
 
 const mdxComponents: MDXComponents = {
-  a: DynamicLink,
+  a: (props) => (
+    <DynamicLink
+      {...props}
+      className="font-medium text-[rgb(223_0_151)] underline transition hover:text-[rgb(170_0_115)]"
+    />
+  ),
   CodePen,
   h1: () => {
     throw new Error("Don’t put an h1 in Markdown content");
