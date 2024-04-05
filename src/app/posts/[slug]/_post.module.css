@@ -3,22 +3,6 @@
     container-type: inline-size;
   }
 
-  .content > :where(ol, ul) {
-    padding-left: 2em;
-  }
-
-  .content > :where(ol, ul) > :where(li) {
-    margin-bottom: 0.25em;
-  }
-
-  .content > :where(ol) {
-    list-style: decimal;
-  }
-
-  .content > :where(ul) {
-    list-style: disc;
-  }
-
   .content :where(code) {
     border: 1px solid rgb(230 225 233);
     border-radius: 6px;

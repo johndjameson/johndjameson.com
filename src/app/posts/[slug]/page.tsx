@@ -64,7 +64,10 @@ const mdxComponents: MDXComponents = {
     <Heading {...props} className="text-sm md:text-base" level="h6" />
   ),
   img: (props) => <img className="mx-auto block" {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  li: (props) => <li {...props} className="mb-1" />,
+  ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
   pre: SyntaxHighlighter as any, // TODO: Fix this any
+  ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
 };
 
 export const generateStaticParams = async () =>
