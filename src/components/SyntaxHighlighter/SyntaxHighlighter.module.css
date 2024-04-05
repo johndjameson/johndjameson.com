@@ -1,6 +1,6 @@
 @layer component {
   .highlighter {
-    --syntax-highlighter-gutter: var(--space-300);
+    --syntax-highlighter-gutter: theme(padding.6);
     background: #090513;
     border-radius: var(--radius-base);
     color: #fff;
@@ -15,7 +15,7 @@
     color: white;
     font-size: clamp(10px, calc(0.3125rem + 1.75cqw), 12px);
     font-weight: 600;
-    padding: var(--space-100) var(--syntax-highlighter-gutter);
+    padding: theme(padding.2) var(--syntax-highlighter-gutter);
   }
 
   .headerCaps {

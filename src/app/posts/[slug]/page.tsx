@@ -4,10 +4,10 @@ import { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
-import postStyles from "@/app/posts/[slug]/_post.module.css";
 import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import type { MDXComponents } from "mdx/types";
+import clsx from "clsx";
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -17,28 +17,70 @@ type HeadingProps = React.ComponentPropsWithoutRef<Heading> & {
 
 const Heading = (props: HeadingProps) => {
   const { level, ...forwardProps } = props;
-  const { children } = props;
+  const { children, className } = props;
   const Tag = level;
 
   if (typeof children !== "string") {
     throw new Error("Heading children are not of type string");
   }
 
-  return <Tag {...forwardProps} id={slugify(children, { lower: true })} />;
+  return (
+    <Tag
+      {...forwardProps}
+      className={clsx(
+        "mb-4 mt-8 font-heading font-bold  text-[rgb(107_95_232)] md:mb-6 md:mt-12",
+        className,
+      )}
+      id={slugify(children, { lower: true })}
+    />
+  );
 };
 
 const mdxComponents: MDXComponents = {
-  a: DynamicLink,
+  a: (props) => (
+    <DynamicLink
+      {...props}
+      className="font-medium text-[rgb(223_0_151)] underline transition hover:text-[rgb(170_0_115)]"
+    />
+  ),
+  code: (props) => {
+    return (
+      <code
+        {...props}
+        className={clsx(
+          props.className,
+          "rounded-md border border-[rgb(230_225_233)] px-1 py-0.5 text-[0.875em]",
+        )}
+      />
+    );
+  },
   CodePen,
   h1: () => {
     throw new Error("Don’t put an h1 in Markdown content");
   },
-  h2: (props) => <Heading {...props} level="h2" />,
-  h3: (props) => <Heading {...props} level="h3" />,
-  h4: (props) => <Heading {...props} level="h4" />,
-  h5: (props) => <Heading {...props} level="h5" />,
-  h6: (props) => <Heading {...props} level="h6" />,
+  h2: (props) => (
+    <Heading {...props} className="text-2xl md:text-3xl" level="h2" />
+  ),
+  h3: (props) => (
+    <Heading {...props} className="text-xl md:text-2xl" level="h3" />
+  ),
+  h4: (props) => (
+    <Heading {...props} className="text-lg md:text-xl" level="h4" />
+  ),
+  h5: (props) => (
+    <Heading {...props} className="text-base md:text-lg" level="h5" />
+  ),
+  h6: (props) => (
+    <Heading {...props} className="text-sm md:text-base" level="h6" />
+  ),
+  iframe: (props) => (
+    <iframe {...props} className="aspect-video h-auto w-full" />
+  ),
+  img: (props) => <img className="mx-auto block" {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  li: (props) => <li {...props} className="mb-1" />,
+  ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
   pre: SyntaxHighlighter as any, // TODO: Fix this any
+  ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
 };
 
 export const generateStaticParams = async () =>
@@ -66,21 +108,21 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <article className={postStyles.cell}>
-      <div className={postStyles.container}>
-        <div className={postStyles.header}>
-          <h1 className={postStyles.title}>{post.title}</h1>
-          <p>
-            Published{" "}
-            <time dateTime={post.date}>
-              {format(parseISO(post.date), "LLLL d, yyyy")}
-            </time>
-          </p>
-        </div>
+    <article className="px-container-w-narrow">
+      <div className="mb-8 mt-10">
+        <h1 className="mb-4 text-balance font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)] first-line:text-[rgb(253_64_192)] sm:text-6xl/[0.95] md:text-7xl/[0.95] lg:text-[84px]/[0.95]">
+          {post.title}
+        </h1>
+        <p className="text-sm">
+          Published{" "}
+          <time dateTime={post.date}>
+            {format(parseISO(post.date), "LLLL d, yyyy")}
+          </time>
+        </p>
+      </div>
 
-        <div className={postStyles.content}>
-          <MDXContent components={mdxComponents} />
-        </div>
+      <div className="pb-20 text-base *:mb-4 sm:text-lg/[1.5] md:pb-28 md:text-xl/[1.5] md:*:mb-6">
+        <MDXContent components={mdxComponents} />
       </div>
     </article>
   );

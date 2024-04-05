@@ -36,7 +36,12 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
 
   const codeProps = (children as any).props; // TODO: Fix this any
 
-  const language = codeProps.className?.replace("language-", "") || "plain";
+  const language = codeProps.className?.includes("language-")
+    ? codeProps.className
+        .split(" ")
+        .find((str: string) => str.startsWith("language-"))
+        .replace("language-", "")
+    : "plain";
   const text = codeProps.children;
 
   const displayLanguage = getDisplayLanguage(language);

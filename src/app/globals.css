@@ -1,42 +1,32 @@
-@import "src/app/layers.css";
-@import "src/app/modern-normalize-layer.css";
-@import "src/app/font-cendra.css";
+@layer base.tailwind, base.local, component.tailwind, component.local, utility;
 
-@layer reset.local {
-  * {
-    padding: 0;
-    margin: 0;
-  }
-
-  html {
-    tab-size: 2; /* Override modern-normalize */
-  }
-
-  img {
-    height: auto;
-    max-width: 100%;
-  }
-
-  audio,
-  canvas,
-  iframe,
-  img,
-  svg,
-  video {
-    vertical-align: middle;
-  }
+@layer base.tailwind {
+  @tailwind base;
 }
 
-@layer base {
-  :root {
-    --color-text-primary: 0 0 0;
-    --color-surface-background: 255 255 255;
+@layer component.tailwind {
+  @tailwind components;
+}
 
+@layer utility.tailwind {
+  @tailwind utilities;
+}
+
+@import "src/app/font-cendra.css";
+
+@layer base.local {
+  :root {
+    --font-cendra: cendra-web, cendra-web-fallback-helvetica-neue,
+      cendra-web-fallback-arial;
+    /* --font-inter defined with JS import */
+    --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+      Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
+      sans-serif;
+
+    --font-heading: var(--font-cendra), var(--font-system);
     --font-mono: "Monaco", ui-monospace, SFMono-Regular, "Menlo", "Consolas",
       "Roboto Mono", "Ubuntu Monospace", "Noto Mono", "Oxygen Mono",
       "Liberation Mono", monospace;
-    --font-cendra: cendra-web, cendra-web-fallback-helvetica-neue,
-      cendra-web-fallback-arial, var(--font-mono);
     --font-sans: var(--font-inter), system-ui, -apple-system, BlinkMacSystemFont,
       "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans",
       "Helvetica Neue", sans-serif;
@@ -46,23 +36,7 @@
 
     --radius-base: 6px;
 
-    --space-25: 2px;
-    --space-50: 4px;
-    --space-100: 8px;
-    --space-150: 12px;
-    --space-200: 16px;
-    --space-300: 24px;
-    --space-400: 32px;
-    --space-500: 40px;
-    --space-600: 48px;
-    --space-700: 56px;
-    --space-800: 64px;
-    --space-900: 80px;
-    --space-1000: 96px;
-    --space-1100: 112px;
-    --space-1200: 128px;
-
-    --layout-gutter: var(--space-300);
+    --layout-gutter: theme(size.6);
     --layout-container-width: 1280px;
     --layout-container-width-narrow: clamp(700px, 43.75rem, 800px);
     --layout-container-width-padding-x: max(
@@ -73,38 +47,6 @@
       var(--layout-gutter),
       calc((100vw - var(--layout-container-width-narrow)) / 2)
     );
-  }
-
-  html {
-    background: rgb(var(--color-surface-background));
-    color: rgb(var(--color-text-primary));
-    line-height: var(--lineHeight-body);
-    -webkit-font-smoothing: antialiased;
-  }
-
-  body {
-    font-family: var(--font-sans);
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    line-height: var(--lineHeight-heading);
-  }
-
-  code,
-  kbd,
-  pre,
-  samp {
-    font-family: var(--font-mono);
   }
 
   :focus-visible {
