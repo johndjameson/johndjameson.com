@@ -1,6 +1,5 @@
 import { allExternalPosts, allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import Hero from "@/components/Hero/Hero";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import { publications } from "@/constants/publications";
