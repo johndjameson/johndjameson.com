@@ -19,7 +19,11 @@ export default function Home() {
 
       <div className="px-container-w pb-28">
         <div className="mb-12 mt-6">
-          <Hero>John D. Jameson Front-End Engineer</Hero>
+          <img
+            alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
+            className="rounded-md"
+            src="/images/hero.svg"
+          />
         </div>
 
         <h2 className="mb-6 font-heading text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
