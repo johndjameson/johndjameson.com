@@ -20,7 +20,9 @@ export default function Home() {
         <div className="mb-12 mt-6">
           <img
             alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
-            className="rounded-md"
+            className="rounded-md bg-[#2b206d] text-white"
+            height={600}
+            width={1280}
             src="/images/hero.svg"
           />
         </div>
