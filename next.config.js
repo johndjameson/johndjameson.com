@@ -5,7 +5,7 @@ const nextConfig = {
   async headers() {
     return [
       {
-        source: "/(.*)",
+        source: "/:path*",
         headers: [
           { key: "Link", value: '<https://jdj.land>; rel="preconnect"' },
         ],
