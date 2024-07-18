@@ -42,7 +42,9 @@ export default function Home() {
                   <img
                     alt={publications[post.publication].displayName}
                     className="mb-2 h-[30px]"
+                    decoding="async"
                     height={30}
+                    loading="lazy"
                     src={publications[post.publication].logo}
                     width={120}
                   />

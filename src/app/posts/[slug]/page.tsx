@@ -76,7 +76,15 @@ const mdxComponents: MDXComponents = {
   iframe: (props) => (
     <iframe {...props} className="aspect-video h-auto w-full" />
   ),
-  img: (props) => <img className="mx-auto block" {...props} />, // eslint-disable-line jsx-a11y/alt-text
+  img: ({ alt, ...forwardProps }) => (
+    <img
+      alt={alt}
+      className="mx-auto block"
+      decoding="async"
+      loading="lazy"
+      {...forwardProps}
+    />
+  ),
   li: (props) => <li {...props} className="mb-1" />,
   ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
   pre: SyntaxHighlighter as any, // TODO: Fix this any
