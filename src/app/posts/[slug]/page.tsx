@@ -28,7 +28,7 @@ const Heading = (props: HeadingProps) => {
     <Tag
       {...forwardProps}
       className={clsx(
-        "mb-4 mt-8 font-heading font-bold  text-[rgb(107_95_232)] md:mb-6 md:mt-12",
+        "mb-4 mt-8 font-heading font-bold text-[rgb(107_95_232)] md:mb-6 md:mt-12",
         className,
       )}
       id={slugify(children, { lower: true })}
