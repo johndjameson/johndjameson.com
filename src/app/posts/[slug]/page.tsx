@@ -1,13 +1,13 @@
-import { allPosts } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
-import { Metadata } from "next";
-import { useMDXComponent } from "next-contentlayer2/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
-import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
-import type { MDXComponents } from "mdx/types";
 import clsx from "clsx";
+import { allPosts } from "contentlayer/generated";
+import { format, parseISO } from "date-fns";
+import type { MDXComponents } from "mdx/types";
+import type { Metadata } from "next";
+import { useMDXComponent } from "next-contentlayer2/hooks";
+import slugify from "slugify";
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
 

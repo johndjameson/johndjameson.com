@@ -1,9 +1,9 @@
 "use client";
 
-import { Highlight } from "prism-react-renderer";
-import clsx from "clsx";
-import theme from "@/components/SyntaxHighlighter/theme";
 import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
+import theme from "@/components/SyntaxHighlighter/theme";
+import clsx from "clsx";
+import { Highlight } from "prism-react-renderer";
 
 const displayLanguages = {
   css: "CSS",

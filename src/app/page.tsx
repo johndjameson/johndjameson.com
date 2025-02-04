@@ -1,8 +1,8 @@
+import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
+import { publications } from "@/constants/publications";
 import { allExternalPosts, allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
-import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
-import DynamicLink from "@/components/DynamicLink/DynamicLink";
-import { publications } from "@/constants/publications";
 
 const combinedPosts = [
   ...allPosts.filter((post) => !post.development),

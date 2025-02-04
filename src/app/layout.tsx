@@ -1,8 +1,8 @@
 import "@/app/font-cendra.css";
 import "@/app/globals.css";
-import { Inter } from "next/font/google";
 import Header from "@/components/Header/Header";
 import type { Metadata } from "next";
+import { Inter } from "next/font/google";
 
 const inter = Inter({
   display: "swap",
