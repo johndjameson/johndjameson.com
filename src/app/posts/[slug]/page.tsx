@@ -2,7 +2,7 @@ import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import clsx from "clsx";
-import { allPosts } from "contentlayer/generated";
+import { type Post, allPosts } from "contentlayer/generated";
 import { format, parseISO } from "date-fns";
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
@@ -92,8 +92,6 @@ const mdxComponents: MDXComponents = {
   pre: SyntaxHighlighter as any,
   ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
 };
-
-type Post = (typeof allPosts)[number];
 
 export const generateStaticParams = async () =>
   allPosts.map((post: Post) => ({ slug: post.slug }));
