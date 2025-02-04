@@ -8,7 +8,7 @@ const publicationField = {
 
 export const ExternalPost = defineDocumentType(() => ({
   name: "ExternalPost",
-  filePathPattern: `external-posts/*.md`,
+  filePathPattern: "external-posts/*.md",
   contentType: "mdx",
   fields: {
     date: { type: "date", required: true },
@@ -24,7 +24,7 @@ export const ExternalPost = defineDocumentType(() => ({
 
 export const Post = defineDocumentType(() => ({
   name: "Post",
-  filePathPattern: `posts/*.mdx`,
+  filePathPattern: "posts/*.mdx",
   contentType: "mdx",
   fields: {
     archived: { type: "boolean" },

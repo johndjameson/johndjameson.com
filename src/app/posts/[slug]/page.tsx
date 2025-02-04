@@ -77,6 +77,7 @@ const mdxComponents: MDXComponents = {
     <iframe {...props} className="aspect-video h-auto w-full" />
   ),
   img: ({ alt, ...forwardProps }) => (
+    // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
       className="mx-auto block"
@@ -87,15 +88,18 @@ const mdxComponents: MDXComponents = {
   ),
   li: (props) => <li {...props} className="mb-1" />,
   ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
-  pre: SyntaxHighlighter as any, // TODO: Fix this any
+  // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
+  pre: SyntaxHighlighter as any,
   ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
 };
 
+type Post = (typeof allPosts)[number];
+
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post.slug }));
+  allPosts.map((post: Post) => ({ slug: post.slug }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
@@ -109,7 +113,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 };
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 

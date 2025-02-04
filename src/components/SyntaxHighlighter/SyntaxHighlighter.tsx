@@ -34,7 +34,8 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
     return null;
   }
 
-  const codeProps = (children as any).props; // TODO: Fix this any
+  // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
+  const codeProps = (children as any).props;
 
   const language = codeProps.className?.includes("language-")
     ? codeProps.className
@@ -59,15 +60,18 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
       <Highlight
         code={text}
         language={language}
-        theme={theme as any /* TODO: Fix this any*/}
+        // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
+        theme={theme as any}
       >
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
           <pre className={clsx(css.pre)} style={{ ...style }}>
             {tokens
               .slice(0, -1) // Remove trailing newline
               .map((line, tokenIndex) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: It’s fine
                 <div {...getLineProps({ line })} key={tokenIndex}>
                   {line.map((token, lineIndex) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: It’s fine too
                     <span {...getTokenProps({ token })} key={lineIndex} />
                   ))}
                 </div>
