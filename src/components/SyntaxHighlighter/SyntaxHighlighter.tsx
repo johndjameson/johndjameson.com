@@ -1,5 +1,7 @@
 "use client";
 
+import React from "react";
+
 import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
 import theme from "@/components/SyntaxHighlighter/theme";
 import clsx from "clsx";
@@ -30,12 +32,11 @@ interface SyntaxHighlighterProps
 
 // https://www.peterlunch.com/blog/prism-react-render-nextjs
 function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
-  if (!children) {
+  if (!React.isValidElement(children)) {
     return null;
   }
 
-  // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
-  const codeProps = (children as any).props;
+  const codeProps = children.props;
 
   const language = codeProps.className?.includes("language-")
     ? codeProps.className
@@ -57,12 +58,7 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
         {displayLanguage}
       </div>
 
-      <Highlight
-        code={text}
-        language={language}
-        // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
-        theme={theme as any}
-      >
+      <Highlight code={text} language={language} theme={theme}>
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
           <pre className={clsx(css.pre)} style={{ ...style }}>
             {tokens
