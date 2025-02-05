@@ -1,6 +1,7 @@
 @layer component {
   .highlighter {
-    --syntax-highlighter-gutter: theme(padding.6);
+    /* biome-ignore lint/correctness/noUnknownFunction: Tailwind theme function */
+    --syntax-highlighter-gutter: theme("padding.6");
     background: #090513;
     border-radius: var(--radius-base);
     color: #fff;
@@ -15,7 +16,8 @@
     color: white;
     font-size: clamp(10px, calc(0.3125rem + 1.75cqw), 12px);
     font-weight: 600;
-    padding: theme(padding.2) var(--syntax-highlighter-gutter);
+    /* biome-ignore lint/correctness/noUnknownFunction: Tailwind theme function */
+    padding: theme("padding.2") var(--syntax-highlighter-gutter);
   }
 
   .headerCaps {

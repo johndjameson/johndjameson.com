@@ -1,9 +1,11 @@
 "use client";
 
-import { Highlight } from "prism-react-renderer";
-import clsx from "clsx";
-import theme from "@/components/SyntaxHighlighter/theme";
+import React from "react";
+
 import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
+import theme from "@/components/SyntaxHighlighter/theme";
+import clsx from "clsx";
+import { Highlight } from "prism-react-renderer";
 
 const displayLanguages = {
   css: "CSS",
@@ -30,11 +32,11 @@ interface SyntaxHighlighterProps
 
 // https://www.peterlunch.com/blog/prism-react-render-nextjs
 function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
-  if (!children) {
+  if (!React.isValidElement(children)) {
     return null;
   }
 
-  const codeProps = (children as any).props; // TODO: Fix this any
+  const codeProps = children.props;
 
   const language = codeProps.className?.includes("language-")
     ? codeProps.className
@@ -56,18 +58,16 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
         {displayLanguage}
       </div>
 
-      <Highlight
-        code={text}
-        language={language}
-        theme={theme as any /* TODO: Fix this any*/}
-      >
+      <Highlight code={text} language={language} theme={theme}>
         {({ className, getLineProps, getTokenProps, style, tokens }) => (
           <pre className={clsx(css.pre)} style={{ ...style }}>
             {tokens
               .slice(0, -1) // Remove trailing newline
               .map((line, tokenIndex) => (
+                // biome-ignore lint/suspicious/noArrayIndexKey: It’s fine
                 <div {...getLineProps({ line })} key={tokenIndex}>
                   {line.map((token, lineIndex) => (
+                    // biome-ignore lint/suspicious/noArrayIndexKey: It’s fine too
                     <span {...getTokenProps({ token })} key={lineIndex} />
                   ))}
                 </div>

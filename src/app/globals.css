@@ -36,7 +36,8 @@
 
     --radius-base: 6px;
 
-    --layout-gutter: theme(size.6);
+    /* biome-ignore lint/correctness/noUnknownFunction: Tailwind theme function */
+    --layout-gutter: theme("size.6");
     --layout-container-width: 1280px;
     --layout-container-width-narrow: clamp(700px, 43.75rem, 800px);
     --layout-container-width-padding-x: max(

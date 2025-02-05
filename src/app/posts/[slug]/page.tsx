@@ -1,13 +1,13 @@
-import { allPosts } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
-import { Metadata } from "next";
-import { useMDXComponent } from "next-contentlayer2/hooks";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
-import slugify from "slugify";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
-import type { MDXComponents } from "mdx/types";
 import clsx from "clsx";
+import { type Post, allPosts } from "contentlayer/generated";
+import { format, parseISO } from "date-fns";
+import type { MDXComponents } from "mdx/types";
+import type { Metadata } from "next";
+import { useMDXComponent } from "next-contentlayer2/hooks";
+import slugify from "slugify";
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
 
@@ -77,6 +77,7 @@ const mdxComponents: MDXComponents = {
     <iframe {...props} className="aspect-video h-auto w-full" />
   ),
   img: ({ alt, ...forwardProps }) => (
+    // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
       className="mx-auto block"
@@ -87,15 +88,16 @@ const mdxComponents: MDXComponents = {
   ),
   li: (props) => <li {...props} className="mb-1" />,
   ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
-  pre: SyntaxHighlighter as any, // TODO: Fix this any
+  // biome-ignore lint/suspicious/noExplicitAny: <pre> elements are code blocks handled by SyntaxHighlighter
+  pre: SyntaxHighlighter as React.ComponentType<any>,
   ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
 };
 
 export const generateStaticParams = async () =>
-  allPosts.map((post) => ({ slug: post.slug }));
+  allPosts.map((post: Post) => ({ slug: post.slug }));
 
 export const generateMetadata = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
@@ -109,7 +111,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
 };
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
-  const post = allPosts.find((post) => post.slug === params.slug);
+  const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
