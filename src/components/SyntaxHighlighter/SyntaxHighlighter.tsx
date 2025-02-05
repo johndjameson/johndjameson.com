@@ -36,7 +36,8 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
     return null;
   }
 
-  const codeProps = children.props;
+  // biome-ignore lint/suspicious/noExplicitAny: TODO: Fix this any
+  const codeProps = children.props as any;
 
   const language = codeProps.className?.includes("language-")
     ? codeProps.className

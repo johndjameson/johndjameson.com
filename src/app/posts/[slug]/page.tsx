@@ -7,6 +7,7 @@ import { format, parseISO } from "date-fns";
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
+import { use } from "react";
 import slugify from "slugify";
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
@@ -96,7 +97,10 @@ const mdxComponents: MDXComponents = {
 export const generateStaticParams = async () =>
   allPosts.map((post: Post) => ({ slug: post.slug }));
 
-export const generateMetadata = ({ params }: { params: { slug: string } }) => {
+export const generateMetadata = async (props: {
+  params: Promise<{ slug: string }>;
+}) => {
+  const params = await props.params;
   const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
@@ -110,7 +114,8 @@ export const generateMetadata = ({ params }: { params: { slug: string } }) => {
   } satisfies Metadata;
 };
 
-const PostLayout = ({ params }: { params: { slug: string } }) => {
+const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
+  const params = use(props.params);
   const post = allPosts.find((post: Post) => post.slug === params.slug);
 
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
