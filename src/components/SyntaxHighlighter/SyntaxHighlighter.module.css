@@ -1,13 +1,12 @@
-@layer component {
+@layer components {
   .highlighter {
-    /* biome-ignore lint/correctness/noUnknownFunction: Tailwind theme function */
-    --syntax-highlighter-gutter: theme("padding.6");
+    --syntax-highlighter-gutter: calc(var(--spacing) * 6);
     background: #090513;
-    border-radius: var(--radius-base);
+    border-radius: var(--radius-md);
     color: #fff;
     container-type: inline-size;
     font-family: Monaco, Menlo, monospace;
-    line-height: var(--lineHeight-body);
+    line-height: var(--leading-normal);
     overflow: hidden;
   }
 
@@ -16,8 +15,7 @@
     color: white;
     font-size: clamp(10px, calc(0.3125rem + 1.75cqw), 12px);
     font-weight: 600;
-    /* biome-ignore lint/correctness/noUnknownFunction: Tailwind theme function */
-    padding: theme("padding.2") var(--syntax-highlighter-gutter);
+    padding: calc(var(--spacing) * 2) var(--syntax-highlighter-gutter);
   }
 
   .headerCaps {

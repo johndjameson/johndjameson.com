@@ -35,7 +35,7 @@ export default function Home() {
           {combinedPosts.map((post) => {
             return (
               <div
-                className="pb-8 [&:not(:last-child)]:border-b-2 [&:not(:last-child)]:border-b-[#e6e1e9]"
+                className="pb-8 not-last:border-b-2 not-last:border-b-[#e6e1e9]"
                 key={post.url}
               >
                 {post.publication && (
