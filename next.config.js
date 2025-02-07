@@ -3,7 +3,7 @@ const { withContentlayer } = require("next-contentlayer2");
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   experimental: {
-    inlineCss: true
+    inlineCss: true,
   },
   async headers() {
     return [
