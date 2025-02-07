@@ -1,3 +1,5 @@
+@import "src/app/font-cendra.css";
+
 @layer base.tailwind, base.local, component.tailwind, component.local, utility;
 
 @layer base.tailwind {
@@ -11,8 +13,6 @@
 @layer utility.tailwind {
   @tailwind utilities;
 }
-
-@import "src/app/font-cendra.css";
 
 @layer base.local {
   :root {

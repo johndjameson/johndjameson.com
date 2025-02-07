@@ -2,6 +2,9 @@ const { withContentlayer } = require("next-contentlayer2");
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  experimental: {
+    inlineCss: true
+  },
   async headers() {
     return [
       {
@@ -13,7 +16,6 @@ const nextConfig = {
     ];
   },
   reactStrictMode: true,
-  swcMinify: true,
 };
 
 module.exports = withContentlayer(nextConfig);
