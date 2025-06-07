@@ -5,6 +5,12 @@ const nextConfig = {
   experimental: {
     inlineCss: true,
   },
+  turbopack: {
+    rules: {
+      '*.md': ['raw-loader'],
+      '*.mdx': ['raw-loader'],
+    },
+  },
   async headers() {
     return [
       {
