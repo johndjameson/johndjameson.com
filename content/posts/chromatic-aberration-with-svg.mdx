@@ -1,0 +1,120 @@
+---
+title: Chromatic Aberration with SVG
+date: 2025-06-25
+description: Creating chromatic aberration effects using SVG filters to simulate the color fringing that occurs in optical systems.
+---
+
+Chromatic aberration is a visual distortion that occurs when a lens fails to focus all colors to the same point. You've probably seen it in older photographs where bright objects have colorful fringes around their edges, or in retro video games where it's used as a stylistic effect. With SVG filters, we can recreate this optical phenomenon digitally.
+
+<ChromaticAberrationDemo />
+
+The effect works by separating the red, green, and blue color channels and offsetting them slightly. This mimics how different wavelengths of light bend at different angles when passing through an imperfect lens.
+
+## How it works
+
+SVG filters give us precise control over color channel manipulation. The core technique involves three steps:
+
+1. **Separate the color channels** using `feColorMatrix`
+2. **Offset each channel** with `feOffset`
+3. **Recombine the channels** using `feBlend`
+
+Here's the basic structure:
+
+```svg
+<filter id="chromatic-aberration">
+  <!-- Red channel: offset right -->
+  <feOffset in="SourceGraphic" dx="2" dy="0" result="red" />
+  <feColorMatrix in="red" type="matrix" 
+    values="1 0 0 0 0
+            0 0 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0" result="redChannel" />
+  
+  <!-- Green channel: no offset -->
+  <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
+  <feColorMatrix in="green" type="matrix" 
+    values="0 0 0 0 0
+            0 1 0 0 0
+            0 0 0 0 0
+            0 0 0 1 0" result="greenChannel" />
+  
+  <!-- Blue channel: offset left -->
+  <feOffset in="SourceGraphic" dx="-2" dy="0" result="blue" />
+  <feColorMatrix in="blue" type="matrix" 
+    values="0 0 0 0 0
+            0 0 0 0 0
+            0 0 1 0 0
+            0 0 0 1 0" result="blueChannel" />
+  
+  <!-- Combine channels -->
+  <feBlend in="redChannel" in2="greenChannel" mode="screen" result="redGreen" />
+  <feBlend in="redGreen" in2="blueChannel" mode="screen" />
+</filter>
+```
+
+## Understanding the color matrix
+
+The `feColorMatrix` filter effect uses a 5×4 matrix to transform RGBA values. Each row represents the output for one color channel:
+
+- **Row 1**: Red output
+- **Row 2**: Green output  
+- **Row 3**: Blue output
+- **Row 4**: Alpha output
+
+For isolating the red channel, we use:
+```
+1 0 0 0 0  ← Red output = 1 × input red + 0 × others
+0 0 0 0 0  ← Green output = 0
+0 0 0 0 0  ← Blue output = 0
+0 0 0 1 0  ← Alpha output = input alpha
+```
+
+## Fine-tuning the effect
+
+The demo above lets you experiment with different parameters:
+
+- **Red/Blue Offset**: Controls how far each channel is displaced
+- **Intensity**: Scales the strength of each color channel
+
+Try different combinations to see how they affect the final result. Subtle offsets (1-2px) work well for text, while larger offsets create more dramatic effects suitable for headings or artistic elements.
+
+<ChromaticAberrationDemo 
+  text="SUBTLE" 
+  initialRedOffset={1} 
+  initialBlueOffset={-0.5} 
+  initialIntensity={0.6} 
+/>
+
+## Practical applications
+
+Chromatic aberration effects work particularly well for:
+
+- **Gaming interfaces** where retro aesthetics are desired
+- **Creative headings** that need visual impact
+- **Brand elements** in tech or entertainment contexts
+- **Hover states** for interactive elements
+
+The key is restraint. Like many visual effects, chromatic aberration is most effective when used sparingly and with purpose.
+
+## Browser support
+
+SVG filters have excellent browser support across modern browsers. The `feColorMatrix` and `feOffset` effects used here are well-established parts of the SVG specification and work reliably in Chrome, Firefox, Safari, and Edge.
+
+For older browsers, consider providing a fallback by applying the filter as a progressive enhancement:
+
+```css
+.chromatic-text {
+  /* Base styles */
+  color: white;
+  font-weight: bold;
+}
+
+/* Apply filter only if supported */
+@supports (filter: url(#chromatic-aberration)) {
+  .chromatic-text {
+    filter: url(#chromatic-aberration);
+  }
+}
+```
+
+The effect degrades gracefully, showing normal text if SVG filters aren't supported.
