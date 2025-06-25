@@ -1,5 +1,6 @@
 import ChromaticAberrationDemo from "@/components/ChromaticAberrationDemo/ChromaticAberrationDemo";
 import ChromaticShapesDemo from "@/components/ChromaticShapesDemo/ChromaticShapesDemo";
+import ChromaticTerminalDemo from "@/components/ChromaticTerminalDemo/ChromaticTerminalDemo";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
@@ -48,6 +49,7 @@ const mdxComponents: MDXComponents = {
   ),
   ChromaticAberrationDemo,
   ChromaticShapesDemo,
+  ChromaticTerminalDemo,
   code: (props) => {
     return (
       <code
