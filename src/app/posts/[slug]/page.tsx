@@ -131,7 +131,15 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
   return (
     <article className="px-container-w-narrow">
       <div className="mb-8 mt-10">
-        <h1 className="mb-4 text-balance font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)] first-line:text-[rgb(253_64_192)] sm:text-6xl/[0.95] md:text-7xl/[0.95] lg:text-[84px]/[0.95]">
+        <h1
+          className={clsx(
+            "mb-4 text-pretty font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)]",
+            "sm:text-5xl/[0.95]",
+            "md:text-6xl/[0.95]",
+            "lg:text-7xl/[0.95]",
+            "first-line:text-[rgb(253_64_192)]",
+          )}
+        >
           {post.title}
         </h1>
         <p className="text-sm">
@@ -142,7 +150,13 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
         </p>
       </div>
 
-      <div className="pb-20 text-base *:mb-4 sm:text-lg/[1.5] md:pb-28 md:text-xl/[1.5] md:*:mb-6">
+      <div
+        className={clsx(
+          "pb-20 text-base *:mb-4",
+          "sm:text-lg/[1.5]",
+          "md:pb-28 md:text-xl/[1.5] md:*:mb-6",
+        )}
+      >
         <MDXContent components={mdxComponents} />
       </div>
     </article>
