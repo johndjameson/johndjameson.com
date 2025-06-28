@@ -2,6 +2,7 @@
 
 import { useState, useId } from "react";
 import { Range } from "../Range/Range";
+import { DemoButton } from "@/components/DemoButton/DemoButton";
 
 interface ChromaticAberrationDemoProps {
   text?: string;
@@ -119,50 +120,47 @@ export default function ChromaticAberrationDemo({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <button
+          <DemoButton
             onClick={() => {
               setRedOffset(2);
               setBlueOffset(-2);
               setIntensity(0.8);
             }}
-            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
             type="button"
           >
             Classic
-          </button>
-          <button
+          </DemoButton>
+          <DemoButton
             onClick={() => {
               setRedOffset(4);
               setBlueOffset(-4);
               setIntensity(1);
             }}
-            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
             type="button"
           >
             Heavy
-          </button>
-          <button
+          </DemoButton>
+          <DemoButton
             onClick={() => {
               setRedOffset(1);
               setBlueOffset(-0.5);
               setIntensity(0.6);
             }}
-            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
             type="button"
           >
             Subtle
-          </button>
-          <button
+          </DemoButton>
+          <DemoButton
             onClick={() => {
               setRedOffset(0);
               setBlueOffset(0);
               setIntensity(0);
             }}
-            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
             type="button"
+            variant="reset"
           >
             Reset
-          </button>
+          </DemoButton>
         </div>
       </div>
     </div>

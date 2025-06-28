@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Range } from "../Range/Range";
 import { XYPad } from "@/components/XYPad/XYPad";
+import { DemoButton } from "@/components/DemoButton/DemoButton";
 
 interface ChromaticShapesDemoProps {
   initialRedOffset?: number;
@@ -81,22 +82,21 @@ export default function ChromaticShapesDemo({
 
           <div className="flex flex-wrap gap-2 items-start">
             {presets.map((preset) => (
-              <button
-                className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+              <DemoButton
                 key={preset.name}
                 onClick={() => applyPreset(preset)}
                 type="button"
               >
                 {preset.name}
-              </button>
+              </DemoButton>
             ))}
-            <button
-              className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+            <DemoButton
               onClick={reset}
               type="reset"
+              variant="reset"
             >
               Reset
-            </button>
+            </DemoButton>
           </div>
         </div>
       </div>

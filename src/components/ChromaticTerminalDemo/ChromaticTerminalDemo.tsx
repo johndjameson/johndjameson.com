@@ -3,6 +3,7 @@
 import clsx from "clsx";
 import { useState } from "react";
 import { Range } from "../Range/Range";
+import { DemoButton } from "@/components/DemoButton/DemoButton";
 
 import terminalStyles from "./ChromaticTerminalDemo.module.css";
 
@@ -44,11 +45,11 @@ export default function ChromaticTerminalDemo({
   const [intensity, setIntensity] = useState(initialIntensity);
 
   const presets = [
-    { name: "Reset", red: 0, blue: -0, intensity: 1 },
     { name: "Faded", red: 1, blue: -1, intensity: 0.6 },
     { name: "Retro", red: 3, blue: -3, intensity: 1.2 },
     { name: "Heavy Glitch", red: 5, blue: -5, intensity: 1.4 },
-  ];
+    { name: "Reset", red: 0, blue: -0, intensity: 1 },
+  ] as const;
 
   const applyPreset = (preset: (typeof presets)[0]) => {
     setRedOffset(preset.red);
@@ -96,14 +97,14 @@ export default function ChromaticTerminalDemo({
         </div>
         <div className="flex flex-wrap gap-2 flex-shrink-0">
           {presets.map((preset) => (
-            <button
+            <DemoButton
               key={preset.name}
               onClick={() => applyPreset(preset)}
-              className="px-4 py-2 border border-gray-600 rounded bg-gray-800 text-white cursor-pointer text-sm transition-all duration-200 hover:bg-gray-700 hover:border-gray-500"
               type="button"
+              variant={preset.name === "Reset" ? "reset" : "default"}
             >
               {preset.name}
-            </button>
+            </DemoButton>
           ))}
         </div>
       </div>
