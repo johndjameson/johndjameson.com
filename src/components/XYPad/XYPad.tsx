@@ -10,17 +10,43 @@ interface Position {
 }
 
 interface XYPadProps {
-  onValueChange: (x: number, y: number) => void;
+  className?: string;
   initialX?: number;
   initialY?: number;
-  className?: string;
+  label?: string;
+  onValueChange: (x: number, y: number) => void;
+  xValueLabel?: string;
+  yValueLabel?: string;
 }
 
+const generateGridBackgroundImage = ({
+  backgroundColor = "transparent",
+  lineColor,
+  spacing,
+}: {
+  backgroundColor?: string;
+  lineColor: string;
+  spacing: string;
+}) => {
+  const template = `BACKGROUND 0%,
+                    BACKGROUND calc(${spacing} - 1px),
+                    ${lineColor} calc(${spacing} - 1px),
+                    ${lineColor} calc(${spacing})`;
+
+  const columns = template.replaceAll("BACKGROUND", backgroundColor);
+  const rows = template.replaceAll("BACKGROUND", "transparent");
+
+  return `repeating-linear-gradient(to bottom, ${rows}),
+          repeating-linear-gradient(to right, ${columns})`;
+};
+
 export const XYPad: React.FC<XYPadProps> = ({
-  onValueChange,
+  className = "",
   initialX = 64,
   initialY = 64,
-  className = "",
+  onValueChange,
+  xValueLabel,
+  yValueLabel,
 }) => {
   const [position, setPosition] = useState<Position>({ x: 50, y: 50 });
   const [isDragging, setIsDragging] = useState<boolean>(false);
@@ -28,23 +54,15 @@ export const XYPad: React.FC<XYPadProps> = ({
   const [yValue, setYValue] = useState<number>(initialY);
   const padRef = useRef<HTMLDivElement>(null);
 
-  // Convert percentage position to MIDI values (0-127)
-  const positionToMidi = useCallback(
-    (percent: number): number => Math.round((percent / 100) * 127),
-    [],
-  );
-
-  // Update MIDI values when position changes
   useEffect(() => {
-    const newXValue = positionToMidi(position.x);
-    const newYValue = positionToMidi(100 - position.y); // Invert Y for typical XY pad behavior
+    const newXValue = Math.round(position.x);
+    const newYValue = Math.round(100 - position.y);
 
     setXValue(newXValue);
     setYValue(newYValue);
 
-    // Call callback if provided
     onValueChange?.(newXValue, newYValue);
-  }, [position, positionToMidi, onValueChange]);
+  }, [position, onValueChange]);
 
   const getPositionFromEvent = useCallback(
     (event: MouseEvent | TouchEvent, rect: DOMRect): Position => {
@@ -122,52 +140,36 @@ export const XYPad: React.FC<XYPadProps> = ({
 
   return (
     <div
-      className={clsx("flex flex-col items-center max-w-sm mx-auto", className)}
+      className={clsx(
+        "size-32 bg-black border-2 border-gray-600 relative cursor-crosshair select-none",
+        className,
+      )}
+      style={{
+        backgroundImage: generateGridBackgroundImage({
+          lineColor: "var(--color-gray-800)",
+          spacing: "10%",
+        }),
+      }}
+      ref={padRef}
+      onMouseDown={handleStart}
+      onTouchStart={handleStart}
     >
-      {/* XY Pad */}
-      <div className="relative mb-4">
-        <div
-          ref={padRef}
-          className="w-64 h-64 bg-black border-2 border-gray-600 relative cursor-crosshair select-none"
-          onMouseDown={handleStart}
-          onTouchStart={handleStart}
-        >
-          {/* Grid lines */}
-          <div className="absolute inset-0 pointer-events-none">
-            {/* Vertical grid lines */}
-            {[25, 50, 75].map((x: number) => (
-              <div
-                key={`v-${x}`}
-                className="absolute top-0 bottom-0 border-l border-gray-700 opacity-30"
-                style={{ left: `${x}%` }}
-              />
-            ))}
-            {/* Horizontal grid lines */}
-            {[25, 50, 75].map((y: number) => (
-              <div
-                key={`h-${y}`}
-                className="absolute left-0 right-0 border-t border-gray-700 opacity-30"
-                style={{ top: `${y}%` }}
-              />
-            ))}
-          </div>
+      {/* Handle */}
+      <div
+        className={
+          "absolute w-4 h-4 bg-gray-800 rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors border-1 border-gray-50"
+        }
+        style={{
+          left: `${position.x}%`,
+          top: `${position.y}%`,
+        }}
+      />
 
-          {/* Control point */}
-          <div
-            className={
-              "absolute w-4 h-4 rounded-full transform -translate-x-1/2 -translate-y-1/2 transition-colors shadow-lg border-2 border-white pointer-events-none"
-            }
-            style={{
-              left: `${position.x}%`,
-              top: `${position.y}%`,
-            }}
-          />
-        </div>
-
-        {/* Axis labels and values */}
-        <div className="absolute bottom-1 font-mono left-2 text-gray-400 text-sm pointer-none select-none">
-          X <span className="text-white">{xValue}</span>, Y{" "}
-          <span className="text-white">{yValue}</span>
+      {/* Labels */}
+      <div className="absolute bottom-1 font-mono left-2 text-gray-400 text-xs pointer-none select-none">
+        X <span className="text-white">{xValueLabel ?? xValue}</span>{" "}
+        <div className="block">
+          Y <span className="text-white">{yValueLabel ?? yValue}</span>
         </div>
       </div>
     </div>

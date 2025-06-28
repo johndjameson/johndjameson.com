@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { Range } from "../Range/Range";
-import styles from "./ChromaticShapesDemo.module.css";
 import { XYPad } from "@/components/XYPad/XYPad";
 
 interface ChromaticShapesDemoProps {
@@ -42,40 +41,34 @@ export default function ChromaticShapesDemo({
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.controls}>
-        <div className={styles.sliders}>
+    <div className="bg-gray-950 rounded-lg p-6">
+      <div className="flex justify-start items-start gap-x-4">
+        <div className="grid gap-y-2">
+          <p className="block text-sm font-medium text-gray-300">Red Offset</p>
           <XYPad
+            className="shrink-0 max-sm:size-20"
+            xValueLabel={`${redOffset.toFixed(1)}px`}
+            yValueLabel={`${redOffsetY.toFixed(1)}px`}
             onValueChange={(x, y) => {
-              setRedOffset(x - 64);
-              setRedOffsetY(-y + 64);
+              setRedOffset(x / 2 - 25);
+              setRedOffsetY(-y / 2 + 25);
             }}
           />
+        </div>
+        <div className="grid gap-y-2">
+          <p className="block text-sm font-medium text-gray-300">Blue Offset</p>
           <XYPad
+            className="shrink-0 max-sm:size-20"
+            xValueLabel={`${blueOffset.toFixed(1)}px`}
+            yValueLabel={`${blueOffsetY.toFixed(1)}px`}
             onValueChange={(x, y) => {
-              setBlueOffset(x - 64);
-              setBlueOffsetY(-y + 64);
+              setBlueOffset(x / 2 - 25);
+              setBlueOffsetY(-y / 2 + 25);
             }}
           />
+        </div>
 
-          <Range
-            id="red-offset-shapes"
-            label={`Red Offset: ${redOffset}px`}
-            min={-10}
-            max={10}
-            step={0.5}
-            value={redOffset}
-            onChange={(e) => setRedOffset(Number(e.target.value))}
-          />
-          <Range
-            id="blue-offset-shapes"
-            label={`Blue Offset: ${blueOffset}px`}
-            min={-10}
-            max={10}
-            step={0.5}
-            value={blueOffset}
-            onChange={(e) => setBlueOffset(Number(e.target.value))}
-          />
+        <div className="grid items-start gap-y-4">
           <Range
             id="intensity-shapes"
             label={`Intensity: ${intensity.toFixed(1)}`}
@@ -85,26 +78,36 @@ export default function ChromaticShapesDemo({
             value={intensity}
             onChange={(e) => setIntensity(Number(e.target.value))}
           />
-        </div>
-        <div className={styles.presets}>
-          {presets.map((preset) => (
+
+          <div className="flex flex-wrap gap-2 items-start">
+            {presets.map((preset) => (
+              <button
+                className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+                key={preset.name}
+                onClick={() => applyPreset(preset)}
+                type="button"
+              >
+                {preset.name}
+              </button>
+            ))}
             <button
-              key={preset.name}
-              onClick={() => applyPreset(preset)}
-              className={styles.presetButton}
-              type="button"
+              className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+              onClick={reset}
+              type="reset"
             >
-              {preset.name}
+              Reset
             </button>
-          ))}
-          <button onClick={reset} className={styles.resetButton} type="reset">
-            Reset
-          </button>
+          </div>
         </div>
       </div>
 
-      <div className={styles.demo}>
-        <svg height="300" viewBox="0 0 400 300" width="400">
+      <div className="flex justify-center">
+        <svg
+          height="280"
+          style={{ filter: "url(#chromatic-shapes)" }}
+          viewBox="0 0 400 280"
+          width="400"
+        >
           <title>Shapes</title>
           <defs>
             <filter id="chromatic-shapes">
@@ -152,51 +155,21 @@ export default function ChromaticShapesDemo({
             </filter>
           </defs>
 
-          {/* Circle */}
-          <circle
-            cx="80"
-            cy="80"
-            r="40"
-            fill="red"
-            filter="url(#chromatic-shapes)"
-          />
-
-          {/* Rectangle */}
-          <rect
-            x="160"
-            y="40"
-            width="80"
-            height="80"
-            fill="yellow"
-            filter="url(#chromatic-shapes)"
-          />
-
+          <circle cx="80" cy="80" r="40" fill="red" />
+          <rect x="160" y="40" width="80" height="80" fill="yellow" />
           {/* Triangle */}
-          <polygon
-            points="320,40 280,120 360,120"
-            fill="purple"
-            filter="url(#chromatic-shapes)"
-          />
-
+          <polygon points="320,40 280,120 360,120" fill="purple" />
           {/* Star */}
           <polygon
             points="80,200 85,185 100,185 88,175 93,160 80,170 67,160 72,175 60,185 75,185"
             fill="#ccc"
-            filter="url(#chromatic-shapes)"
           />
-
           {/* Diamond */}
-          <polygon
-            points="200,160 240,200 200,240 160,200"
-            fill="magenta"
-            filter="url(#chromatic-shapes)"
-          />
-
+          <polygon points="200,160 240,200 200,240 160,200" fill="magenta" />
           {/* Hexagon */}
           <polygon
             points="320,180 340,160 360,180 360,220 340,240 320,240 300,220 300,180"
             fill="cyan"
-            filter="url(#chromatic-shapes)"
           />
         </svg>
       </div>
