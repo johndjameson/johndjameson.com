@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useId } from "react";
+import { Range } from "../Range/Range";
 
 interface ChromaticAberrationDemoProps {
   text?: string;
@@ -10,10 +11,10 @@ interface ChromaticAberrationDemoProps {
 }
 
 export default function ChromaticAberrationDemo({
-  text = "ABERRATION",
-  initialRedOffset = 2,
   initialBlueOffset = -2,
-  initialIntensity = 0.8,
+  initialIntensity = 1,
+  initialRedOffset = 2,
+  text = "Chromatic Aberration",
 }: ChromaticAberrationDemoProps) {
   const [redOffset, setRedOffset] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
@@ -21,90 +22,100 @@ export default function ChromaticAberrationDemo({
   const filterId = useId();
 
   return (
-    <div className="border border-neutral-200 p-6 rounded-lg bg-neutral-50">
-      <div className="mb-6">
-        <svg width="100%" height="120" viewBox="0 0 400 120" className="bg-black">
+    <div className="border p-6 rounded-lg bg-gray-950">
+      <div className="mb-6 @container/demo">
+        <svg
+          aria-hidden="true"
+          className="sr-only"
+          height="1"
+          viewBox="0 0 1 1"
+        >
           <defs>
             <filter id={`chromatic-aberration-${filterId}`}>
               <feOffset in="SourceGraphic" dx={redOffset} dy="0" result="red" />
-              <feColorMatrix in="red" type="matrix" values={`${intensity} 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0`} result="redChannel" />
-              
+              <feColorMatrix
+                in="red"
+                type="matrix"
+                values={`${intensity} 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0`}
+                result="redChannel"
+              />
+
               <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
-              <feColorMatrix in="green" type="matrix" values={`0 0 0 0 0 0 ${intensity} 0 0 0 0 0 0 0 0 0 0 0 1 0`} result="greenChannel" />
-              
-              <feOffset in="SourceGraphic" dx={blueOffset} dy="0" result="blue" />
-              <feColorMatrix in="blue" type="matrix" values={`0 0 0 0 0 0 0 0 0 0 0 0 ${intensity} 0 0 0 0 0 1 0`} result="blueChannel" />
-              
-              <feBlend in="redChannel" in2="greenChannel" mode="screen" result="redGreen" />
-              <feBlend in="redGreen" in2="blueChannel" mode="screen" result="chromatic" />
+              <feColorMatrix
+                in="green"
+                type="matrix"
+                values={`0 0 0 0 0 0 ${intensity} 0 0 0 0 0 0 0 0 0 0 0 1 0`}
+                result="greenChannel"
+              />
+
+              <feOffset
+                in="SourceGraphic"
+                dx={blueOffset}
+                dy="0"
+                result="blue"
+              />
+              <feColorMatrix
+                in="blue"
+                type="matrix"
+                values={`0 0 0 0 0 0 0 0 0 0 0 0 ${intensity} 0 0 0 0 0 1 0`}
+                result="blueChannel"
+              />
+
+              <feBlend
+                in="redChannel"
+                in2="greenChannel"
+                mode="screen"
+                result="redGreen"
+              />
+              <feBlend
+                in="redGreen"
+                in2="blueChannel"
+                mode="screen"
+                result="chromatic"
+              />
             </filter>
           </defs>
-          
-          <text
-            x="50%"
-            y="50%"
-            dominantBaseline="middle"
-            textAnchor="middle"
-            fontSize="32"
-            fontFamily="system-ui, -apple-system, sans-serif"
-            fontWeight="900"
-            fill="white"
-            filter={`url(#chromatic-aberration-${filterId})`}
-          >
-            {text}
-          </text>
         </svg>
+
+        <p
+          className="text-gray-50 text-center text-[10cqw] font-extrabold leading-[1.15]"
+          style={{ filter: `url(#chromatic-aberration-${filterId})` }}
+        >
+          {text}
+        </p>
       </div>
 
       <div className="space-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-          <div>
-            <label htmlFor="red-offset" className="block text-sm font-medium text-neutral-700 mb-1">
-              Red Offset: {redOffset}px
-            </label>
-            <input
-              id="red-offset"
-              type="range"
-              min="-10"
-              max="10"
-              step="0.5"
-              value={redOffset}
-              onChange={(e) => setRedOffset(parseFloat(e.target.value))}
-              className="w-full h-2 bg-neutral-200 rounded-lg appearance-none cursor-pointer slider-thumb-red"
-            />
-          </div>
+          <Range
+            id="red-offset"
+            label={`Red Offset: ${redOffset}px`}
+            min={-10}
+            max={10}
+            step={0.5}
+            value={redOffset}
+            onChange={(e) => setRedOffset(Number.parseFloat(e.target.value))}
+          />
 
-          <div>
-            <label htmlFor="blue-offset" className="block text-sm font-medium text-neutral-700 mb-1">
-              Blue Offset: {blueOffset}px
-            </label>
-            <input
-              id="blue-offset"
-              type="range"
-              min="-10"
-              max="10"
-              step="0.5"
-              value={blueOffset}
-              onChange={(e) => setBlueOffset(parseFloat(e.target.value))}
-              className="w-full h-2 bg-neutral-200 rounded-lg appearance-none cursor-pointer slider-thumb-blue"
-            />
-          </div>
+          <Range
+            id="blue-offset"
+            label={`Blue Offset: ${blueOffset}px`}
+            min={-10}
+            max={10}
+            step={0.5}
+            value={blueOffset}
+            onChange={(e) => setBlueOffset(Number.parseFloat(e.target.value))}
+          />
 
-          <div>
-            <label htmlFor="intensity" className="block text-sm font-medium text-neutral-700 mb-1">
-              Intensity: {Math.round(intensity * 100)}%
-            </label>
-            <input
-              id="intensity"
-              type="range"
-              min="0"
-              max="1"
-              step="0.1"
-              value={intensity}
-              onChange={(e) => setIntensity(parseFloat(e.target.value))}
-              className="w-full h-2 bg-neutral-200 rounded-lg appearance-none cursor-pointer"
-            />
-          </div>
+          <Range
+            id="intensity"
+            label={`Intensity: ${Math.round(intensity * 100)}%`}
+            min={0}
+            max={1.5}
+            step={0.1}
+            value={intensity}
+            onChange={(e) => setIntensity(Number.parseFloat(e.target.value))}
+          />
         </div>
 
         <div className="flex flex-wrap gap-2">
@@ -114,7 +125,8 @@ export default function ChromaticAberrationDemo({
               setBlueOffset(-2);
               setIntensity(0.8);
             }}
-            className="px-3 py-1 text-sm bg-neutral-200 hover:bg-neutral-300 rounded transition-colors"
+            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+            type="button"
           >
             Classic
           </button>
@@ -124,7 +136,8 @@ export default function ChromaticAberrationDemo({
               setBlueOffset(-4);
               setIntensity(1);
             }}
-            className="px-3 py-1 text-sm bg-neutral-200 hover:bg-neutral-300 rounded transition-colors"
+            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+            type="button"
           >
             Heavy
           </button>
@@ -134,7 +147,8 @@ export default function ChromaticAberrationDemo({
               setBlueOffset(-0.5);
               setIntensity(0.6);
             }}
-            className="px-3 py-1 text-sm bg-neutral-200 hover:bg-neutral-300 rounded transition-colors"
+            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+            type="button"
           >
             Subtle
           </button>
@@ -144,57 +158,13 @@ export default function ChromaticAberrationDemo({
               setBlueOffset(0);
               setIntensity(0);
             }}
-            className="px-3 py-1 text-sm bg-neutral-200 hover:bg-neutral-300 rounded transition-colors"
+            className="px-3 py-1 text-sm bg-gray-200 hover:bg-gray-300 rounded transition-colors"
+            type="button"
           >
             Reset
           </button>
         </div>
       </div>
-
-      <style jsx>{`
-        .slider-thumb-red::-webkit-slider-thumb {
-          appearance: none;
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          background: #ef4444;
-          cursor: pointer;
-          border: 2px solid white;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-        }
-
-        .slider-thumb-blue::-webkit-slider-thumb {
-          appearance: none;
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          background: #3b82f6;
-          cursor: pointer;
-          border: 2px solid white;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="range"]::-webkit-slider-thumb {
-          appearance: none;
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          background: #525252;
-          cursor: pointer;
-          border: 2px solid white;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-        }
-
-        input[type="range"]::-moz-range-thumb {
-          height: 16px;
-          width: 16px;
-          border-radius: 50%;
-          background: #525252;
-          cursor: pointer;
-          border: 2px solid white;
-          box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-        }
-      `}</style>
     </div>
   );
 }

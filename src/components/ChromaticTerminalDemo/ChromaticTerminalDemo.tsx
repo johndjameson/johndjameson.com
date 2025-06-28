@@ -1,7 +1,8 @@
 "use client";
 
 import clsx from "clsx";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { Range } from "../Range/Range";
 
 import terminalStyles from "./ChromaticTerminalDemo.module.css";
 
@@ -18,15 +19,12 @@ const terminalLines = [
   "",
   "1 ATTEMPT(S) LEFT: ■",
   `0xF964 <{=<(>$$,'}' 0xFA30 ?}/+TERMS('<`,
-  `0xF970 $:=:",,!SPIE 0xFA3C '**):>]<*.#>`,
-  '0xF97C S$>*,"]<JOIN 0xFA48 __>^]/,!]-%;',
-  `0xF988 $,*:)+=.,^$T 0xFA54 $*'*:[#):)[{$`,
+  `0xF970 $:=:",,!SPIN 0xFA3C '**):>]<*.#T`,
   `0xF994 IRES':=,/:./ 0xFA60 [..HQ.<{[.:/H`,
-  `0xF9A0 ]<.+'>%{<%[  0xFA6C THIRD_][*>:.$`,
   "0xFA0C *#*<.$$TRICK 0xFA78 :(||).@@=={.% >PRICE",
   `0xFA08 :*.**%$!@#[$ 0xFA84 ).FRIES:**',# >Entry denied`,
   "0xFA04 <{!:?{**_/Q. 0xFA90 ?+[))<[,,.PR1 >0/5 correct.",
-  `0xFA00 +[?]}*<{'}<{ 0xFA9C CE?+//Q$-[:$% > TEXAS`,
+  `0xFA00 +[?]}*<{'}<{ 0xFA9C CE?+//Q$-[:$% >TEXAS`,
   "0xFA0C *GQ:>TRIED%: 0xFAA8 {,*>[[{:.**=) >Entry denied",
   `0xFA08 ]#'%<")-@#%* 0xFAB4 #+**:'@<@>TRI >2/5 correct.`,
   "0xFA04 %()>=:#*%>]{ 0xFAC0 ES}[._{/>TRII >TIRES",
@@ -65,63 +63,36 @@ export default function ChromaticTerminalDemo({
   };
 
   return (
-    <div className="my-8 rounded-lg border border-gray-700 bg-gray-900 p-6">
+    <div className="my-8 rounded-lg border border-gray-700 bg-gray-950 p-6">
       <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div className="flex max-w-md flex-1 flex-col gap-4">
-          <div className="flex flex-col gap-2">
-            <label
-              className="font-medium text-gray-300 text-sm"
-              htmlFor="red-offset"
-            >
-              Red Offset: {redOffset}px
-            </label>
-            <input
-              id="red-offset"
-              type="range"
-              min="-6"
-              max="6"
-              step="0.5"
-              value={redOffset}
-              onChange={(e) => setRedOffset(Number(e.target.value))}
-              className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-gray-700 "
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="font-medium text-gray-300 text-sm"
-              htmlFor="blue-offset"
-            >
-              Blue Offset: {blueOffset}px
-            </label>
-            <input
-              id="blue-offset"
-              type="range"
-              min="-6"
-              max="6"
-              step="0.5"
-              value={blueOffset}
-              onChange={(e) => setBlueOffset(Number(e.target.value))}
-              className="h-1.5 w-full cursor-pointer appearance-none rounded-lg bg-gray-700"
-            />
-          </div>
-          <div className="flex flex-col gap-2">
-            <label
-              className="text-sm text-gray-300 font-medium"
-              htmlFor="intensity"
-            >
-              Intensity: {intensity.toFixed(1)}
-            </label>
-            <input
-              id="intensity"
-              type="range"
-              min="0"
-              max="2"
-              step="0.1"
-              value={intensity}
-              onChange={(e) => setIntensity(Number(e.target.value))}
-              className="w-full h-1.5 bg-gray-700 rounded-lg appearance-none cursor-pointer"
-            />
-          </div>
+          <Range
+            id="red-offset-terminal"
+            label={`Red Offset: ${redOffset}px`}
+            min={-6}
+            max={6}
+            step={0.5}
+            value={redOffset}
+            onChange={(e) => setRedOffset(Number(e.target.value))}
+          />
+          <Range
+            id="blue-offset-terminal"
+            label={`Blue Offset: ${blueOffset}px`}
+            min={-6}
+            max={6}
+            step={0.5}
+            value={blueOffset}
+            onChange={(e) => setBlueOffset(Number(e.target.value))}
+          />
+          <Range
+            id="intensity-terminal"
+            label={`Intensity: ${intensity.toFixed(1)}`}
+            min={0}
+            max={2}
+            step={0.1}
+            value={intensity}
+            onChange={(e) => setIntensity(Number(e.target.value))}
+          />
         </div>
         <div className="flex flex-wrap gap-2 flex-shrink-0">
           {presets.map((preset) => (
@@ -154,7 +125,7 @@ export default function ChromaticTerminalDemo({
                     // biome-ignore lint/suspicious/noArrayIndexKey: Static
                     index
                   }`}
-                  className="text-green-400 whitespace-pre min-h-lh text-[2.75cqw] leading-5 font-mono"
+                  className="text-green-400 whitespace-pre min-h-[1.3em] leading-[1.3] text-[2.75cqw]  font-mono"
                 >
                   {line}
                 </p>
