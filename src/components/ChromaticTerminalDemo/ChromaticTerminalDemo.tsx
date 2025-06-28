@@ -51,7 +51,7 @@ export default function ChromaticTerminalDemo({
     { name: "Reset", red: 0, blue: -0, intensity: 1 },
   ] as const;
 
-  const applyPreset = (preset: (typeof presets)[0]) => {
+  const applyPreset = (preset: (typeof presets)[number]) => {
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
     setIntensity(preset.intensity);
