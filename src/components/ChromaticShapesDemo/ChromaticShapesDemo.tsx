@@ -155,7 +155,7 @@ export default function ChromaticShapesDemo({
             </filter>
           </defs>
 
-          <circle cx="80" cy="80" r="40" fill="red" />
+          <circle cx="80" cy="80" r="40" fill="orange" />
           <rect x="160" y="40" width="80" height="80" fill="yellow" />
           {/* Triangle */}
           <polygon points="320,40 280,120 360,120" fill="purple" />
