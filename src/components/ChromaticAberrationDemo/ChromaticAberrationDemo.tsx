@@ -37,8 +37,8 @@ export default function ChromaticAberrationDemo({
   };
 
   return (
-    <div className="border p-6 rounded-lg bg-gray-950">
-      <div className="mb-6 @container/demo">
+    <div className="border p-6 rounded-lg bg-gray-950 grid gap-y-6">
+      <div className="@container/demo">
         <ChromaticAberrationFilter
           id={`chromatic-aberration-${filterId}`}
           redX={redOffset}

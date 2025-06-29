@@ -59,51 +59,7 @@ export default function ChromaticTerminalDemo({
   };
 
   return (
-    <div className="my-8 rounded-lg border border-gray-700 bg-gray-950 p-6">
-      <div className="mb-8 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-        <div className="flex max-w-md flex-1 flex-col gap-4">
-          <Range
-            id="red-offset-terminal"
-            label={`Red Offset: ${redOffset}px`}
-            min={-6}
-            max={6}
-            step={0.5}
-            value={redOffset}
-            onChange={(e) => setRedOffset(Number(e.target.value))}
-          />
-          <Range
-            id="blue-offset-terminal"
-            label={`Blue Offset: ${blueOffset}px`}
-            min={-6}
-            max={6}
-            step={0.5}
-            value={blueOffset}
-            onChange={(e) => setBlueOffset(Number(e.target.value))}
-          />
-          <Range
-            id="intensity-terminal"
-            label={`Intensity: ${intensity.toFixed(1)}`}
-            min={0}
-            max={2}
-            step={0.1}
-            value={intensity}
-            onChange={(e) => setIntensity(Number(e.target.value))}
-          />
-        </div>
-        <div className="flex flex-wrap gap-2 flex-shrink-0">
-          {presets.map((preset) => (
-            <DemoButton
-              key={preset.name}
-              onClick={() => applyPreset(preset)}
-              type="button"
-              variant={preset.name === "Reset" ? "reset" : "default"}
-            >
-              {preset.name}
-            </DemoButton>
-          ))}
-        </div>
-      </div>
-
+    <div className="my-8 rounded-lg border border-gray-700 bg-gray-950 p-6 grid gap-y-6">
       <div className="bg-green-950 @container/terminal">
         <div className="relative filter-[url('#chromatic-terminal')]">
           <div
@@ -138,6 +94,53 @@ export default function ChromaticTerminalDemo({
           blueY={-1}
           intensity={intensity}
         />
+      </div>
+
+      <div className="space-y-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <Range
+            id="red-offset"
+            label={`Red Offset: ${redOffset}px`}
+            min={-10}
+            max={10}
+            step={0.5}
+            value={redOffset}
+            onChange={(e) => setRedOffset(Number.parseFloat(e.target.value))}
+          />
+
+          <Range
+            id="blue-offset"
+            label={`Blue Offset: ${blueOffset}px`}
+            min={-10}
+            max={10}
+            step={0.5}
+            value={blueOffset}
+            onChange={(e) => setBlueOffset(Number.parseFloat(e.target.value))}
+          />
+
+          <Range
+            id="intensity"
+            label={`Intensity: ${Math.round(intensity * 100)}%`}
+            min={0}
+            max={1.5}
+            step={0.1}
+            value={intensity}
+            onChange={(e) => setIntensity(Number.parseFloat(e.target.value))}
+          />
+        </div>
+
+        <div className="flex flex-wrap gap-2">
+          {presets.map((preset) => (
+            <DemoButton
+              key={preset.name}
+              onClick={() => applyPreset(preset)}
+              type="button"
+              variant={preset.name === "Reset" ? "reset" : "default"}
+            >
+              {preset.name}
+            </DemoButton>
+          ))}
+        </div>
       </div>
     </div>
   );
