@@ -154,9 +154,9 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
       <div
         className={clsx(
-          "pb-20 text-base *:mb-4",
+          "pb-8 text-base *:mb-4",
           "sm:text-lg/[1.5]",
-          "md:pb-28 md:text-xl/[1.5] md:*:mb-6",
+          "md:pb-16 md:text-xl/[1.5] md:*:mb-6",
         )}
       >
         <MDXContent components={mdxComponents} />

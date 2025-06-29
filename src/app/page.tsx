@@ -16,7 +16,7 @@ export default function Home() {
         John D. Jameson, Front-End Engineer
       </VisuallyHidden>
 
-      <div className="px-container-w pb-28">
+      <div className="px-container-w pb-8 md:pb-16">
         <div className="mt-6 mb-12">
           <img
             alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
