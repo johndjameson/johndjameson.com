@@ -17,6 +17,10 @@ interface XYPadProps {
   onValueChange: (x: number, y: number) => void;
   xValueLabel?: string;
   yValueLabel?: string;
+  xLabel?: string;
+  yLabel?: string;
+  step?: number;
+  largeStep?: number;
 }
 
 const generateGridBackgroundImage = ({
@@ -44,15 +48,37 @@ export const XYPad: React.FC<XYPadProps> = ({
   className = "",
   initialX = 64,
   initialY = 64,
+  label = "XY control",
   onValueChange,
   xValueLabel,
   yValueLabel,
+  xLabel = "X",
+  yLabel = "Y",
+  step = 2,
+  largeStep = 10,
 }) => {
   const [position, setPosition] = useState<Position>({ x: 50, y: 50 });
   const [isDragging, setIsDragging] = useState<boolean>(false);
   const [xValue, setXValue] = useState<number>(initialX);
   const [yValue, setYValue] = useState<number>(initialY);
+  const [liveText, setLiveText] = useState<string>("");
   const padRef = useRef<HTMLDivElement>(null);
+  const handleRef = useRef<HTMLDivElement>(null);
+  const announceTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  // Debounced live region announcements
+  const announceLiveChange = useCallback(
+    (x: number, y: number) => {
+      if (announceTimeoutRef.current) {
+        clearTimeout(announceTimeoutRef.current);
+      }
+
+      announceTimeoutRef.current = setTimeout(() => {
+        setLiveText(`${xLabel} ${x}, ${yLabel} ${y}`);
+      }, 300); // 300ms debounce
+    },
+    [xLabel, yLabel],
+  );
 
   useEffect(() => {
     const newXValue = Math.round(position.x);
@@ -61,8 +87,20 @@ export const XYPad: React.FC<XYPadProps> = ({
     setXValue(newXValue);
     setYValue(newYValue);
 
+    // Announce changes to screen readers with debouncing
+    announceLiveChange(newXValue, newYValue);
+
     onValueChange?.(newXValue, newYValue);
-  }, [position, onValueChange]);
+  }, [position, onValueChange, announceLiveChange]);
+
+  // Cleanup timeout on unmount
+  useEffect(() => {
+    return () => {
+      if (announceTimeoutRef.current) {
+        clearTimeout(announceTimeoutRef.current);
+      }
+    };
+  }, []);
 
   const getPositionFromEvent = useCallback(
     (event: MouseEvent | TouchEvent, rect: DOMRect): Position => {
@@ -90,7 +128,7 @@ export const XYPad: React.FC<XYPadProps> = ({
       if (!padRef.current) return;
 
       // Prevent page scrolling on touch devices
-      if ('touches' in event) {
+      if ("touches" in event) {
         event.preventDefault();
       }
 
@@ -99,6 +137,11 @@ export const XYPad: React.FC<XYPadProps> = ({
 
       setPosition(newPosition);
       setIsDragging(true);
+
+      // Focus the handle when clicked
+      if (handleRef.current) {
+        handleRef.current.focus();
+      }
     },
     [getPositionFromEvent],
   );
@@ -119,6 +162,43 @@ export const XYPad: React.FC<XYPadProps> = ({
     setIsDragging(false);
   }, []);
 
+  // Handle keyboard navigation on handle
+  const handleKeyDown = useCallback(
+    (e: React.KeyboardEvent) => {
+      let newX = position.x;
+      let newY = position.y;
+      let stepSize = step;
+
+      if (e.shiftKey) {
+        stepSize = largeStep;
+      }
+
+      switch (e.key) {
+        case "ArrowUp":
+          e.preventDefault();
+          newY = Math.max(0, position.y - stepSize);
+          break;
+        case "ArrowDown":
+          e.preventDefault();
+          newY = Math.min(100, position.y + stepSize);
+          break;
+        case "ArrowLeft":
+          e.preventDefault();
+          newX = Math.max(0, position.x - stepSize);
+          break;
+        case "ArrowRight":
+          e.preventDefault();
+          newX = Math.min(100, position.x + stepSize);
+          break;
+        default:
+          return;
+      }
+
+      setPosition({ x: newX, y: newY });
+    },
+    [position.x, position.y, step, largeStep],
+  );
+
   // Add event listeners to the pad element and global listeners for drag events
   useEffect(() => {
     const padElement = padRef.current;
@@ -128,7 +208,9 @@ export const XYPad: React.FC<XYPadProps> = ({
     const handleTouchStart = (e: TouchEvent) => handleStart(e);
 
     padElement.addEventListener("mousedown", handleMouseDown);
-    padElement.addEventListener("touchstart", handleTouchStart, { passive: false });
+    padElement.addEventListener("touchstart", handleTouchStart, {
+      passive: false,
+    });
 
     return () => {
       padElement.removeEventListener("mousedown", handleMouseDown);
@@ -149,7 +231,9 @@ export const XYPad: React.FC<XYPadProps> = ({
 
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
-      document.addEventListener("touchmove", handleTouchMove, { passive: false });
+      document.addEventListener("touchmove", handleTouchMove, {
+        passive: false,
+      });
       document.addEventListener("touchend", handleTouchEnd);
 
       return () => {
@@ -174,20 +258,38 @@ export const XYPad: React.FC<XYPadProps> = ({
         }),
       }}
       ref={padRef}
+      role="application"
     >
+      <p className="sr-only">
+        Use arrow keys to move the handle. Hold Shift for larger steps.
+      </p>
+
+      <p id={`${label}-position`} className="sr-only">
+        Current position: {xLabel} {xValue}, {yLabel} {yValue}.
+      </p>
+
+      {/* Live region for real-time announcements */}
+      <div aria-live="assertive" aria-atomic="true" className="sr-only">
+        {liveText}
+      </div>
+
       {/* Handle */}
       <div
-        className={
-          "absolute w-4 h-4 bg-gray-800 rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors border-1 border-gray-50"
-        }
+        ref={handleRef}
+        className="absolute w-4 h-4 bg-gray-800 rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors border-1 border-gray-50"
         style={{
           left: `${position.x}%`,
           top: `${position.y}%`,
         }}
+        // biome-ignore lint/a11y/noNoninteractiveTabindex: role="application", behavior implemented manually
+        tabIndex={0}
+        onKeyDown={handleKeyDown}
+        aria-describedby={`${label}-position`}
+        aria-label={`${label} handle`}
       />
 
       {/* Labels */}
-      <div className="absolute bottom-1 font-mono left-2 text-gray-400 text-xs pointer-none select-none">
+      <div className="absolute bottom-1 font-mono left-2 text-gray-400 text-xs pointer-events-none select-none">
         X <span className="text-white">{xValueLabel ?? xValue}</span>{" "}
         <div className="block">
           Y <span className="text-white">{yValueLabel ?? yValue}</span>
