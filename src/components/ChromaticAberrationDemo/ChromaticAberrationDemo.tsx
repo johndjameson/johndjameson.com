@@ -21,7 +21,9 @@ export default function ChromaticAberrationDemo({
   const [redOffset, setRedOffset] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
   const [alpha, setAlpha] = useState(initialAlpha);
-  const filterId = useId();
+
+  // Safari doesn’t support special characters in referenced IDs
+  const filterId = `chromatic-aberration-${useId().replace(/\W/g, "")}`;
 
   const presets = [
     { name: "Faded", red: 1, blue: -1, alpha: 0.6 },
