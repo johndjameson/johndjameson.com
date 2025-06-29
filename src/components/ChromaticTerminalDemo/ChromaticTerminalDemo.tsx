@@ -4,6 +4,7 @@ import clsx from "clsx";
 import { useState } from "react";
 import { Range } from "../Range/Range";
 import { DemoButton } from "@/components/DemoButton/DemoButton";
+import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 
 import terminalStyles from "./ChromaticTerminalDemo.module.css";
 
@@ -55,12 +56,6 @@ export default function ChromaticTerminalDemo({
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
     setIntensity(preset.intensity);
-  };
-
-  const reset = () => {
-    setRedOffset(initialRedOffset);
-    setBlueOffset(initialBlueOffset);
-    setIntensity(initialIntensity);
   };
 
   return (
@@ -135,54 +130,14 @@ export default function ChromaticTerminalDemo({
           </div>
         </div>
 
-        <svg
-          aria-hidden="true"
-          className="sr-only"
-          height="1"
-          viewBox="0 0 1 1"
-          width="1"
-        >
-          <defs>
-            <filter id="chromatic-terminal">
-              <feOffset in="SourceGraphic" dx={redOffset} dy="0" result="red" />
-              <feColorMatrix
-                in="red"
-                type="matrix"
-                values={`${intensity} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-                result="redChannel"
-              />
-
-              <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
-              <feColorMatrix
-                in="green"
-                type="matrix"
-                values={`0 0 0 0 0  0 ${intensity} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-                result="greenChannel"
-              />
-
-              <feOffset
-                in="SourceGraphic"
-                dx={blueOffset}
-                dy="-1"
-                result="blue"
-              />
-              <feColorMatrix
-                in="blue"
-                type="matrix"
-                values={`0 0 0 0 0  0 0 0 0 0  0 0 ${intensity} 0 0  0 0 0 1 0`}
-                result="blueChannel"
-              />
-
-              <feBlend
-                in="redChannel"
-                in2="greenChannel"
-                mode="screen"
-                result="redGreen"
-              />
-              <feBlend in="redGreen" in2="blueChannel" mode="screen" />
-            </filter>
-          </defs>
-        </svg>
+        <ChromaticAberrationFilter
+          id="chromatic-terminal"
+          redX={redOffset}
+          redY={0}
+          blueX={blueOffset}
+          blueY={-1}
+          intensity={intensity}
+        />
       </div>
     </div>
   );

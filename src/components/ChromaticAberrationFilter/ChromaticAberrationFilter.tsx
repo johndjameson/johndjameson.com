@@ -1,15 +1,15 @@
 interface ChromaticAberrationFilterProps {
   id: string;
   redX: number;
-  redY: number;
+  redY?: number;
   blueX: number;
-  blueY: number;
-  intensity: number;
+  blueY?: number;
+  intensity?: number;
 }
 
 export const ChromaticAberrationFilter: React.FC<
   ChromaticAberrationFilterProps
-> = ({ id, redX, redY, blueX, blueY, intensity }) => (
+> = ({ blueX, blueY = 0, id, intensity = 1, redX, redY = 0 }) => (
   <svg
     aria-hidden="true"
     className="sr-only"

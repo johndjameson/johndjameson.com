@@ -3,9 +3,10 @@
 import { useState, useId } from "react";
 import { Range } from "../Range/Range";
 import { DemoButton } from "@/components/DemoButton/DemoButton";
+import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 
 interface ChromaticAberrationDemoProps {
-  text?: string;
+  text: string;
   initialRedOffset?: number;
   initialBlueOffset?: number;
   initialIntensity?: number;
@@ -15,71 +16,40 @@ export default function ChromaticAberrationDemo({
   initialBlueOffset = -2,
   initialIntensity = 1,
   initialRedOffset = 2,
-  text = "Chromatic Aberration",
+  text,
 }: ChromaticAberrationDemoProps) {
   const [redOffset, setRedOffset] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
   const [intensity, setIntensity] = useState(initialIntensity);
   const filterId = useId();
 
+  const presets = [
+    { name: "Faded", red: 1, blue: -1, intensity: 0.6 },
+    { name: "Retro", red: 3, blue: -3, intensity: 1.2 },
+    { name: "Heavy Glitch", red: 5, blue: -5, intensity: 1.4 },
+    { name: "Reset", red: 0, blue: -0, intensity: 1 },
+  ] as const;
+
+  const applyPreset = (preset: (typeof presets)[number]) => {
+    setRedOffset(preset.red);
+    setBlueOffset(preset.blue);
+    setIntensity(preset.intensity);
+  };
+
   return (
     <div className="border p-6 rounded-lg bg-gray-950">
       <div className="mb-6 @container/demo">
-        <svg
-          aria-hidden="true"
-          className="sr-only"
-          height="1"
-          viewBox="0 0 1 1"
-        >
-          <defs>
-            <filter id={`chromatic-aberration-${filterId}`}>
-              <feOffset in="SourceGraphic" dx={redOffset} dy="0" result="red" />
-              <feColorMatrix
-                in="red"
-                type="matrix"
-                values={`${intensity} 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0`}
-                result="redChannel"
-              />
-
-              <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
-              <feColorMatrix
-                in="green"
-                type="matrix"
-                values={`0 0 0 0 0 0 ${intensity} 0 0 0 0 0 0 0 0 0 0 0 1 0`}
-                result="greenChannel"
-              />
-
-              <feOffset
-                in="SourceGraphic"
-                dx={blueOffset}
-                dy="0"
-                result="blue"
-              />
-              <feColorMatrix
-                in="blue"
-                type="matrix"
-                values={`0 0 0 0 0 0 0 0 0 0 0 0 ${intensity} 0 0 0 0 0 1 0`}
-                result="blueChannel"
-              />
-
-              <feBlend
-                in="redChannel"
-                in2="greenChannel"
-                mode="screen"
-                result="redGreen"
-              />
-              <feBlend
-                in="redGreen"
-                in2="blueChannel"
-                mode="screen"
-                result="chromatic"
-              />
-            </filter>
-          </defs>
-        </svg>
+        <ChromaticAberrationFilter
+          id={`chromatic-aberration-${filterId}`}
+          redX={redOffset}
+          redY={0}
+          blueX={blueOffset}
+          blueY={0}
+          intensity={intensity}
+        />
 
         <p
-          className="text-gray-50 text-center text-[10cqw] font-extrabold leading-[1.15]"
+          className="text-gray-50 text-center text-[12cqw] font-extrabold leading-[1.15]"
           style={{ filter: `url(#chromatic-aberration-${filterId})` }}
         >
           {text}
@@ -120,47 +90,16 @@ export default function ChromaticAberrationDemo({
         </div>
 
         <div className="flex flex-wrap gap-2">
-          <DemoButton
-            onClick={() => {
-              setRedOffset(2);
-              setBlueOffset(-2);
-              setIntensity(0.8);
-            }}
-            type="button"
-          >
-            Classic
-          </DemoButton>
-          <DemoButton
-            onClick={() => {
-              setRedOffset(4);
-              setBlueOffset(-4);
-              setIntensity(1);
-            }}
-            type="button"
-          >
-            Heavy
-          </DemoButton>
-          <DemoButton
-            onClick={() => {
-              setRedOffset(1);
-              setBlueOffset(-0.5);
-              setIntensity(0.6);
-            }}
-            type="button"
-          >
-            Subtle
-          </DemoButton>
-          <DemoButton
-            onClick={() => {
-              setRedOffset(0);
-              setBlueOffset(0);
-              setIntensity(0);
-            }}
-            type="button"
-            variant="reset"
-          >
-            Reset
-          </DemoButton>
+          {presets.map((preset) => (
+            <DemoButton
+              key={preset.name}
+              onClick={() => applyPreset(preset)}
+              type="button"
+              variant={preset.name === "Reset" ? "reset" : "default"}
+            >
+              {preset.name}
+            </DemoButton>
+          ))}
         </div>
       </div>
     </div>

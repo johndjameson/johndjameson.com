@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Range } from "../Range/Range";
 import { XYPad } from "@/components/XYPad/XYPad";
 import { DemoButton } from "@/components/DemoButton/DemoButton";
+import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 
 interface ChromaticShapesDemoProps {
   initialRedOffset?: number;
@@ -43,6 +44,41 @@ export default function ChromaticShapesDemo({
 
   return (
     <div className="bg-gray-950 rounded-lg p-6">
+      <div className="flex justify-center">
+        <ChromaticAberrationFilter
+          id="chromatic-shapes"
+          redX={redOffset}
+          redY={redOffsetY}
+          blueX={blueOffset}
+          blueY={blueOffsetY}
+          intensity={intensity}
+        />
+        <svg
+          height="280"
+          filter="url(#chromatic-shapes)"
+          viewBox="0 0 400 280"
+          width="400"
+        >
+          <title>Shapes</title>
+          <circle cx="80" cy="80" r="40" fill="orange" />
+          <rect x="160" y="40" width="80" height="80" fill="yellow" />
+          {/* Triangle */}
+          <polygon points="320,40 280,120 360,120" fill="purple" />
+          {/* Star */}
+          <polygon
+            points="80,200 85,185 100,185 88,175 93,160 80,170 67,160 72,175 60,185 75,185"
+            fill="#ccc"
+          />
+          {/* Diamond */}
+          <polygon points="200,160 240,200 200,240 160,200" fill="magenta" />
+          {/* Hexagon */}
+          <polygon
+            points="320,180 340,160 360,180 360,220 340,240 320,240 300,220 300,180"
+            fill="cyan"
+          />
+        </svg>
+      </div>
+
       <div className="flex justify-start items-start gap-x-4">
         <div className="grid gap-y-2">
           <p className="block text-sm font-medium text-gray-300">Red Offset</p>
@@ -90,88 +126,11 @@ export default function ChromaticShapesDemo({
                 {preset.name}
               </DemoButton>
             ))}
-            <DemoButton
-              onClick={reset}
-              type="reset"
-              variant="reset"
-            >
+            <DemoButton onClick={reset} type="reset" variant="reset">
               Reset
             </DemoButton>
           </div>
         </div>
-      </div>
-
-      <div className="flex justify-center">
-        <svg
-          height="280"
-          style={{ filter: "url(#chromatic-shapes)" }}
-          viewBox="0 0 400 280"
-          width="400"
-        >
-          <title>Shapes</title>
-          <defs>
-            <filter id="chromatic-shapes">
-              <feOffset
-                in="SourceGraphic"
-                dx={redOffset}
-                dy={redOffsetY}
-                result="red"
-              />
-              <feColorMatrix
-                in="red"
-                type="matrix"
-                values={`${intensity} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-                result="redChannel"
-              />
-
-              <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
-              <feColorMatrix
-                in="green"
-                type="matrix"
-                values={`0 0 0 0 0  0 ${intensity} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-                result="greenChannel"
-              />
-
-              <feOffset
-                in="SourceGraphic"
-                dx={blueOffset}
-                dy={blueOffsetY}
-                result="blue"
-              />
-              <feColorMatrix
-                in="blue"
-                type="matrix"
-                values={`0 0 0 0 0  0 0 0 0 0  0 0 ${intensity} 0 0  0 0 0 1 0`}
-                result="blueChannel"
-              />
-
-              <feBlend
-                in="redChannel"
-                in2="greenChannel"
-                mode="screen"
-                result="redGreen"
-              />
-              <feBlend in="redGreen" in2="blueChannel" mode="screen" />
-            </filter>
-          </defs>
-
-          <circle cx="80" cy="80" r="40" fill="orange" />
-          <rect x="160" y="40" width="80" height="80" fill="yellow" />
-          {/* Triangle */}
-          <polygon points="320,40 280,120 360,120" fill="purple" />
-          {/* Star */}
-          <polygon
-            points="80,200 85,185 100,185 88,175 93,160 80,170 67,160 72,175 60,185 75,185"
-            fill="#ccc"
-          />
-          {/* Diamond */}
-          <polygon points="200,160 240,200 200,240 160,200" fill="magenta" />
-          {/* Hexagon */}
-          <polygon
-            points="320,180 340,160 360,180 360,220 340,240 320,240 300,220 300,180"
-            fill="cyan"
-          />
-        </svg>
       </div>
     </div>
   );

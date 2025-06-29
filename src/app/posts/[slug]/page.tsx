@@ -1,4 +1,5 @@
 import ChromaticAberrationDemo from "@/components/ChromaticAberrationDemo/ChromaticAberrationDemo";
+import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 import ChromaticShapesDemo from "@/components/ChromaticShapesDemo/ChromaticShapesDemo";
 import ChromaticTerminalDemo from "@/components/ChromaticTerminalDemo/ChromaticTerminalDemo";
 import CodePen from "@/components/CodePen/CodePen";
@@ -48,6 +49,7 @@ const mdxComponents: MDXComponents = {
     />
   ),
   ChromaticAberrationDemo,
+  ChromaticAberrationFilter,
   ChromaticShapesDemo,
   ChromaticTerminalDemo,
   code: (props) => {
