@@ -23,7 +23,7 @@
 @layer theme {
   :root,
   :host {
-    --layout-gutter: calc(var(--spacing) * 6);
+    --layout-gutter: calc(var(--spacing) * 4);
     --layout-container-width: 1280px;
     --layout-container-width-narrow: clamp(700px, 43.75rem, 800px);
     --layout-container-width-padding-x: max(
@@ -34,6 +34,10 @@
       var(--layout-gutter),
       calc((100vw - var(--layout-container-width-narrow)) / 2)
     );
+
+    @media (width >= 40rem) {
+      --layout-gutter: calc(var(--spacing) * 6);
+    }
   }
 }
 

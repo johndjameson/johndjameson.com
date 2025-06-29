@@ -1,14 +1,24 @@
 import a11yProps from "@/helpers/a11yProps";
 import Link from "next/link";
 
-import headerStyles from "@/components/Header/Header.module.css";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
+import InteractiveSmiley from "@/components/InteractiveSmiley/InteractiveSmiley";
+import { clsx } from "clsx";
 
-function Header() {
+interface HeaderProps {
+  className?: string;
+}
+
+export function Header({ className }: HeaderProps) {
   return (
-    <header className={headerStyles.header}>
-      <nav>
-        <Link className={headerStyles.logoLink} href="/">
+    <header
+      className={clsx(
+        "px-container-w sticky top-0 flex h-[70px] w-full items-center border-b border-b-slate-300 bg-white sm:h-[80px]",
+        className,
+      )}
+    >
+      <nav className="flex w-full items-center justify-between">
+        <Link className="flex" href="/">
           <VisuallyHidden>Home</VisuallyHidden>
           {/* biome-ignore lint/a11y/noSvgWithoutTitle: Provided with VisuallyHidden and a11yProps */}
           <svg height="50" viewBox="0 0 80 80" width="50" {...a11yProps.svg}>
@@ -18,9 +28,8 @@ function Header() {
             />
           </svg>
         </Link>
+        <InteractiveSmiley />
       </nav>
     </header>
   );
 }
-
-export default Header;
