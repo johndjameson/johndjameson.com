@@ -86,12 +86,16 @@ export const XYPad: React.FC<XYPadProps> = ({
   );
 
   const handleStart = useCallback(
-    (event: React.MouseEvent | React.TouchEvent) => {
-      event.preventDefault();
+    (event: MouseEvent | TouchEvent) => {
       if (!padRef.current) return;
 
+      // Prevent page scrolling on touch devices
+      if ('touches' in event) {
+        event.preventDefault();
+      }
+
       const rect = padRef.current.getBoundingClientRect();
-      const newPosition = getPositionFromEvent(event.nativeEvent, rect);
+      const newPosition = getPositionFromEvent(event, rect);
 
       setPosition(newPosition);
       setIsDragging(true);
@@ -103,7 +107,6 @@ export const XYPad: React.FC<XYPadProps> = ({
     (event: MouseEvent | TouchEvent) => {
       if (!isDragging || !padRef.current) return;
 
-      event.preventDefault();
       const rect = padRef.current.getBoundingClientRect();
       const newPosition = getPositionFromEvent(event, rect);
 
@@ -116,17 +119,37 @@ export const XYPad: React.FC<XYPadProps> = ({
     setIsDragging(false);
   }, []);
 
-  // Add global event listeners for mouse events
+  // Add event listeners to the pad element and global listeners for drag events
+  useEffect(() => {
+    const padElement = padRef.current;
+    if (!padElement) return;
+
+    const handleMouseDown = (e: MouseEvent) => handleStart(e);
+    const handleTouchStart = (e: TouchEvent) => handleStart(e);
+
+    padElement.addEventListener("mousedown", handleMouseDown);
+    padElement.addEventListener("touchstart", handleTouchStart, { passive: false });
+
+    return () => {
+      padElement.removeEventListener("mousedown", handleMouseDown);
+      padElement.removeEventListener("touchstart", handleTouchStart);
+    };
+  }, [handleStart]);
+
+  // Add global event listeners for drag events
   useEffect(() => {
     if (isDragging) {
       const handleMouseMove = (e: MouseEvent) => handleMove(e);
       const handleMouseUp = () => handleEnd();
-      const handleTouchMove = (e: TouchEvent) => handleMove(e);
+      const handleTouchMove = (e: TouchEvent) => {
+        e.preventDefault(); // Prevent page scrolling during drag
+        handleMove(e);
+      };
       const handleTouchEnd = () => handleEnd();
 
       document.addEventListener("mousemove", handleMouseMove);
       document.addEventListener("mouseup", handleMouseUp);
-      document.addEventListener("touchmove", handleTouchMove);
+      document.addEventListener("touchmove", handleTouchMove, { passive: false });
       document.addEventListener("touchend", handleTouchEnd);
 
       return () => {
@@ -151,8 +174,6 @@ export const XYPad: React.FC<XYPadProps> = ({
         }),
       }}
       ref={padRef}
-      onMouseDown={handleStart}
-      onTouchStart={handleStart}
     >
       {/* Handle */}
       <div
