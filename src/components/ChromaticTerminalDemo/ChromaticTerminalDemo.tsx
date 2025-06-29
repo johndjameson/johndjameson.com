@@ -59,25 +59,25 @@ export default function ChromaticTerminalDemo({
   };
 
   return (
-    <div className="my-8 rounded-lg border border-gray-700 bg-gray-950 p-6 grid gap-y-6">
-      <div className="bg-green-950 @container/terminal">
+    <div className="my-8 grid gap-y-6 rounded-lg border border-gray-700 bg-gray-950 p-6">
+      <div className="@container/terminal bg-green-950">
         <div className="relative filter-[url('#chromatic-terminal')]">
           <div
             className={clsx(
-              "absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent opacity-30 pointer-events-none",
+              "pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent opacity-30",
               terminalStyles.scanlines,
             )}
           />
 
-          <div className="border-2 border-green-400 ">
-            <div className="flex-1 p-5 relative">
+          <div className="border-2 border-green-400">
+            <div className="relative flex-1 p-5">
               {terminalLines.map((line, index) => (
                 <p
                   key={`${line}-${
                     // biome-ignore lint/suspicious/noArrayIndexKey: Static
                     index
                   }`}
-                  className="text-green-400 whitespace-pre min-h-[1.3em] leading-[1.3] text-[2.75cqw]  font-mono"
+                  className="min-h-[1.3em] font-mono text-[2.75cqw] leading-[1.3] whitespace-pre text-green-400"
                 >
                   {line}
                 </p>
@@ -97,7 +97,7 @@ export default function ChromaticTerminalDemo({
       </div>
 
       <div className="grid gap-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Range
             id="red-offset"
             label={`Red Offset: ${redOffset}px`}

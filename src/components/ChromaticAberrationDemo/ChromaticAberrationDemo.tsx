@@ -37,7 +37,7 @@ export default function ChromaticAberrationDemo({
   };
 
   return (
-    <div className="border p-6 rounded-lg bg-gray-950 grid gap-y-6">
+    <div className="grid gap-y-6 rounded-lg border bg-gray-950 p-6">
       <div className="@container/demo">
         <ChromaticAberrationFilter
           id={`chromatic-aberration-${filterId}`}
@@ -49,7 +49,7 @@ export default function ChromaticAberrationDemo({
         />
 
         <p
-          className="text-gray-50 text-center text-[12cqw] font-extrabold leading-[1.15]"
+          className="text-center text-[12cqw] leading-[1.15] font-extrabold text-gray-50"
           style={{ filter: `url(#chromatic-aberration-${filterId})` }}
         >
           {text}
@@ -57,7 +57,7 @@ export default function ChromaticAberrationDemo({
       </div>
 
       <div className="space-y-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Range
             id="red-offset"
             label={`Red Offset: ${redOffset}px`}

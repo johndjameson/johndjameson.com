@@ -33,7 +33,7 @@ const Heading = (props: HeadingProps) => {
     <Tag
       {...forwardProps}
       className={clsx(
-        "mb-4 mt-8 font-heading font-bold text-[rgb(107_95_232)] md:mb-6 md:mt-12",
+        "font-heading mt-8 mb-4 font-bold text-[rgb(107_95_232)] md:mt-12 md:mb-6",
         className,
       )}
       id={slugify(children, { lower: true })}
@@ -132,10 +132,10 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <div className="mb-8 mt-10">
+      <div className="mt-10 mb-8">
         <h1
           className={clsx(
-            "mb-4 text-pretty font-heading text-5xl/[0.95] font-black text-[rgb(107_95_232)]",
+            "font-heading mb-4 text-5xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
             "sm:text-5xl/[0.95]",
             "md:text-6xl/[0.95]",
             "lg:text-7xl/[0.95]",

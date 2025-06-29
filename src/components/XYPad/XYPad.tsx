@@ -248,7 +248,7 @@ export const XYPad: React.FC<XYPadProps> = ({
   return (
     <div
       className={clsx(
-        "size-32 bg-black border-2 border-gray-600 relative cursor-crosshair select-none",
+        "relative size-32 cursor-crosshair border-2 border-gray-600 bg-black select-none",
         className,
       )}
       style={{
@@ -276,7 +276,7 @@ export const XYPad: React.FC<XYPadProps> = ({
       {/* Handle */}
       <div
         ref={handleRef}
-        className="absolute w-4 h-4 bg-gray-800 rounded-full -translate-x-1/2 -translate-y-1/2 transition-colors border-1 border-gray-50"
+        className="absolute h-4 w-4 -translate-x-1/2 -translate-y-1/2 rounded-full border-1 border-gray-50 bg-gray-800 transition-colors"
         style={{
           left: `${position.x}%`,
           top: `${position.y}%`,
@@ -289,7 +289,7 @@ export const XYPad: React.FC<XYPadProps> = ({
       />
 
       {/* Labels */}
-      <div className="absolute bottom-1 font-mono left-2 text-gray-400 text-xs pointer-events-none select-none">
+      <div className="pointer-events-none absolute bottom-1 left-2 font-mono text-xs text-gray-400 select-none">
         X <span className="text-white">{xValueLabel ?? xValue}</span>{" "}
         <div className="block">
           Y <span className="text-white">{yValueLabel ?? yValue}</span>
