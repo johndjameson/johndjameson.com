@@ -23,8 +23,8 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US" className={inter.variable}>
-      <body>
-        <Header />
+      <body className="isolate">
+        <Header className="z-10" />
         {children}
         <Footer />
       </body>

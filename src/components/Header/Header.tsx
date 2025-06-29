@@ -3,10 +3,20 @@ import Link from "next/link";
 
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 import InteractiveSmiley from "@/components/InteractiveSmiley/InteractiveSmiley";
+import { clsx } from "clsx";
 
-export function Header() {
+interface HeaderProps {
+  className?: string;
+}
+
+export function Header({ className }: HeaderProps) {
   return (
-    <header className="px-container-w flex h-[80px] items-center">
+    <header
+      className={clsx(
+        "px-container-w sticky top-0 flex h-[70px] w-full items-center border-b border-b-slate-300 bg-white sm:h-[80px]",
+        className,
+      )}
+    >
       <nav className="flex w-full items-center justify-between">
         <Link className="flex" href="/">
           <VisuallyHidden>Home</VisuallyHidden>
