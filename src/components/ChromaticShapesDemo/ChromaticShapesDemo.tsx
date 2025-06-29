@@ -54,8 +54,9 @@ export default function ChromaticShapesDemo({
           intensity={intensity}
         />
         <svg
+          className="max-w-full h-auto"
           height="280"
-          filter="url(#chromatic-shapes)"
+          style={{ filter: "url(#chromatic-shapes)" }}
           viewBox="0 0 400 280"
           width="400"
         >
@@ -79,33 +80,39 @@ export default function ChromaticShapesDemo({
         </svg>
       </div>
 
-      <div className="flex justify-start items-start gap-x-4">
-        <div className="grid gap-y-2">
-          <p className="block text-sm font-medium text-gray-300">Red Offset</p>
-          <XYPad
-            className="shrink-0 max-sm:size-20"
-            xValueLabel={`${redOffset.toFixed(1)}px`}
-            yValueLabel={`${redOffsetY.toFixed(1)}px`}
-            onValueChange={(x, y) => {
-              setRedOffset(x / 2 - 25);
-              setRedOffsetY(-y / 2 + 25);
-            }}
-          />
-        </div>
-        <div className="grid gap-y-2">
-          <p className="block text-sm font-medium text-gray-300">Blue Offset</p>
-          <XYPad
-            className="shrink-0 max-sm:size-20"
-            xValueLabel={`${blueOffset.toFixed(1)}px`}
-            yValueLabel={`${blueOffsetY.toFixed(1)}px`}
-            onValueChange={(x, y) => {
-              setBlueOffset(x / 2 - 25);
-              setBlueOffsetY(-y / 2 + 25);
-            }}
-          />
+      <div className="flex max-sm:flex-col justify-start items-start gap-4">
+        <div className="flex gap-x-4">
+          <div className="grid gap-y-2">
+            <p className="block text-sm font-medium text-gray-300">
+              Red Offset
+            </p>
+            <XYPad
+              className="shrink-0"
+              xValueLabel={`${redOffset.toFixed(1)}px`}
+              yValueLabel={`${redOffsetY.toFixed(1)}px`}
+              onValueChange={(x, y) => {
+                setRedOffset(x / 2 - 25);
+                setRedOffsetY(-y / 2 + 25);
+              }}
+            />
+          </div>
+          <div className="grid gap-y-2">
+            <p className="block text-sm font-medium text-gray-300">
+              Blue Offset
+            </p>
+            <XYPad
+              className="shrink-0"
+              xValueLabel={`${blueOffset.toFixed(1)}px`}
+              yValueLabel={`${blueOffsetY.toFixed(1)}px`}
+              onValueChange={(x, y) => {
+                setBlueOffset(x / 2 - 25);
+                setBlueOffsetY(-y / 2 + 25);
+              }}
+            />
+          </div>
         </div>
 
-        <div className="grid items-start gap-y-4">
+        <div className="grid w-full items-start gap-y-4">
           <Range
             id="intensity-shapes"
             label={`Intensity: ${intensity.toFixed(1)}`}
