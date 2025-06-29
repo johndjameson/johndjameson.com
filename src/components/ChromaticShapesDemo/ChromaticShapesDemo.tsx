@@ -2,42 +2,26 @@
 
 import { useState } from "react";
 import { Range } from "../Range/Range";
-import { XYPad } from "@/components/XYPad/XYPad";
 import { DemoButton } from "@/components/DemoButton/DemoButton";
 import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 
-interface ChromaticShapesDemoProps {
-  initialRedOffset?: number;
-  initialBlueOffset?: number;
-  initialAlpha?: number;
-}
-
-export default function ChromaticShapesDemo({
-  initialRedOffset = 3,
-  initialBlueOffset = -3,
-  initialAlpha = 1,
-}: ChromaticShapesDemoProps) {
-  const [redOffset, setRedOffset] = useState(initialRedOffset);
-  const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
-  const [alpha, setAlpha] = useState(initialAlpha);
+export default function ChromaticShapesDemo() {
+  const [redOffset, setRedOffset] = useState(5);
+  const [blueOffset, setBlueOffset] = useState(-5);
+  const [redBlueBlur, setRedBlueBlur] = useState(2);
 
   const presets = [
-    { name: "Classic", red: 3, blue: -3, alpha: 1 },
-    { name: "Heavy", red: 6, blue: -6, alpha: 1.2 },
-    { name: "Subtle", red: 1, blue: -1, alpha: 0.7 },
-    { name: "Asymmetric", red: 4, blue: -2, alpha: 0.9 },
-  ];
+    { name: "Faded", red: 1, blue: -1, redBlueBlur: 0.5 },
+    { name: "Retro", red: 3, blue: -3, redBlueBlur: 1 },
+    { name: "Lo-fi", red: 5, blue: -5, redBlueBlur: 2 },
+    { name: "Harsh", red: 4, blue: -4, redBlueBlur: 0 },
+    { name: "Reset", red: 0, blue: 0, redBlueBlur: 0 },
+  ] as const;
 
-  const applyPreset = (preset: (typeof presets)[0]) => {
+  const applyPreset = (preset: (typeof presets)[number]) => {
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
-    setAlpha(preset.alpha);
-  };
-
-  const reset = () => {
-    setRedOffset(initialRedOffset);
-    setBlueOffset(initialBlueOffset);
-    setAlpha(initialAlpha);
+    setRedBlueBlur(preset.redBlueBlur);
   };
 
   return (
@@ -46,8 +30,9 @@ export default function ChromaticShapesDemo({
         <ChromaticAberrationFilter
           id="chromatic-shapes"
           redX={redOffset}
+          blueBlur={redBlueBlur}
+          redBlur={redBlueBlur}
           blueX={blueOffset}
-          alpha={alpha}
         />
         <svg
           className="h-auto max-w-full"
@@ -79,49 +64,47 @@ export default function ChromaticShapesDemo({
       <div className="grid gap-4">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Range
-            id="red-shapes"
+            id="red-offset"
             label={`Red Offset: ${redOffset}px`}
-            min={-25}
-            max={25}
+            min={-10}
+            max={10}
             step={0.5}
             value={redOffset}
-            onChange={(e) => setRedOffset(Number(e.target.value))}
+            onChange={(e) => setRedOffset(e.target.valueAsNumber)}
           />
 
           <Range
-            id="blue-shapes"
+            id="blue-offset"
             label={`Blue Offset: ${blueOffset}px`}
-            min={-25}
-            max={25}
+            min={-10}
+            max={10}
             step={0.5}
             value={blueOffset}
-            onChange={(e) => setBlueOffset(Number(e.target.value))}
+            onChange={(e) => setBlueOffset(e.target.valueAsNumber)}
           />
 
           <Range
-            id="alpha-shapes"
-            label={`Alpha: ${alpha}`}
+            id="redBlueBlur"
+            label={`Red/Blue Blur: ${redBlueBlur}`}
             min={0}
-            max={2}
-            step={0.1}
-            value={alpha}
-            onChange={(e) => setAlpha(Number(e.target.value))}
+            max={5}
+            step={1}
+            value={redBlueBlur}
+            onChange={(e) => setRedBlueBlur(e.target.valueAsNumber)}
           />
         </div>
 
-        <div className="flex flex-wrap items-start gap-2">
+        <div className="flex flex-wrap gap-2">
           {presets.map((preset) => (
             <DemoButton
               key={preset.name}
               onClick={() => applyPreset(preset)}
               type="button"
+              variant={preset.name === "Reset" ? "reset" : "default"}
             >
               {preset.name}
             </DemoButton>
           ))}
-          <DemoButton onClick={reset} type="reset" variant="reset">
-            Reset
-          </DemoButton>
         </div>
       </div>
     </div>

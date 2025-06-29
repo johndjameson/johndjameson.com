@@ -1,15 +1,30 @@
 interface ChromaticAberrationFilterProps {
-  id: string;
-  redX: number;
-  redY?: number;
-  blueX: number;
+  blueBlur?: number;
+  blueX?: number;
   blueY?: number;
-  alpha?: number;
+  greenBlur?: number;
+  greenX?: number;
+  greenY?: number;
+  id: string;
+  redBlur?: number;
+  redX?: number;
+  redY?: number;
 }
 
 export const ChromaticAberrationFilter: React.FC<
   ChromaticAberrationFilterProps
-> = ({ blueX, blueY = 0, id, alpha = 1, redX, redY = 0 }) => (
+> = ({
+  blueBlur = 0,
+  blueX = 0,
+  blueY = 0,
+  greenBlur = 0,
+  greenX = 0,
+  greenY = 0,
+  id,
+  redBlur = 0,
+  redX = 0,
+  redY = 0,
+}) => (
   <svg
     aria-hidden="true"
     className="sr-only"
@@ -19,29 +34,29 @@ export const ChromaticAberrationFilter: React.FC<
   >
     <defs>
       <filter id={id}>
-        <feOffset in="SourceGraphic" dx={redX} dy={redY} result="red" />
         <feColorMatrix
-          in="red"
+          in="SourceGraphic"
           type="matrix"
-          values={`${alpha} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-          result="redChannel"
+          values={`1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={redX} dy={redY} />
+        <feGaussianBlur stdDeviation={redBlur} result="redChannel" />
 
-        <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
         <feColorMatrix
-          in="green"
+          in="SourceGraphic"
           type="matrix"
-          values={`0 0 0 0 0  0 ${alpha} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-          result="greenChannel"
+          values={`0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={greenX} dy={greenY} />
+        <feGaussianBlur stdDeviation={greenBlur} result="greenChannel" />
 
-        <feOffset in="SourceGraphic" dx={blueX} dy={blueY} result="blue" />
         <feColorMatrix
-          in="blue"
+          in="SourceGraphic"
           type="matrix"
-          values={`0 0 0 0 0  0 0 0 0 0  0 0 ${alpha} 0 0  0 0 0 1 0`}
-          result="blueChannel"
+          values={`0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={blueX} dy={blueY} />
+        <feGaussianBlur stdDeviation={blueBlur} result="blueChannel" />
 
         <feBlend
           in="redChannel"
