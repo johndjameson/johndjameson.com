@@ -35,7 +35,7 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
           {label}
         </label>
         <input
-          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-200"
+          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-700 accent-gray-100"
           id={id}
           max={max}
           min={min}
@@ -46,29 +46,6 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
           value={value}
           {...forwardProps}
         />
-
-        <style jsx>{`
-          input[type="range"]::-webkit-slider-thumb {
-            appearance: none;
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            background: #525252;
-            cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-          }
-
-          input[type="range"]::-moz-range-thumb {
-            height: 16px;
-            width: 16px;
-            border-radius: 50%;
-            background: #525252;
-            cursor: pointer;
-            border: 2px solid white;
-            box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
-          }
-        `}</style>
       </div>
     );
   },
