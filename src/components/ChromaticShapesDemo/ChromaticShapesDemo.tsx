@@ -9,37 +9,37 @@ import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilte
 interface ChromaticShapesDemoProps {
   initialRedOffset?: number;
   initialBlueOffset?: number;
-  initialIntensity?: number;
+  initialAlpha?: number;
 }
 
 export default function ChromaticShapesDemo({
   initialRedOffset = 3,
   initialBlueOffset = -3,
-  initialIntensity = 1,
+  initialAlpha = 1,
 }: ChromaticShapesDemoProps) {
   const [redOffset, setRedOffset] = useState(initialRedOffset);
   const [redOffsetY, setRedOffsetY] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
   const [blueOffsetY, setBlueOffsetY] = useState(initialBlueOffset);
-  const [intensity, setIntensity] = useState(initialIntensity);
+  const [alpha, setAlpha] = useState(initialAlpha);
 
   const presets = [
-    { name: "Classic", red: 3, blue: -3, intensity: 1 },
-    { name: "Heavy", red: 6, blue: -6, intensity: 1.2 },
-    { name: "Subtle", red: 1, blue: -1, intensity: 0.7 },
-    { name: "Asymmetric", red: 4, blue: -2, intensity: 0.9 },
+    { name: "Classic", red: 3, blue: -3, alpha: 1 },
+    { name: "Heavy", red: 6, blue: -6, alpha: 1.2 },
+    { name: "Subtle", red: 1, blue: -1, alpha: 0.7 },
+    { name: "Asymmetric", red: 4, blue: -2, alpha: 0.9 },
   ];
 
   const applyPreset = (preset: (typeof presets)[0]) => {
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
-    setIntensity(preset.intensity);
+    setAlpha(preset.alpha);
   };
 
   const reset = () => {
     setRedOffset(initialRedOffset);
     setBlueOffset(initialBlueOffset);
-    setIntensity(initialIntensity);
+    setAlpha(initialAlpha);
   };
 
   return (
@@ -51,7 +51,7 @@ export default function ChromaticShapesDemo({
           redY={redOffsetY}
           blueX={blueOffset}
           blueY={blueOffsetY}
-          intensity={intensity}
+          alpha={alpha}
         />
         <svg
           className="max-w-full h-auto"
@@ -114,13 +114,13 @@ export default function ChromaticShapesDemo({
 
         <div className="grid w-full items-start gap-y-4">
           <Range
-            id="intensity-shapes"
-            label={`Intensity: ${intensity.toFixed(1)}`}
+            id="alpha-shapes"
+            label={`Alpha: ${alpha.toFixed(1)}`}
             min={0}
             max={2}
             step={0.1}
-            value={intensity}
-            onChange={(e) => setIntensity(Number(e.target.value))}
+            value={alpha}
+            onChange={(e) => setAlpha(Number(e.target.value))}
           />
 
           <div className="flex flex-wrap gap-2 items-start">

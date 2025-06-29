@@ -9,31 +9,31 @@ interface ChromaticAberrationDemoProps {
   text: string;
   initialRedOffset?: number;
   initialBlueOffset?: number;
-  initialIntensity?: number;
+  initialAlpha?: number;
 }
 
 export default function ChromaticAberrationDemo({
   initialBlueOffset = -2,
-  initialIntensity = 1,
+  initialAlpha = 1,
   initialRedOffset = 2,
   text,
 }: ChromaticAberrationDemoProps) {
   const [redOffset, setRedOffset] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
-  const [intensity, setIntensity] = useState(initialIntensity);
+  const [alpha, setAlpha] = useState(initialAlpha);
   const filterId = useId();
 
   const presets = [
-    { name: "Faded", red: 1, blue: -1, intensity: 0.6 },
-    { name: "Retro", red: 3, blue: -3, intensity: 1.2 },
-    { name: "Heavy Glitch", red: 5, blue: -5, intensity: 1.4 },
-    { name: "Reset", red: 0, blue: -0, intensity: 1 },
+    { name: "Faded", red: 1, blue: -1, alpha: 0.6 },
+    { name: "Retro", red: 3, blue: -3, alpha: 1.2 },
+    { name: "Heavy Glitch", red: 5, blue: -5, alpha: 1.4 },
+    { name: "Reset", red: 0, blue: -0, alpha: 1 },
   ] as const;
 
   const applyPreset = (preset: (typeof presets)[number]) => {
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
-    setIntensity(preset.intensity);
+    setAlpha(preset.alpha);
   };
 
   return (
@@ -45,7 +45,7 @@ export default function ChromaticAberrationDemo({
           redY={0}
           blueX={blueOffset}
           blueY={0}
-          intensity={intensity}
+          alpha={alpha}
         />
 
         <p
@@ -79,13 +79,13 @@ export default function ChromaticAberrationDemo({
           />
 
           <Range
-            id="intensity"
-            label={`Intensity: ${Math.round(intensity * 100)}%`}
+            id="alpha"
+            label={`Alpha: ${Math.round(alpha * 100)}%`}
             min={0}
             max={1.5}
             step={0.1}
-            value={intensity}
-            onChange={(e) => setIntensity(Number.parseFloat(e.target.value))}
+            value={alpha}
+            onChange={(e) => setAlpha(Number.parseFloat(e.target.value))}
           />
         </div>
 

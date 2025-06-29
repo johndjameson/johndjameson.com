@@ -4,12 +4,12 @@ interface ChromaticAberrationFilterProps {
   redY?: number;
   blueX: number;
   blueY?: number;
-  intensity?: number;
+  alpha?: number;
 }
 
 export const ChromaticAberrationFilter: React.FC<
   ChromaticAberrationFilterProps
-> = ({ blueX, blueY = 0, id, intensity = 1, redX, redY = 0 }) => (
+> = ({ blueX, blueY = 0, id, alpha = 1, redX, redY = 0 }) => (
   <svg
     aria-hidden="true"
     className="sr-only"
@@ -23,7 +23,7 @@ export const ChromaticAberrationFilter: React.FC<
         <feColorMatrix
           in="red"
           type="matrix"
-          values={`${intensity} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
+          values={`${alpha} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
           result="redChannel"
         />
 
@@ -31,7 +31,7 @@ export const ChromaticAberrationFilter: React.FC<
         <feColorMatrix
           in="green"
           type="matrix"
-          values={`0 0 0 0 0  0 ${intensity} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
+          values={`0 0 0 0 0  0 ${alpha} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
           result="greenChannel"
         />
 
@@ -39,7 +39,7 @@ export const ChromaticAberrationFilter: React.FC<
         <feColorMatrix
           in="blue"
           type="matrix"
-          values={`0 0 0 0 0  0 0 0 0 0  0 0 ${intensity} 0 0  0 0 0 1 0`}
+          values={`0 0 0 0 0  0 0 0 0 0  0 0 ${alpha} 0 0  0 0 0 1 0`}
           result="blueChannel"
         />
 
