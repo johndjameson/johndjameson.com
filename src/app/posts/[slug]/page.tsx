@@ -7,7 +7,7 @@ import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import clsx from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
-import { format, parseISO } from "date-fns";
+import { format, parseISO, addHours } from "date-fns";
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
@@ -147,7 +147,7 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
         <p className="text-sm">
           Published{" "}
           <time dateTime={post.date}>
-            {format(parseISO(post.date), "LLLL d, yyyy")}
+            {format(addHours(parseISO(post.date), 6), "LLLL d, yyyy")}
           </time>
         </p>
       </div>
