@@ -7,8 +7,8 @@ const nextConfig = {
   },
   turbopack: {
     rules: {
-      '*.md': ['raw-loader'],
-      '*.mdx': ['raw-loader'],
+      "*.md": ["raw-loader"],
+      "*.mdx": ["raw-loader"],
     },
   },
   async headers() {

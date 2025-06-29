@@ -16,11 +16,11 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
 }) => (
   <button
     className={clsx(
-      "px-4 py-2 border rounded cursor-pointer text-sm transition-all duration-200",
+      "cursor-pointer rounded border px-4 py-2 text-sm transition-all duration-200",
       variant === "default" &&
-        "border-gray-600 bg-gray-800 text-white hover:bg-gray-700 hover:border-gray-500",
+        "border-gray-600 bg-gray-800 text-white hover:border-gray-500 hover:bg-gray-700",
       variant === "reset" &&
-        "border-gray-400 bg-gray-200 text-gray-800 hover:bg-gray-300 hover:border-gray-500",
+        "border-gray-400 bg-gray-200 text-gray-800 hover:border-gray-500 hover:bg-gray-300",
       className,
     )}
     type={type}

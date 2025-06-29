@@ -17,7 +17,7 @@ export default function Home() {
       </VisuallyHidden>
 
       <div className="px-container-w pb-28">
-        <div className="mb-12 mt-6">
+        <div className="mt-6 mb-12">
           <img
             alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
             className="rounded-md bg-[#2b206d] text-white"
@@ -27,7 +27,7 @@ export default function Home() {
           />
         </div>
 
-        <h2 className="mb-6 font-heading text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
+        <h2 className="font-heading mb-6 text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
           Posts
         </h2>
 
@@ -49,7 +49,7 @@ export default function Home() {
                     width={120}
                   />
                 )}
-                <h3 className="mb-2 font-heading text-xl font-bold md:text-2xl">
+                <h3 className="font-heading mb-2 text-xl font-bold md:text-2xl">
                   <DynamicLink className="hover:underline" href={post.url}>
                     {post.title}
                   </DynamicLink>

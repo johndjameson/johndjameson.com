@@ -1,0 +1,5 @@
+.contentlayer/
+.next/
+content/
+node_modules/
+package-lock.json

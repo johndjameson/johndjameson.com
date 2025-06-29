@@ -41,7 +41,7 @@ export default function ChromaticShapesDemo({
   };
 
   return (
-    <div className="bg-gray-950 rounded-lg p-6">
+    <div className="rounded-lg bg-gray-950 p-6">
       <div className="flex justify-center">
         <ChromaticAberrationFilter
           id="chromatic-shapes"
@@ -50,7 +50,7 @@ export default function ChromaticShapesDemo({
           alpha={alpha}
         />
         <svg
-          className="max-w-full h-auto"
+          className="h-auto max-w-full"
           height="280"
           style={{ filter: "url(#chromatic-shapes)" }}
           viewBox="0 0 400 280"
@@ -77,7 +77,7 @@ export default function ChromaticShapesDemo({
       </div>
 
       <div className="grid gap-4">
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Range
             id="red-shapes"
             label={`Red Offset: ${redOffset}px`}
@@ -109,7 +109,7 @@ export default function ChromaticShapesDemo({
           />
         </div>
 
-        <div className="flex flex-wrap gap-2 items-start">
+        <div className="flex flex-wrap items-start gap-2">
           {presets.map((preset) => (
             <DemoButton
               key={preset.name}
