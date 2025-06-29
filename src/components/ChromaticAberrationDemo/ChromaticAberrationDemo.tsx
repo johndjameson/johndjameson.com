@@ -5,37 +5,26 @@ import { Range } from "../Range/Range";
 import { DemoButton } from "@/components/DemoButton/DemoButton";
 import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilter/ChromaticAberrationFilter";
 
-interface ChromaticAberrationDemoProps {
-  text: string;
-  initialRedOffset?: number;
-  initialBlueOffset?: number;
-  initialAlpha?: number;
-}
-
-export default function ChromaticAberrationDemo({
-  initialBlueOffset = -2,
-  initialAlpha = 1,
-  initialRedOffset = 2,
-  text,
-}: ChromaticAberrationDemoProps) {
-  const [redOffset, setRedOffset] = useState(initialRedOffset);
-  const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
-  const [alpha, setAlpha] = useState(initialAlpha);
+export default function ChromaticAberrationDemo() {
+  const [redOffset, setRedOffset] = useState(5);
+  const [blueOffset, setBlueOffset] = useState(-5);
+  const [redBlueBlur, setRedBlueBlur] = useState(2);
 
   // Safari doesn’t support special characters in referenced IDs
   const filterId = `chromatic-aberration-${useId().replace(/\W/g, "")}`;
 
   const presets = [
-    { name: "Faded", red: 1, blue: -1, alpha: 0.6 },
-    { name: "Retro", red: 3, blue: -3, alpha: 1.2 },
-    { name: "Heavy Glitch", red: 5, blue: -5, alpha: 1.4 },
-    { name: "Reset", red: 0, blue: 0, alpha: 1 },
+    { name: "Faded", red: 1, blue: -1, redBlueBlur: 0.5 },
+    { name: "Retro", red: 3, blue: -3, redBlueBlur: 1 },
+    { name: "Lo-fi", red: 5, blue: -5, redBlueBlur: 2 },
+    { name: "Harsh", red: 4, blue: -4, redBlueBlur: 0 },
+    { name: "Reset", red: 0, blue: 0, redBlueBlur: 0 },
   ] as const;
 
   const applyPreset = (preset: (typeof presets)[number]) => {
     setRedOffset(preset.red);
     setBlueOffset(preset.blue);
-    setAlpha(preset.alpha);
+    setRedBlueBlur(preset.redBlueBlur);
   };
 
   return (
@@ -44,21 +33,20 @@ export default function ChromaticAberrationDemo({
         <ChromaticAberrationFilter
           id={`chromatic-aberration-${filterId}`}
           redX={redOffset}
-          redY={0}
+          blueBlur={redBlueBlur}
+          redBlur={redBlueBlur}
           blueX={blueOffset}
-          blueY={0}
-          alpha={alpha}
         />
 
         <p
           className="text-center text-[12cqw] leading-[1.15] font-extrabold text-gray-50"
           style={{ filter: `url(#chromatic-aberration-${filterId})` }}
         >
-          {text}
+          TRY IT OUT ⚙️⬇️
         </p>
       </div>
 
-      <div className="space-y-4">
+      <div className="grid gap-4">
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
           <Range
             id="red-offset"
@@ -81,13 +69,13 @@ export default function ChromaticAberrationDemo({
           />
 
           <Range
-            id="alpha"
-            label={`Alpha: ${alpha}`}
+            id="redBlueBlur"
+            label={`Red/Blue Blur: ${redBlueBlur}`}
             min={0}
-            max={1.5}
-            step={0.1}
-            value={alpha}
-            onChange={(e) => setAlpha(Number.parseFloat(e.target.value))}
+            max={5}
+            step={1}
+            value={redBlueBlur}
+            onChange={(e) => setRedBlueBlur(Number.parseFloat(e.target.value))}
           />
         </div>
 

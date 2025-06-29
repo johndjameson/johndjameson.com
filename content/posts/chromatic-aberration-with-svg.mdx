@@ -6,61 +6,68 @@ description: Get that lo-fi, old school, VHS quality look with color fringing th
 
 Chromatic aberration is a visual distortion that happens when a lens fails to focus all colors to the same point. Maybe you’ve seen it in old photos where bright objects have colorful fringes around their edges. Normally, this is considered a _bad thing_, but it has the fortunate outcome of also _looking cool_, like DOOM Eternal where it’s used as a stylistic effect.
 
-<ChromaticAberrationDemo initialBlueOffset={-4} initialRedOffset={4} text="TRY IT OUT ⚙️⬇️" />
+<ChromaticAberrationDemo />
 
-The effect works by separating the red, green, and blue color channels and offsetting them slightly. This emulates how different wavelengths of light bend at different angles when passing through a camera lens.
+The effect works by separating the red, green, and blue color channels, offsetting them slightly, and adding some blur to taste. This emulates how different wavelengths of light bend at different angles when passing through a camera lens.
 
 Getting chromatic aberration on web is possible with SVG markup to define the filter effects and a little CSS to use them. Once set up, you can apply chromatic aberration to any HTML or SVG element on the page.
 
-Plus, I checked Chrome, Safari, and Firefox, and it’s good to go across browsers.
-
 ## How it works
 
-The technique has 3 steps:
+The technique has 4 steps:
 
 1. **Separate the color channels** using `feColorMatrix`
 2. **Offset each channel** with `feOffset`
+2. **Blur each channel** with `feGaussianBlur`
 3. **Recombine the channels** using `feBlend`
 
-Here's the basic structure:
+Here’s that in SVG filter markup:
 
 ```svg
 <svg>
   <defs>
     <filter id="chromatic-aberration">
-      <!-- Red channel: offset right 2px with dx -->
-      <feOffset in="SourceGraphic" dx="2" dy="0" result="red" />
-      <feColorMatrix in="red" type="matrix"
-        values="1 0 0 0 0
-                0 0 0 0 0
-                0 0 0 0 0
-                0 0 0 1 0" result="redChannel" />
-      
-      <!-- Green channel: no offset -->
-      <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
-      <feColorMatrix in="green" type="matrix"
-        values="0 0 0 0 0
-                0 1 0 0 0
-                0 0 0 0 0
-                0 0 0 1 0" result="greenChannel" />
-      
-      <!-- Blue channel: offset left 2px with dx -->
-      <feOffset in="SourceGraphic" dx="-2" dy="0" result="blue" />
-      <feColorMatrix in="blue" type="matrix"
-        values="0 0 0 0 0
-                0 0 0 0 0
-                0 0 1 0 0
-                0 0 0 1 0" result="blueChannel" />
-      
-      <!-- Combine channels -->
-      <feBlend in="redChannel" in2="greenChannel" mode="screen" result="redGreen" />
+      <!-- Red channel shift right 2px and blurred 2px -->
+      <feColorMatrix
+        in="SourceGraphic"
+        type="matrix"
+        values="1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0"
+      />
+      <feOffset dx="2" dy="0" />
+      <feGaussianBlur stdDeviation="2" result="redChannel" />
+
+      <!-- Green channel left in place with a small 0.5px blur -->
+      <feColorMatrix
+        in="SourceGraphic"
+        type="matrix"
+        values="0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0"
+      />
+      <feGaussianBlur stdDeviation="0.5" result="greenChannel" />
+
+      <!-- Red channel shift left 2px and blurred 2px -->
+      <feColorMatrix
+        in="SourceGraphic"
+        type="matrix"
+        values="0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0"
+      />
+      <feOffset dx="2" dy="0" />
+      <feGaussianBlur stdDeviation="2" result="blueChannel" />
+
+      <!-- Put the channels back together with the screen blend mode -->
+      <feBlend
+        in="redChannel"
+        in2="greenChannel"
+        mode="screen"
+        result="redGreen"
+      />
       <feBlend in="redGreen" in2="blueChannel" mode="screen" />
     </filter>
   </defs>
-<svg>
+</svg>
+
 ```
 
-Put the markup — not the `.svg` file — anywhere in your HTML markup. And then in CSS, you can reference the SVG filter definition by its ID attribute.
+Put the markup — not the `.svg` file — anywhere in your HTML. And then in CSS, you can reference the SVG filter definition by its ID attribute.
 
 ```css
 .chromatic-aberration {
@@ -88,15 +95,23 @@ For isolating the red channel, we use:
 
 Then again for green and blue on different rows. The 5th column in each row is the offset of the channel if you want to make it more or less intense by a constant amount instead of proportionally.
 
+## Extra lo-fi with guassian blur
+
+To really sell the lo-fi look we’re going for, `feGaussianBlur` adds a small amount of blur to each color channel. In my testing, I could get only half-number steps to make to be recognized across browsers. Somewhere between `0.5` and `2` for each channel has been the sweet spot for the demos in this post.
+
+One suggestion: if applying to text, leave your brightest color channel unblurred to keep things readable.
+
 ## SVG examples
 
-You can use the filter for any element on the page as long as the SVG markup is present. Here it is on some different color shapes side by side in an `<svg>` tag.
+You can use the filter on any element on the page as long as the SVG filter definition markup is present in your HTML. Here’s the same filter on some different color shapes in an `<svg>` tag. 
 
 <ChromaticShapesDemo />
 
+Notice how different colors affect the amount of visible offset.
+
 ## Terminal effect
 
-And just for funsies, I threw together a Fallout-style terminal to put the effect on a non-black background.
+Just for funsies, I threw together a Fallout-style terminal to put the effect on a non-black background. Some vertical offset as well as horizontal time time.
 
 <ChromaticTerminalDemo />
 
@@ -105,20 +120,32 @@ And just for funsies, I threw together a Fallout-style terminal to put the effec
 Want all that wrapped up in a React component? Here you go:
 
 ```tsx
-const ChromaticAberrationFilter = ({
-  blueX,
-  blueY = 0,
-  id,
-  alpha = 1,
-  redX,
-  redY = 0,
-}: {
-  id: string;
-  redX: number;
-  redY?: number;
-  blueX: number;
+interface ChromaticAberrationFilterProps {
+  blueBlur?: number;
+  blueX?: number;
   blueY?: number;
-  alpha?: number;
+  greenBlur?: number;
+  greenX?: number;
+  greenY?: number;
+  id: string;
+  redBlur?: number;
+  redX?: number;
+  redY?: number;
+}
+
+export const ChromaticAberrationFilter: React.FC<
+  ChromaticAberrationFilterProps
+> = ({
+  blueBlur = 0,
+  blueX = 0,
+  blueY = 0,
+  greenBlur = 0,
+  greenX = 0,
+  greenY = 0,
+  id,
+  redBlur = 0,
+  redX = 0,
+  redY = 0,
 }) => (
   <svg
     aria-hidden="true"
@@ -129,29 +156,29 @@ const ChromaticAberrationFilter = ({
   >
     <defs>
       <filter id={id}>
-        <feOffset in="SourceGraphic" dx={redX} dy={redY} result="red" />
         <feColorMatrix
-          in="red"
+          in="SourceGraphic"
           type="matrix"
-          values={`${alpha} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-          result="redChannel"
+          values={`1 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={redX} dy={redY} />
+        <feGaussianBlur stdDeviation={redBlur} result="redChannel" />
 
-        <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
         <feColorMatrix
-          in="green"
+          in="SourceGraphic"
           type="matrix"
-          values={`0 0 0 0 0  0 ${alpha} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
-          result="greenChannel"
+          values={`0 0 0 0 0  0 1 0 0 0  0 0 0 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={greenX} dy={greenY} />
+        <feGaussianBlur stdDeviation={greenBlur} result="greenChannel" />
 
-        <feOffset in="SourceGraphic" dx={blueX} dy={blueY} result="blue" />
         <feColorMatrix
-          in="blue"
+          in="SourceGraphic"
           type="matrix"
-          values={`0 0 0 0 0  0 0 0 0 0  0 0 ${alpha} 0 0  0 0 0 1 0`}
-          result="blueChannel"
+          values={`0 0 0 0 0  0 0 0 0 0  0 0 1 0 0  0 0 0 1 0`}
         />
+        <feOffset dx={blueX} dy={blueY} />
+        <feGaussianBlur stdDeviation={blueBlur} result="blueChannel" />
 
         <feBlend
           in="redChannel"

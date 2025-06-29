@@ -8,12 +8,6 @@ import { ChromaticAberrationFilter } from "@/components/ChromaticAberrationFilte
 
 import terminalStyles from "./ChromaticTerminalDemo.module.css";
 
-interface ChromaticTerminalDemoProps {
-  initialRedOffset?: number;
-  initialBlueOffset?: number;
-  initialAlpha?: number;
-}
-
 const terminalLines = [
   "ROBCO INDUSTRIES (TM) TERMLINK PROTOCOL",
   "",
@@ -34,49 +28,50 @@ const terminalLines = [
   "0xFA0C %${*`/:>/{@} 0xFAD8 <THICK:{]TRIB >2/5 correct",
   `0xFA18 SKIES|%)>,^* 0xFAE4 E**}}.<'{.*/]`,
   "0xFA24 :%=>]%**{%[. 0xFAF0 EXAS/**:[{=-[ >TERMS",
-];
+] as const;
 
-export default function ChromaticTerminalDemo({
-  initialRedOffset = 3,
-  initialBlueOffset = -3,
-  initialAlpha = 1.2,
-}: ChromaticTerminalDemoProps) {
-  const [redOffset, setRedOffset] = useState(initialRedOffset);
-  const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
-  const [alpha, setAlpha] = useState(initialAlpha);
+export default function ChromaticTerminalDemo() {
+  const [redOffset, setRedOffset] = useState(3);
+  const [greenOffset, setGreenOffset] = useState(0);
+  const [blueOffset, setBlueOffset] = useState(3);
 
   const presets = [
-    { name: "Faded", red: 1, blue: -1, alpha: 0.6 },
-    { name: "Retro", red: 3, blue: -3, alpha: 1.2 },
-    { name: "Heavy Glitch", red: 5, blue: -5, alpha: 1.4 },
-    { name: "Reset", red: 0, blue: -0, alpha: 1 },
+    { name: "Retro", red: 3, green: 0, blue: -3 },
+    { name: "Reset", red: 0, green: 0, blue: 0 },
   ] as const;
 
   const applyPreset = (preset: (typeof presets)[number]) => {
     setRedOffset(preset.red);
+    setGreenOffset(preset.green);
     setBlueOffset(preset.blue);
-    setAlpha(preset.alpha);
   };
 
   return (
     <div className="my-8 grid gap-y-6 rounded-lg border border-gray-700 bg-gray-950 p-6">
+      <ChromaticAberrationFilter
+        blueX={blueOffset}
+        blueY={blueOffset / 4}
+        greenX={greenOffset}
+        id="chromatic-terminal"
+        redX={redOffset}
+        redY={redOffset / 4}
+      />
+
       <div className="@container/terminal bg-green-950">
-        <div className="relative filter-[url('#chromatic-terminal')]">
+        <div className="relative">
           <div
             className={clsx(
+              "filter-[url('#chromatic-terminal')]",
               "pointer-events-none absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-transparent opacity-30",
               terminalStyles.scanlines,
             )}
           />
 
           <div className="border-2 border-green-400">
-            <div className="relative flex-1 p-5">
+            <div className="relative flex-1 p-5 filter-[url('#chromatic-terminal')]">
               {terminalLines.map((line, index) => (
                 <p
-                  key={`${line}-${
-                    // biome-ignore lint/suspicious/noArrayIndexKey: Static
-                    index
-                  }`}
+                  key={`${line}-${index}`}
                   className="min-h-[1.3em] font-mono text-[2.75cqw] leading-[1.3] whitespace-pre text-green-400"
                 >
                   {line}
@@ -85,15 +80,6 @@ export default function ChromaticTerminalDemo({
             </div>
           </div>
         </div>
-
-        <ChromaticAberrationFilter
-          id="chromatic-terminal"
-          redX={redOffset}
-          redY={0}
-          blueX={blueOffset}
-          blueY={-1}
-          alpha={alpha}
-        />
       </div>
 
       <div className="grid gap-y-4">
@@ -105,7 +91,17 @@ export default function ChromaticTerminalDemo({
             max={10}
             step={0.5}
             value={redOffset}
-            onChange={(e) => setRedOffset(Number.parseFloat(e.target.value))}
+            onChange={(e) => setRedOffset(e.target.valueAsNumber)}
+          />
+
+          <Range
+            id="grene-offset"
+            label={`Green Offset: ${greenOffset}px`}
+            min={-10}
+            max={10}
+            step={0.5}
+            value={greenOffset}
+            onChange={(e) => setGreenOffset(e.target.valueAsNumber)}
           />
 
           <Range
@@ -115,17 +111,7 @@ export default function ChromaticTerminalDemo({
             max={10}
             step={0.5}
             value={blueOffset}
-            onChange={(e) => setBlueOffset(Number.parseFloat(e.target.value))}
-          />
-
-          <Range
-            id="alpha"
-            label={`Alpha: ${alpha}`}
-            min={0}
-            max={1.5}
-            step={0.1}
-            value={alpha}
-            onChange={(e) => setAlpha(Number.parseFloat(e.target.value))}
+            onChange={(e) => setBlueOffset(e.target.valueAsNumber)}
           />
         </div>
 
