@@ -27,7 +27,7 @@ export default function ChromaticAberrationDemo({
     { name: "Faded", red: 1, blue: -1, alpha: 0.6 },
     { name: "Retro", red: 3, blue: -3, alpha: 1.2 },
     { name: "Heavy Glitch", red: 5, blue: -5, alpha: 1.4 },
-    { name: "Reset", red: 0, blue: -0, alpha: 1 },
+    { name: "Reset", red: 0, blue: 0, alpha: 1 },
   ] as const;
 
   const applyPreset = (preset: (typeof presets)[number]) => {
@@ -80,7 +80,7 @@ export default function ChromaticAberrationDemo({
 
           <Range
             id="alpha"
-            label={`Alpha: ${Math.round(alpha * 100)}%`}
+            label={`Alpha: ${alpha}`}
             min={0}
             max={1.5}
             step={0.1}

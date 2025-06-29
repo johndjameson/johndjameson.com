@@ -18,9 +18,7 @@ export default function ChromaticShapesDemo({
   initialAlpha = 1,
 }: ChromaticShapesDemoProps) {
   const [redOffset, setRedOffset] = useState(initialRedOffset);
-  const [redOffsetY, setRedOffsetY] = useState(initialRedOffset);
   const [blueOffset, setBlueOffset] = useState(initialBlueOffset);
-  const [blueOffsetY, setBlueOffsetY] = useState(initialBlueOffset);
   const [alpha, setAlpha] = useState(initialAlpha);
 
   const presets = [
@@ -48,9 +46,7 @@ export default function ChromaticShapesDemo({
         <ChromaticAberrationFilter
           id="chromatic-shapes"
           redX={redOffset}
-          redY={redOffsetY}
           blueX={blueOffset}
-          blueY={blueOffsetY}
           alpha={alpha}
         />
         <svg
@@ -80,63 +76,52 @@ export default function ChromaticShapesDemo({
         </svg>
       </div>
 
-      <div className="flex max-sm:flex-col justify-start items-start gap-4">
-        <div className="flex gap-x-4">
-          <div className="grid gap-y-2">
-            <p className="block text-sm font-medium text-gray-300">
-              Red Offset
-            </p>
-            <XYPad
-              className="shrink-0"
-              xValueLabel={`${redOffset.toFixed(1)}px`}
-              yValueLabel={`${redOffsetY.toFixed(1)}px`}
-              onValueChange={(x, y) => {
-                setRedOffset(x / 2 - 25);
-                setRedOffsetY(-y / 2 + 25);
-              }}
-            />
-          </div>
-          <div className="grid gap-y-2">
-            <p className="block text-sm font-medium text-gray-300">
-              Blue Offset
-            </p>
-            <XYPad
-              className="shrink-0"
-              xValueLabel={`${blueOffset.toFixed(1)}px`}
-              yValueLabel={`${blueOffsetY.toFixed(1)}px`}
-              onValueChange={(x, y) => {
-                setBlueOffset(x / 2 - 25);
-                setBlueOffsetY(-y / 2 + 25);
-              }}
-            />
-          </div>
-        </div>
+      <div className="grid gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+          <Range
+            id="red-shapes"
+            label={`Red Offset: ${redOffset}px`}
+            min={-25}
+            max={25}
+            step={0.5}
+            value={redOffset}
+            onChange={(e) => setRedOffset(Number(e.target.value))}
+          />
 
-        <div className="grid w-full items-start gap-y-4">
+          <Range
+            id="blue-shapes"
+            label={`Blue Offset: ${blueOffset}px`}
+            min={-25}
+            max={25}
+            step={0.5}
+            value={blueOffset}
+            onChange={(e) => setBlueOffset(Number(e.target.value))}
+          />
+
           <Range
             id="alpha-shapes"
-            label={`Alpha: ${alpha.toFixed(1)}`}
+            label={`Alpha: ${alpha}`}
             min={0}
             max={2}
             step={0.1}
             value={alpha}
             onChange={(e) => setAlpha(Number(e.target.value))}
           />
+        </div>
 
-          <div className="flex flex-wrap gap-2 items-start">
-            {presets.map((preset) => (
-              <DemoButton
-                key={preset.name}
-                onClick={() => applyPreset(preset)}
-                type="button"
-              >
-                {preset.name}
-              </DemoButton>
-            ))}
-            <DemoButton onClick={reset} type="reset" variant="reset">
-              Reset
+        <div className="flex flex-wrap gap-2 items-start">
+          {presets.map((preset) => (
+            <DemoButton
+              key={preset.name}
+              onClick={() => applyPreset(preset)}
+              type="button"
+            >
+              {preset.name}
             </DemoButton>
-          </div>
+          ))}
+          <DemoButton onClick={reset} type="reset" variant="reset">
+            Reset
+          </DemoButton>
         </div>
       </div>
     </div>

@@ -96,7 +96,7 @@ export default function ChromaticTerminalDemo({
         />
       </div>
 
-      <div className="space-y-4">
+      <div className="grid gap-y-4">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
           <Range
             id="red-offset"
@@ -120,7 +120,7 @@ export default function ChromaticTerminalDemo({
 
           <Range
             id="alpha"
-            label={`Alpha: ${Math.round(alpha * 100)}%`}
+            label={`Alpha: ${alpha}`}
             min={0}
             max={1.5}
             step={0.1}
