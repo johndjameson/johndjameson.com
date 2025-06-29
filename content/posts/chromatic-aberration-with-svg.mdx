@@ -1,0 +1,173 @@
+---
+title: Chromatic Aberration with SVG Filters
+date: 2025-06-28
+description: Get that lo-fi, old school, VHS quality look with color fringing thanks to SVG filters.
+---
+
+Chromatic aberration is a visual distortion that happens when a lens fails to focus all colors to the same point. Maybe you’ve seen it in old photos where bright objects have colorful fringes around their edges. Normally, this is considered a _bad thing_, but it has the fortunate outcome of also _looking cool_, like DOOM Eternal where it’s used as a stylistic effect.
+
+<ChromaticAberrationDemo initialBlueOffset={-4} initialRedOffset={4} text="TRY IT OUT ⚙️⬇️" />
+
+The effect works by separating the red, green, and blue color channels and offsetting them slightly. This emulates how different wavelengths of light bend at different angles when passing through a camera lens.
+
+Getting chromatic aberration on web is possible with SVG markup to define the filter effects and a little CSS to use them. Once set up, you can apply chromatic aberration to any HTML or SVG element on the page.
+
+Plus, I checked Chrome, Safari, and Firefox, and it’s good to go across browsers.
+
+## How it works
+
+The technique has 3 steps:
+
+1. **Separate the color channels** using `feColorMatrix`
+2. **Offset each channel** with `feOffset`
+3. **Recombine the channels** using `feBlend`
+
+Here's the basic structure:
+
+```svg
+<svg>
+  <defs>
+    <filter id="chromatic-aberration">
+      <!-- Red channel: offset right 2px with dx -->
+      <feOffset in="SourceGraphic" dx="2" dy="0" result="red" />
+      <feColorMatrix in="red" type="matrix"
+        values="1 0 0 0 0
+                0 0 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" result="redChannel" />
+      
+      <!-- Green channel: no offset -->
+      <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
+      <feColorMatrix in="green" type="matrix"
+        values="0 0 0 0 0
+                0 1 0 0 0
+                0 0 0 0 0
+                0 0 0 1 0" result="greenChannel" />
+      
+      <!-- Blue channel: offset left 2px with dx -->
+      <feOffset in="SourceGraphic" dx="-2" dy="0" result="blue" />
+      <feColorMatrix in="blue" type="matrix"
+        values="0 0 0 0 0
+                0 0 0 0 0
+                0 0 1 0 0
+                0 0 0 1 0" result="blueChannel" />
+      
+      <!-- Combine channels -->
+      <feBlend in="redChannel" in2="greenChannel" mode="screen" result="redGreen" />
+      <feBlend in="redGreen" in2="blueChannel" mode="screen" />
+    </filter>
+  </defs>
+<svg>
+```
+
+Put the markup — not the `.svg` file — anywhere in your HTML markup. And then in CSS, you can reference the SVG filter definition by its ID attribute.
+
+```css
+.chromatic-aberration {
+  filter: url('#chromatic-aberration');
+}
+```
+
+## Understanding the color matrix
+
+The `feColorMatrix` filter effect uses a 5x4 matrix to transform RGBA values. Each row represents the output for one color channel:
+
+- **Row 1**: Red output
+- **Row 2**: Green output
+- **Row 3**: Blue output
+- **Row 4**: Alpha output
+
+For isolating the red channel, we use:
+
+```
+1 0 0 0 0   All red from red channel
+0 0 0 0 0   No green from green channel
+0 0 0 0 0   No blue from blue channel
+0 0 0 1 0   All opacity from alpha channel
+```
+
+Then again for green and blue on different rows. The 5th column in each row is the offset of the channel if you want to make it more or less intense by a constant amount instead of proportionally.
+
+## SVG examples
+
+You can use the filter for any element on the page as long as the SVG markup is present. Here it is on some different color shapes side by side in an `<svg>` tag.
+
+<ChromaticShapesDemo />
+
+## Terminal effect
+
+And just for funsies, I threw together a Fallout-style terminal to put the effect on a non-black background.
+
+<ChromaticTerminalDemo />
+
+## React
+
+Want all that wrapped up in a React component? Here you go:
+
+```tsx
+const ChromaticAberrationFilter = ({
+  blueX,
+  blueY = 0,
+  id,
+  alpha = 1,
+  redX,
+  redY = 0,
+}: {
+  id: string;
+  redX: number;
+  redY?: number;
+  blueX: number;
+  blueY?: number;
+  alpha?: number;
+}) => (
+  <svg
+    aria-hidden="true"
+    className="sr-only"
+    height="1"
+    viewBox="0 0 1 1"
+    width="1"
+  >
+    <defs>
+      <filter id={id}>
+        <feOffset in="SourceGraphic" dx={redX} dy={redY} result="red" />
+        <feColorMatrix
+          in="red"
+          type="matrix"
+          values={`${alpha} 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 1 0`}
+          result="redChannel"
+        />
+
+        <feOffset in="SourceGraphic" dx="0" dy="0" result="green" />
+        <feColorMatrix
+          in="green"
+          type="matrix"
+          values={`0 0 0 0 0  0 ${alpha} 0 0 0  0 0 0 0 0  0 0 0 1 0`}
+          result="greenChannel"
+        />
+
+        <feOffset in="SourceGraphic" dx={blueX} dy={blueY} result="blue" />
+        <feColorMatrix
+          in="blue"
+          type="matrix"
+          values={`0 0 0 0 0  0 0 0 0 0  0 0 ${alpha} 0 0  0 0 0 1 0`}
+          result="blueChannel"
+        />
+
+        <feBlend
+          in="redChannel"
+          in2="greenChannel"
+          mode="screen"
+          result="redGreen"
+        />
+        <feBlend in="redGreen" in2="blueChannel" mode="screen" />
+      </filter>
+    </defs>
+  </svg>
+);
+```
+
+## Wrap up
+
+So that’s everything I have to share. SVG filters are extraordinarily powerful and currently underused in front-end development. It would be cool to see them get more use, especially now that GenAI tooling (Thanks, Claude!) makes the unfamiliar markup so much easier to both write and understand.
+
+What do you think? Something you want to learn more about too? Let me know on [LinkedIn](https://www.linkedin.com/in/johndjameson/) or [Twitter](https://x.com/johndjameson).

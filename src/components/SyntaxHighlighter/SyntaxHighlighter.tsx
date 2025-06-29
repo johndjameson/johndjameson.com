@@ -15,6 +15,7 @@ const displayLanguages = {
   scss: "SCSS",
   shell: "Shell",
   svg: "SVG",
+  tsx: "TSX",
 } as const;
 
 function getDisplayLanguage(language: keyof typeof displayLanguages) {
