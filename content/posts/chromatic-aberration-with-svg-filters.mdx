@@ -4,17 +4,17 @@ date: 2025-06-28
 description: Get that lo-fi, old school, VHS quality look with color fringing thanks to SVG filters.
 ---
 
-Chromatic aberration is a visual distortion that happens when a lens fails to focus all colors to the same point. Maybe you’ve seen it in old photos where bright objects have colorful fringes around their edges. Normally, this is considered a _bad thing_, but it has the fortunate outcome of also _looking cool_, like DOOM Eternal where it’s used as a stylistic effect.
+So first off, what is **chromatic aberration**?
+
+Chromatic aberration is the visual distortion that happens when a lens doesn’t focus all colors to the same point. Bright objects tend to bleed out around their edges with a distinct separation between the colors. Normally, this is considered a _bad thing_ that professional photographers avoid with expensive camera lenses. It does *look cool* though, and in recent video games is commonly recreated as a stylistic effect.
 
 <ChromaticAberrationDemo />
 
-The effect works by separating the red, green, and blue color channels, offsetting them slightly, and adding some blur to taste. This emulates how different wavelengths of light bend at different angles when passing through a camera lens.
-
-Getting chromatic aberration on web is possible with SVG markup to define the filter effects and a little CSS to use them. Once set up, you can apply chromatic aberration to any HTML or SVG element on the page.
+For chromatic aberration on web, we can separate the red, green, and blue color channels of an element, offset them slightly, and add a bit of blur to taste. This emulates how different wavelengths of light bend at different angles when passing through a camera lens.
 
 ## How it works
 
-The technique has 4 steps:
+The SVG filter technique has 4 steps:
 
 1. **Separate the color channels** using `feColorMatrix`
 2. **Offset each channel** with `feOffset`
