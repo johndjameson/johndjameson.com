@@ -1,0 +1,54 @@
+---
+title: Understanding feColorMatrix SVG Filters
+date: 2025-07-02
+description: Master color transformations with interactive demos showing how the feColorMatrix 5×4 transformation matrix manipulates RGBA channels.
+---
+
+The `feColorMatrix` SVG filter element is one of the most powerful tools for color manipulation on the web. While CSS can handle basic color adjustments, `feColorMatrix` gives you precise mathematical control over every pixel's RGBA values through matrix transformations.
+
+<ColorMatrixDemo />
+
+At its core, `feColorMatrix` takes each pixel's color values `[R,G,B,A]` and multiplies them by a 5×4 transformation matrix to create new color values `[R',G',B',A']`. Every color channel in the result is calculated from a combination of the original RGBA values plus an optional constant offset.
+
+## Interactive matrix controls
+
+<ColorMatrixControls />
+
+## Common transformations
+
+## Shorthand types
+
+Beyond the full `matrix` type, `feColorMatrix` provides convenient shorthand types:
+
+### Saturation
+Adjust color intensity with a single value:
+
+```svg
+<feColorMatrix type="saturate" values="0.5" />
+```
+
+<SaturationDemo />
+
+### Hue rotation
+Rotate colors around the color wheel:
+
+```svg
+<feColorMatrix type="hueRotate" values="90" />
+```
+
+<HueRotateDemo />
+
+### Luminance to alpha
+Convert brightness to transparency:
+
+<LuminanceToAlphaDemo />
+
+## Browser support and performance
+
+SVG filters can thrash your computer, so remember to add `will-change: filter` on anything you’re planning to transition or animate. I’d also recommend `content-visibility: auto` if you know the element will be offscreen at some point.
+
+## All Done
+
+`feColorMatrix` opens up a world of creative possibilities for color manipulation that goes far beyond what's possible with CSS alone. From subtle color corrections to dramatic artistic effects, understanding how to manipulate the transformation matrix gives you precise control over every pixel on your page.
+
+The key is starting with the identity matrix and making small, intentional changes. Experiment with different values to see how they affect the final result, and don't be afraid to combine multiple operations to achieve complex looks.

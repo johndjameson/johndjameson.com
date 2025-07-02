@@ -1,7 +1,7 @@
 @layer components {
   .highlighter {
     --syntax-highlighter-gutter: calc(var(--spacing) * 6);
-    background: #090513;
+    background: var(--color-gray-900);
     border-radius: var(--radius-md);
     color: #fff;
     container-type: inline-size;
@@ -11,8 +11,11 @@
   }
 
   .header {
-    background: #191527;
+    background: var(--color-gray-800);
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     font-size: clamp(10px, calc(0.3125rem + 1.75cqw), 12px);
     font-weight: 600;
     padding: calc(var(--spacing) * 2) var(--syntax-highlighter-gutter);

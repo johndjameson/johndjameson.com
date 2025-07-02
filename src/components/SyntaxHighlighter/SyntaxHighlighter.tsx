@@ -28,11 +28,16 @@ function getDisplayLanguage(language: keyof typeof displayLanguages) {
   return displayLanguage;
 }
 
-interface SyntaxHighlighterProps
-  extends React.ComponentPropsWithoutRef<"div"> {}
+interface SyntaxHighlighterProps extends React.ComponentPropsWithoutRef<"div"> {
+  showCopy?: boolean;
+}
 
 // https://www.peterlunch.com/blog/prism-react-render-nextjs
-function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
+function SyntaxHighlighter({
+  children,
+  showCopy = false,
+  ...moreProps
+}: SyntaxHighlighterProps) {
   if (!React.isValidElement(children)) {
     return null;
   }
@@ -50,18 +55,44 @@ function SyntaxHighlighter({ children, ...moreProps }: SyntaxHighlighterProps) {
 
   const displayLanguage = getDisplayLanguage(language);
 
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(text);
+    } catch (err) {
+      console.error("Failed to copy code:", err);
+    }
+  };
+
   return (
-    <div {...moreProps} className={css.highlighter}>
+    <div {...moreProps} className={clsx(css.highlighter, "relative")}>
       <div
         className={clsx(css.header, {
           [css.headerCaps]: displayLanguage === displayLanguage.toUpperCase(),
         })}
       >
         {displayLanguage}
+
+        <button
+          onClick={copyCode}
+          className="cursor-pointer p-1.5 text-slate-100 transition-colors hover:text-slate-200"
+          title="Copy code"
+        >
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+          >
+            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
+            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+          </svg>
+        </button>
       </div>
 
       <Highlight code={text} language={language} theme={theme}>
-        {({ className, getLineProps, getTokenProps, style, tokens }) => (
+        {({ getLineProps, getTokenProps, style, tokens }) => (
           <pre className={clsx(css.pre)} style={{ ...style }}>
             {tokens
               .slice(0, -1) // Remove trailing newline
