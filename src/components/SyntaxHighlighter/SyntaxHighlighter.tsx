@@ -4,7 +4,7 @@ import React from "react";
 
 import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
 import theme from "@/components/SyntaxHighlighter/theme";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { Highlight } from "prism-react-renderer";
 
 const displayLanguages = {
@@ -74,7 +74,10 @@ function SyntaxHighlighter({
 
         <button
           onClick={copyCode}
-          className="cursor-pointer p-1.5 text-slate-100 transition-colors hover:text-slate-200"
+          className={clsx(
+            "cursor-pointer rounded p-1.5 text-slate-100 transition-colors",
+            "hover:bg-gray-600 hover:text-slate-50",
+          )}
           title="Copy code"
         >
           <svg
