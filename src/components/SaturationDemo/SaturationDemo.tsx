@@ -7,6 +7,7 @@ import { SvgCodePreview } from "../SvgCodePreview/SvgCodePreview";
 export const SaturationDemo: React.FC = () => {
   const [saturation, setSaturation] = useState(1);
   const filterId = useId().replace(/\W/g, "");
+  const filterUrl = `url(#${filterId})`;
 
   return (
     <div className="rounded-lg bg-gray-950 p-6">
@@ -18,24 +19,10 @@ export const SaturationDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div className="mb-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-        <div
-          className="aspect-square rounded-lg bg-red-500"
-          style={{ filter: `url(#${filterId})` }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-green-500"
-          style={{ filter: `url(#${filterId})` }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-blue-500"
-          style={{ filter: `url(#${filterId})` }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-linear-to-br/oklch from-yellow-500 to-orange-500"
-          style={{ filter: `url(#${filterId})` }}
-        />
-      </div>
+      <div
+        className="mb-6 grid h-32 grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4"
+        style={{ filter: filterUrl }}
+      />
 
       <div className="mb-4">
         <Range
@@ -45,7 +32,7 @@ export const SaturationDemo: React.FC = () => {
           max={2}
           step={0.1}
           value={saturation}
-          onChange={(e) => setSaturation(parseFloat(e.target.value))}
+          onChange={(e) => setSaturation(e.target.valueAsNumber)}
         />
       </div>
 

@@ -11,10 +11,10 @@ const DEFAULT_MATRIX = [
 ];
 
 const matrixLabels = [
-  ["R×R", "R×G", "R×B", "R×A", "R+"],
-  ["G×R", "G×G", "G×B", "G×A", "G+"],
-  ["B×R", "B×G", "B×B", "B×A", "B+"],
-  ["A×R", "A×G", "A×B", "A×A", "A+"],
+  ["R × R In", "R × G In", "R × B In", "R × A In", "R+"],
+  ["G × R In", "G × G In", "G × B In", "G × A In", "G+"],
+  ["B × R In", "B × G In", "B × B In", "B × A In", "B+"],
+  ["A × R In", "A × G In", "A × B In", "A × A In", "A+"],
 ];
 
 export const ColorMatrixControls: React.FC = () => {
@@ -29,16 +29,32 @@ export const ColorMatrixControls: React.FC = () => {
   };
 
   const resetMatrix = () => {
+    setFilterEnabled(true);
     setMatrix([...DEFAULT_MATRIX]);
+  };
+
+  const setRedOnly = () => {
+    setFilterEnabled(true);
+    setMatrix([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]);
+  };
+
+  const setGreenOnly = () => {
+    setFilterEnabled(true);
+    setMatrix([0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]);
+  };
+
+  const setBlueOnly = () => {
+    setFilterEnabled(true);
+    setMatrix([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]);
   };
 
   return (
     <div className="rounded-lg bg-gray-950 p-6">
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
-      <div className="mb-6 flex justify-center">
+      <div className="bg-checkered mb-6 flex justify-center overflow-hidden rounded-lg bg-gray-300">
         <div
-          className="h-32 w-full rounded-lg bg-linear-to-r/longer from-red-500 to-red-500"
+          className="h-32 w-full bg-linear-to-r/longer from-red-500 to-red-500"
           style={{
             filter: filterEnabled ? `url(#${filterId})` : "none",
           }}
@@ -71,6 +87,15 @@ export const ColorMatrixControls: React.FC = () => {
       <div className="flex flex-wrap gap-2">
         <DemoButton onClick={resetMatrix} variant="reset">
           Default
+        </DemoButton>
+        <DemoButton onClick={setRedOnly} variant="default">
+          Red Only
+        </DemoButton>
+        <DemoButton onClick={setGreenOnly} variant="default">
+          Green Only
+        </DemoButton>
+        <DemoButton onClick={setBlueOnly} variant="default">
+          Blue Only
         </DemoButton>
         <DemoButton
           onClick={() => setFilterEnabled(!filterEnabled)}

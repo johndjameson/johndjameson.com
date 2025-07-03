@@ -4,11 +4,9 @@ date: 2025-07-02
 description: Like all SVG filters, feColorMatrix is extremely powerful and super weird to learn the first time. I’m bad at explaining, so here’s a bunch of interactive demos that hopefully help it all makes sense.
 ---
 
-In my [last post](/posts/chromatic-aberration-with-svg-filters), I showed how to create an SVG/CSS-only chromatic aberration effect that relies on decorates under the hood.
+In my last post about [chromatic aberration with SVG filters](/posts/chromatic-aberration-with-svg-filters), I showed how to create an SVG/CSS-only effect that used `feColorMatrix` to isolate RGB color channels. Honestly, `feColorMatrix` is pretty complicated and deserves a whole own post on its own.
 
-Honestly, `feColorMatrix` is pretty complicated and deserves its whole own post.
-
-For those wondering, SVG filter effects are SVG-specific color and image manipulations that can be applied to anything on a web page whether or not it’s actually SVG.
+For those wondering, SVG filter effects are image manipulations that you can apply to anything on a web page (whether or not it’s actually SVG).
 
 Here’s what you can do with `feColorMatrix`:
 
@@ -16,7 +14,7 @@ Here’s what you can do with `feColorMatrix`:
 
 ## Matrix values
 
-The hardest part of understanding `feColorMatrix` is understand the `matrix` value itself. Here’s an example of the matrix in its default state that outputs the exact same colors as its input.
+The hardest part of using `feColorMatrix` is understanding the `matrix` value itself. In its default state, the matrix will output exactly the same colors as its input.
 
 ```
 1 0 0 0 0
@@ -25,24 +23,28 @@ The hardest part of understanding `feColorMatrix` is understand the `matrix` val
 0 0 0 1 0
 ```
 
-From top to bottom, each row in the matrix controls a channel of a color in the target element:
+From top to bottom, rows in the matrix control a color channel from the target element:
 
 1. Red
 2. Green
 3. Blue
 4. Alpha (transparency)
 
-From left to right, each cell of each row represents
+From left to right, cells of each row represent:
 
 1. Red × channel color
 2. Green × channel color
 3. Glue × channel color
 4. Alpha (transparency) × channel color
-5. Offset
+5. Offset (add or subtract a predetermined constant)
+
+So in the red row of the matrix, a value of `1 0 0 0 0` will keep the amount of red exactly the same. Lower value, less red; higher value, more red. The same goes for each channel row of the RGBA matrix: `0 1 0 0 0` for default green, `0 0 1 0 0` for default blue, and `0 0 0 1 0` for default alpha.
+
+But what happens when you change other values? With 20 total color values to control the output RGBA channels, you can achieve a ton of different color effects. Try it out:
 
 <ColorMatrixControls />
 
-Manipulating each value in the matrix individually gives you a ton of control over the output of the effected image. You can create almost any color effect with these controls and `feColorMatrix`.
+Manipulating each value in the matrix individually gives you a ton of control over the output of the effected element. You can create almost any color effect with these controls and `feColorMatrix`.
 
 ## Shorthand types
 
@@ -65,7 +67,7 @@ The `feColorMatrix` type `hueRotate` uses `0°` as your starting point and `360�
 
 ### Luminance to alpha
 
-And the last one is luminance to alpha, which converts all the brightness in an image into transparency. 
+The last type is `luminanceToAlpha`, which converts all the luminance (basically brightness) in an element to transparency. 
 
 <LuminanceToAlphaDemo />
 

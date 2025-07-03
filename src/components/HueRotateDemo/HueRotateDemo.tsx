@@ -47,7 +47,7 @@ export const HueRotateDemo: React.FC = () => {
           max={360}
           step={1}
           value={hueRotate}
-          onChange={(e) => setHueRotate(parseInt(e.target.value))}
+          onChange={(e) => setHueRotate(e.target.valueAsNumber)}
         />
       </div>
 
@@ -56,6 +56,7 @@ export const HueRotateDemo: React.FC = () => {
           <DemoButton
             key={preset.name}
             onClick={() => setHueRotate(preset.value)}
+            variant={preset.name.includes("Default") ? "reset" : "default"}
           >
             {preset.name}
           </DemoButton>

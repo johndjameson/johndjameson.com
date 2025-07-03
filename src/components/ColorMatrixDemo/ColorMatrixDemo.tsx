@@ -32,6 +32,7 @@ const presets = [
 export const ColorMatrixDemo: React.FC = () => {
   const [matrix, setMatrix] = useState(presets[0].matrix);
   const filterId = useId().replace(/\W/g, "");
+  const filterUrl = `url(#${filterId})`;
 
   const handlePresetClick = (presetMatrix: number[]) => {
     setMatrix([...presetMatrix]);
@@ -43,12 +44,12 @@ export const ColorMatrixDemo: React.FC = () => {
 
       <div className="mb-6 grid grid-cols-2 gap-x-6">
         <div
-          className="aspect-square rounded-lg bg-gradient-to-br from-purple-500 to-blue-800"
-          style={{ filter: `url(#${filterId})` }}
+          className="rounded-lg bg-gradient-to-br from-purple-500 to-blue-800 max-sm:aspect-square sm:h-40"
+          style={{ filter: filterUrl }}
         />
         <div
-          className="aspect-square rounded-lg bg-linear-to-br/oklch from-red-500 to-purple-500"
-          style={{ filter: `url(#${filterId})` }}
+          className="rounded-lg bg-linear-to-br/oklch from-red-500 to-purple-500 max-sm:aspect-square sm:h-40"
+          style={{ filter: filterUrl }}
         />
       </div>
 
