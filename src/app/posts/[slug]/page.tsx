@@ -5,6 +5,11 @@ import ChromaticTerminalDemo from "@/components/ChromaticTerminalDemo/ChromaticT
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
+import { ColorMatrixControls } from "@/components/ColorMatrixControls/ColorMatrixControls";
+import { ColorMatrixDemo } from "@/components/ColorMatrixDemo/ColorMatrixDemo";
+import { HueRotateDemo } from "@/components/HueRotateDemo/HueRotateDemo";
+import { LuminanceToAlphaDemo } from "@/components/LuminanceToAlphaDemo/LuminanceToAlphaDemo";
+import { SaturationDemo } from "@/components/SaturationDemo/SaturationDemo";
 import clsx from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
 import { format, parseISO, addHours } from "date-fns";
@@ -51,7 +56,12 @@ const mdxComponents: MDXComponents = {
   ChromaticAberrationDemo,
   ChromaticAberrationFilter,
   ChromaticShapesDemo,
+  SaturationDemo,
   ChromaticTerminalDemo,
+  LuminanceToAlphaDemo,
+  ColorMatrixControls,
+  ColorMatrixDemo,
+  HueRotateDemo,
   code: (props) => {
     return (
       <code
@@ -135,7 +145,7 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
       <div className="mt-10 mb-8">
         <h1
           className={clsx(
-            "font-heading mb-4 text-5xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
+            "font-heading mb-4 text-4xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
             "sm:text-5xl/[0.95]",
             "md:text-6xl/[0.95]",
             "lg:text-7xl/[0.95]",

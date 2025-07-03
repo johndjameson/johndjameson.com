@@ -35,7 +35,7 @@ export default function ChromaticShapesDemo() {
           blueX={blueOffset}
         />
         <svg
-          className="h-auto max-w-full"
+          className="h-auto max-w-full will-change-[filter]"
           height="280"
           style={{ filter: "url(#chromatic-shapes)" }}
           viewBox="0 0 400 280"

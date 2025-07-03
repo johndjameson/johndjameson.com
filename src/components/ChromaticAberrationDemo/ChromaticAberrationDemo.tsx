@@ -39,7 +39,7 @@ export default function ChromaticAberrationDemo() {
         />
 
         <p
-          className="text-center text-[12cqw] leading-[1.15] font-extrabold text-gray-50"
+          className="text-center text-[12cqw] leading-[1.15] font-extrabold text-gray-50 will-change-[filter]"
           style={{ filter: `url(#chromatic-aberration-${filterId})` }}
         >
           TRY IT OUT ⚙️⬇️

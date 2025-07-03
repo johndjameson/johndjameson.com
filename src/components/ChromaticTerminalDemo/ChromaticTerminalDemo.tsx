@@ -68,7 +68,7 @@ export default function ChromaticTerminalDemo() {
           />
 
           <div className="border-2 border-green-400">
-            <div className="relative flex-1 p-5 filter-[url('#chromatic-terminal')]">
+            <div className="relative flex-1 p-5 filter-[url('#chromatic-terminal')] will-change-[filter]">
               {terminalLines.map((line, index) => (
                 <p
                   key={`${line}-${index}`}

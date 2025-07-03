@@ -1,0 +1,99 @@
+---
+title: Understanding feColorMatrix SVG Filters
+date: 2025-07-03
+description: Like all SVG filters, feColorMatrix is extremely powerful and super weird to learn the first time. I’m bad at explaining, so here’s a bunch of interactive demos that hopefully help it all makes sense.
+---
+
+In my last post about [chromatic aberration with SVG filters](/posts/chromatic-aberration-with-svg-filters), I showed how to create an SVG/CSS-only effect that used `<feColorMatrix>` to isolate RGB color channels. Honestly, `<feColorMatrix>` is pretty complicated and deserves a whole own post on its own.
+
+For those wondering, SVG **filter effects** are filter elements that make up the resulting effect. That’s where the `fe` prefix comes from on SVG tags like `<feTile>` and `<feMerge>`.
+
+With `<feColorMatrix>`, you can make photo-editor style color effects:
+
+<ColorMatrixDemo />
+
+## Matrix values
+
+The hardest part of using `<feColorMatrix>` is learning how to use the `matrix` attribute. In the following “default” matrix, the effect will output exactly the same colors as its input:
+
+```
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+```
+
+From top to bottom, rows in the matrix control a color channel from the target element:
+
+1. Red
+2. Green
+3. Blue
+4. Alpha (transparency)
+
+From left to right, columns of each row represent:
+
+1. Red × channel color
+2. Green × channel color
+3. Glue × channel color
+4. Alpha (transparency) × channel color
+5. Offset (add or subtract a predetermined constant)
+
+So in the red row of the matrix, a value of `1 0 0 0 0` will keep the amount of red exactly the same. Lower value, less color; higher value, more color. The same goes for each channel row of the RGBA matrix: `0 1 0 0 0` for default green, `0 0 1 0 0` for default blue, and `0 0 0 1 0` for default alpha.
+
+But what happens when you change other values? With 20 total color values to control the output RGBA channels, you can achieve a ton of different color effects. Try it out:
+
+<ColorMatrixControls />
+
+Changing each value in the matrix gives you a ton of control over the output of the effected element. You can create almost any color effect with these controls and `<feColorMatrix>`.
+
+## Shorthand types
+
+Up until now we’ve been using `<feColorMatrix>` with the type `matrix`, but there are a few others as well that are _much_ easier to use with fewer values to keep track of.
+
+### Saturate
+
+The type `saturate` lets you adjust color intensity with a single `values` attribute. Lower values become more black and white while higher values become super vibrant.
+
+<SaturationDemo />
+
+### Hue rotate
+
+Like `saturate`, the type `hueRotate` uses a single `values` attribute. `0°` is your starting point and `360°` equals back where you started. Anywhere in between is similar to shifting the `hue` value of an `hsl()` color.
+
+<HueRotateDemo />
+
+### Luminance to alpha
+
+The last type is `luminanceToAlpha`, which converts all the luminance (basically brightness) in an element to transparency. 
+
+<LuminanceToAlphaDemo />
+
+## Usage
+
+To use any of the `<feColorMatrix>` filter effects, you need to put the SVG markup in your HTML somewhere.
+
+```svg
+<svg>
+  <defs>
+    <filter id="color-matrix-filter">
+      <feColorMatrix type="luminanceToAlpha" />
+    </filter>
+  </defs>
+</svg>
+```
+
+Then you can reference the `id` in CSS.
+
+```css
+.color-matrix-filter {
+  filter: url('#color-matrix-effect');
+}
+```
+
+One last thing: SVG filters can thrash your computer’s hardware if not used sparingly, so take care to add `will-change: filter` on anything you’re planning to transition or animate. I’d also recommend `content-visibility: auto` if you know the element will be offscreen at some point.
+
+## All Done
+
+`<feColorMatrix>` can replace many of the vanilla CSS `filter` effects and is _way_ more powerful once you understand how it works. You can use apply small color corrections or entire mood shifts onto any element in the HTML/SVG DOM.
+
+Experiment with different values to see how they affect the final result, and maybe even try chaining multiple `<feColorMatrix>` tags to compose hybrid looks.

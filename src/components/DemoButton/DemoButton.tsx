@@ -16,7 +16,7 @@ export const DemoButton: React.FC<DemoButtonProps> = ({
 }) => (
   <button
     className={clsx(
-      "cursor-pointer rounded border px-4 py-2 text-sm transition-all duration-200",
+      "inline-flex cursor-pointer items-center gap-x-1 rounded border px-4 py-2 text-sm font-medium transition-all duration-200",
       variant === "default" &&
         "border-gray-600 bg-gray-800 text-white hover:border-gray-500 hover:bg-gray-700",
       variant === "reset" &&
