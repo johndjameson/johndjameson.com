@@ -18,14 +18,6 @@ export const SvgCodePreview: React.FC<SvgCodePreviewProps> = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(!collapsible);
 
-  const copyCode = async () => {
-    try {
-      await navigator.clipboard.writeText(code);
-    } catch (err) {
-      console.error("Failed to copy code:", err);
-    }
-  };
-
   return (
     <div className="flex w-full flex-col items-center gap-y-2">
       <div
@@ -41,7 +33,12 @@ export const SvgCodePreview: React.FC<SvgCodePreviewProps> = ({
           )}
         >
           <SyntaxHighlighter>
-            <code className="language-svg">{code}</code>
+            <code className="language-svg">
+              {code +
+                // TODO: Fix this newline hack
+                `
+`}
+            </code>
           </SyntaxHighlighter>
         </div>
       </div>
@@ -53,15 +50,15 @@ export const SvgCodePreview: React.FC<SvgCodePreviewProps> = ({
         >
           {isExpanded ? "Hide" : "Show"} Code
           <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
+            className={clsx("transition-transform", isExpanded && "rotate-180")}
             fill="none"
+            height="14"
             stroke="currentColor"
             strokeWidth="2"
-            className={clsx("transition-transform", isExpanded && "rotate-180")}
+            viewBox="0 0 24 24"
+            width="14"
           >
-            <polyline points="6,9 12,15 18,9"></polyline>
+            <polyline points="6,9 12,15 18,9" />
           </svg>
         </DemoButton>
       )}

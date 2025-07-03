@@ -24,13 +24,7 @@ export const LuminanceToAlphaDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div
-        className="mb-6 rounded-lg p-8"
-        style={{
-          background:
-            "linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4)",
-        }}
-      >
+      <div className="mb-6 rounded-lg bg-linear-to-br/oklch from-slate-200 to-slate-500 p-8">
         <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
           <div
             className="flex aspect-square items-center justify-center rounded-lg bg-black text-sm font-bold text-white"
@@ -76,11 +70,7 @@ export const LuminanceToAlphaDemo: React.FC = () => {
         </DemoButton>
       </div>
 
-      <SvgCodePreview
-        code={`<feColorMatrix
-  type="luminanceToAlpha"
-/>`}
-      />
+      <SvgCodePreview code={`<feColorMatrix type="luminanceToAlpha" />`} />
     </div>
   );
 };

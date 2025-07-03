@@ -12,18 +12,12 @@ export const ColorMatrixFilter: React.FC<ColorMatrixFilterProps> = ({
   filterId,
 }) => {
   const defaultId = useId().replace(/\W/g, "");
-  const id = filterId || `color-matrix-${defaultId}`;
+  const id = filterId ?? `color-matrix-${defaultId}`;
 
   const matrixValues = matrix.join(" ");
 
   return (
-    <svg
-      className="sr-only"
-      aria-hidden="true"
-      width="0"
-      height="0"
-      xmlns="http://www.w3.org/2000/svg"
-    >
+    <svg className="sr-only" aria-hidden="true" width="0" height="0">
       <defs>
         <filter id={id}>
           <feColorMatrix type="matrix" values={matrixValues} />

@@ -15,6 +15,7 @@ export const HueRotateDemo: React.FC = () => {
     { name: "90°", value: 90 },
     { name: "180°", value: 180 },
     { name: "270°", value: 270 },
+    { name: "360°", value: 360 },
   ];
 
   return (
@@ -33,24 +34,10 @@ export const HueRotateDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div className="mb-6 grid grid-cols-2 gap-4 md:grid-cols-4">
-        <div
-          className="aspect-square rounded-lg bg-red-500"
-          style={{ filter: filterUrl }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-green-500"
-          style={{ filter: filterUrl }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-blue-500"
-          style={{ filter: filterUrl }}
-        />
-        <div
-          className="aspect-square rounded-lg bg-linear-to-br/longer from-red-500 to-purple-500"
-          style={{ filter: filterUrl }}
-        />
-      </div>
+      <div
+        className="mb-6 grid h-32 grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4"
+        style={{ filter: filterUrl }}
+      />
 
       <div className="mb-4">
         <Range
@@ -69,7 +56,6 @@ export const HueRotateDemo: React.FC = () => {
           <DemoButton
             key={preset.name}
             onClick={() => setHueRotate(preset.value)}
-            variant={preset.value === 0 ? "reset" : "default"}
           >
             {preset.name}
           </DemoButton>
@@ -77,10 +63,7 @@ export const HueRotateDemo: React.FC = () => {
       </div>
 
       <SvgCodePreview
-        code={`<feColorMatrix
-  type="hueRotate"
-  values="${hueRotate}"
-/>`}
+        code={`<feColorMatrix type="hueRotate" values="${hueRotate}" />`}
       />
     </div>
   );

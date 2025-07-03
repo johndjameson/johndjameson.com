@@ -1,54 +1,102 @@
 ---
 title: Understanding feColorMatrix SVG Filters
 date: 2025-07-02
-description: Master color transformations with interactive demos showing how the feColorMatrix 5×4 transformation matrix manipulates RGBA channels.
+description: Like all SVG filters, feColorMatrix is extremely powerful and super weird to learn the first time. I’m bad at explaining, so here’s a bunch of interactive demos that hopefully help it all makes sense.
 ---
 
-The `feColorMatrix` SVG filter element is one of the most powerful tools for color manipulation on the web. While CSS can handle basic color adjustments, `feColorMatrix` gives you precise mathematical control over every pixel's RGBA values through matrix transformations.
+In my [last post](/posts/chromatic-aberration-with-svg-filters), I showed how to create an SVG/CSS-only chromatic aberration effect that relies on decorates under the hood.
+
+Honestly, `feColorMatrix` is pretty complicated and deserves its whole own post.
+
+For those wondering, SVG filter effects are SVG-specific color and image manipulations that can be applied to anything on a web page whether or not it’s actually SVG.
+
+Here’s what you can do with `feColorMatrix`:
 
 <ColorMatrixDemo />
 
-At its core, `feColorMatrix` takes each pixel's color values `[R,G,B,A]` and multiplies them by a 5×4 transformation matrix to create new color values `[R',G',B',A']`. Every color channel in the result is calculated from a combination of the original RGBA values plus an optional constant offset.
+## Matrix values
 
-## Interactive matrix controls
+The hardest part of understanding `feColorMatrix` is understand the `matrix` value itself. Here’s an example of the matrix in its default state that outputs the exact same colors as its input.
+
+```
+1 0 0 0 0
+0 1 0 0 0
+0 0 1 0 0
+0 0 0 1 0
+```
+
+From top to bottom, each row in the matrix controls a channel of a color in the target element:
+
+1. Red
+2. Green
+3. Blue
+4. Alpha (transparency)
+
+From left to right, each cell of each row represents
+
+1. Red × channel color
+2. Green × channel color
+3. Glue × channel color
+4. Alpha (transparency) × channel color
+5. Offset
 
 <ColorMatrixControls />
 
-## Common transformations
+Manipulating each value in the matrix individually gives you a ton of control over the output of the effected image. You can create almost any color effect with these controls and `feColorMatrix`.
 
 ## Shorthand types
 
-Beyond the full `matrix` type, `feColorMatrix` provides convenient shorthand types:
 
-### Saturation
-Adjust color intensity with a single value:
+We’ve been using the mode `matrix`, but there are a few others as well. Luckily, they’re all greatly simplified in comparison to `matrix` with fewer values to change. 
 
-```svg
-<feColorMatrix type="saturate" values="0.5" />
-```
+Up until now we’ve been using `feColorMatrix` with the type `matrix`, but there are a few others as well that are _much_ easier to use.
+
+### Saturate
+
+Adjust color intensity with a single value. Lower values become more black and white while higher values become super vibrant.
 
 <SaturationDemo />
 
-### Hue rotation
-Rotate colors around the color wheel:
+### Hue rotate
 
-```svg
-<feColorMatrix type="hueRotate" values="90" />
-```
+The `feColorMatrix` type `hueRotate` uses `0°` as your starting point and `360°` as all the way around back where you started. Anywhere in between is equivalent to shifting the `hue` value of an `hsl()` color.
 
 <HueRotateDemo />
 
 ### Luminance to alpha
-Convert brightness to transparency:
+
+And the last one is luminance to alpha, which converts all the brightness in an image into transparency. 
 
 <LuminanceToAlphaDemo />
 
-## Browser support and performance
+## Usage
 
-SVG filters can thrash your computer, so remember to add `will-change: filter` on anything you’re planning to transition or animate. I’d also recommend `content-visibility: auto` if you know the element will be offscreen at some point.
+To use any of the `feColorMatrix` filter effects, you need to put the SVG markup in your HTML somewhere.
+
+```svg
+<svg>
+  <defs>
+    <filter id="color-matrix-filter">
+      <feColorMatrix type="luminanceToAlpha" />
+    </filter>
+  </defs>
+</svg>
+```
+
+Then you can reference the `id` in CSS.
+
+```css
+.color-matrix-filter {
+  filter: url('#color-matrix-effect');
+}
+```
+
+One last thing: SVG filters can thrash your computer’s hardware if not used sparingly, so take care to add `will-change: filter` on anything you’re planning to transition or animate. I’d also recommend `content-visibility: auto` if you know the element will be offscreen at some point.
 
 ## All Done
 
-`feColorMatrix` opens up a world of creative possibilities for color manipulation that goes far beyond what's possible with CSS alone. From subtle color corrections to dramatic artistic effects, understanding how to manipulate the transformation matrix gives you precise control over every pixel on your page.
+`feColorMatrix` can replace many of the vanilla CSS `filter` effects and is then _way_ more powerful once you understand how it works. You can use apply small color corrections or entire mood shifts onto any element in the HTML/SVG DOM. Understanding how to use the transformation matrix gives you precise color control over every element on the page.
 
-The key is starting with the identity matrix and making small, intentional changes. Experiment with different values to see how they affect the final result, and don't be afraid to combine multiple operations to achieve complex looks.
+Experiment with different values to see how they affect the final result, and maybe even try chaining multiple `feColorMatrix` tags to compose hybrid looks.
+
+Hopefully these examples helped clear things up! ✨

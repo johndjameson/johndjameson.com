@@ -2,23 +2,15 @@
 
 import { useState, useId } from "react";
 import { Range } from "../Range/Range";
-import { DemoButton } from "../DemoButton/DemoButton";
 import { SvgCodePreview } from "../SvgCodePreview/SvgCodePreview";
 
 export const SaturationDemo: React.FC = () => {
   const [saturation, setSaturation] = useState(1);
-  const [filterEnabled, setFilterEnabled] = useState(true);
   const filterId = useId().replace(/\W/g, "");
 
   return (
     <div className="rounded-lg bg-gray-950 p-6">
-      <svg
-        className="sr-only"
-        aria-hidden="true"
-        width="0"
-        height="0"
-        xmlns="http://www.w3.org/2000/svg"
-      >
+      <svg className="sr-only" aria-hidden="true" width="0" height="0">
         <defs>
           <filter id={filterId}>
             <feColorMatrix type="saturate" values={saturation.toString()} />
@@ -29,27 +21,19 @@ export const SaturationDemo: React.FC = () => {
       <div className="mb-6 grid grid-cols-2 gap-4 md:grid-cols-4">
         <div
           className="aspect-square rounded-lg bg-red-500"
-          style={{
-            filter: filterEnabled ? `url(#${filterId})` : "none",
-          }}
+          style={{ filter: `url(#${filterId})` }}
         />
         <div
           className="aspect-square rounded-lg bg-green-500"
-          style={{
-            filter: filterEnabled ? `url(#${filterId})` : "none",
-          }}
+          style={{ filter: `url(#${filterId})` }}
         />
         <div
           className="aspect-square rounded-lg bg-blue-500"
-          style={{
-            filter: filterEnabled ? `url(#${filterId})` : "none",
-          }}
+          style={{ filter: `url(#${filterId})` }}
         />
         <div
           className="aspect-square rounded-lg bg-linear-to-br/oklch from-yellow-500 to-orange-500"
-          style={{
-            filter: filterEnabled ? `url(#${filterId})` : "none",
-          }}
+          style={{ filter: `url(#${filterId})` }}
         />
       </div>
 
@@ -65,23 +49,8 @@ export const SaturationDemo: React.FC = () => {
         />
       </div>
 
-      <div className="flex flex-wrap gap-2">
-        <DemoButton onClick={() => setSaturation(1)} variant="reset">
-          Reset
-        </DemoButton>
-        <DemoButton
-          onClick={() => setFilterEnabled(!filterEnabled)}
-          variant="default"
-        >
-          {filterEnabled ? "Disable Filter" : "Enable Filter"}
-        </DemoButton>
-      </div>
-
       <SvgCodePreview
-        code={`<feColorMatrix
-  type="saturate"
-  values="${saturation}"
-/>`}
+        code={`<feColorMatrix type="saturate" values="${saturation}" />`}
       />
     </div>
   );

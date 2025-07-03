@@ -11,10 +11,10 @@ const DEFAULT_MATRIX = [
 ];
 
 const matrixLabels = [
-  ["R→R", "G→R", "B→R", "A→R", "R+"],
-  ["R→G", "G→G", "B→G", "A→G", "G+"],
-  ["R→B", "G→B", "B→B", "A→B", "B+"],
-  ["R→A", "G→A", "B→A", "A→A", "A+"],
+  ["R×R", "R×G", "R×B", "R×A", "R+"],
+  ["G×R", "G×G", "G×B", "G×A", "G+"],
+  ["B×R", "B×G", "B×B", "B×A", "B+"],
+  ["A×R", "A×G", "A×B", "A×A", "A+"],
 ];
 
 export const ColorMatrixControls: React.FC = () => {
@@ -38,13 +38,11 @@ export const ColorMatrixControls: React.FC = () => {
 
       <div className="mb-6 flex justify-center">
         <div
-          className="rounded-lg bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500 px-8 py-4 text-2xl font-bold text-white shadow-lg"
+          className="h-32 w-full rounded-lg bg-linear-to-r/longer from-red-500 to-red-500"
           style={{
             filter: filterEnabled ? `url(#${filterId})` : "none",
           }}
-        >
-          Live Preview
-        </div>
+        />
       </div>
 
       <div className="mb-6 grid grid-cols-5 gap-2 text-xs">
@@ -72,7 +70,7 @@ export const ColorMatrixControls: React.FC = () => {
 
       <div className="flex flex-wrap gap-2">
         <DemoButton onClick={resetMatrix} variant="reset">
-          Reset to Default
+          Default
         </DemoButton>
         <DemoButton
           onClick={() => setFilterEnabled(!filterEnabled)}
