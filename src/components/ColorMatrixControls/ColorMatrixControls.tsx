@@ -10,6 +10,29 @@ const DEFAULT_MATRIX = [
   1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0,
 ];
 
+const presets = [
+  {
+    name: "Default",
+    matrix: DEFAULT_MATRIX,
+    variant: "reset" as const,
+  },
+  {
+    name: "Red Only",
+    matrix: [1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    variant: "default" as const,
+  },
+  {
+    name: "Green Only",
+    matrix: [0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+    variant: "default" as const,
+  },
+  {
+    name: "Blue Only",
+    matrix: [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
+    variant: "default" as const,
+  },
+];
+
 const matrixLabels = [
   ["R × R In", "R × G In", "R × B In", "R × A In", "R+"],
   ["G × R In", "G × G In", "G × B In", "G × A In", "G+"],
@@ -28,24 +51,9 @@ export const ColorMatrixControls: React.FC = () => {
     setMatrix(newMatrix);
   };
 
-  const resetMatrix = () => {
+  const handlePresetClick = (presetMatrix: number[]) => {
     setFilterEnabled(true);
-    setMatrix([...DEFAULT_MATRIX]);
-  };
-
-  const setRedOnly = () => {
-    setFilterEnabled(true);
-    setMatrix([1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]);
-  };
-
-  const setGreenOnly = () => {
-    setFilterEnabled(true);
-    setMatrix([0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0]);
-  };
-
-  const setBlueOnly = () => {
-    setFilterEnabled(true);
-    setMatrix([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0]);
+    setMatrix([...presetMatrix]);
   };
 
   return (
@@ -85,18 +93,15 @@ export const ColorMatrixControls: React.FC = () => {
       </div>
 
       <div className="flex flex-wrap gap-2">
-        <DemoButton onClick={resetMatrix} variant="reset">
-          Default
-        </DemoButton>
-        <DemoButton onClick={setRedOnly} variant="default">
-          Red Only
-        </DemoButton>
-        <DemoButton onClick={setGreenOnly} variant="default">
-          Green Only
-        </DemoButton>
-        <DemoButton onClick={setBlueOnly} variant="default">
-          Blue Only
-        </DemoButton>
+        {presets.map((preset) => (
+          <DemoButton
+            key={preset.name}
+            onClick={() => handlePresetClick(preset.matrix)}
+            variant={preset.variant}
+          >
+            {preset.name}
+          </DemoButton>
+        ))}
         <DemoButton
           onClick={() => setFilterEnabled(!filterEnabled)}
           variant="default"
