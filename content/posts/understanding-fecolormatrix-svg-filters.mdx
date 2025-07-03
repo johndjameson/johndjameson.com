@@ -1,6 +1,6 @@
 ---
 title: Understanding feColorMatrix SVG Filters
-date: 2025-07-02
+date: 2025-07-03
 description: Like all SVG filters, feColorMatrix is extremely powerful and super weird to learn the first time. I’m bad at explaining, so here’s a bunch of interactive demos that hopefully help it all makes sense.
 ---
 
@@ -30,7 +30,7 @@ From top to bottom, rows in the matrix control a color channel from the target e
 3. Blue
 4. Alpha (transparency)
 
-From left to right, cells of each row represent:
+From left to right, columns of each row represent:
 
 1. Red × channel color
 2. Green × channel color
@@ -38,16 +38,15 @@ From left to right, cells of each row represent:
 4. Alpha (transparency) × channel color
 5. Offset (add or subtract a predetermined constant)
 
-So in the red row of the matrix, a value of `1 0 0 0 0` will keep the amount of red exactly the same. Lower value, less red; higher value, more red. The same goes for each channel row of the RGBA matrix: `0 1 0 0 0` for default green, `0 0 1 0 0` for default blue, and `0 0 0 1 0` for default alpha.
+So in the red row of the matrix, a value of `1 0 0 0 0` will keep the amount of red exactly the same. Lower value, less color; higher value, more color. The same goes for each channel row of the RGBA matrix: `0 1 0 0 0` for default green, `0 0 1 0 0` for default blue, and `0 0 0 1 0` for default alpha.
 
 But what happens when you change other values? With 20 total color values to control the output RGBA channels, you can achieve a ton of different color effects. Try it out:
 
 <ColorMatrixControls />
 
-Manipulating each value in the matrix individually gives you a ton of control over the output of the effected element. You can create almost any color effect with these controls and `feColorMatrix`.
+Changing each value in the matrix gives you a ton of control over the output of the effected element. You can create almost any color effect with these controls and `feColorMatrix`.
 
 ## Shorthand types
-
 
 We’ve been using the mode `matrix`, but there are a few others as well. Luckily, they’re all greatly simplified in comparison to `matrix` with fewer values to change. 
 
@@ -55,13 +54,13 @@ Up until now we’ve been using `feColorMatrix` with the type `matrix`, but ther
 
 ### Saturate
 
-Adjust color intensity with a single value. Lower values become more black and white while higher values become super vibrant.
+The type `saturate` lets you adjust color intensity with a single `values` attribute. Lower values become more black and white while higher values become super vibrant.
 
 <SaturationDemo />
 
 ### Hue rotate
 
-The `feColorMatrix` type `hueRotate` uses `0°` as your starting point and `360°` as all the way around back where you started. Anywhere in between is equivalent to shifting the `hue` value of an `hsl()` color.
+Like `saturate`, the type `hueRotate` uses a single `values` attribute. `0°` is your starting point and `360°` equals back where you started. Anywhere in between is similar to shifting the `hue` value of an `hsl()` color.
 
 <HueRotateDemo />
 

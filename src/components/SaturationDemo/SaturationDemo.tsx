@@ -19,10 +19,20 @@ export const SaturationDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div
-        className="mb-6 grid h-32 grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4"
-        style={{ filter: filterUrl }}
-      />
+      <div className="mb-6 flex gap-x-4">
+        <div
+          className="grid grow grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 will-change-[filter] md:grid-cols-4"
+          style={{ filter: filterUrl }}
+        />
+        <img
+          alt=""
+          className="aspect-square rounded-lg bg-gray-300 will-change-[filter]"
+          height="150"
+          src="https://fastly.picsum.photos/id/849/300/300.jpg?hmac=3LuuFM213tFx8cCevmOt7FgxtSVGXMcgW4BQQn4clHU"
+          style={{ filter: filterUrl }}
+          width="150"
+        />
+      </div>
 
       <div className="mb-4">
         <Range

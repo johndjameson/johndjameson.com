@@ -11,21 +11,21 @@ const presets = [
     matrix: [1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 1, 0],
   },
   {
-    name: "High Contrast",
-    matrix: [
-      2, 0, 0, 0, -0.5, 0, 2, 0, 0, -0.5, 0, 0, 2, 0, -0.5, 0, 0, 0, 1, 0,
-    ],
-  },
-  {
-    name: "Invert",
-    matrix: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0],
-  },
-  {
     name: "Vintage",
     matrix: [
       0.6, 0.3, 0.1, 0, 0.1, 0.2, 0.6, 0.2, 0, 0.1, 0.1, 0.2, 0.5, 0, 0.1, 0, 0,
       0, 1, 0,
     ],
+  },
+  {
+    name: "High Contrast",
+    matrix: [
+      1.2, 0, 0, 0, -0.1, 0, 1.2, 0, 0, -0.1, 0, 0, 1.2, 0, -0.1, 0, 0, 0, 1, 0,
+    ],
+  },
+  {
+    name: "Invert",
+    matrix: [-1, 0, 0, 0, 1, 0, -1, 0, 0, 1, 0, 0, -1, 0, 1, 0, 0, 0, 1, 0],
   },
 ];
 
@@ -43,13 +43,33 @@ export const ColorMatrixDemo: React.FC = () => {
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
       <div className="mb-6 grid grid-cols-2 gap-x-6">
-        <div
-          className="rounded-lg bg-gradient-to-br from-purple-500 to-blue-800 max-sm:aspect-square sm:h-40"
+        <div className="flex aspect-square gap-y-4 sm:flex-col">
+          <div className="grid grid-cols-3 gap-x-4 max-sm:hidden">
+            <div
+              className="aspect-square rounded-lg bg-linear-to-br/oklch from-red-500 to-red-800 will-change-[filter]"
+              style={{ filter: filterUrl }}
+            />
+            <div
+              className="aspect-square rounded-lg bg-linear-to-br/oklch from-green-500 to-green-800 will-change-[filter]"
+              style={{ filter: filterUrl }}
+            />
+            <div
+              className="aspect-square rounded-lg bg-linear-to-br/oklch from-blue-500 to-blue-800 will-change-[filter]"
+              style={{ filter: filterUrl }}
+            />
+          </div>
+          <div
+            className="grow rounded-lg bg-linear-to-br/longer from-[red] to-[red] will-change-[filter]"
+            style={{ filter: filterUrl }}
+          />
+        </div>
+        <img
+          alt=""
+          className="aspect-square rounded-lg bg-gray-300 will-change-[filter]"
+          height={400}
+          src="https://fastly.picsum.photos/id/511/800/800.jpg?hmac=CJTcQacWVMv2en9Vbro7yBAwnO-umVB_f8k6JaULo4Y"
           style={{ filter: filterUrl }}
-        />
-        <div
-          className="rounded-lg bg-linear-to-br/oklch from-red-500 to-purple-500 max-sm:aspect-square sm:h-40"
-          style={{ filter: filterUrl }}
+          width={400}
         />
       </div>
 
