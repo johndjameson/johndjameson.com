@@ -18,6 +18,7 @@ import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
 import { use } from "react";
+import { FaTriangleExclamation } from "react-icons/fa6";
 import slugify from "slugify";
 
 type Heading = "h2" | "h3" | "h4" | "h5" | "h6";
@@ -179,6 +180,19 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
           </time>
         </p>
       </div>
+
+      {post.archived && (
+        <div
+          className="mb-6 flex items-center gap-x-4 rounded-xl bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
+          role="note"
+        >
+          <FaTriangleExclamation className="shrink-0" size={24} />
+          <p className="text-base md:text-lg">
+            This post is archived and probably super out of date. Don’t say I
+            didn’t warn you!
+          </p>
+        </div>
+      )}
 
       <div
         className={clsx(

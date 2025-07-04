@@ -5,7 +5,7 @@ import { allExternalPosts, allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
 const combinedPosts = [
-  ...allPosts.filter((post) => !post.development),
+  ...allPosts.filter((post) => !post.development && !post.archived),
   ...allExternalPosts,
 ].sort((a, b) => compareDesc(new Date(a.date), new Date(b.date)));
 
