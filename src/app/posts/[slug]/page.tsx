@@ -146,9 +146,8 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
         <h1
           className={clsx(
             "font-heading mb-4 text-4xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
-            "sm:text-5xl/[0.95]",
-            "md:text-6xl/[0.95]",
-            "lg:text-7xl/[0.95]",
+            "md:text-5xl/[0.95]",
+            "lg:text-6xl/[0.95]",
             "first-line:text-[rgb(253_64_192)]",
           )}
         >
