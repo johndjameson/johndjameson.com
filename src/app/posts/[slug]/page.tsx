@@ -107,6 +107,7 @@ const mdxComponents: MDXComponents = {
   ),
   li: (props) => <li {...props} className="mb-1" />,
   ol: (props) => <ol {...props} className="list-decimal pl-8 md:pl-10" />,
+  p: (props) => <p {...props} className="text-pretty" />,
   // biome-ignore lint/suspicious/noExplicitAny: <pre> elements are code blocks handled by SyntaxHighlighter
   pre: SyntaxHighlighter as React.ComponentType<any>,
   ul: (props) => <ul {...props} className="list-disc pl-8 md:pl-10" />,
