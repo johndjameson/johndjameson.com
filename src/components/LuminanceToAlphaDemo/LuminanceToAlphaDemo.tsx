@@ -25,44 +25,33 @@ export const LuminanceToAlphaDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div className="bg-checkered mb-6 rounded-lg bg-gray-300 p-4">
-        <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-          <div
-            className="flex aspect-square items-center justify-center rounded-lg bg-white text-sm font-bold text-black"
-            style={{
-              filter: filterEnabled ? `url(#${filterId})` : "none",
-            }}
-          >
+      <div className="bg-checkered mb-6 rounded-lg bg-gray-300 p-4 [content-visibility:auto]">
+        <div
+          className="grid grid-cols-2 gap-4 will-change-[filter] md:grid-cols-4"
+          style={{
+            filter: filterEnabled ? `url(#${filterId})` : "none",
+          }}
+        >
+          <div className="flex aspect-square items-center justify-center rounded-lg bg-white text-sm font-bold text-black">
             White
           </div>
           <div
             className={clsx(
-              "flex aspect-square items-center justify-center rounded-lg will-change-[filter]",
+              "flex aspect-square items-center justify-center rounded-lg",
               "bg-linear-to-br from-white to-black",
               "text-sm font-bold text-white",
             )}
-            style={{
-              filter: filterEnabled ? `url(#${filterId})` : "none",
-            }}
           >
             White/Black
           </div>
-          <div
-            className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-br/oklch from-pink-500 to-blue-500 text-sm font-bold text-white shadow-lg"
-            style={{
-              filter: filterEnabled ? `url(#${filterId})` : "none",
-            }}
-          >
+          <div className="flex aspect-square items-center justify-center rounded-lg bg-linear-to-br/oklch from-pink-500 to-blue-500 text-sm font-bold text-white shadow-lg">
             Color
           </div>
           <img
             alt=""
-            className="aspect-square rounded-lg bg-gray-300 will-change-[filter]"
+            className="aspect-square rounded-lg bg-gray-300"
             height="150"
             src="https://fastly.picsum.photos/id/574/300/300.jpg?hmac=D8e1xkNmWFV7sZNtVa8nLzgusD4LendI-0RSMXM86wk"
-            style={{
-              filter: filterEnabled ? `url(#${filterId})` : "none",
-            }}
             width="150"
           />
         </div>

@@ -60,9 +60,9 @@ export const ColorMatrixControls: React.FC = () => {
     <div className="rounded-lg bg-gray-950 p-6">
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
-      <div className="bg-checkered mb-6 flex justify-center overflow-hidden rounded-lg bg-gray-300">
+      <div className="bg-checkered mb-6 flex justify-center overflow-hidden rounded-lg bg-gray-300 [content-visibility:auto]">
         <div
-          className="h-32 w-full bg-linear-to-r/longer from-red-500 to-red-500"
+          className="h-32 w-full bg-linear-to-r/longer from-red-500 to-red-500 will-change-[filter]"
           style={{
             filter: filterEnabled ? `url(#${filterId})` : "none",
           }}

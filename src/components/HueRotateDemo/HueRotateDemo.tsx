@@ -34,18 +34,16 @@ export const HueRotateDemo: React.FC = () => {
         </defs>
       </svg>
 
-      <div className="mb-6 flex gap-x-4">
-        <div
-          className="grid grow grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4"
-          style={{ filter: filterUrl }}
-        />
-
+      <div
+        className="mb-6 flex gap-x-4 will-change-[filter] [content-visibility:auto]"
+        style={{ filter: filterUrl }}
+      >
+        <div className="grid grow grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4" />
         <img
           alt=""
-          className="aspect-square rounded-lg bg-gray-300 will-change-[filter]"
+          className="aspect-square rounded-lg bg-gray-300"
           height="150"
           src="https://fastly.picsum.photos/id/674/300/300.jpg?hmac=VfiUNKIvgDHvUHdYMaz7o1kmDNEFCRNm7ng9EA_W5DE"
-          style={{ filter: filterUrl }}
           width="150"
         />
       </div>

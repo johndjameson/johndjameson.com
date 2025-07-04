@@ -42,33 +42,23 @@ export const ColorMatrixDemo: React.FC = () => {
     <div className="rounded-lg bg-gray-950 p-6">
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
-      <div className="mb-6 grid grid-cols-2 gap-x-6">
+      <div
+        className="mb-6 grid grid-cols-2 gap-x-6 will-change-[filter] [content-visibility:auto]"
+        style={{ filter: filterUrl }}
+      >
         <div className="flex aspect-square gap-y-4 sm:flex-col">
           <div className="grid grid-cols-3 gap-x-4 max-sm:hidden">
-            <div
-              className="aspect-square rounded-lg bg-linear-to-br/oklch from-red-500 to-red-800 will-change-[filter]"
-              style={{ filter: filterUrl }}
-            />
-            <div
-              className="aspect-square rounded-lg bg-linear-to-br/oklch from-green-500 to-green-800 will-change-[filter]"
-              style={{ filter: filterUrl }}
-            />
-            <div
-              className="aspect-square rounded-lg bg-linear-to-br/oklch from-blue-500 to-blue-800 will-change-[filter]"
-              style={{ filter: filterUrl }}
-            />
+            <div className="aspect-square rounded-lg bg-linear-to-br/oklch from-red-500 to-red-800 will-change-[filter]" />
+            <div className="aspect-square rounded-lg bg-linear-to-br/oklch from-green-500 to-green-800 will-change-[filter]" />
+            <div className="aspect-square rounded-lg bg-linear-to-br/oklch from-blue-500 to-blue-800 will-change-[filter]" />
           </div>
-          <div
-            className="grow rounded-lg bg-linear-to-br/longer from-[red] to-[red] will-change-[filter]"
-            style={{ filter: filterUrl }}
-          />
+          <div className="grow rounded-lg bg-linear-to-br/longer from-[red] to-[red] will-change-[filter]" />
         </div>
         <img
           alt=""
-          className="aspect-square rounded-lg bg-gray-300 will-change-[filter]"
+          className="aspect-square rounded-lg bg-gray-300 will-change-[filter] [content-visibility:auto]"
           height={400}
           src="https://fastly.picsum.photos/id/511/800/800.jpg?hmac=CJTcQacWVMv2en9Vbro7yBAwnO-umVB_f8k6JaULo4Y"
-          style={{ filter: filterUrl }}
           width={400}
         />
       </div>
