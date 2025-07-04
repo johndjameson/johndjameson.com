@@ -10,7 +10,7 @@ export const SaturationDemo: React.FC = () => {
   const filterUrl = `url(#${filterId})`;
 
   return (
-    <div className="rounded-lg bg-gray-950 p-6">
+    <div className="rounded-xl bg-gray-950 p-6">
       <svg className="sr-only" aria-hidden="true" width="0" height="0">
         <defs>
           <filter id={filterId}>

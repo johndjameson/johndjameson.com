@@ -47,7 +47,7 @@ export default function ChromaticTerminalDemo() {
   };
 
   return (
-    <div className="my-8 grid gap-y-6 rounded-lg border border-gray-700 bg-gray-950 p-6">
+    <div className="my-8 grid gap-y-6 rounded-xl border border-gray-700 bg-gray-950 p-6">
       <ChromaticAberrationFilter
         blueX={blueOffset}
         blueY={blueOffset / 4}

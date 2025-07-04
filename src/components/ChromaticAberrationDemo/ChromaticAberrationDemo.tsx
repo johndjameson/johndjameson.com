@@ -28,7 +28,7 @@ export default function ChromaticAberrationDemo() {
   };
 
   return (
-    <div className="grid gap-y-6 rounded-lg border bg-gray-950 p-6">
+    <div className="grid gap-y-6 rounded-xl border bg-gray-950 p-6">
       <div className="@container/demo">
         <ChromaticAberrationFilter
           id={`chromatic-aberration-${filterId}`}

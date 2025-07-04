@@ -2,7 +2,7 @@
   .highlighter {
     --syntax-highlighter-gutter: calc(var(--spacing) * 6);
     background: var(--color-gray-900);
-    border-radius: var(--radius-md);
+    border-radius: var(--radius-xl);
     color: #fff;
     container-type: inline-size;
     font-family: Monaco, Menlo, monospace;

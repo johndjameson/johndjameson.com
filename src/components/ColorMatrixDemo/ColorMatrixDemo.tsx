@@ -39,7 +39,7 @@ export const ColorMatrixDemo: React.FC = () => {
   };
 
   return (
-    <div className="rounded-lg bg-gray-950 p-6">
+    <div className="rounded-xl bg-gray-950 p-6">
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
       <div

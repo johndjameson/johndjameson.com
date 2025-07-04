@@ -25,7 +25,7 @@ export default function ChromaticShapesDemo() {
   };
 
   return (
-    <div className="rounded-lg bg-gray-950 p-6">
+    <div className="rounded-xl bg-gray-950 p-6">
       <div className="flex justify-center">
         <ChromaticAberrationFilter
           id="chromatic-shapes"

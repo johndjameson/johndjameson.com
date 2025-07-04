@@ -57,7 +57,7 @@ export const ColorMatrixControls: React.FC = () => {
   };
 
   return (
-    <div className="rounded-lg bg-gray-950 p-6">
+    <div className="rounded-xl bg-gray-950 p-6">
       <ColorMatrixFilter matrix={matrix} filterId={filterId} />
 
       <div className="bg-checkered mb-6 flex justify-center overflow-hidden rounded-lg bg-gray-300 [content-visibility:auto]">

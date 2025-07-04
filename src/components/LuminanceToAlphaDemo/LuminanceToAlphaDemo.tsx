@@ -10,7 +10,7 @@ export const LuminanceToAlphaDemo: React.FC = () => {
   const filterId = useId().replace(/\W/g, "");
 
   return (
-    <div className="rounded-lg bg-gray-950 p-6">
+    <div className="rounded-xl bg-gray-950 p-6">
       <svg
         className="sr-only"
         aria-hidden="true"

@@ -208,7 +208,7 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
         <div
           className={clsx(
             "flex items-center justify-center gap-x-2 p-4 py-8",
-            "rounded-2xl",
+            "rounded-xl",
             "bg-linear-to-br/oklch from-violet-50 to-violet-100",
           )}
         >
