@@ -1,24 +1,32 @@
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import { clsx } from "clsx";
 import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer className="px-container-w-narrow border-t border-slate-300 bg-slate-100 py-12">
-      <div className="flex flex-col space-y-6 md:items-center">
-        <div className="mb-6 text-pretty md:text-center">
-          <p className="mb-2 text-slate-700">
-            John D. Jameson is a front-end engineer in Austin, TX, with 12+
-            years of hands-on experience building web applications at companies
-            ranging from startups to Amazon.
+    <footer
+      className={clsx(
+        "px-container-w-narrow bg-indigo-900 py-12 text-indigo-50",
+        "md:py-16",
+      )}
+    >
+      <div className="flex flex-col md:items-center">
+        <div className="mb-12 text-pretty md:text-center">
+          <p className="mb-8 text-lg text-white md:text-xl">
+            <strong className="font-bold">John D. Jameson</strong> is a
+            front-end engineer in Austin, TX, with 12+ years of hands-on
+            experience building web applications at companies ranging from
+            startups to Amazon.
           </p>
 
-          <p className="text-slate-700">
+          <p className="rounded-xl bg-indigo-50 px-4 py-6 text-black md:text-lg">
             Want to reach out? Let’s connect on{" "}
             <DynamicLink
-              className="font-medium text-slate-700 underline transition-colors hover:text-slate-900"
+              className="inline-flex gap-x-1 font-medium text-[#0a66c2] underline underline-offset-3 transition-colors"
               href="https://www.linkedin.com/in/johndjameson"
             >
-              LinkedIn
+              <FaLinkedin className="self-center" size={24} />{" "}
+              <span className="self-baseline">LinkedIn</span>
             </DynamicLink>
             .
           </p>
@@ -26,29 +34,29 @@ export default function Footer() {
 
         <div className="flex space-x-6">
           <DynamicLink
-            className="text-slate-700 transition-colors hover:text-slate-900"
+            className="text-white transition-colors hover:text-indigo-400"
             href="https://www.linkedin.com/in/johndjameson"
           >
-            <FaLinkedin size={24} />
+            <FaLinkedin size={32} />
           </DynamicLink>
 
           <a
             href="https://github.com/johndjameson"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-700 transition-colors hover:text-slate-900"
+            className="text-white transition-colors hover:text-indigo-400"
             aria-label="GitHub"
           >
-            <FaGithub size={24} />
+            <FaGithub size={32} />
           </a>
           <a
             href="https://x.com/johndjameson"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-slate-700 transition-colors hover:text-slate-900"
+            className="text-white transition-colors hover:text-indigo-400"
             aria-label="X (Twitter)"
           >
-            <FaXTwitter size={24} />
+            <FaXTwitter size={32} />
           </a>
         </div>
       </div>
