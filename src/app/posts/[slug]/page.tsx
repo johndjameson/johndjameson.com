@@ -10,7 +10,7 @@ import { ColorMatrixDemo } from "@/components/ColorMatrixDemo/ColorMatrixDemo";
 import { HueRotateDemo } from "@/components/HueRotateDemo/HueRotateDemo";
 import { LuminanceToAlphaDemo } from "@/components/LuminanceToAlphaDemo/LuminanceToAlphaDemo";
 import { SaturationDemo } from "@/components/SaturationDemo/SaturationDemo";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
 import { format, parseISO, addHours } from "date-fns";
 import type { MDXComponents } from "mdx/types";
@@ -159,12 +159,12 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <div className="mt-10 mb-8">
+      <div className={clsx("mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-4xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
-            "md:text-5xl/[0.95]",
-            "lg:text-6xl/[0.95]",
+            "font-heading mb-4 text-4xl font-black text-pretty text-[rgb(107_95_232)]",
+            "md:text-5xl",
+            "lg:text-6xl",
             "first-line:text-[rgb(253_64_192)]",
           )}
         >
