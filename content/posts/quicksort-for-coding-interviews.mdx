@@ -1,0 +1,164 @@
+---
+archived: false
+date: 2025-07-04
+description: Quicksort is the best. It’s fast and easy to write in coding interviews. Here are my go-to variants written in TypeScript.
+title: Quicksort for Coding Interviews
+---
+
+I’ve been relearning a bunch about sorting algorithms lately. On top of that, I’ve been practicing writing sorting algorithms from memory in high-stress situations, like coding interviews for example. No particular reason.
+
+That context is to set up the fact that I love quicksort. It’s fast, easy to understand, and most importantly: it’s easy to write under pressure.
+
+If I need a stable, memory-efficient sort, I’ll use **insertion sort**; if I need a stable sort and don’t care about memory, I’ll use **merge sort**; but if I want the fastest sort I’m still smart enough to write, I’ll use **quicksort**. Maybe that approach makes sense to you too.
+
+If you’re looking for a post about an easy-to-remember sorting algorithm with some talking points for optimization, this is that post.
+
+## The short version
+
+The most compact, dependable version of quicksort I know is this:
+
+```typescript
+function quickSort(array: number[]): number[] {
+  if (array.length < 2) return array;
+
+  const [pivot, ...rest] = array;
+  const low = rest.filter((x) => x <= pivot);
+  const high = rest.filter((x) => x > pivot);
+
+  return [...quickSort(low), pivot, ...quickSort(high)];
+};
+```
+
+Minus the whitespace and `function` boilerplate, it’s 5 lines of logic to remember.
+
+How does it work? [Ask Claude](https://claude.ai/share/8f3947a9-7682-4ede-abc4-d6e26d4230fd).
+
+## Optimizations
+
+The quick-and-easy version of quicksort makes a couple trade-offs to stay compact. Mainly:
+
+- Using an index `0` pivot for inputs that are already sorted.
+- Iterating over every `array` element with multiple `filter()` calls.
+
+Let’s clean this up a little and explain along the way. These optimizations are all “nice to haves” in the context of a coding interview, but a good way to burn time and prove you know what you’re talking about.
+
+### Optimization 1: sorted input
+
+If your input data is already sorted (or mostly sorted), then you should use a random pivot to split the resulting arrays into similar lengths:
+
+```typescript
+function quickSort(array: number[]): number[] {
+  if (array.length < 2) return array;
+
+  // Choose random pivot instead of the first element.
+  const pivot = array[Math.floor(Math.random() * array.length)];
+  const low = array.filter((x) => x < pivot); // Replace <= with <
+  const mid = array.filter((x) => x === pivot); // Equal values in own array
+  const high = array.filter((x) => x > pivot);
+
+  // Spread mid values instead of using pivot
+  return [...quickSort(low), ...mid, ...quickSort(high)];
+};
+```
+
+This spreads the data over fewer recursions, meaning fewer comparisons overall. **Faster** if your input is pre-sorted.
+
+### Optimization 2: one iteration per call
+
+Right now, the “quick and easy” version iterates through all `array` elements per each sub-array. If we iterate once, we can reduce runtime at the expense of more lines of code to get right:
+
+```typescript
+function quickSort(array: number[]): number[] {
+  if (array.length < 2) return array;
+
+  const pivot = array[Math.floor(Math.random() * array.length)];
+  const low: number[] = [];
+  const mid: number[] = [];
+  const high: number[] = [];
+
+  // Iterate once instead of once per filter()
+  for (const x of array) {
+    if (x < pivot) {
+      low.push(x);
+    } else if (x > pivot) {
+      high.push(x);
+    } else {
+      mid.push(x);
+    }
+  }
+
+  return [...quickSort(low), ...mid, ...quickSort(high)];
+};
+```
+
+**Faster** if you don’t mind the added lines of code.
+
+### Optimization 3: exclude the pivot
+
+If the input data is random, we can go back to using the first element destructued as a `pivot`. With that excluded for the iterated `rest` array, we’re able to shorten the amount of work needed in follow-up logic:
+
+```typescript
+function quickSort(array: number[]): number[] {
+  if (array.length < 2) return array;
+
+  // Restore pivot destructuring to reduce iterated `rest` array size.
+  const [pivot, ...rest] = array;
+  const low: number[] = [];
+  const high: number[] = [];
+
+  // Make sure to actually use `rest` instead of `array` in the loop.
+  for (const x of rest) {
+    if (x <= pivot) {
+      low.push(x);
+    } else if (x > pivot) {
+      high.push(x);
+    }
+  }
+
+  return [...quickSort(low), pivot, ...quickSort(high)];
+};
+```
+
+The **fastest** approach here if your input data is **not** pre-sorted.
+
+## Shortest version
+
+Say you want the most compact quicksort that’s still reasonably readable — here’s what I’ve got:
+
+```typescript
+function qs(a: number[]): number[] {
+  if (a.length < 2) return a;
+  const [p, ...r] = a;
+  return [...qs(r.filter((x) => x <= p)), p, ...qs(r.filter((x) => x > p))];
+};
+```
+
+## Add a comparator
+
+Need to sort something other than numbers?
+
+Here you go:
+
+```typescript
+function quickSort<T>(array: T[], compare: (a: T, b: T) => number): T[] {
+  if (array.length < 2) return array;
+
+  const [pivot, ...rest] = array;
+  const low = rest.filter((x) => compare(x, pivot) <= 0);
+  const high = rest.filter((x) => compare(x, pivot) > 0);
+
+  return [...quickSort(low, compare), pivot, ...quickSort(high, compare)];
+}
+```
+
+Now you can sort whatever you want. Usage looks like this for strings:
+
+```typescript
+quickSortCompare(["a", "z", "4", "cc", "test"], (a, b) => a.localeCompare(b)),
+```
+
+All optimizations for previous steps still apply and can be added with the same constraints.
+
+## That’s it
+
+Nothing to say here. Just that I’ve been back to basics on some sorting algorithms and these quicksort variants are worth writing down while top of mind.
