@@ -78,19 +78,35 @@ const mdxComponents: MDXComponents = {
     throw new Error("Don’t put an h1 in Markdown content");
   },
   h2: (props) => (
-    <Heading {...props} className="text-2xl md:text-3xl" level="h2" />
+    <Heading
+      {...props}
+      className="text-2xl text-pretty md:text-3xl"
+      level="h2"
+    />
   ),
   h3: (props) => (
-    <Heading {...props} className="text-xl md:text-2xl" level="h3" />
+    <Heading
+      {...props}
+      className="text-xl text-pretty md:text-2xl"
+      level="h3"
+    />
   ),
   h4: (props) => (
-    <Heading {...props} className="text-lg md:text-xl" level="h4" />
+    <Heading {...props} className="text-lg text-pretty md:text-xl" level="h4" />
   ),
   h5: (props) => (
-    <Heading {...props} className="text-base md:text-lg" level="h5" />
+    <Heading
+      {...props}
+      className="text-base text-pretty md:text-lg"
+      level="h5"
+    />
   ),
   h6: (props) => (
-    <Heading {...props} className="text-sm md:text-base" level="h6" />
+    <Heading
+      {...props}
+      className="text-sm text-pretty md:text-base"
+      level="h6"
+    />
   ),
   iframe: (props) => (
     <iframe {...props} className="aspect-video h-auto w-full" />
