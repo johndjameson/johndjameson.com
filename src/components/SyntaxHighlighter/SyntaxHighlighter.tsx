@@ -6,11 +6,13 @@ import css from "@/components/SyntaxHighlighter/SyntaxHighlighter.module.css";
 import theme from "@/components/SyntaxHighlighter/theme";
 import { clsx } from "clsx";
 import { Highlight } from "prism-react-renderer";
+import { FaCopy, FaCheck } from "react-icons/fa6";
 
 const displayLanguages = {
   css: "CSS",
   html: "HTML",
   javascript: "JavaScript",
+  typescript: "TypeScript",
   plain: "Plain Text",
   scss: "SCSS",
   shell: "Shell",
@@ -38,6 +40,8 @@ function SyntaxHighlighter({
   showCopy = false,
   ...moreProps
 }: SyntaxHighlighterProps) {
+  const [isCopied, setIsCopied] = React.useState(false);
+
   if (!React.isValidElement(children)) {
     return null;
   }
@@ -58,6 +62,8 @@ function SyntaxHighlighter({
   const copyCode = async () => {
     try {
       await navigator.clipboard.writeText(text);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 1000);
     } catch (err) {
       console.error("Failed to copy code:", err);
     }
@@ -80,17 +86,7 @@ function SyntaxHighlighter({
           )}
           title="Copy code"
         >
-          <svg
-            width="14"
-            height="14"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-          >
-            <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-            <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
-          </svg>
+          {isCopied ? <FaCheck size={14} /> : <FaCopy size={14} />}
         </button>
       </div>
 
