@@ -4,13 +4,14 @@ import ChromaticShapesDemo from "@/components/ChromaticShapesDemo/ChromaticShape
 import ChromaticTerminalDemo from "@/components/ChromaticTerminalDemo/ChromaticTerminalDemo";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import { SocialShare } from "@/components/SocialShare/SocialShare";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import { ColorMatrixControls } from "@/components/ColorMatrixControls/ColorMatrixControls";
 import { ColorMatrixDemo } from "@/components/ColorMatrixDemo/ColorMatrixDemo";
 import { HueRotateDemo } from "@/components/HueRotateDemo/HueRotateDemo";
 import { LuminanceToAlphaDemo } from "@/components/LuminanceToAlphaDemo/LuminanceToAlphaDemo";
 import { SaturationDemo } from "@/components/SaturationDemo/SaturationDemo";
-import clsx from "clsx";
+import { clsx } from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
 import { format, parseISO, addHours } from "date-fns";
 import type { MDXComponents } from "mdx/types";
@@ -50,7 +51,7 @@ const mdxComponents: MDXComponents = {
   a: (props) => (
     <DynamicLink
       {...props}
-      className="font-medium text-[rgb(223_0_151)] underline transition hover:text-[rgb(170_0_115)]"
+      className="font-medium text-[rgb(223_0_151)] underline underline-offset-3 transition hover:text-[rgb(170_0_115)]"
     />
   ),
   ChromaticAberrationDemo,
@@ -156,15 +157,16 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
   if (!post) throw new Error(`Post not found for slug: ${params.slug}`);
 
   const MDXContent = useMDXComponent(post.body.code);
+  const postUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://johndjameson.com"}/posts/${post.slug}`;
 
   return (
     <article className="px-container-w-narrow">
-      <div className="mt-10 mb-8">
+      <div className={clsx("mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-4xl/[0.95] font-black text-pretty text-[rgb(107_95_232)]",
-            "md:text-5xl/[0.95]",
-            "lg:text-6xl/[0.95]",
+            "font-heading mb-4 text-4xl font-black text-pretty text-[rgb(107_95_232)]",
+            "md:text-5xl",
+            "lg:text-6xl",
             "first-line:text-[rgb(253_64_192)]",
           )}
         >
@@ -180,12 +182,27 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
       <div
         className={clsx(
-          "pb-8 text-base *:mb-4",
+          "pb-4 text-base *:mb-4",
           "sm:text-lg/[1.5]",
-          "md:pb-16 md:text-xl/[1.5] md:*:mb-6",
+          "md:pb-6 md:text-xl/[1.5] md:*:mb-6",
         )}
       >
         <MDXContent components={mdxComponents} />
+      </div>
+
+      <div className={clsx("mb-12", "md:mb-16")}>
+        <div
+          className={clsx(
+            "flex items-center justify-center gap-x-2 p-4 py-8",
+            "rounded-2xl",
+            "bg-linear-to-br/oklch from-violet-50 to-violet-100",
+          )}
+        >
+          <p className="font-medium text-slate-700 select-none">
+            Share this post
+          </p>
+          <SocialShare href={postUrl} title={post.title} />
+        </div>
       </div>
     </article>
   );
