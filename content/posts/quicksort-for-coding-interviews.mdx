@@ -119,7 +119,7 @@ function quickSort(array: number[]): number[] {
 };
 ```
 
-The **fastest** approach here if your input data is **not** pre-sorted.
+This one’s the **fastest** approach here if your input data is **not** pre-sorted.
 
 ## Shortest version
 
@@ -137,8 +137,6 @@ function qs(a: number[]): number[] {
 
 Need to sort something other than numbers?
 
-Here you go:
-
 ```typescript
 function quickSort<T>(array: T[], compare: (a: T, b: T) => number): T[] {
   if (array.length < 2) return array;
@@ -154,7 +152,7 @@ function quickSort<T>(array: T[], compare: (a: T, b: T) => number): T[] {
 Now you can sort whatever you want. Usage looks like this for strings:
 
 ```typescript
-quickSortCompare(["a", "z", "4", "cc", "test"], (a, b) => a.localeCompare(b)),
+quickSort(["a", "z", "4", "cc", "test"], (a, b) => a.localeCompare(b)),
 ```
 
 All optimizations for previous steps still apply and can be added with the same constraints.
