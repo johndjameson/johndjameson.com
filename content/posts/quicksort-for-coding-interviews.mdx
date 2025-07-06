@@ -80,10 +80,10 @@ function quickSort(array: number[]): number[] {
   for (const x of array) {
     if (x < pivot) {
       low.push(x);
-    } else if (x > pivot) {
-      high.push(x);
-    } else {
+    } else if (x === pivot) {
       mid.push(x);
+    } else {
+      high.push(x);
     }
   }
 
@@ -110,7 +110,7 @@ function quickSort(array: number[]): number[] {
   for (const x of rest) {
     if (x <= pivot) {
       low.push(x);
-    } else if (x > pivot) {
+    } else {
       high.push(x);
     }
   }
