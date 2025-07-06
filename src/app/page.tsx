@@ -1,4 +1,5 @@
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import { Hero } from "@/components/Hero/Hero";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 import { publications } from "@/constants/publications";
 import { allExternalPosts, allPosts } from "contentlayer/generated";
@@ -17,15 +18,7 @@ export default function Home() {
       </VisuallyHidden>
 
       <div className="px-container-w pb-8 md:pb-16">
-        <div className="mt-6 mb-12">
-          <img
-            alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
-            className="rounded-md bg-[#2b206d] text-white"
-            height={600}
-            width={1280}
-            src="/images/hero.svg"
-          />
-        </div>
+        <Hero className="mt-6 mb-12" />
 
         <h2 className="font-heading mb-6 text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
           Posts
