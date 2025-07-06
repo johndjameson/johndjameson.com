@@ -6,7 +6,7 @@ interface HeroProps {
 
 export const Hero = ({ className }: HeroProps) => {
   return (
-    <div className={className}>
+    <div className={clsx("overflow-hidden rounded-xl", className)}>
       <svg className="sr-only" aria-hidden="true">
         <defs>
           <filter id="hero-wiggle">
