@@ -2,6 +2,7 @@ import DynamicLink from "@/components/DynamicLink/DynamicLink";
 import { Hero } from "@/components/Hero/Hero";
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
 import { publications } from "@/constants/publications";
+import { clsx } from "clsx";
 import { allExternalPosts, allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 
@@ -43,7 +44,14 @@ export default function Home() {
                   />
                 )}
                 <h3 className="font-heading mb-2 text-xl font-bold md:text-2xl">
-                  <DynamicLink className="hover:underline" href={post.url}>
+                  <DynamicLink
+                    className={clsx(
+                      // "decoration-[0.075em] underline-offset-[0.25em]",
+                      "hover:text-[rgb(223_0_151)] hover:underline",
+                      "motion-safe:hover:filter-[url('#link-wiggle')]",
+                    )}
+                    href={post.url}
+                  >
                     {post.title}
                   </DynamicLink>
                 </h3>

@@ -52,7 +52,10 @@ const mdxComponents: MDXComponents = {
   a: (props) => (
     <DynamicLink
       {...props}
-      className="font-medium text-[rgb(223_0_151)] underline underline-offset-3 transition hover:text-[rgb(170_0_115)]"
+      className={clsx(
+        "font-medium underline transition hover:text-[rgb(223_0_151)]",
+        "motion-safe:hover:filter-[url('#link-wiggle')]",
+      )}
     />
   ),
   ChromaticAberrationDemo,
