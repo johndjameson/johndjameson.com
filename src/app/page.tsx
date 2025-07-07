@@ -14,13 +14,14 @@ const combinedPosts = [
 export default function Home() {
   return (
     <>
-      <VisuallyHidden as="h1">
-        John D. Jameson, Front-End Engineer
-      </VisuallyHidden>
+      <section className="md:px-container-w mb-12 md:mt-6">
+        <VisuallyHidden as="h1">
+          John D. Jameson, Front-End Engineer
+        </VisuallyHidden>
+        <Hero />
+      </section>
 
-      <div className="px-container-w pb-8 md:pb-16">
-        <Hero className="mt-6 mb-12" />
-
+      <section className="px-container-w pb-8 md:pb-16">
         <h2 className="font-heading mb-6 text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
           Posts
         </h2>
@@ -60,7 +61,7 @@ export default function Home() {
             );
           })}
         </div>
-      </div>
+      </section>
     </>
   );
 }
