@@ -188,14 +188,14 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
       <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.75] font-black text-pretty text-[rgb(107_95_232)]",
-            "text-shadow-[0px_-3px_0_oklch(0.66_0.2_283.35),var(--post-shadow)]",
-            "first-line:text-[rgb(253_64_192)] first-line:text-shadow-[0px_-3px_0_oklch(0.78_0.22_342.82),var(--post-shadow)]",
+            "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.8] font-black text-pretty text-[rgb(107_95_232)]",
+            "text-shadow-[0px_-2px_0_oklch(0.66_0.2_283.35),var(--post-shadow)]",
+            "first-line:text-[rgb(253_64_192)] first-line:text-shadow-[0px_-2px_0_oklch(0.78_0.22_342.82),var(--post-shadow)]",
             "filter-[url('#post-wiggle-static')]",
           )}
           style={
             {
-              "--post-shadow": "2px 2px 0 black",
+              "--post-shadow": "0px 2px 0 black",
               "--post-title-size": post.titleSize
                 ? `${post.titleSize}cqw`
                 : "16cqw",
