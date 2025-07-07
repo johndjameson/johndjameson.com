@@ -17,7 +17,7 @@ import { format, parseISO, addHours } from "date-fns";
 import type { MDXComponents } from "mdx/types";
 import type { Metadata } from "next";
 import { useMDXComponent } from "next-contentlayer2/hooks";
-import { use } from "react";
+import { CSSProperties, use } from "react";
 import { FaTriangleExclamation } from "react-icons/fa6";
 import slugify from "slugify";
 
@@ -165,14 +165,42 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <div className={clsx("mt-10 mb-8", "md:mt-16")}>
+      <svg aria-hidden={true} className="sr-only">
+        <defs>
+          <filter id="post-wiggle-static">
+            <feTurbulence
+              baseFrequency={0.01}
+              numOctaves={1}
+              type="fractalNoise"
+              result="turbulence"
+            />
+            <feDisplacementMap
+              in="SourceGraphic"
+              in2="turbulence"
+              scale="20"
+              xChannelSelector="R"
+              yChannelSelector="G"
+            />
+          </filter>
+        </defs>
+      </svg>
+
+      <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-4xl font-black text-pretty text-[rgb(107_95_232)]",
-            "md:text-5xl",
-            "lg:text-6xl",
-            "first-line:text-[rgb(253_64_192)]",
+            "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.8] font-black text-pretty text-[rgb(107_95_232)]",
+            "text-shadow-[0px_-2px_0_oklch(0.66_0.2_283.35),var(--post-shadow)]",
+            "first-line:text-[rgb(253_64_192)] first-line:text-shadow-[0px_-2px_0_oklch(0.78_0.22_342.82),var(--post-shadow)]",
+            "filter-[url('#post-wiggle-static')]",
           )}
+          style={
+            {
+              "--post-shadow": "0px 2px 0 black",
+              "--post-title-size": post.titleSize
+                ? `${post.titleSize}cqw`
+                : "16cqw",
+            } as CSSProperties
+          }
         >
           {post.title}
         </h1>
