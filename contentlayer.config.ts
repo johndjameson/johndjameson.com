@@ -33,6 +33,7 @@ export const Post = defineDocumentType(() => ({
     description: { type: "string", required: true },
     publication: publicationField,
     title: { type: "string", required: true },
+    titleSize: { type: "number" },
   },
   computedFields: {
     slug: {

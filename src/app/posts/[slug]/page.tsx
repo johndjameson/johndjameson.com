@@ -196,7 +196,9 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
           style={
             {
               "--post-shadow": "2px 2px 0 black",
-              "--post-title-size": "16cqw",
+              "--post-title-size": post.titleSize
+                ? `${post.titleSize}cqw`
+                : "16cqw",
             } as CSSProperties
           }
         >
