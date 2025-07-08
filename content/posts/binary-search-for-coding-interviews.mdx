@@ -1,0 +1,46 @@
+---
+date: 2025-07-08
+description: Binary search is the best. It’s fast and easy to write in coding interviews. Here are my go-to variants written in TypeScript.
+title: Binary Search for Coding Interviews
+titleSize: 12.4
+---
+
+
+
+## The short version
+
+The most compact, dependable version of quicksort I know is this:
+
+```typescript
+const binarySearch = (array: number[], target: number): number => {
+  let left = 0;
+  let right = array.length - 1;
+
+  while (left <= right) {
+    const mid = Math.floor((left + right) / 2);
+
+    if (array[mid] === target) return mid;
+    if (array[mid] < target) {
+      left = mid + 1;
+    } else {
+      right = mid - 1;
+    }
+  }
+
+  return -1;
+};
+```
+
+## Shortest version
+
+```typescript
+function bs(a: number[], t: number) {
+  let l = 0, r = a.length - 1;
+  while (l <= r) {
+    let m = (l + r) >> 1;
+    if (a[m] === t) return m;
+    a[m] < t ? l = m + 1 : r = m - 1;
+  }
+  return -1;
+}
+```
