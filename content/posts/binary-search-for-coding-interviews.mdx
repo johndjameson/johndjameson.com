@@ -13,17 +13,18 @@ The most compact, dependable version of quicksort I know is this:
 
 ```typescript
 const binarySearch = (array: number[], target: number): number => {
-  let left = 0;
-  let right = array.length - 1;
+  let leftIndex = 0;
+  let rightIndex = array.length - 1;
 
-  while (left <= right) {
-    const mid = Math.floor((left + right) / 2);
+  while (leftIndex <= rightIndex) {
+    const midIndex = Math.floor((leftIndex + rightIndex) / 2);
 
-    if (array[mid] === target) return mid;
-    if (array[mid] < target) {
-      left = mid + 1;
+    if (array[midIndex] === target) return midIndex;
+
+    if (array[midIndex] < target) {
+      leftIndex = midIndex + 1;
     } else {
-      right = mid - 1;
+      rightIndex = midIndex - 1;
     }
   }
 
