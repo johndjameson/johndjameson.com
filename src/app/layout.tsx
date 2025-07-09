@@ -23,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US" className={inter.variable}>
-      <body className="isolate">
+      <body className="isolate flex min-h-screen flex-col">
         <svg aria-hidden={true} className="sr-only">
           <defs>
             <filter id="link-wiggle">
@@ -51,7 +51,7 @@ export default function RootLayout({
           </defs>
         </svg>
         <Header className="z-10" />
-        {children}
+        <div className="grow">{children}</div>
         <Footer />
       </body>
     </html>
