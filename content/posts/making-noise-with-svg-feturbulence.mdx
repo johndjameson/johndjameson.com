@@ -1,0 +1,210 @@
+---
+title: Making Noise with SVG feTurbulence
+date: 2025-07-11
+description: Create organic textures, clouds, fire, water, and abstract patterns using the feTurbulence SVG filter primitive.
+titleSize: 12
+---
+
+The `<feTurbulence>` SVG filter is your gateway to creating organic, natural-looking textures directly in the browser. Unlike geometric patterns or gradients, turbulence generates pseudo-random noise that mimics the chaotic beauty found in nature - think clouds, fire, water ripples, or marble textures.
+
+<TurbulenceDemo />
+
+At its core, `<feTurbulence>` uses **Perlin noise** - a mathematical function that creates smooth, natural-looking randomness. It's the same algorithm used in procedural graphics for decades, from early computer graphics to modern game engines.
+
+## How it works
+
+The `<feTurbulence>` filter generates noise patterns based on several key attributes:
+
+1. **baseFrequency** - Controls the scale of the noise (how "zoomed in" it appears)
+2. **numOctaves** - Adds layers of detail at different scales
+3. **type** - Chooses between "fractalNoise" and "turbulence" algorithms
+4. **seed** - Sets the random starting point for reproducible patterns
+
+Here's the basic markup:
+
+```svg
+<svg>
+  <defs>
+    <filter id="noise-texture">
+      <feTurbulence
+        baseFrequency="0.1"
+        numOctaves="3"
+        type="fractalNoise"
+        seed="2"
+        result="noise"
+      />
+      <feColorMatrix
+        in="noise"
+        type="saturate"
+        values="0"
+        result="grayscaleNoise"
+      />
+    </filter>
+  </defs>
+</svg>
+```
+
+Apply it with CSS:
+
+```css
+.noise-texture {
+  filter: url('#noise-texture');
+}
+```
+
+## Understanding baseFrequency
+
+The `baseFrequency` attribute controls the scale of your noise pattern. Think of it like a zoom level:
+
+- **Low values (0.01-0.1)** - Large, broad patterns like clouds or marble
+- **Medium values (0.1-0.5)** - Medium-scale textures like wood grain
+- **High values (0.5-2.0)** - Fine, detailed noise like sand or fabric
+
+<FrequencyDemo />
+
+You can also specify different frequencies for X and Y axes: `baseFrequency="0.1 0.3"` creates stretched or compressed patterns.
+
+## Adding detail with numOctaves
+
+The `numOctaves` attribute layers multiple noise patterns at different scales, creating more natural-looking complexity:
+
+<OctavesDemo />
+
+Each octave adds detail at half the frequency of the previous one. More octaves mean more computational cost, so stick to 1-4 for most use cases.
+
+## Noise types: fractalNoise vs turbulence
+
+The `type` attribute gives you two different noise algorithms:
+
+**fractalNoise** - Smooth, flowing patterns perfect for:
+- Cloud textures
+- Marble effects  
+- Organic shapes
+- Subtle background textures
+
+**turbulence** - Sharp, chaotic patterns ideal for:
+- Fire and explosions
+- Lightning effects
+- Abstract art
+- High-contrast textures
+
+<NoiseTypeDemo />
+
+## Creating textures with color
+
+Raw `<feTurbulence>` outputs grayscale noise, but you can colorize it using `<feColorMatrix>` or `<feComponentTransfer>`:
+
+```svg
+<filter id="blue-marble">
+  <feTurbulence
+    baseFrequency="0.08"
+    numOctaves="4"
+    type="fractalNoise"
+    seed="5"
+    result="noise"
+  />
+  <feColorMatrix
+    in="noise"
+    type="matrix"
+    values="0 0 0 0 0.2
+            0 0 0 0 0.4
+            0 0 0 0 0.8
+            0 0 0 1 0"
+    result="blueNoise"
+  />
+</filter>
+```
+
+<ColorizedNoiseDemo />
+
+## Displacement effects
+
+One of the most powerful uses of `<feTurbulence>` is creating displacement maps with `<feDisplacementMap>`. This warps elements based on the noise pattern:
+
+```svg
+<filter id="water-ripple">
+  <feTurbulence
+    baseFrequency="0.02"
+    numOctaves="2"
+    type="fractalNoise"
+    seed="1"
+    result="noise"
+  />
+  <feDisplacementMap
+    in="SourceGraphic"
+    in2="noise"
+    scale="10"
+    xChannelSelector="R"
+    yChannelSelector="G"
+  />
+</filter>
+```
+
+<DisplacementDemo />
+
+## Performance considerations
+
+`<feTurbulence>` can be computationally expensive, especially with:
+- High `baseFrequency` values
+- Many `numOctaves`
+- Large filtered areas
+
+For animated or interactive elements, consider:
+- Using `will-change: filter` in CSS
+- Limiting to 2-3 octaves max
+- Pre-generating static noise textures when possible
+
+## React component
+
+Here's a flexible React component for generating turbulence effects:
+
+```tsx
+interface TurbulenceFilterProps {
+  baseFrequency?: number | string;
+  id: string;
+  numOctaves?: number;
+  seed?: number;
+  type?: 'fractalNoise' | 'turbulence';
+}
+
+export const TurbulenceFilter: React.FC<TurbulenceFilterProps> = ({
+  baseFrequency = 0.1,
+  id,
+  numOctaves = 3,
+  seed = 2,
+  type = 'fractalNoise',
+}) => (
+  <svg
+    aria-hidden="true"
+    className="sr-only"
+    height="1"
+    viewBox="0 0 1 1"
+    width="1"
+  >
+    <defs>
+      <filter id={id}>
+        <feTurbulence
+          baseFrequency={baseFrequency}
+          numOctaves={numOctaves}
+          type={type}
+          seed={seed}
+          result="turbulence"
+        />
+        <feColorMatrix
+          in="turbulence"
+          type="saturate"
+          values="0"
+        />
+      </filter>
+    </defs>
+  </svg>
+);
+```
+
+## Wrap up
+
+`<feTurbulence>` opens up a world of organic, natural textures that would be impossible to create with CSS alone. Whether you're building subtle background textures or dramatic visual effects, this filter primitive gives you the power of procedural generation right in the browser.
+
+Experiment with different frequency and octave combinations to discover your own unique textures. The possibilities are literally infinite - each seed value generates a completely different pattern.
+
+What textures will you create? Share your experiments on [LinkedIn](https://www.linkedin.com/in/johndjameson/) or [Twitter](https://x.com/johndjameson).

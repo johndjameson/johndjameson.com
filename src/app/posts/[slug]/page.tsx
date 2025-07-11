@@ -11,6 +11,12 @@ import { ColorMatrixDemo } from "@/components/ColorMatrixDemo/ColorMatrixDemo";
 import { HueRotateDemo } from "@/components/HueRotateDemo/HueRotateDemo";
 import { LuminanceToAlphaDemo } from "@/components/LuminanceToAlphaDemo/LuminanceToAlphaDemo";
 import { SaturationDemo } from "@/components/SaturationDemo/SaturationDemo";
+import { TurbulenceDemo } from "@/components/TurbulenceDemo/TurbulenceDemo";
+import { FrequencyDemo } from "@/components/FrequencyDemo/FrequencyDemo";
+import { OctavesDemo } from "@/components/OctavesDemo/OctavesDemo";
+import { NoiseTypeDemo } from "@/components/NoiseTypeDemo/NoiseTypeDemo";
+import { ColorizedNoiseDemo } from "@/components/ColorizedNoiseDemo/ColorizedNoiseDemo";
+import { DisplacementDemo } from "@/components/DisplacementDemo/DisplacementDemo";
 import { clsx } from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
 import { format, parseISO, addHours } from "date-fns";
@@ -67,6 +73,12 @@ const mdxComponents: MDXComponents = {
   ColorMatrixControls,
   ColorMatrixDemo,
   HueRotateDemo,
+  TurbulenceDemo,
+  FrequencyDemo,
+  OctavesDemo,
+  NoiseTypeDemo,
+  ColorizedNoiseDemo,
+  DisplacementDemo,
   code: (props) => {
     return (
       <code
