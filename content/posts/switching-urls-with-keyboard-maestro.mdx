@@ -1,0 +1,58 @@
+---
+date: 2025-09-28
+description: Switching between production and development environments can be as easy as a single keyboard shortcut when using Keyboard Maestro.
+title: Switching URLs with Keyboard Maestro
+titleSize: 11.5
+---
+
+As a professional software engineer, a common on-the-job need is quickly switching between production and development environments to compare differences. If there’s an issue in dev, I want to check prod to make sure it’s not affecting customers. If the issue’s in prod, I want to check dev to reproduce the issue locally and start fixing it.
+
+I’ve been learning how to use [Astro](https://astro.build/) lately thanks to its performance-centric [server islands](https://docs.astro.build/en/guides/server-islands/) architecture. Right now, one of the biggest Astro repositories available to the public is the [Cloudflare documentation website](https://github.com/cloudflare/cloudflare-docs). I have a few improvements I’d like to contribute to their codebase and part of my workflow has involved switching between development and production to compare changes — a common need for front-end engineers.
+
+Using [Keyboard Maestro](https://www.keyboardmaestro.com/), switching environments has been as quick as a single <kbd>Ctrl+E</kbd> keyboard shortcut to toggle environment URLs.
+
+<video autoPlay controls loop muted playsInline>
+  <source src="https://jdj.land/video-environment-toggle-cloudflare.mp4" type="video/mp4" />
+</video>
+
+One press and I’m able to switch between production, development, and then back with another keypress.
+
+## Keyboard Maestro
+
+So what is Keyboard Maestro? Keyboard Maestro is a macOS productivity and automation app that allows you to design multi-application workflows with a completely visual interface. I was introduced to Keyboard Maestro thanks to [Drew Barontini](https://drewbarontini.com/) and it’s been an invaluable part of my development workflow over the past decade.
+
+Keyboard Maestro can do everything. It can write dynamic snippets like fake email addresses for testing; it can manage your windows by focusing certain apps and moving them; it can intercept keyboard shortcuts so `⌘+R` refreshes Chrome instead of your code editor; it can really do anything and everything.
+
+For the scope of this post, we’re going to create a new macro to swap the active URL in Google Chrome.
+
+## Creating a new macro
+
+The macro works by capturing the current URL in Chrome, then using a switch statement to detect which environment we're in currently and replace it with the alternate environment. Here's how the logic works:
+
+1. **Store in a variable**: Chrome's current URL gets stored in a variable called `TheURL`.
+2. **Switch logic**: A switch/case block checks the URL and replaces current environment with the alternate environment.
+3. **Navigate to new URL**: The modified URL is pasted back in Chrome's address bar and Enter is pressed.
+
+So all together, the macro captures the current Chrome URL, hot swaps between production and development, then navigates to the new URL.
+
+![Keyboard Maestro macro sets TheURL variable to equal ChromeURL, then uses a Switch block to replace the current environment string with the intended environment string. Then it sets ChromeURL and presses Return](https://jdj.land/keyboard-maestro-toggle-environments.png)
+
+Clicking through things in Keyboard Maestro can be a little tedious, so here is the [Keyboard Maestro macro](https://jdj.land/toggle-environment.kmmacros) to toggle environments for you to import into your own Keyboard Maestro setup.
+
+```shell
+curl -o toggle-environment.kmmacros https://jdj.land/toggle-environment.kmmacros
+```
+
+## Importing a macro
+
+To import the macro, you can select the following from the macOS menu bar while Keyboard Maestro is active:
+
+`File > Import > Import Macros Safely…`
+
+Select the downloaded `toggle-environment.kmmacros` macro and it will be auto imported into your active Keyboard Maestro library. For security reasons, macros are imported disabled by default. Enable the `Toggle Environments` macro, customize it to your project, and you should be good to go!
+
+## Wrap-up
+
+And that's it. Keyboard Maestro is the best (as of now) $36 I've ever spent in my life.
+
+This example switches between Cloudflare documentation environments, you can customize the macro for anything else by changing the URL strings in the switch statement. Small automations like this compound into huge workflow improvements when used every day without even thinking about them.
