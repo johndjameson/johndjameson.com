@@ -120,7 +120,7 @@ const mdxComponents: MDXComponents = {
     // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
-      className="mx-auto block"
+      className="mx-auto block rounded-lg border border-slate-200 p-2 lg:-ml-2"
       decoding="async"
       loading="lazy"
       {...forwardProps}
