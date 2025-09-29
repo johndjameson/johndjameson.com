@@ -4,6 +4,7 @@ import ChromaticShapesDemo from "@/components/ChromaticShapesDemo/ChromaticShape
 import ChromaticTerminalDemo from "@/components/ChromaticTerminalDemo/ChromaticTerminalDemo";
 import CodePen from "@/components/CodePen/CodePen";
 import DynamicLink from "@/components/DynamicLink/DynamicLink";
+import { KeyboardShortcut } from "@/components/KeyboardShortcut/KeyboardShortcut";
 import { SocialShare } from "@/components/SocialShare/SocialShare";
 import SyntaxHighlighter from "@/components/SyntaxHighlighter/SyntaxHighlighter";
 import { ColorMatrixControls } from "@/components/ColorMatrixControls/ColorMatrixControls";
@@ -61,12 +62,13 @@ const mdxComponents: MDXComponents = {
   ChromaticAberrationDemo,
   ChromaticAberrationFilter,
   ChromaticShapesDemo,
-  SaturationDemo,
   ChromaticTerminalDemo,
-  LuminanceToAlphaDemo,
   ColorMatrixControls,
   ColorMatrixDemo,
+  KeyboardShortcut,
   HueRotateDemo,
+  LuminanceToAlphaDemo,
+  SaturationDemo,
   code: (props) => {
     return (
       <code
