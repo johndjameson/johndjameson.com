@@ -39,12 +39,12 @@ export default function Home() {
         <div className="grid gap-y-12 md:gap-y-8">
           {years.map((year) => (
             <div className="relative" key={year}>
-              <div className="grid items-start gap-x-4 border-t border-t-slate-300 pt-2 md:grid-cols-[1fr_5fr] md:pt-8">
-                <h2 className="mb-8 font-bold md:sticky md:top-24">
+              <div className="grid items-start gap-x-4 border-t border-t-slate-300 pt-2 md:grid-cols-6 md:pt-8">
+                <h2 className="col-span-1 mb-8 font-bold md:sticky md:top-24">
                   <time>{year}</time>
                 </h2>
 
-                <div className="grid gap-y-8">
+                <div className="col-span-5 grid gap-y-4 md:gap-y-8">
                   {postsByYear[year]!.map((post) => (
                     <div
                       className="rounded-xl bg-slate-100 px-6 py-8"
