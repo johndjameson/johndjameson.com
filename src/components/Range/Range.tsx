@@ -31,11 +31,14 @@ export const Range = forwardRef<HTMLInputElement, RangeProps>(
   ) => {
     return (
       <div className={clsx("flex flex-col gap-2", className)}>
-        <label className="block text-sm font-medium text-gray-300" htmlFor={id}>
+        <label
+          className="block text-sm font-medium text-neutral-300"
+          htmlFor={id}
+        >
           {label}
         </label>
         <input
-          className="h-2 w-full cursor-pointer appearance-none rounded-lg bg-gray-700 accent-gray-100"
+          className="h-2 w-full cursor-pointer appearance-none bg-neutral-700 accent-neutral-100"
           id={id}
           max={max}
           min={min}

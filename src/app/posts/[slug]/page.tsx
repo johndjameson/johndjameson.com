@@ -41,7 +41,7 @@ const Heading = (props: HeadingProps) => {
     <Tag
       {...forwardProps}
       className={clsx(
-        "font-heading mt-8 mb-4 font-bold text-[rgb(107_95_232)] md:mt-12 md:mb-6",
+        "font-heading mt-8 mb-4 font-bold md:mt-12 md:mb-6",
         className,
       )}
       id={slugify(children, { lower: true })}
@@ -54,7 +54,7 @@ const mdxComponents: MDXComponents = {
     <DynamicLink
       {...props}
       className={clsx(
-        "font-medium underline transition hover:text-[rgb(223_0_151)]",
+        "font-medium underline transition",
         "motion-safe:hover:filter-[url('#link-wiggle')]",
       )}
     />
@@ -69,17 +69,15 @@ const mdxComponents: MDXComponents = {
   HueRotateDemo,
   LuminanceToAlphaDemo,
   SaturationDemo,
-  code: (props) => {
-    return (
-      <code
-        {...props}
-        className={clsx(
-          props.className,
-          "rounded-md border border-[rgb(230_225_233)] px-1 py-0.5 text-[0.875em]",
-        )}
-      />
-    );
-  },
+  code: (props) => (
+    <code
+      {...props}
+      className={clsx(
+        props.className,
+        "relative -top-[0.1em] inline-flex border bg-neutral-950 px-1 py-0.25 text-[0.85em] text-neutral-50",
+      )}
+    />
+  ),
   CodePen,
   h1: () => {
     throw new Error("Don’t put an h1 in Markdown content");
@@ -122,7 +120,7 @@ const mdxComponents: MDXComponents = {
     // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
-      className="mx-auto block rounded-lg border border-slate-200 p-2 lg:-ml-2"
+      className="mx-auto block border-2 border-black p-2 lg:-ml-2"
       decoding="async"
       loading="lazy"
       {...forwardProps}
@@ -167,37 +165,13 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <svg aria-hidden={true} className="sr-only">
-        <defs>
-          <filter id="post-wiggle-static">
-            <feTurbulence
-              baseFrequency={0.01}
-              numOctaves={1}
-              type="fractalNoise"
-              result="turbulence"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="turbulence"
-              scale="20"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
-
       <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.8] font-black text-pretty text-[rgb(107_95_232)]",
-            "text-shadow-[0px_-2px_0_oklch(0.66_0.2_283.35),var(--post-shadow)]",
-            "first-line:text-[rgb(253_64_192)] first-line:text-shadow-[0px_-2px_0_oklch(0.78_0.22_342.82),var(--post-shadow)]",
-            "filter-[url('#post-wiggle-static')]",
+            "font-heading mb-4 text-[size:var(--post-title-size)] leading-none font-black text-pretty",
           )}
           style={
             {
-              "--post-shadow": "0px 2px 0 black",
               "--post-title-size": post.titleSize
                 ? `${post.titleSize}cqw`
                 : "16cqw",
@@ -216,7 +190,7 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
       {post.archived && (
         <div
-          className="mb-6 flex items-center gap-x-4 rounded-xl bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
+          className="mb-6 flex items-center gap-x-4 bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
           role="note"
         >
           <FaTriangleExclamation className="shrink-0" size={24} />
@@ -240,12 +214,10 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
       <div className={clsx("mb-12", "md:mb-16")}>
         <div
           className={clsx(
-            "flex items-center justify-center gap-x-2 p-4 py-8",
-            "rounded-xl",
-            "bg-linear-to-br/oklch from-violet-50 to-violet-100",
+            "flex items-center justify-center gap-x-2 border-2 border-black p-4 py-8",
           )}
         >
-          <p className="font-medium text-slate-700 select-none">
+          <p className="font-medium text-neutral-700 select-none">
             Share this post
           </p>
           <SocialShare href={postUrl} title={post.title} />

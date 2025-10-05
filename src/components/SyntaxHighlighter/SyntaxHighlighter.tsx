@@ -80,10 +80,7 @@ function SyntaxHighlighter({
 
         <button
           onClick={copyCode}
-          className={clsx(
-            "cursor-pointer rounded p-1.5 text-slate-100 transition-colors",
-            "hover:bg-gray-600 hover:text-slate-50",
-          )}
+          className={clsx("cursor-pointer p-1.5 transition-colors")}
           title="Copy code"
         >
           {isCopied ? <FaCheck size={14} /> : <FaCopy size={14} />}

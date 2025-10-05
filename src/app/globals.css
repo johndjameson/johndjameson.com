@@ -49,14 +49,13 @@
 }
 
 @layer base.local {
-  :focus-visible {
-    outline: 3px solid rgb(223 0 151);
-    outline-offset: 2px;
-    outline-style: dotted;
+  html {
+    background: var(--color-neutral-50);
   }
 
   ::selection {
-    background: rgb(223 0 152 / 0.2);
+    background: var(--color-neutral-200);
+    color: var(--color-black);
   }
 }
 
