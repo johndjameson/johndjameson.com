@@ -2,7 +2,6 @@ import a11yProps from "@/helpers/a11yProps";
 import Link from "next/link";
 
 import VisuallyHidden from "@/components/VisuallyHidden/VisuallyHidden";
-import InteractiveSmiley from "@/components/InteractiveSmiley/InteractiveSmiley";
 import { clsx } from "clsx";
 
 interface HeaderProps {
@@ -28,7 +27,6 @@ export function Header({ className }: HeaderProps) {
             />
           </svg>
         </Link>
-        <InteractiveSmiley />
       </nav>
     </header>
   );
