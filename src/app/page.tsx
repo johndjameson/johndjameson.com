@@ -20,8 +20,6 @@ export default function Home() {
     .map((year) => Number(year))
     .sort((a, b) => compareDesc(new Date(a), new Date(b)));
 
-  console.log(years);
-
   return (
     <>
       <section className="md:px-container-w mb-12 md:mt-6">
