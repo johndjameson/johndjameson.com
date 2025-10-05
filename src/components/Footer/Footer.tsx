@@ -4,22 +4,20 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 
 export default function Footer() {
   return (
-    <footer
-      className={clsx("px-container-w bg-black py-12 text-gray-50", "md:py-16")}
-    >
-      <div className="grid gap-x-4 border-t pt-8 md:grid-cols-6">
-        <div className="flex flex-col md:col-span-4 md:col-start-2">
-          <p className="mb-8 text-pretty text-white sm:text-lg md:text-xl">
+    <footer className={clsx("px-container-w bg-neutral-950 py-12", "md:py-16")}>
+      <div className="grid gap-x-4 border-2 border-white bg-white bg-clip-content p-1 text-neutral-950 md:grid-cols-6">
+        <div className="flex flex-col px-4 py-10 md:col-span-4 md:col-start-2 md:px-0">
+          <p className="mb-8 text-pretty sm:text-lg md:text-xl">
             <strong className="font-bold">John D. Jameson</strong> is a
             front-end engineer in Austin, TX, with 12+ years of hands-on
             experience building web applications at companies ranging from
             startups to Amazon.
           </p>
 
-          <p className="mb-12 rounded-xl bg-gray-50 px-6 py-6 text-center text-black md:text-lg">
+          <p className="mb-12 border-2 border-black p-6 text-center md:text-lg">
             Want to reach out? Let’s connect on{" "}
             <DynamicLink
-              className="group/link inline-flex gap-x-1 font-medium underline underline-offset-3 transition-colors hover:text-[#0a66c2]"
+              className="group/link inline-flex gap-x-1 font-medium underline underline-offset-3 transition-colors"
               href="https://www.linkedin.com/in/johndjameson"
             >
               <FaLinkedin
@@ -33,7 +31,7 @@ export default function Footer() {
 
           <div className="flex space-x-6">
             <DynamicLink
-              className="text-white transition hover:scale-110 hover:text-gray-200"
+              className="transition hover:scale-110 active:scale-105"
               href="https://www.linkedin.com/in/johndjameson"
             >
               <FaLinkedin size={32} />
@@ -43,7 +41,7 @@ export default function Footer() {
               href="https://github.com/johndjameson"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white transition hover:scale-110 hover:text-gray-200"
+              className="transition hover:scale-110 active:scale-105"
               aria-label="GitHub"
             >
               <FaGithub size={32} />
@@ -52,7 +50,7 @@ export default function Footer() {
               href="https://x.com/johndjameson"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white transition hover:scale-110 hover:text-gray-200"
+              className="transition hover:scale-110 active:scale-105"
               aria-label="X (Twitter)"
             >
               <FaXTwitter size={32} />

@@ -1,29 +1,13 @@
 @layer components {
   .highlighter {
     --syntax-highlighter-gutter: calc(var(--spacing) * 6);
-    --syntax-highlighter-shadow-offset: 10px;
     --syntax-highlighter-skew: 1deg;
-    background: var(--color-black);
+    background: var(--color-neutral-900);
     color: color(--color-white);
     container-type: inline-size;
     line-height: var(--leading-normal);
     margin-right: var(--syntax-highlighter-shadow-offset);
     position: relative;
-    transform: skew(calc(var(--syntax-highlighter-skew) * -1));
-
-    &::before {
-      border: 2px solid var(--color-black);
-      content: "";
-      height: 100%;
-      left: var(--syntax-highlighter-shadow-offset);
-      position: absolute;
-      top: 10px;
-      width: 100%;
-    }
-
-    @media screen and (min-width: 800px) {
-      --syntax-highlighter-skew: 2deg;
-    }
   }
 
   .header {
@@ -34,7 +18,6 @@
     font-size: clamp(10px, calc(0.3125rem + 1.75cqw), 12px);
     font-weight: 600;
     padding: var(--spacing) var(--syntax-highlighter-gutter);
-    transform: skew(var(--syntax-highlighter-skew));
   }
 
   .headerCaps {
@@ -45,7 +28,6 @@
     font-family: var(--font-mono);
     font-size: clamp(12px, calc(0.375rem + 1.75cqw), 14px);
     overflow: auto;
-    transform: skew(var(--syntax-highlighter-skew));
     padding: calc(var(--spacing) * 4) var(--syntax-highlighter-gutter);
 
     @media (width >= 40rem) {

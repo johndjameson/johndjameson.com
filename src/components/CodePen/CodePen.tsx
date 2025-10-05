@@ -25,7 +25,7 @@ function CodePen({
 
   return (
     <iframe
-      className="w-full rounded-md border-none bg-gray-200"
+      className="w-full border-none bg-neutral-200"
       height={height}
       loading="lazy"
       src={url.toString()}

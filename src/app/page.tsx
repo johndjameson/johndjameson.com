@@ -37,14 +37,14 @@ export default function Home() {
         <div className="grid gap-y-12 md:gap-y-8">
           {years.map((year) => (
             <div className="relative" key={year}>
-              <div className="grid items-start gap-x-4 border-t border-black pt-2 md:grid-cols-6 md:pt-8">
+              <div className="grid items-start gap-x-4 border-t-2 border-black pt-2 md:grid-cols-6 md:pt-8">
                 <h2 className="col-span-1 mb-8 font-bold md:sticky md:top-24">
                   <time>{year}</time>
                 </h2>
 
                 <div className="col-span-5 grid gap-y-4 md:gap-y-8">
                   {postsByYear[year]!.map((post) => (
-                    <div className="bg-gray-100 px-6 py-8" key={post.url}>
+                    <div className="bg-neutral-100 px-6 py-8" key={post.url}>
                       {post.publication && (
                         <img
                           alt={publications[post.publication].displayName}

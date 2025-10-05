@@ -37,8 +37,8 @@ export function SocialShare({ href, title }: SocialShareProps) {
       <DynamicLink
         aria-label="Share on LinkedIn"
         className={clsx(
-          "flex h-10 w-10 items-center justify-center rounded-full bg-blue-600 transition hover:scale-110",
-          "hover:bg-blue-700",
+          "flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 transition hover:scale-110",
+          "hover:bg-blue-600",
         )}
         href={linkedinUrl}
       >
@@ -47,8 +47,7 @@ export function SocialShare({ href, title }: SocialShareProps) {
       <DynamicLink
         aria-label="Share on X"
         className={clsx(
-          "flex h-10 w-10 items-center justify-center rounded-full bg-black transition hover:scale-110",
-          "hover:bg-gray-800",
+          "flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 transition hover:scale-110",
         )}
         href={xUrl}
       >
@@ -57,8 +56,8 @@ export function SocialShare({ href, title }: SocialShareProps) {
       <DynamicLink
         aria-label="Share on Bluesky"
         className={clsx(
-          "flex h-10 w-10 items-center justify-center rounded-full bg-sky-500 transition hover:scale-110",
-          "hover:bg-sky-600",
+          "flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 transition hover:scale-110",
+          "hover:bg-sky-500",
         )}
         href={blueskyUrl}
       >

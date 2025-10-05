@@ -19,7 +19,7 @@ export const HueRotateDemo: React.FC = () => {
   ];
 
   return (
-    <div className="rounded-xl bg-gray-950 p-6">
+    <div className="bg-neutral-950 p-6">
       <svg
         className="sr-only"
         aria-hidden="true"
@@ -38,10 +38,10 @@ export const HueRotateDemo: React.FC = () => {
         className="mb-6 flex gap-x-4 will-change-[filter] [content-visibility:auto]"
         style={{ filter: filterUrl }}
       >
-        <div className="grid grow grid-cols-2 gap-4 rounded-lg bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4" />
+        <div className="grid grow grid-cols-2 gap-4 bg-linear-to-r/longer from-red-500 to-red-500 md:grid-cols-4" />
         <img
           alt=""
-          className="aspect-square rounded-lg bg-gray-300"
+          className="aspect-square bg-neutral-300"
           height="150"
           src="https://fastly.picsum.photos/id/674/300/300.jpg?hmac=VfiUNKIvgDHvUHdYMaz7o1kmDNEFCRNm7ng9EA_W5DE"
           width="150"

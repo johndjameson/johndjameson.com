@@ -74,7 +74,7 @@ const mdxComponents: MDXComponents = {
       {...props}
       className={clsx(
         props.className,
-        "relative -top-[0.1em] inline-flex border bg-black px-1 py-0.25 text-[0.85em] text-white",
+        "relative -top-[0.1em] inline-flex border bg-neutral-950 px-1 py-0.25 text-[0.85em] text-white",
       )}
     />
   ),
@@ -120,7 +120,7 @@ const mdxComponents: MDXComponents = {
     // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
-      className="mx-auto block border border-black p-2 lg:-ml-2"
+      className="mx-auto block border-2 border-black p-2 lg:-ml-2"
       decoding="async"
       loading="lazy"
       {...forwardProps}
@@ -165,35 +165,13 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w-narrow">
-      <svg aria-hidden={true} className="sr-only">
-        <defs>
-          <filter id="post-wiggle-static">
-            <feTurbulence
-              baseFrequency={0.01}
-              numOctaves={1}
-              type="fractalNoise"
-              result="turbulence"
-            />
-            <feDisplacementMap
-              in="SourceGraphic"
-              in2="turbulence"
-              scale="20"
-              xChannelSelector="R"
-              yChannelSelector="G"
-            />
-          </filter>
-        </defs>
-      </svg>
-
       <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
             "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.8] font-black text-pretty",
-            "filter-[url('#post-wiggle-static')]",
           )}
           style={
             {
-              "--post-shadow": "0px 2px 0 black",
               "--post-title-size": post.titleSize
                 ? `${post.titleSize}cqw`
                 : "16cqw",
@@ -236,12 +214,10 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
       <div className={clsx("mb-12", "md:mb-16")}>
         <div
           className={clsx(
-            "flex items-center justify-center gap-x-2 p-4 py-8",
-            "",
-            "bg-linear-to-br/oklch from-gray-50 to-gray-100",
+            "flex items-center justify-center gap-x-2 border-2 border-black p-4 py-8",
           )}
         >
-          <p className="font-medium text-gray-700 select-none">
+          <p className="font-medium text-neutral-700 select-none">
             Share this post
           </p>
           <SocialShare href={postUrl} title={post.title} />
