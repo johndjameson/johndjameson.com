@@ -30,24 +30,21 @@ export default function Home() {
       </section>
 
       <section className="px-container-w pb-8 md:pb-16">
-        <h2 className="font-heading mb-6 text-2xl font-bold text-[#6b5fe8] md:mb-8 md:text-3xl">
+        <h2 className="font-heading mb-6 text-2xl font-bold md:mb-8 md:text-3xl">
           Posts
         </h2>
 
         <div className="grid gap-y-12 md:gap-y-8">
           {years.map((year) => (
             <div className="relative" key={year}>
-              <div className="grid items-start gap-x-4 border-t border-t-slate-300 pt-2 md:grid-cols-6 md:pt-8">
+              <div className="grid items-start gap-x-4 border-t border-black pt-2 md:grid-cols-6 md:pt-8">
                 <h2 className="col-span-1 mb-8 font-bold md:sticky md:top-24">
                   <time>{year}</time>
                 </h2>
 
                 <div className="col-span-5 grid gap-y-4 md:gap-y-8">
                   {postsByYear[year]!.map((post) => (
-                    <div
-                      className="rounded-xl bg-slate-100 px-6 py-8"
-                      key={post.url}
-                    >
+                    <div className="bg-gray-100 px-6 py-8" key={post.url}>
                       {post.publication && (
                         <img
                           alt={publications[post.publication].displayName}
@@ -62,8 +59,7 @@ export default function Home() {
                       <h4 className="font-heading mb-2 text-xl font-bold md:text-2xl">
                         <DynamicLink
                           className={clsx(
-                            // "decoration-[0.075em] underline-offset-[0.25em]",
-                            "hover:text-[rgb(223_0_151)] hover:underline",
+                            "hover:underline",
                             "motion-safe:hover:filter-[url('#link-wiggle')]",
                           )}
                           href={post.url}

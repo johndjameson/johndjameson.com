@@ -12,7 +12,7 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={clsx(
-        "px-container-w sticky top-0 flex h-[70px] w-full items-center border-b border-b-slate-300 bg-white sm:h-[80px]",
+        "px-container-w sticky top-0 flex h-[70px] w-full items-center border-b border-b-gray-300 bg-white sm:h-[80px]",
         className,
       )}
     >

@@ -22,7 +22,7 @@ export const SvgCodePreview: React.FC<SvgCodePreviewProps> = ({
     <div className="flex w-full flex-col items-center gap-y-2">
       <div
         className={clsx(
-          `relative isolate mt-4 w-full rounded bg-gray-900`,
+          `relative isolate mt-4 w-full rounded bg-black`,
           className,
         )}
       >

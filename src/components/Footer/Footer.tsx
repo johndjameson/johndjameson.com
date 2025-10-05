@@ -5,10 +5,7 @@ import { FaGithub, FaLinkedin, FaXTwitter } from "react-icons/fa6";
 export default function Footer() {
   return (
     <footer
-      className={clsx(
-        "px-container-w bg-indigo-900 py-12 text-indigo-50",
-        "md:py-16",
-      )}
+      className={clsx("px-container-w bg-black py-12 text-gray-50", "md:py-16")}
     >
       <div className="grid gap-x-4 border-t pt-8 md:grid-cols-6">
         <div className="flex flex-col md:col-span-4 md:col-start-2">
@@ -19,10 +16,10 @@ export default function Footer() {
             startups to Amazon.
           </p>
 
-          <p className="mb-12 rounded-xl bg-indigo-50 px-6 py-6 text-center text-black md:text-lg">
+          <p className="mb-12 rounded-xl bg-gray-50 px-6 py-6 text-center text-black md:text-lg">
             Want to reach out? Let’s connect on{" "}
             <DynamicLink
-              className="group/link inline-flex gap-x-1 font-medium text-[#0a66c2] underline underline-offset-3 transition-colors"
+              className="group/link inline-flex gap-x-1 font-medium underline underline-offset-3 transition-colors hover:text-[#0a66c2]"
               href="https://www.linkedin.com/in/johndjameson"
             >
               <FaLinkedin
@@ -36,7 +33,7 @@ export default function Footer() {
 
           <div className="flex space-x-6">
             <DynamicLink
-              className="text-white transition hover:scale-110 hover:text-indigo-200"
+              className="text-white transition hover:scale-110 hover:text-gray-200"
               href="https://www.linkedin.com/in/johndjameson"
             >
               <FaLinkedin size={32} />
@@ -46,7 +43,7 @@ export default function Footer() {
               href="https://github.com/johndjameson"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white transition hover:scale-110 hover:text-indigo-200"
+              className="text-white transition hover:scale-110 hover:text-gray-200"
               aria-label="GitHub"
             >
               <FaGithub size={32} />
@@ -55,7 +52,7 @@ export default function Footer() {
               href="https://x.com/johndjameson"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white transition hover:scale-110 hover:text-indigo-200"
+              className="text-white transition hover:scale-110 hover:text-gray-200"
               aria-label="X (Twitter)"
             >
               <FaXTwitter size={32} />
