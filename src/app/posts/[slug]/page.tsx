@@ -168,7 +168,7 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
       <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
         <h1
           className={clsx(
-            "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.8] font-black text-pretty",
+            "font-heading mb-4 text-[size:var(--post-title-size)] leading-none font-black text-pretty",
           )}
           style={
             {
