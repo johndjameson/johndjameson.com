@@ -120,7 +120,7 @@ const mdxComponents: MDXComponents = {
     // biome-ignore lint/a11y/useAltText: Provided with alt attribute
     <img
       alt={alt}
-      className="mx-auto block border-2 border-black p-2 lg:-ml-2"
+      className="mx-auto block border-4"
       decoding="async"
       loading="lazy"
       {...forwardProps}
@@ -164,63 +164,67 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
   const postUrl = `${process.env.NEXT_PUBLIC_BASE_URL || "https://johndjameson.com"}/posts/${post.slug}`;
 
   return (
-    <article className="px-container-w-narrow">
-      <div className={clsx("@container/post-header mt-10 mb-8", "md:mt-16")}>
-        <h1
-          className={clsx(
-            "font-heading mb-4 text-[size:var(--post-title-size)] leading-none font-black text-pretty",
+    <article className="px-container-w">
+      <div className="grid gap-4 md:grid-cols-6">
+        <div className="mt-10 md:col-span-4 md:col-start-2 md:mt-16">
+          <div className="@container/post-header mb-8 border-b-4 pb-4">
+            <h1
+              className={clsx(
+                "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.95] font-black text-pretty",
+              )}
+              style={
+                {
+                  "--post-title-size": post.titleSize
+                    ? `${post.titleSize}cqw`
+                    : "16cqw",
+                } as CSSProperties
+              }
+            >
+              {post.title}
+            </h1>
+            <p>
+              Published{" "}
+              <time dateTime={post.date}>
+                {format(addHours(parseISO(post.date), 6), "LLLL d, yyyy")}
+              </time>
+            </p>
+          </div>
+
+          {post.archived && (
+            <div
+              className="mb-6 flex items-center gap-x-4 bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
+              role="note"
+            >
+              <FaTriangleExclamation className="shrink-0" size={24} />
+              <p className="text-base md:text-lg">
+                This post is archived and probably super out of date. Don’t say
+                I didn’t warn you!
+              </p>
+            </div>
           )}
-          style={
-            {
-              "--post-title-size": post.titleSize
-                ? `${post.titleSize}cqw`
-                : "16cqw",
-            } as CSSProperties
-          }
-        >
-          {post.title}
-        </h1>
-        <p className="text-sm">
-          Published{" "}
-          <time dateTime={post.date}>
-            {format(addHours(parseISO(post.date), 6), "LLLL d, yyyy")}
-          </time>
-        </p>
-      </div>
 
-      {post.archived && (
-        <div
-          className="mb-6 flex items-center gap-x-4 bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
-          role="note"
-        >
-          <FaTriangleExclamation className="shrink-0" size={24} />
-          <p className="text-base md:text-lg">
-            This post is archived and probably super out of date. Don’t say I
-            didn’t warn you!
-          </p>
-        </div>
-      )}
+          <div
+            className={clsx(
+              "pb-4 text-base *:mb-4",
+              "sm:text-lg/[1.5]",
+              "md:pb-6 md:text-xl/[1.5] md:*:mb-6",
+            )}
+          >
+            <MDXContent components={mdxComponents} />
+          </div>
 
-      <div
-        className={clsx(
-          "pb-4 text-base *:mb-4",
-          "sm:text-lg/[1.5]",
-          "md:pb-6 md:text-xl/[1.5] md:*:mb-6",
-        )}
-      >
-        <MDXContent components={mdxComponents} />
-      </div>
-
-      <div className={clsx("mb-12", "md:mb-16")}>
-        <div
-          className={clsx(
-            "flex items-center justify-center gap-x-2 border-2 border-black p-4 py-8",
-          )}
-        >
-          <p className="font-medium text-neutral-700 select-none">
-            Share this post
-          </p>
-          <SocialShare href={postUrl} title={post.title} />
+          <div className={clsx("mb-12", "md:mb-16")}>
+            <div
+              className={clsx(
+                "flex items-center justify-center gap-x-2 border-2 border-black p-4 py-8",
+              )}
+            >
+              <p className="font-medium text-neutral-700 select-none">
+                Share this post
+              </p>
+              <SocialShare href={postUrl} title={post.title} />
+            </div>
+          </div>
         </div>
       </div>
     </article>
