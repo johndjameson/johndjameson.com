@@ -165,31 +165,38 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w">
-      <div className="grid gap-4 md:grid-cols-6">
-        <div className="mt-10 md:col-span-4 md:col-start-2 md:mt-16">
-          <div className="@container/post-header mb-8 border-b-4 pb-4">
-            <h1
-              className={clsx(
-                "font-heading mb-4 text-[size:var(--post-title-size)] leading-[0.95] font-black text-pretty",
-              )}
-              style={
-                {
-                  "--post-title-size": post.titleSize
-                    ? `${post.titleSize}cqw`
-                    : "16cqw",
-                } as CSSProperties
-              }
-            >
-              {post.title}
-            </h1>
-            <p>
-              Published{" "}
-              <time dateTime={post.date}>
-                {format(addHours(parseISO(post.date), 6), "LLLL d, yyyy")}
-              </time>
-            </p>
-          </div>
+      <div className="mt-16 md:col-span-4 md:col-start-2 md:mt-20">
+        <div className="@container/post-header pb-4">
+          <h1
+            className={clsx(
+              "font-heading text-[size:var(--post-title-size)] leading-[0.95] font-black text-pretty",
+            )}
+            style={
+              {
+                "--post-title-size": post.titleSize
+                  ? `${post.titleSize}cqw`
+                  : "16cqw",
+              } as CSSProperties
+            }
+          >
+            {post.title}
+          </h1>
+        </div>
+      </div>
 
+      <div className="mb-8 grid gap-4 md:grid-cols-6">
+        <div className="border-t-4 pt-2 md:col-span-4 md:col-start-2">
+          <p className="text-sm font-bold tracking-wider uppercase">
+            Published{" "}
+            <time dateTime={post.date}>
+              {format(addHours(parseISO(post.date), 6), "LLLL d, yyyy")}
+            </time>
+          </p>
+        </div>
+      </div>
+
+      <div className="grid gap-4 md:grid-cols-6">
+        <div className="md:col-span-4 md:col-start-2">
           {post.archived && (
             <div
               className="mb-6 flex items-center gap-x-4 bg-amber-100 p-5 text-pretty text-amber-950 md:gap-x-6 md:px-8 md:py-6"
