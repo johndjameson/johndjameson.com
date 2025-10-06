@@ -32,7 +32,7 @@ export const Hero = ({ className }: HeroProps) => {
       <img
         alt="Alternating lines of the words “John D. Jameson Front-End Engineer”"
         className={clsx(
-          "bg-neutral-100 [content-visibility:auto]",
+          "[content-visibility:auto]",
           "filter-[url('#hero-wiggle')] will-change-[filter]",
         )}
         height={600}
