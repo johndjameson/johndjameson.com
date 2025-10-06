@@ -34,18 +34,20 @@ export default function Home() {
           Posts
         </h2>
 
-        <div className="grid gap-y-12 md:gap-y-8">
+        <div className="grid max-md:gap-y-10 md:border-t-2 md:border-b-4">
           {years.map((year) => (
-            <div className="relative" key={year}>
-              <div className="grid items-start gap-x-4 border-t-2 border-black pt-2 md:grid-cols-6 md:pt-8">
-                <h2 className="col-span-1 mb-8 text-lg font-bold md:sticky md:top-24">
-                  <time>{year}</time>
+            <div className="relative md:border-t-2" key={year}>
+              <div className="grid items-start gap-x-4 md:grid-cols-6">
+                <h2 className="@container max-md:border-b-2 max-md:pb-2 md:sticky md:top-32 md:col-span-1 md:mt-20 md:mb-8">
+                  <time className="font-cendra text-2xl md:text-[37cqw]/1">
+                    {year}
+                  </time>
                 </h2>
 
-                <div className="col-span-5 grid gap-y-4 md:gap-y-8">
+                <div className="md:col-span-5">
                   {postsByYear[year]!.map((post) => (
                     <div
-                      className="border-2 border-neutral-950 px-6 py-8"
+                      className="border-l-2 border-neutral-950 px-4 py-6 max-md:border-r-2 max-md:border-b-2 md:px-6 md:py-12 md:not-last:border-b-2"
                       key={post.url}
                     >
                       {post.publication && (
@@ -70,7 +72,20 @@ export default function Home() {
                           {post.title}
                         </DynamicLink>
                       </h4>
-                      <p className="md:text-xl">{post.description}</p>
+                      <p className="mb-4 text-pretty md:text-xl">
+                        {post.description}
+                      </p>
+                      <DynamicLink
+                        aria-label={`Read ${post.title}`}
+                        className={clsx(
+                          "font-bold",
+                          "hover:underline",
+                          "motion-safe:hover:filter-[url('#link-wiggle')]",
+                        )}
+                        href={post.url}
+                      >
+                        Read More
+                      </DynamicLink>
                     </div>
                   ))}
                 </div>
