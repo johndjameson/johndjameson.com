@@ -165,8 +165,15 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
 
   return (
     <article className="px-container-w">
-      <div className="mt-16 md:col-span-4 md:col-start-2 md:mt-20">
-        <div className="@container/post-header pb-4">
+      <div className={clsx("mt-16 grid grid-cols-6 gap-4", "md:mt-20")}>
+        <div
+          className={clsx(
+            "@container/post-header pb-4",
+            post.titleWidth === "full/narrow"
+              ? "col-span-6 md:col-span-4 md:col-start-2"
+              : "col-span-6",
+          )}
+        >
           <h1
             className={clsx(
               "font-heading text-[size:var(--post-title-size)] leading-[0.95] font-black text-pretty",

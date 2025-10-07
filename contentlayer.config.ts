@@ -34,6 +34,11 @@ export const Post = defineDocumentType(() => ({
     publication: publicationField,
     title: { type: "string", required: true },
     titleSize: { type: "number" },
+    titleWidth: {
+      type: "enum",
+      options: ["full/narrow", "full/full"],
+      default: "full/narrow",
+    },
   },
   computedFields: {
     slug: {
