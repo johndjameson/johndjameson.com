@@ -29,16 +29,39 @@ export default function Home() {
         <Hero />
       </section>
 
-      <section className="px-container-w pb-8 md:pb-16">
-        <h2 className="font-heading mb-6 text-2xl font-bold md:mb-8 md:text-3xl">
+      <section className={clsx("px-container-w pb-8", "md:pb-16")}>
+        <h2
+          className={clsx(
+            "font-heading mb-6 text-2xl font-bold",
+            "md:mb-8 md:text-3xl",
+          )}
+        >
           Posts
         </h2>
 
-        <div className="grid max-md:gap-y-10 md:border-t-2 md:border-b-4">
+        <div
+          className={clsx(
+            "grid border-neutral-950 max-md:gap-y-10",
+            "md:border-t-2 md:border-b-4",
+            "dark:border-neutral-50",
+          )}
+        >
           {years.map((year) => (
-            <div className="relative md:border-t-2" key={year}>
+            <div
+              className={clsx(
+                "relative border-neutral-950 md:border-t-2",
+                "dark:border-neutral-50",
+              )}
+              key={year}
+            >
               <div className="grid items-start gap-x-4 md:grid-cols-6">
-                <h2 className="@container max-md:border-b-2 max-md:pb-2 md:sticky md:top-32 md:col-span-1 md:mt-20 md:mb-8">
+                <h2
+                  className={clsx(
+                    "@container",
+                    "max-md:border-b-2 max-md:pb-2",
+                    "md:sticky md:top-32 md:col-span-1 md:mt-20 md:mb-8",
+                  )}
+                >
                   <time className="font-cendra text-2xl md:text-[37cqw]/1">
                     {year}
                   </time>
@@ -47,13 +70,18 @@ export default function Home() {
                 <div className="md:col-span-5">
                   {postsByYear[year]!.map((post) => (
                     <div
-                      className="border-l-2 border-neutral-950 px-4 py-6 max-md:border-r-2 max-md:border-b-2 md:px-6 md:py-12 md:not-last:border-b-2"
+                      className={clsx(
+                        "border-l-2 border-neutral-950 px-4 py-6",
+                        "max-md:border-r-2 max-md:border-b-2",
+                        "md:px-6 md:py-12 md:not-last:border-b-2",
+                        "dark:border-neutral-50",
+                      )}
                       key={post.url}
                     >
                       {post.publication && (
                         <img
                           alt={publications[post.publication].displayName}
-                          className="mb-2 h-[30px]"
+                          className="mb-2 h-[30px] dark:invert"
                           decoding="async"
                           height={30}
                           loading="lazy"

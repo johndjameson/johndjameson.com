@@ -35,6 +35,8 @@
       calc((100vw - var(--layout-container-width-narrow)) / 2)
     );
 
+    color-scheme: light dark;
+
     @media (width >= 40rem) {
       --layout-gutter: calc(var(--spacing) * 6);
     }
@@ -50,11 +52,11 @@
 
 @layer base.local {
   html {
-    background: var(--color-neutral-50);
+    background: light-dark(var(--color-neutral-50), var(--color-black));
   }
 
   ::selection {
-    background: var(--color-neutral-200);
+    background: light-dark(var(--color-neutral-200), var(--color-neutral-400));
     color: var(--color-black);
   }
 }

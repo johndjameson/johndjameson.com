@@ -10,6 +10,7 @@ export const KeyboardShortcut = (
       {...forwardProps}
       className={clsx(
         "relative -top-[0.1em] inline-flex border bg-neutral-950 px-1 py-0.25 text-[0.85em] text-neutral-50",
+        "dark:bg-neutral-50 dark:text-black",
         className,
       )}
     />

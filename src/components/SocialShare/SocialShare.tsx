@@ -50,12 +50,16 @@ export const SocialShare = memo(function SocialShare({
         <DynamicLink
           aria-label={site.label}
           className={clsx(
-            "flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 transition hover:scale-110",
+            "flex h-10 w-10 items-center justify-center rounded-full bg-neutral-950 transition",
+            "dark:bg-neutral-50",
+            "hover:scale-110",
           )}
           key={site.url}
           href={site.url}
         >
-          <site.icon className="h-5 w-5 text-neutral-50" />
+          <site.icon
+            className={clsx("h-5 w-5 text-neutral-50", "dark:text-neutral-950")}
+          />
         </DynamicLink>
       ))}
     </div>

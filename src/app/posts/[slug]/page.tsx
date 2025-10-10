@@ -74,7 +74,8 @@ const mdxComponents: MDXComponents = {
       {...props}
       className={clsx(
         props.className,
-        "relative -top-[0.1em] inline-flex border bg-neutral-950 px-1 py-0.25 text-[0.85em] text-neutral-50",
+        "relative -top-[0.1em] inline-flex bg-neutral-950 px-1 py-0.25 text-[0.85em] text-neutral-50",
+        "dark:bg-neutral-50 dark:text-black",
       )}
     />
   ),
@@ -230,12 +231,11 @@ const PostLayout = (props: { params: Promise<{ slug: string }> }) => {
           <div className={clsx("mb-12", "md:mb-16")}>
             <div
               className={clsx(
-                "flex items-center justify-center gap-x-2 border-2 border-black p-4 py-8",
+                "flex items-center justify-center gap-x-2 border-2 border-neutral-950 p-4 py-8",
+                "dark:border-neutral-50",
               )}
             >
-              <p className="font-medium text-neutral-700 select-none">
-                Share this post
-              </p>
+              <p className="font-medium select-none">Share this post</p>
               <SocialShare href={postUrl} title={post.title} />
             </div>
           </div>
