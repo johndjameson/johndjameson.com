@@ -20,7 +20,12 @@ export function Header({ className }: HeaderProps) {
       )}
     >
       <nav className="flex w-full border-x-2 pl-4">
-        <div className="flex shrink-0 items-center border-r-2 border-neutral-950 py-4 pr-4">
+        <div
+          className={clsx(
+            "flex shrink-0 items-center border-r-2 border-neutral-950 py-3 pr-4",
+            "md:py-4",
+          )}
+        >
           <Link href="/">
             <VisuallyHidden>Home</VisuallyHidden>
             <svg
@@ -39,7 +44,12 @@ export function Header({ className }: HeaderProps) {
         </div>
 
         <div className="flex grow flex-col">
-          <div className="flex h-6 items-center border-b-2 border-neutral-950 pl-4">
+          <div
+            className={clsx(
+              "flex h-6 items-center border-b-2 border-neutral-950 py-3 pl-4",
+              "md:py-4",
+            )}
+          >
             <p className="text-xs font-bold">
               John D. Jameson | Software Engineer
             </p>
