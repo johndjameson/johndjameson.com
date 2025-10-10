@@ -49,30 +49,26 @@ export default function Footer() {
 
           <div className="flex space-x-6">
             <DynamicLink
+              aria-label="LinkedIn"
               className="transition hover:scale-110 active:scale-105"
               href="https://www.linkedin.com/in/johndjameson"
             >
               <FaLinkedin size={32} />
             </DynamicLink>
-
-            <a
-              href="https://github.com/johndjameson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:scale-110 active:scale-105"
+            <DynamicLink
               aria-label="GitHub"
+              className="transition hover:scale-110 active:scale-105"
+              href="https://github.com/johndjameson"
             >
               <FaGithub size={32} />
-            </a>
-            <a
-              href="https://x.com/johndjameson"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="transition hover:scale-110 active:scale-105"
+            </DynamicLink>
+            <DynamicLink
               aria-label="X (Twitter)"
+              className="transition hover:scale-110 active:scale-105"
+              href="https://x.com/johndjameson"
             >
               <FaXTwitter size={32} />
-            </a>
+            </DynamicLink>
           </div>
         </div>{" "}
       </div>
