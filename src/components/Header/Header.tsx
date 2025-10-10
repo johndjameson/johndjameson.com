@@ -14,8 +14,8 @@ export function Header({ className }: HeaderProps) {
   return (
     <header
       className={clsx(
-        "px-container-w sticky top-0 flex w-full border-b-2 border-b-black bg-neutral-50",
-        "dark:border-b-neutral-50 dark:bg-black",
+        "px-container-w sticky top-0 flex w-full border-y-2 border-neutral-950 bg-neutral-50",
+        "dark:border-neutral-50 dark:bg-black",
         className,
       )}
     >
@@ -23,6 +23,7 @@ export function Header({ className }: HeaderProps) {
         <div
           className={clsx(
             "flex shrink-0 items-center border-r-2 border-neutral-950 py-3 pr-4",
+            "dark:border-neutral-50",
             "md:py-4",
           )}
         >
@@ -47,6 +48,7 @@ export function Header({ className }: HeaderProps) {
           <div
             className={clsx(
               "flex h-6 items-center border-b-2 border-neutral-950 py-3 pl-4",
+              "dark:border-neutral-50",
               "md:py-4",
             )}
           >
