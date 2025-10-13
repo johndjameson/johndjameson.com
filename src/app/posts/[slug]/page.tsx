@@ -11,6 +11,8 @@ import { ColorMatrixControls } from "@/components/ColorMatrixControls/ColorMatri
 import { ColorMatrixDemo } from "@/components/ColorMatrixDemo/ColorMatrixDemo";
 import { HueRotateDemo } from "@/components/HueRotateDemo/HueRotateDemo";
 import { LuminanceToAlphaDemo } from "@/components/LuminanceToAlphaDemo/LuminanceToAlphaDemo";
+import { SubstringVisualizer } from "@/components/SubstringVisualizer/SubstringVisualizer";
+import { SubstringVisualizerRecursive } from "@/components/SubstringVisualizerRecursive/SubstringVisualizerRecursive";
 import { SaturationDemo } from "@/components/SaturationDemo/SaturationDemo";
 import { clsx } from "clsx";
 import { type Post, allPosts } from "contentlayer/generated";
@@ -69,6 +71,8 @@ const mdxComponents: MDXComponents = {
   HueRotateDemo,
   LuminanceToAlphaDemo,
   SaturationDemo,
+  SubstringVisualizer,
+  SubstringVisualizerRecursive,
   code: (props) => (
     <code
       {...props}

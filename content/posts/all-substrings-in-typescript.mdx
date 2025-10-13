@@ -41,6 +41,8 @@ getAllSubstrings("abc");
 // ["a", "ab", "abc", "b", "bc", "c"]
 ```
 
+<SubstringVisualizer />
+
 ## The recursive approach
 
 If you prefer recursion, here’s a solution that builds substrings by progressively removing the first character:
@@ -68,6 +70,8 @@ How it works:
 2. Generate all substrings starting at the current position (from first character to end)
 3. Recursively get substrings from the rest of the string (excluding first character)
 4. Combine both sets of substrings
+
+<SubstringVisualizerRecursive />
 
 ## So which one?
 
