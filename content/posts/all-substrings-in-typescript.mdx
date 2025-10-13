@@ -1,0 +1,106 @@
+---
+date: 2025-10-10
+description: "Wish I brushed up on my LeetCode easys yesterday! Here’s how to find all substrings in a string using TypeScript with 2 different approaches."
+title: Finding All Substrings in TypeScript
+titleSize: 13
+---
+
+Sometimes you need to find every possible substring within a string. Maybe you’re working on a pattern matching algorithm, analyzing text for word segmentation, or just practicing for coding interviews — like me.
+
+Whatever the reason, here are a couple short approaches to solve the problem with minimal logic.
+
+## The iterative approach
+
+The way my brain works, I approach this as classic “2 pointers” problem that relies on iteration with nested `for` loops.
+
+All together, that comes out like this:
+
+```typescript
+function getAllSubstrings(inputString: string): string[] {
+  const substrings: string[] = [];
+
+  for (let startIndex = 0; startIndex < inputString.length; startIndex++) {
+    for (let endIndex = startIndex + 1; endIndex <= inputString.length; endIndex++) {
+      substrings.push(inputString.slice(startIndex, endIndex));
+    }
+  }
+
+  return substrings;
+}
+```
+
+This uses 2 nested loops:
+- The outer loop (`startIndex`) marks where each substring begins
+- The inner loop (`endIndex`) marks where each substring ends
+- For each combination, we slice the string and add it to our results
+
+### Example output
+
+```typescript
+getAllSubstrings("abc");
+// ["a", "ab", "abc", "b", "bc", "c"]
+```
+
+## The recursive approach
+
+If you prefer recursion, here’s a solution that builds substrings by progressively removing the first character:
+
+```typescript
+function getAllSubstringsRecursive(inputString: string): string[] {
+  if (inputString.length === 0) {
+    return [];
+  }
+
+  const substringsStartingHere: string[] = [];
+
+  for (let endIndex = 1; endIndex <= inputString.length; endIndex++) {
+    substringsStartingHere.push(inputString.slice(0, endIndex));
+  }
+
+  const remainingSubstrings = getAllSubstringsRecursive(inputString.slice(1));
+
+  return [...substringsStartingHere, ...remainingSubstrings];
+}
+```
+
+How it works:
+1. Base case: if the string is empty, return an empty array
+2. Generate all substrings starting at the current position (from first character to end)
+3. Recursively get substrings from the rest of the string (excluding first character)
+4. Combine both sets of substrings
+
+## So which one?
+
+For most cases, **use the iterative approach**:
+
+- It’s conceptually easier to understand if you aren’t comfortable with recursion
+- No risk of stack overflow on long strings
+
+The recursive version is worth knowing for interviews where you’re asked to solve problems recursively, but the iterative solution is more practical.
+
+## Unique substrings only
+
+If you want to remove duplicates in a string with repeated characters, store everything in a `Set` and convert it to an array
+
+```typescript
+function getUniqueSubstrings(inputString: string): string[] {
+  const uniqueSubstrings = new Set<string>();
+
+  for (let startIndex = 0; startIndex < inputString.length; startIndex++) {
+    for (let endIndex = startIndex + 1; endIndex <= inputString.length; endIndex++) {
+      uniqueSubstrings.add(inputString.slice(startIndex, endIndex));
+    }
+  }
+
+  return Array.from(uniqueSubstrings);
+}
+```
+
+For the string `"aab"`, this returns `["a", "aa", "aab", "ab", "b"]` instead of `["a", "aa", "aab", "a", "ab", "b"]`.
+
+## Better luck next time
+
+So that’s it: 2 different approaches for finding all a string’s substrings in TypeScript. The iterative 2-pointer solution is fast and practical, while the recursive version shows a different way of thinking about the problem (or if you just like recursion).
+
+So if you ever need to know how to get all the substrings in a string, I guess now you do. Hope it comes in handy.
+
