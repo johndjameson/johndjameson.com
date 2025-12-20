@@ -20,10 +20,10 @@ export default function Footer() {
       >
         <div className="flex flex-col px-4 py-10 md:col-span-4 md:col-start-2 md:px-0">
           <p className="mb-8 text-sm text-pretty sm:text-lg md:text-xl">
-            <strong className="font-bold">John D. Jameson</strong> is a
-            front-end engineer in Austin, TX, with 12+ years of hands-on
-            experience building web applications at companies ranging from
-            startups to Amazon.
+            <strong className="font-bold">John D. Jameson</strong> is a software
+            engineer in Austin, TX, with 12+ years of hands-on experience
+            building web applications at companies ranging from startups to
+            Amazon.
           </p>
 
           <p
